@@ -143,7 +143,6 @@ This repo is the source of truth. Use maintained repository docs instead of exte
 - **Broader tool coverage** — Cursor, Codex, and OpenCode support tightened so the same repo ships cleanly across all major harnesses
 - **992 internal tests** — Expanded validation and regression coverage across plugin, hooks, skills, and packaging
 
-
 ### v1.4.1 — Bug Fix (Feb 2026)
 
 - **Fixed instinct import content loss** — `parse_instinct_file()` was silently dropping all content after frontmatter (Action, Evidence, Examples sections) during `/instinct-import`. ([#148](https://github.com/mturac/everything-openai-codex/issues/148), [#161](https://github.com/mturac/everything-openai-codex/pull/161))
@@ -216,7 +215,6 @@ Add hooks later only if you want runtime enforcement:
 ```
 
 ### Find the right components first
-
 
 ```bash
 npx eoc consult "security reviews" --target codex
@@ -696,7 +694,6 @@ Use the `/skill-create` command for local analysis without external services:
 
 This analyzes your git history locally and generates SKILL.md files.
 
-
 ### Continuous Learning v2
 
 The instinct-based learning system automatically learns your patterns:
@@ -1139,7 +1136,6 @@ These are not bundled with ecc and are not audited by this repo, but they are wo
 
 ## Cursor IDE Support
 
-
 ### Quick Start (Cursor)
 
 ```bash
@@ -1203,7 +1199,6 @@ alwaysApply: false
 ---
 
 ## Codex macOS App + CLI Support
-
 
 ### Quick Start (Codex App + CLI)
 
@@ -1313,7 +1308,6 @@ ecc ships three sample role configs:
 
 ## Zed Support
 
-
 ```bash
 ./install.sh --profile minimal --target zed
 ```
@@ -1327,7 +1321,6 @@ The adapter writes ecc-managed files under `.zed/` and keeps BYOK/OpenRouter cre
 ---
 
 ## OpenCode Support
-
 
 ### Quick Start
 
@@ -1445,7 +1438,6 @@ For the full ecc OpenCode setup, either:
 ---
 
 ## GitHub Copilot Support
-
 
 ### What's Included
 
@@ -1656,7 +1648,6 @@ Projects built on or inspired by Everything OpenAI Codex:
 Built something with ecc? Open a PR to add it here.
 
 ---
-
 
 ## Star History
 

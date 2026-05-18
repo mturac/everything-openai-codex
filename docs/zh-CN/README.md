@@ -48,7 +48,7 @@
 | [跨 harness 架构](../architecture/cross-harness.md) | 在 harness 之间移植 skills、rules 和 adapters |
 | [令牌优化](../token-optimization.md) | 调整 Codex model、compaction 和 cost 设置 |
 
----
+***
 
 ## 最新动态
 
@@ -89,7 +89,6 @@
 * **5个新的通用业务/内容技能** — `article-writing`、`content-engine`、`market-research`、`investor-materials`、`investor-outreach`
 * **更广泛的工具覆盖** — 加强了对 Cursor、Codex 和 OpenCode 的支持，使得同一代码仓库可以在所有主要平台上干净地部署
 * **992项内部测试** — 在插件、钩子、技能和打包方面扩展了验证和回归测试覆盖
-
 
 ### v1.4.1 — 错误修复 (2026年2月)
 
@@ -459,9 +458,7 @@ Everything OpenAI Codex/
 
 这会在本地分析您的 git 历史记录并生成 SKILL.md 文件。
 
-
 ### Plankton — 编写时代码质量强制执行
-
 
 ### 持续学习 v2
 
@@ -1309,10 +1306,10 @@ ecc 是**第一个最大化利用每个主要 AI 编码工具的插件**。以�
 
 ## 链接
 
-- **Hermes 设置：** [../HERMES-SETUP.md](../HERMES-SETUP.md)
-- **发布说明：** [../releases/2.0.0-rc.1/release-notes.md](../releases/2.0.0-rc.1/release-notes.md)
-- **安全指南：** [../../the-security-guide.md](../../the-security-guide.md)
-- **来源致谢：** [../../NOTICE.md](../../NOTICE.md)
+* **Hermes 设置：** [../HERMES-SETUP.md](../HERMES-SETUP.md)
+* **发布说明：** [../releases/2.0.0-rc.1/release-notes.md](../releases/2.0.0-rc.1/release-notes.md)
+* **安全指南：** [../../the-security-guide.md](../../the-security-guide.md)
+* **来源致谢：** [../../NOTICE.md](../../NOTICE.md)
 
 ## 许可证
 

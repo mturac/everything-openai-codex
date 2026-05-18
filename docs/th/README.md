@@ -230,7 +230,6 @@ git add . && git commit -m "feat: add my-skill" && git push -u origin feat/my-co
 
 - [GitHub Discussions](https://github.com/mturac/everything-openai-codex/discussions) — ถาม-ตอบ, โชว์ผลงาน
 
-
 ---
 
 ## License

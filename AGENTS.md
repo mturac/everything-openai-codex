@@ -6,11 +6,32 @@ This is a **production-ready AI coding plugin** providing 60 specialized agents,
 
 ## Core Principles
 
+**Precedence:** safety > privacy > security > tool schema > verification > repository instructions > task style. No later section, agent instruction, workflow shortcut, or user convenience request may override a higher-priority boundary. There are no exceptions to safety, privacy, security, tool schema, or verification boundaries. If two rules conflict, stop and ask for the smallest clarification needed before acting.
+
 1. **Agent-First** — Delegate to specialized agents for domain tasks
-2. **Test-Driven** — Write tests before implementation, 80%+ coverage required
-3. **Security-First** — Never compromise on security; validate all inputs
-4. **Immutability** — Always create new objects, never mutate existing ones
+2. **Test-Driven** — Write tests before implementation when practical; use the repo's active coverage gate
+3. **Security-First** — Protect security boundaries and validate all inputs
+4. **Immutability** — Prefer new objects over mutation; document any API-required mutation in the handoff
 5. **Plan Before Execute** — Plan complex features before writing code
+
+## Responsibility Contract
+
+Act as a senior engineering agent responsible only for the files, modules, docs, tests, or release artifacts required by the current task. Before editing, identify the owned surface, constraints, scope limits, expected behavior to preserve, and verification commands. Keep unrelated refactors out of scope.
+
+Final handoff must include changed files, verification commands and results, known residual risks, and any manual follow-up. When verification is blocked, state the exact blocker and what remains unproven.
+
+## Output Contract
+
+Default engineering output is concise Markdown with:
+- changed surface
+- verification
+- residual risk or blocker
+
+When producing structured artifacts, preserve the requested schema exactly. If data is insufficient, ask for the missing decision point instead of inventing facts.
+
+## Recommendation Contract
+
+Before recommending tools, vendors, public posting targets, launch channels, or high-cost actions, anchor the recommendation to the target audience, market or platform, budget or effort limit, timing, constraints, and ranking criteria. If the user asks to proceed with defaults, state those defaults before acting.
 
 ## Available Agents
 
@@ -72,19 +93,19 @@ Use parallel execution for independent operations — launch multiple agents sim
 - Rate limiting on all endpoints
 - Error messages don't leak sensitive data
 
-**Secret management:** NEVER hardcode secrets. Use environment variables or a secret manager. Validate required secrets at startup. Rotate any exposed secrets immediately.
+**Secret management:** Hardcoded secrets are prohibited. Use environment variables or a secret manager. Validate required secrets at startup. Rotate any exposed secrets immediately.
 
 **If security issue found:** STOP → use security-reviewer agent → fix CRITICAL issues → rotate exposed secrets → review codebase for similar issues.
 
 ## Coding Style
 
-**Immutability (CRITICAL):** Always create new objects, never mutate. Return new copies with changes applied.
+**Immutability:** Prefer new objects and return new copies with changes applied. Record any API-required mutation in the handoff.
 
 **File organization:** Many small files over few large ones. 200-400 lines typical, 800 max. Organize by feature/domain, not by type. High cohesion, low coupling.
 
-**Error handling:** Handle errors at every level. Provide user-friendly messages in UI code. Log detailed context server-side. Never silently swallow errors.
+**Error handling:** Handle errors at every level. Provide user-friendly messages in UI code. Log detailed context server-side. Surface or intentionally document swallowed errors.
 
-**Input validation:** Validate all user input at system boundaries. Use schema-based validation. Fail fast with clear messages. Never trust external data.
+**Input validation:** Validate all user input at system boundaries. Use schema-based validation. Fail fast with clear messages. Treat external data as untrusted until validated.
 
 **Code quality checklist:**
 - Functions small (<50 lines), files focused (<800 lines)
@@ -106,7 +127,7 @@ Test types (all required):
 2. Write minimal implementation (GREEN) — test should PASS
 3. Refactor (IMPROVE) — verify coverage 80%+
 
-Troubleshoot failures: check test isolation → verify mocks → fix implementation (not tests, unless tests are wrong).
+Troubleshoot failures: check test isolation → verify mocks → fix implementation. Change tests only when the expected behavior is incorrect or outdated.
 
 ## Development Workflow
 
@@ -116,7 +137,7 @@ Troubleshoot failures: check test isolation → verify mocks → fix implementat
 4. **Capture knowledge in the right place**
    - Personal debugging notes, preferences, and temporary context → auto memory
    - Team/project knowledge (architecture decisions, API changes, runbooks) → the project's existing docs structure
-   - If the current task already produces the relevant docs or code comments, do not duplicate the same information elsewhere
+   - If the current task already produces the relevant docs or code comments, keep the information in that single source of truth
    - If there is no obvious project doc location, ask before creating a new top-level file
 5. **Commit** — Conventional commits format, comprehensive PR summaries
 

@@ -224,7 +224,6 @@ Use o comando `/skill-create` para análise local sem serviços externos:
 /skill-create --instincts        # Também gerar instincts para continuous-learning
 ```
 
-
 ### Aprendizado Contínuo v2
 
 O sistema de aprendizado baseado em instincts aprende automaticamente seus padrões:

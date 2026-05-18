@@ -12,7 +12,7 @@ Open-source operating system for serious OpenAI Codex workflows.
 
 ## Links
 
-- GitHub: https://github.com/mturac/everything-openai-codex
+- GitHub: <https://github.com/mturac/everything-openai-codex>
 - Plugin install: `/plugin install eoc@eoc`
 - Manual install: `npx eoc-install --profile minimal --target codex`
 - Screenshots: `assets/screenshots/`
@@ -26,16 +26,16 @@ Open-source operating system for serious OpenAI Codex workflows.
 
 | Target | Fit | Submission path | Notes |
 |---|---|---|---|
-| ToolHunter | Developer tools and AI agents | https://www.toolhunter.cc/submit | Manual review, developer relevance required. |
-| OSS AI Hub | Open-source AI tools and agents | https://ossaihub.com/submit | Good OSS directory fit. |
-| OpenForK | Open-source AI registry | https://openfork.dev/ | Paste GitHub URL into the Add Tool flow. |
-| ForgeIndex | Local/open-source AI projects | https://forgeindex.ai/ | Google Form asks for project name, description, tags, GitHub URL, and optional demo. |
-| Project Free To Use | Free tools, APIs, OSS projects | https://projectfreetouse.com/submit | Reviewed before publishing. |
-| StackScout | AI developer tools | https://stackscout.dev/ | Best angle: AI code assistants or agent frameworks. |
-| Awesome AI Agents | GitHub awesome list | https://github.com/kyrolabs/awesome-agents | Submit by PR if contribution rules allow. |
-| Awesome AI Software Development Agents | GitHub awesome list | https://github.com/flatlogic/awesome-ai-software-development-agents | Submit by PR with clear description. |
-| Reddit r/codex | Codex users | https://www.reddit.com/r/codex/ | Use a Show-and-Tell post after plugin PR is stable. |
-| Dev.to | Developer launch article | https://dev.to/ | Publish a technical walkthrough, not a product pitch. |
+| ToolHunter | Developer tools and AI agents | <https://www.toolhunter.cc/submit> | Manual review, developer relevance required. |
+| OSS AI Hub | Open-source AI tools and agents | <https://ossaihub.com/submit> | Good OSS directory fit. |
+| OpenForK | Open-source AI registry | <https://openfork.dev/> | Paste GitHub URL into the Add Tool flow. |
+| ForgeIndex | Local/open-source AI projects | <https://forgeindex.ai/> | Google Form asks for project name, description, tags, GitHub URL, and optional demo. |
+| Project Free To Use | Free tools, APIs, OSS projects | <https://projectfreetouse.com/submit> | Reviewed before publishing. |
+| StackScout | AI developer tools | <https://stackscout.dev/> | Best angle: AI code assistants or agent frameworks. |
+| Awesome AI Agents | GitHub awesome list | <https://github.com/kyrolabs/awesome-agents> | Submit by PR if contribution rules allow. |
+| Awesome AI Software Development Agents | GitHub awesome list | <https://github.com/flatlogic/awesome-ai-software-development-agents> | Submit by PR with clear description. |
+| Reddit r/codex | Codex users | <https://www.reddit.com/r/codex/> | Use a Show-and-Tell post after plugin PR is stable. |
+| Dev.to | Developer launch article | <https://dev.to/> | Publish a technical walkthrough, not a product pitch. |
 
 ## Directory Description
 
@@ -51,6 +51,6 @@ It is not a prompt dump. It ships agents, skills, commands, hooks, install profi
 /plugin install eoc@eoc
 ```
 
-Repo: https://github.com/mturac/everything-openai-codex
+Repo: <https://github.com/mturac/everything-openai-codex>
 
 I am looking for feedback from Codex users on what should be smaller, clearer, or safer before calling it stable.

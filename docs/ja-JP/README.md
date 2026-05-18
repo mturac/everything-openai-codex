@@ -313,7 +313,6 @@ Everything OpenAI Codex/
 
 これはローカルで Git 履歴を分析し、SKILL.md ファイルを生成します。
 
-
 ### 継続的学習 v2
 
 instinctベースの学習システムがパターンを自動学習：

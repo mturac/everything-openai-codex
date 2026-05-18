@@ -419,7 +419,6 @@ Everything OpenAI Codex/
 
 这在本地分析你的 git 历史并生成 SKILL.md 文件。
 
-
 ### 持续学习 v2
 
 基于直觉的学习系统自动学习你的模式：

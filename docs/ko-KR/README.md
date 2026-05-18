@@ -68,7 +68,6 @@
 - **5개 신규 비즈니스/콘텐츠 스킬** — `article-writing`, `content-engine`, `market-research`, `investor-materials`, `investor-outreach`
 - **992개 내부 테스트** — 확장된 검증 및 회귀 테스트 범위
 
-
 ## 빠른 시작
 
 2분 안에 설정 완료:
@@ -244,7 +243,6 @@ Everything OpenAI Codex/
 ```
 
 git 히스토리를 로컬에서 분석하여 SKILL.md 파일을 생성합니다.
-
 
 ### 지속적 학습 v2
 
