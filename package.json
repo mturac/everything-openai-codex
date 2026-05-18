@@ -330,7 +330,7 @@
     "@opencode-ai/plugin": "^1.0.0",
     "@types/node": "^25.8.0",
     "c8": "^11.0.0",
-    "eslint": "^9.39.2",
+    "eslint": "^10.4.0",
     "globals": "^17.4.0",
     "markdownlint-cli": "^0.48.0",
     "typescript": "^6.0.3"
