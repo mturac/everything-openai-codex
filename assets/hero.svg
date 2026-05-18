@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1350" viewBox="0 0 2400 1350">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#070908"/>
+      <stop offset="0.52" stop-color="#0e1110"/>
+      <stop offset="1" stop-color="#17110d"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f08a5d"/>
+      <stop offset="1" stop-color="#f5c06f"/>
+    </linearGradient>
+    <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#70d6c4"/>
+      <stop offset="1" stop-color="#7aa8ff"/>
+    </linearGradient>
+    <pattern id="grid" width="96" height="96" patternUnits="userSpaceOnUse">
+      <path d="M96 0H0V96" fill="none" stroke="#ffffff" stroke-opacity="0.045" stroke-width="1"/>
+    </pattern>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="22" stdDeviation="28" flood-color="#000000" flood-opacity="0.42"/>
+    </filter>
+    <style>
+      .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+      .mono { font-family: "SFMono-Regular", "SF Mono", Menlo, Consolas, monospace; }
+      .cream { fill: #f5efe3; }
+      .muted { fill: #a59a8a; }
+      .dim { fill: #6d6458; }
+      .line { stroke: #f6c177; stroke-opacity: 0.22; }
+      .panel { fill: #171611; stroke: #f6c177; stroke-opacity: 0.2; }
+      .pill { fill: #181713; stroke: #f6c177; stroke-opacity: 0.26; }
+    </style>
+  </defs>
+
+  <rect width="2400" height="1350" fill="url(#bg)"/>
+  <rect width="2400" height="1350" fill="url(#grid)"/>
+  <rect y="112" width="2400" height="1" fill="#f6c177" opacity="0.16"/>
+  <rect x="66" y="1196" width="2268" height="1" fill="#f6c177" opacity="0.18"/>
+
+  <g class="sans">
+    <rect x="66" y="28" width="64" height="64" rx="18" fill="url(#accent)" filter="url(#softShadow)"/>
+    <text x="81" y="68" class="mono" font-size="28" font-weight="800" fill="#1b100c">ECC</text>
+    <text x="154" y="67" font-size="30" font-weight="800" class="cream">Everything OpenAI Codex</text>
+    <text x="502" y="67" font-size="28" font-weight="600" fill="#7d7367">/</text>
+    <text x="558" y="67" font-size="28" font-weight="600" fill="#8f8375">mturac/everything-openai-codex</text>
+
+    <rect x="1984" y="33" width="350" height="52" rx="26" class="pill"/>
+    <circle cx="2049" cy="59" r="6" fill="#f08a5d"/>
+    <text x="2070" y="67" class="mono" font-size="22" font-weight="700" fill="#ffbd8d">v2.0.0-rc.1</text>
+    <text x="2246" y="67" class="mono" font-size="22" font-weight="700" fill="#ffbd8d">May 2026</text>
+  </g>
+
+  <g transform="translate(66 180)">
+    <path d="M0 14H44" stroke="#f08a5d" stroke-width="2"/>
+    <text x="64" y="20" class="mono" font-size="21" letter-spacing="9" fill="#f6b78b">CODEX-FIRST AGENT HARNESS</text>
+
+    <text x="0" y="152" class="sans cream" font-size="86" font-weight="850">The operating system</text>
+    <text x="0" y="258" class="sans cream" font-size="86" font-weight="850">for OpenAI <tspan fill="#f08a5d">Codex</tspan></text>
+    <text x="0" y="364" class="sans" font-size="86" font-weight="850" fill="#f08a5d">workflows.</text>
+
+    <text x="0" y="452" class="sans muted" font-size="31">
+      Skills, agents, hooks, rules, install profiles, memory, and
+    </text>
+    <text x="0" y="495" class="sans muted" font-size="31">
+      release evidence for repeatable AI engineering.
+    </text>
+
+    <text x="0" y="598" class="mono dim" font-size="19" letter-spacing="8">RUNS ACROSS</text>
+    <g class="sans" font-size="24" font-weight="700">
+      <rect x="0" y="626" width="204" height="51" rx="12" class="pill"/>
+      <text x="21" y="660" fill="#ffbd8d">OpenAI Codex</text>
+      <rect x="220" y="626" width="116" height="51" rx="12" class="pill"/>
+      <text x="244" y="660" class="cream">Cursor</text>
+      <rect x="352" y="626" width="146" height="51" rx="12" class="pill"/>
+      <text x="375" y="660" class="cream">OpenCode</text>
+      <rect x="514" y="626" width="126" height="51" rx="12" class="pill"/>
+      <text x="537" y="660" class="cream">Gemini</text>
+      <rect x="656" y="626" width="84" height="51" rx="12" class="pill"/>
+      <text x="681" y="660" class="cream">Zed</text>
+      <rect x="0" y="692" width="132" height="51" rx="12" class="pill"/>
+      <text x="23" y="726" class="cream">Copilot</text>
+      <rect x="148" y="692" width="82" height="51" rx="12" class="pill"/>
+      <text x="171" y="726" class="cream">Trae</text>
+    </g>
+  </g>
+
+  <g transform="translate(1062 180)" filter="url(#softShadow)">
+    <g>
+      <rect x="0" y="0" width="408" height="1000" rx="24" class="panel"/>
+      <circle cx="32" cy="51" r="6" fill="#f08a5d"/>
+      <text x="52" y="58" class="mono cream" font-size="24" font-weight="800" letter-spacing="5">SKILLS</text>
+      <text x="333" y="57" class="mono" font-size="31" font-weight="800" fill="#ffbd8d">230</text>
+      <line x1="26" y1="86" x2="382" y2="86" class="line"/>
+      <g class="mono" font-size="24">
+        <rect x="26" y="108" width="356" height="58" rx="10" fill="#221d16" stroke="#f6c177" stroke-opacity="0.18"/>
+        <text x="50" y="145" fill="#ffbd8d">codex-harness</text>
+        <text x="50" y="214" class="cream">continuous-learning</text>
+        <text x="50" y="283" class="cream">security-scanning</text>
+        <text x="50" y="352" class="cream">mcp-server-patterns</text>
+        <text x="50" y="421" class="cream">agent-orchestration</text>
+        <text x="50" y="490" class="cream">promptguard-audit</text>
+        <text x="50" y="559" class="cream">release-readiness</text>
+        <text x="50" y="628" class="cream">backend-architect</text>
+        <text x="50" y="697" class="cream">frontend-patterns</text>
+        <text x="124" y="953" class="dim">+ 220 more</text>
+      </g>
+    </g>
+
+    <g transform="translate(432 0)">
+      <rect x="0" y="0" width="408" height="1000" rx="24" class="panel"/>
+      <circle cx="32" cy="51" r="6" fill="#70d6c4"/>
+      <text x="52" y="58" class="mono cream" font-size="24" font-weight="800" letter-spacing="5">AGENTS</text>
+      <text x="342" y="57" class="mono" font-size="31" font-weight="800" fill="#9dded1">60</text>
+      <line x1="26" y1="86" x2="382" y2="86" class="line"/>
+      <g class="mono" font-size="24">
+        <rect x="26" y="108" width="356" height="58" rx="10" fill="#17211f" stroke="#70d6c4" stroke-opacity="0.18"/>
+        <text x="50" y="145" fill="#9dded1">code-reviewer</text>
+        <text x="50" y="214" class="cream">code-architect</text>
+        <text x="50" y="283" class="cream">security-reviewer</text>
+        <text x="50" y="352" class="cream">docs-researcher</text>
+        <text x="50" y="421" class="cream">build-resolver</text>
+        <text x="50" y="490" class="cream">mle-reviewer</text>
+        <text x="50" y="559" class="cream">operator</text>
+        <text x="50" y="628" class="cream">planner</text>
+        <text x="50" y="697" class="cream">release-auditor</text>
+        <text x="127" y="953" class="dim">+ 51 more</text>
+      </g>
+    </g>
+
+    <g transform="translate(864 0)">
+      <rect x="0" y="0" width="408" height="1000" rx="24" class="panel"/>
+      <circle cx="32" cy="51" r="6" fill="#7aa8ff"/>
+      <text x="52" y="58" class="mono cream" font-size="24" font-weight="800" letter-spacing="5">COMMANDS</text>
+      <text x="342" y="57" class="mono" font-size="31" font-weight="800" fill="#a6c0ff">75</text>
+      <line x1="26" y1="86" x2="382" y2="86" class="line"/>
+      <g class="mono" font-size="24">
+        <rect x="26" y="108" width="356" height="58" rx="10" fill="#171c29" stroke="#7aa8ff" stroke-opacity="0.2"/>
+        <text x="50" y="145" fill="#a6c0ff">/harness-audit</text>
+        <text x="50" y="214" class="cream">/quality-gate</text>
+        <text x="50" y="283" class="cream">/sessions</text>
+        <text x="50" y="352" class="cream">/skill-health</text>
+        <text x="50" y="421" class="cream">/security-scan</text>
+        <text x="50" y="490" class="cream">/loop-status</text>
+        <text x="50" y="559" class="cream">/model-route</text>
+        <text x="50" y="628" class="cream">/update-docs</text>
+        <text x="50" y="697" class="cream">/test-coverage</text>
+        <text x="127" y="953" class="dim">+ 66 more</text>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(66 1238)" class="mono">
+    <text x="0" y="43" font-size="38" font-weight="900" class="cream">29</text>
+    <text x="72" y="43" font-size="20" letter-spacing="7" class="dim">INSTALL MODULES</text>
+    <text x="388" y="43" font-size="38" font-weight="900" class="cream">28</text>
+    <text x="461" y="43" font-size="20" letter-spacing="7" class="dim">HOOK MATCHERS</text>
+    <text x="804" y="43" font-size="38" font-weight="900" class="cream">110</text>
+    <text x="894" y="43" font-size="20" letter-spacing="7" class="dim">RULES</text>
+    <text x="1116" y="43" font-size="38" font-weight="900" class="cream">MIT</text>
+    <text x="1716" y="43" font-size="18" letter-spacing="5" class="dim">NPM: ECC-UNIVERSAL + AGENTSHIELD</text>
+  </g>
+</svg>

@@ -1,0 +1,22 @@
+{
+  "name": "ecc",
+  "interface": {
+    "displayName": "Everything OpenAI Codex"
+  },
+  "plugins": [
+    {
+      "name": "ecc",
+      "version": "2.0.0-rc.1",
+      "description": "Battle-tested Codex workflows — 60 agents, 230 skills, 75 legacy command shims, production-ready MCP configs, and selective-install-aligned conventions for TDD, security scanning, code review, and autonomous development.",
+      "source": {
+        "source": "local",
+        "path": "../"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
