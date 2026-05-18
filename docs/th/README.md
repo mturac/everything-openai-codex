@@ -1,0 +1,238 @@
+**ภาษา:** [English](../../README.md) | [Português (Brasil)](../pt-BR/README.md) | [简体中文](../../README.zh-CN.md) | [繁體中文](../zh-TW/README.md) | [日本語](../ja-JP/README.md) | [한국어](../ko-KR/README.md) | [Türkçe](../tr/README.md) | [Русский](../ru/README.md) | [Tiếng Việt](../vi-VN/README.md) | **ไทย**
+
+# Everything OpenAI Codex
+
+![Everything OpenAI Codex — ระบบเพิ่มประสิทธิภาพสำหรับ AI agent harness](../../assets/hero.png)
+
+[![Stars](https://img.shields.io/github/stars/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/stargazers)
+[![Forks](https://img.shields.io/github/forks/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/network/members)
+[![Contributors](https://img.shields.io/github/contributors/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/graphs/contributors)
+[![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-universal)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](../../LICENSE)
+
+> **badge GitHub และ npm ด้านบนคือแหล่งข้อมูลจริงล่าสุด** ecc เป็นระบบ workflow สำหรับ OpenAI Codex แบบ MIT พร้อม catalog ที่ตรวจสอบได้และ release track rc.1 สาธารณะ
+
+---
+
+<div align="center">
+
+**ภาษา / Language / 语言 / 語言 / Dil / Язык / Ngôn ngữ**
+
+[English](../../README.md) | [Português (Brasil)](../pt-BR/README.md) | [简体中文](../../README.zh-CN.md) | [繁體中文](../zh-TW/README.md) | [日本語](../ja-JP/README.md) | [한국어](../ko-KR/README.md) | [Türkçe](../tr/README.md) | [Русский](../ru/README.md) | [Tiếng Việt](../vi-VN/README.md) | **ไทย**
+
+</div>
+
+---
+
+**Everything OpenAI Codex (ecc) คือระบบปฏิบัติการสำหรับงาน OpenAI Codex ที่จริงจัง**
+
+ecc ไม่ใช่แค่ชุดไฟล์คอนฟิก แต่เป็นระบบครบวงจร: skills, สัญชาตญาณ (instincts), การจัดการหน่วยความจำ (memory optimization), การเรียนรู้ต่อเนื่อง (continuous learning), การสแกนความปลอดภัย (security scanning) และการพัฒนาที่ตรวจสอบจากแหล่งข้อมูลจริง (research-first development) ทั้งหมดนี้ผ่านการใช้งานจริงมากกว่า 10 เดือนในการสร้างผลิตภัณฑ์จริง
+
+ใช้งานได้ข้าม **OpenAI Codex**, **Codex**, **Cursor**, **OpenCode**, **Gemini**, **Zed**, **GitHub Copilot** และ AI agent harness อื่น ๆ
+
+หน้านี้คือคู่มือเริ่มต้นใช้งานฉบับย่อภาษาไทย สำหรับเนื้อหาเต็มและล่าสุดเสมอ ให้อ้างอิงจาก [README ภาษาอังกฤษ](../../README.md) เป็นหลัก
+
+---
+
+## เริ่มต้นใช้งานอย่างเร็ว
+
+### เลือกวิธีติดตั้งเพียงวิธีเดียว
+
+สำหรับผู้ใช้ OpenAI Codex ส่วนใหญ่ ควรเลือก **เพียงหนึ่ง** ในสองวิธีต่อไปนี้:
+
+- **แนะนำ:** ติดตั้งผ่าน OpenAI Codex plugin จากนั้นค่อยคัดลอกเฉพาะโฟลเดอร์ `rules/` ที่ต้องการใช้จริงด้วยมือ
+- **ใช้ installer แบบ manual** หากต้องการควบคุมรายละเอียดมากขึ้น หรือต้องการเลี่ยง plugin หรือ OpenAI Codex ของคุณไม่สามารถ resolve marketplace ที่ self-host ได้
+- **อย่าติดตั้งซ้อนกันหลายวิธี** ปัญหาที่พบบ่อยที่สุดคือการรัน `/plugin install` ก่อน แล้วตามด้วย `install.sh --profile full` หรือ `npx eoc-install --profile full`
+
+หากคุณติดตั้งซ้อนกันไปแล้วและพบว่ามี skill/hook ซ้ำ ดู [Reset / ถอนการติดตั้ง ecc](#reset--ถอนการติดตั้ง-ecc)
+
+### ติดตั้งผ่าน OpenAI Codex plugin
+
+```bash
+# เพิ่ม marketplace
+/plugin marketplace add https://github.com/mturac/everything-openai-codex
+
+# ติดตั้ง plugin
+/plugin install eoc@eoc
+```
+
+ecc มีชื่อเรียกในระบบสาธารณะ 3 ชื่อที่ต่างกัน:
+
+- GitHub repo: `mturac/everything-openai-codex`
+- Codex marketplace plugin: `eoc@eoc`
+- npm package: `ecc-universal`
+
+ชื่อเหล่านี้ตั้งใจให้ต่างกัน Plugin บน OpenAI Codex ใช้ `eoc@eoc` ส่วน npm ยังคงใช้ `ecc-universal`
+
+### คัดลอกไฟล์ rules เพิ่มเติม (ถ้าต้องการ)
+
+Plugin ของ OpenAI Codex จะไม่ติดตั้ง `rules/` ให้อัตโนมัติ หากคุณติดตั้งผ่าน plugin **อย่า** รัน full installer เพิ่ม ให้คัดลอกเฉพาะชุด rule ที่ต้องการแทน:
+
+```bash
+git clone https://github.com/mturac/everything-openai-codex.git
+cd everything-openai-codex
+
+mkdir -p ~/.codex/rules/ecc
+cp -R rules/common ~/.codex/rules/ecc/
+cp -R rules/typescript ~/.codex/rules/ecc/
+```
+
+```powershell
+git clone https://github.com/mturac/everything-openai-codex.git
+cd everything-openai-codex
+
+New-Item -ItemType Directory -Force -Path "$HOME/.codex/rules/ecc" | Out-Null
+Copy-Item -Recurse rules/common "$HOME/.codex/rules/ecc/"
+Copy-Item -Recurse rules/typescript "$HOME/.codex/rules/ecc/"
+```
+
+ให้คัดลอกทั้งโฟลเดอร์ภาษา เช่น `rules/common` หรือ `rules/golang` แทนการคัดลอกไฟล์เดี่ยว ๆ
+
+### ติดตั้งแบบ manual (ไม่ใช้ plugin)
+
+ใช้วิธีนี้เฉพาะเมื่อคุณตั้งใจไม่ใช้ plugin:
+
+```bash
+npm install
+./install.sh --profile full
+```
+
+```powershell
+npm install
+.\install.ps1 --profile full
+# หรือ
+npx eoc-install --profile full
+```
+
+หากเลือกวิธี manual แล้ว ให้หยุดที่นี่ อย่ารัน `/plugin install` เพิ่ม
+
+### แบบ low-context / ไม่มี hooks
+
+หากต้องการเฉพาะ rules, agents, commands และ core workflow skills ให้ใช้ profile แบบมินิมัล:
+
+```bash
+./install.sh --profile minimal --target codex
+```
+
+```powershell
+.\install.ps1 --profile minimal --target codex
+# หรือ
+npx eoc-install --profile minimal --target codex
+```
+
+Profile นี้จงใจไม่ติดตั้ง `hooks-runtime`
+
+---
+
+## Reset / ถอนการติดตั้ง ecc
+
+หาก ecc ติดตั้งซ้อนกัน รบกวนระบบ หรือทำงานผิดปกติ อย่ารันติดตั้งทับซ้ำเข้าไปอีก
+
+- **วิธี plugin:** ถอน plugin ออกจาก OpenAI Codex จากนั้นลบโฟลเดอร์ rule ที่คุณคัดลอกเองใน `~/.codex/rules/ecc/`
+- **วิธี installer/CLI:** ที่ root ของ repo ตรวจดูก่อน:
+
+```bash
+node scripts/uninstall.js --dry-run
+```
+
+จากนั้นถอนไฟล์ที่ ecc ดูแล:
+
+```bash
+node scripts/uninstall.js
+```
+
+หรือใช้ lifecycle wrapper:
+
+```bash
+node scripts/ecc.js list-installed
+node scripts/ecc.js doctor
+node scripts/ecc.js repair
+node scripts/ecc.js uninstall --dry-run
+```
+
+ecc จะลบเฉพาะไฟล์ที่อยู่ใน install-state ของตัวเอง ไม่แตะไฟล์อื่นนอกเหนือจากนั้น
+
+---
+
+## เอกสารสำคัญ
+
+- [README ภาษาอังกฤษ](../../README.md) — แหล่งข้อมูลหลักที่อัปเดตล่าสุดเสมอ
+- [คู่มือติดตั้ง Hermes](../HERMES-SETUP.md)
+- [Release notes v2.0.0-rc.1](../releases/2.0.0-rc.1/release-notes.md)
+- [สถาปัตยกรรม cross-harness](../architecture/cross-harness.md)
+- [Troubleshooting](../TROUBLESHOOTING.md)
+- [Hook bug workarounds](../hook-bug-workarounds.md)
+- [คู่มือการพัฒนา skill](../SKILL-DEVELOPMENT-GUIDE.md)
+
+---
+
+## ลองใช้งาน
+
+```bash
+# ติดตั้งผ่าน plugin ใช้ namespace เต็ม
+/eoc:plan "เพิ่มระบบยืนยันตัวตนผู้ใช้"
+
+# ติดตั้งแบบ manual ใช้ slash command แบบสั้นได้
+# /plan "เพิ่มระบบยืนยันตัวตนผู้ใช้"
+
+# ดู plugin ที่ติดตั้งอยู่
+/plugin list eoc@eoc
+```
+
+คำสั่งหลักที่ใช้บ่อย:
+
+- `/tdd` — workflow แบบ Test-Driven Development
+- `/plan` — วางแผนการ implement
+- `/e2e` — สร้างและรัน E2E tests
+- `/code-review` — ตรวจคุณภาพโค้ด
+- `/build-fix` — แก้ปัญหา build
+- `/learn` — ดึง pattern จาก session
+- `/skill-create` — สร้าง skill จาก git history
+
+ปัจจุบัน ecc มี agent หลายสิบตัว, skill มากกว่า 200 ชุด และ legacy command shim สำหรับ workflow ต่าง ๆ ดูรายการเต็มและคำแนะนำล่าสุดได้ใน [README ภาษาอังกฤษ](../../README.md)
+
+---
+
+## ร่วมพัฒนาโปรเจกต์
+
+ยินดีต้อนรับการ contribute! สำหรับคู่มือฉบับเต็ม โปรดดู [CONTRIBUTING.md](../../CONTRIBUTING.md)
+
+หมวดที่กำลังต้องการการ contribute:
+
+- **Agents** — agent เฉพาะภาษา (Python, Go, Rust), เฉพาะ framework (Django, Rails, Laravel, Spring), DevOps (Kubernetes, Terraform), domain expert (ML, data engineering, mobile)
+- **Skills** — แนวปฏิบัติเฉพาะภาษา, pattern ของ framework, กลยุทธ์การทดสอบ, คู่มือสถาปัตยกรรม
+- **Hooks** — automation, linting, security checks, validation, notification
+- **Commands** — slash command สำหรับ deployment, testing, code generation
+- **คำแปลภาษาอื่น ๆ** — ดูโครงสร้างใน `docs/` (เช่น `docs/zh-CN`, `docs/ja-JP`, `docs/th`)
+
+### ขั้นตอนเริ่มต้นอย่างย่อ
+
+```bash
+# 1. Fork และ clone
+gh repo fork mturac/everything-openai-codex --clone
+cd everything-openai-codex
+
+# 2. สร้าง branch
+git checkout -b feat/my-contribution
+
+# 3. เพิ่มสิ่งที่ contribute (ดู CONTRIBUTING.md)
+
+# 4. ทดสอบในเครื่อง
+cp -r skills/my-skill ~/.codex/skills/
+
+# 5. ส่ง PR
+git add . && git commit -m "feat: add my-skill" && git push -u origin feat/my-contribution
+```
+
+---
+
+## ชุมชน & สนับสนุน
+
+- [GitHub Discussions](https://github.com/mturac/everything-openai-codex/discussions) — ถาม-ตอบ, โชว์ผลงาน
+
+
+---
+
+## License
+
+[MIT](../../LICENSE)

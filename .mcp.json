@@ -1,0 +1,75 @@
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github@2025.4.8"
+      ],
+      "startup_timeout_sec": 30,
+      "tool_timeout_sec": 60,
+      "disabled_tools": [
+        "create_or_update_file",
+        "push_files"
+      ]
+    },
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp@2.1.4"
+      ],
+      "startup_timeout_sec": 30,
+      "tool_timeout_sec": 45
+    },
+    "exa": {
+      "type": "http",
+      "url": "https://mcp.exa.ai/mcp",
+      "tool_timeout_sec": 45
+    },
+    "memory": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory@2026.1.26"
+      ],
+      "startup_timeout_sec": 30,
+      "tool_timeout_sec": 30,
+      "enabled_tools": [
+        "read_graph",
+        "search_nodes",
+        "open_nodes"
+      ]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@0.0.69",
+        "--extension"
+      ],
+      "startup_timeout_sec": 30,
+      "tool_timeout_sec": 60,
+      "disabled_tools": [
+        "browser_install"
+      ]
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking@2025.12.18"
+      ],
+      "startup_timeout_sec": 30,
+      "tool_timeout_sec": 60
+    },
+    "openaiDeveloperDocs": {
+      "url": "https://developers.openai.com/mcp",
+      "tool_timeout_sec": 30,
+      "enabled_tools": [
+        "search",
+        "fetch"
+      ]
+    }
+  }
+}
