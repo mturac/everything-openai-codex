@@ -1,0 +1,7 @@
+interface:
+  display_name: "Everything OpenAI Codex"
+  short_description: "Repo workflows for everything-OpenAI Codex"
+  brand_color: "#0EA5E9"
+  default_prompt: "Use $everything-OpenAI Codex to follow this repository's conventions and workflows."
+policy:
+  allow_implicit_invocation: true

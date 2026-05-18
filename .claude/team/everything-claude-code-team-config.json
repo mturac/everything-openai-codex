@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "generatedBy": "ecc-tools",
+  "profile": "full",
+  "sharedSkills": [
+    ".codex/skills/everything-OpenAI Codex/SKILL.md",
+    ".agents/skills/everything-OpenAI Codex/SKILL.md"
+  ],
+  "commandFiles": [
+    ".codex/commands/database-migration.md",
+    ".codex/commands/feature-development.md",
+    ".codex/commands/add-language-rules.md"
+  ],
+  "updatedAt": "2026-03-20T12:07:36.496Z"
+}

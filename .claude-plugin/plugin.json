@@ -1,0 +1,32 @@
+{
+  "name": "ecc",
+  "version": "2.0.0-rc.1",
+  "description": "Battle-tested OpenAI Codex plugin for engineering teams — 60 agents, 231 skills, 75 legacy command shims, production-ready hooks, and selective install workflows evolved through continuous real-world use",
+  "author": {
+    "name": "mehmet-turac",
+    "url": "https://x.com/mehmet_turac"
+  },
+  "homepage": "https://ecc.tools",
+  "repository": "https://github.com/mehmet-turac/everything-OpenAI Codex",
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "agents",
+    "skills",
+    "hooks",
+    "rules",
+    "tdd",
+    "code-review",
+    "security",
+    "workflow",
+    "automation",
+    "best-practices"
+  ],
+  "mcpServers": {},
+  "skills": [
+    "./skills/"
+  ],
+  "commands": [
+    "./commands/"
+  ]
+}

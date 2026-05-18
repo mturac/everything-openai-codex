@@ -1,0 +1,47 @@
+{
+  "name": "ecc",
+  "owner": {
+    "name": "mehmet-turac",
+    "email": "me@mehmet_turac.com"
+  },
+  "metadata": {
+    "description": "Battle-tested OpenAI Codex configurations from an OpenAI hackathon participant"
+  },
+  "plugins": [
+    {
+      "name": "ecc",
+      "source": "./",
+      "description": "The most comprehensive OpenAI Codex plugin — 60 agents, 231 skills, 75 legacy command shims, selective install profiles, and production-ready hooks for TDD, security scanning, code review, and continuous learning",
+      "version": "2.0.0-rc.1",
+      "author": {
+        "name": "mehmet-turac",
+        "email": "me@mehmet_turac.com"
+      },
+      "homepage": "https://ecc.tools",
+      "repository": "https://github.com/mehmet-turac/everything-OpenAI Codex",
+      "license": "MIT",
+      "keywords": [
+        "agents",
+        "skills",
+        "hooks",
+        "commands",
+        "tdd",
+        "code-review",
+        "security",
+        "best-practices"
+      ],
+      "category": "workflow",
+      "tags": [
+        "agents",
+        "skills",
+        "hooks",
+        "commands",
+        "tdd",
+        "code-review",
+        "security",
+        "best-practices"
+      ],
+      "strict": false
+    }
+  ]
+}
