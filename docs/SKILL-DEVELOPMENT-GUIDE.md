@@ -632,7 +632,7 @@ go build ./examples/...
 ### 1. Fork and Clone
 
 ```bash
-gh repo fork mehmet-turac/everything-openai-codex --clone
+gh repo fork mturac/everything-openai-codex --clone
 cd Everything OpenAI Codex
 ```
 

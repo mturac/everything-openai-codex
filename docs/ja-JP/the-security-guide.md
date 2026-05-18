@@ -253,5 +253,5 @@ rg -n '<!--|<script|data:text/html|base64,'
 > [Everything OpenAI Codex 長文ガイド](https://x.com/mehmet_turac/status/2014040193557471352)
 
 以下のリポジトリも保存してください：
-- [github.com/mehmet-turac/everything-openai-codex](https://github.com/mehmet-turac/everything-openai-codex)
+- [github.com/mturac/everything-openai-codex](https://github.com/mturac/everything-openai-codex)
 - [github.com/mehmet-turac/agentshield](https://github.com/mehmet-turac/agentshield)

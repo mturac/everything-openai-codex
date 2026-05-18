@@ -93,7 +93,7 @@ jobs:
 
           ### Notes
           - npm package: \`ecc-universal\`
-          - Codex marketplace/plugin identifier: \`everything-OpenAI Codex@everything-OpenAI Codex\`
+          - Codex marketplace/plugin identifier: \`ecc@ecc\`
           - For migration tips and compatibility notes, see README and CHANGELOG.
           EOF
 

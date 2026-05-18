@@ -1,6 +1,6 @@
 ---
 description: Run AgentShield against agent, hook, MCP, permission, and secret surfaces.
-agent: Everything OpenAI Codex:security-reviewer
+agent: everything-openai-codex:security-reviewer
 subtask: true
 ---
 

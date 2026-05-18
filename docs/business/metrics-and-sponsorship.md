@@ -28,15 +28,15 @@ curl -s https://api.npmjs.org/downloads/point/last-month/ecc-agentshield
 ### GitHub repository adoption
 
 ```bash
-gh api repos/mehmet-turac/everything-openai-codex \
+gh api repos/mturac/everything-openai-codex \
   --jq '{stars:.stargazers_count,forks:.forks_count,contributors_url:.contributors_url,open_issues:.open_issues_count}'
 ```
 
 ### GitHub traffic (maintainer access required)
 
 ```bash
-gh api repos/mehmet-turac/everything-openai-codex/traffic/views
-gh api repos/mehmet-turac/everything-openai-codex/traffic/clones
+gh api repos/mturac/everything-openai-codex/traffic/views
+gh api repos/mturac/everything-openai-codex/traffic/clones
 ```
 
 ### GitHub App installs

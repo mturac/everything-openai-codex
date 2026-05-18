@@ -194,6 +194,28 @@ PYTHON_CMD="${CLV2_PYTHON_CMD:-$PYTHON_CMD}"
 OBSERVATIONS_FILE="${PROJECT_DIR}/observations.jsonl"
 MAX_FILE_SIZE_MB=10
 
+# Throttle SIGUSR1: only signal observer every N observations (#521).
+# Update this immediately after project detection so every accepted observation
+# leaves an activity marker even if later optional observer startup paths fail.
+SIGNAL_EVERY_N="${ecc_OBSERVER_SIGNAL_EVERY_N:-20}"
+SIGNAL_COUNTER_FILE="${PROJECT_DIR}/.observer-signal-counter"
+ACTIVITY_FILE="${PROJECT_DIR}/.observer-last-activity"
+
+touch "$ACTIVITY_FILE" 2>/dev/null || true
+
+should_signal=0
+if [ -f "$SIGNAL_COUNTER_FILE" ]; then
+  counter=$(cat "$SIGNAL_COUNTER_FILE" 2>/dev/null || echo 0)
+  counter=$((counter + 1))
+  if [ "$counter" -ge "$SIGNAL_EVERY_N" ]; then
+    should_signal=1
+    counter=0
+  fi
+  echo "$counter" > "$SIGNAL_COUNTER_FILE"
+else
+  echo "1" > "$SIGNAL_COUNTER_FILE"
+fi
+
 # Auto-purge observation files older than 30 days (runs once per session)
 PURGE_MARKER="${PROJECT_DIR}/.last-purge"
 if [ ! -f "$PURGE_MARKER" ] || [ "$(find "$PURGE_MARKER" -mtime +1 2>/dev/null)" ]; then
@@ -440,28 +462,6 @@ if [ "$OBSERVER_ENABLED" = "true" ]; then
       fi
     fi
   fi
-fi
-
-# Throttle SIGUSR1: only signal observer every N observations (#521)
-# This prevents rapid signaling when tool calls fire every second,
-# which caused runaway parallel Codex analysis processes.
-SIGNAL_EVERY_N="${ecc_OBSERVER_SIGNAL_EVERY_N:-20}"
-SIGNAL_COUNTER_FILE="${PROJECT_DIR}/.observer-signal-counter"
-ACTIVITY_FILE="${PROJECT_DIR}/.observer-last-activity"
-
-touch "$ACTIVITY_FILE" 2>/dev/null || true
-
-should_signal=0
-if [ -f "$SIGNAL_COUNTER_FILE" ]; then
-  counter=$(cat "$SIGNAL_COUNTER_FILE" 2>/dev/null || echo 0)
-  counter=$((counter + 1))
-  if [ "$counter" -ge "$SIGNAL_EVERY_N" ]; then
-    should_signal=1
-    counter=0
-  fi
-  echo "$counter" > "$SIGNAL_COUNTER_FILE"
-else
-  echo "1" > "$SIGNAL_COUNTER_FILE"
 fi
 
 # Signal observer if running and throttle allows (check both project-scoped and global observer, deduplicate)

@@ -84,7 +84,7 @@ Sample role configs in this repo:
 
 | Feature | OpenAI Codex | Codex CLI |
 |---------|------------|-----------|
-| Hooks | 8+ event types | Not yet supported |
+| Hooks | 8+ event types | Supported via plugin hooks (v2.1+) |
 | Context file | CODEX.md + AGENTS.md | AGENTS.md only |
 | Skills | Skills loaded via plugin | `.agents/skills/` directory |
 | Commands | `/slash` commands | Instruction-based |
@@ -92,9 +92,9 @@ Sample role configs in this repo:
 | Security | Hook-based enforcement | Instruction + sandbox |
 | MCP | Full support | Supported via `config.toml` and `codex mcp add` |
 
-## Security Without Hooks
+## Security With Hooks
 
-Since Codex lacks hooks, security enforcement is instruction-based:
+Codex supports hooks via plugin (v2.1+). Security enforcement combines hooks and instructions:
 1. Always validate inputs at system boundaries
 2. Never hardcode secrets — use environment variables
 3. Run `npm audit` / `pip audit` before committing

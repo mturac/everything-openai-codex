@@ -26,8 +26,19 @@ get_trae_dir() {
     fi
 }
 
-resolve_path() {
-    python3 -c 'import os, sys; print(os.path.realpath(sys.argv[1]))' "$1"
+resolve_existing_path() {
+    local file_path="$1"
+    local dir_path
+    local base_name
+
+    dir_path="${file_path%/*}"
+    base_name="${file_path##*/}"
+    [ -d "$dir_path" ] || return 1
+
+    (
+        cd "$dir_path"
+        printf '%s/%s\n' "$(pwd -P)" "$base_name"
+    )
 }
 
 is_valid_manifest_entry() {
@@ -77,7 +88,7 @@ do_uninstall() {
         exit 1
     fi
     
-    trae_root_resolved="$(resolve_path "$trae_full_path")"
+    trae_root_resolved="$(cd "$trae_full_path" && pwd -P)"
 
     # Manifest file path
     MANIFEST="$trae_full_path/.ecc-manifest"
@@ -111,83 +122,94 @@ do_uninstall() {
         exit 0
     fi
     
-    # Counters
-    removed=0
-    skipped=0
-    
-    # Read manifest and remove files
-    while IFS= read -r file_path; do
-        [ -z "$file_path" ] && continue
+    python3 - "$trae_full_path" "$MANIFEST" "$trae_dir" <<'PY'
+import os
+import shutil
+import sys
+from pathlib import Path
 
-        if ! is_valid_manifest_entry "$file_path"; then
-            echo "Skipped: $file_path (invalid manifest entry)"
-            skipped=$((skipped + 1))
+root = Path(sys.argv[1])
+manifest = Path(sys.argv[2])
+trae_dir = sys.argv[3]
+root_resolved = root.resolve()
+
+removed = 0
+skipped = 0
+
+def valid_entry(entry):
+    if not entry or entry.startswith('/') or entry.startswith('~'):
+        return False
+    parts = Path(entry).parts
+    return '..' not in parts
+
+entries = [line.strip() for line in manifest.read_text(encoding='utf8').splitlines() if line.strip()]
+if '.ecc-manifest' not in entries:
+    entries.append('.ecc-manifest')
+
+for entry in entries:
+    if not valid_entry(entry):
+        print(f"Skipped: {entry} (invalid manifest entry)")
+        skipped += 1
+        continue
+
+    target = root / entry
+    if not target.exists() and not target.is_symlink():
+        skipped += 1
+        continue
+
+    try:
+        resolved = target.resolve()
+    except OSError:
+        print(f"Skipped: {entry} (invalid manifest entry)")
+        skipped += 1
+        continue
+
+    if resolved != root_resolved and root_resolved not in resolved.parents:
+        print(f"Skipped: {entry} (invalid manifest entry)")
+        skipped += 1
+        continue
+
+    try:
+        if target.is_symlink() or target.is_file():
+            target.unlink()
+            removed += 1
+        elif target.is_dir():
+            target.rmdir()
+            removed += 1
+        else:
+            skipped += 1
+    except OSError:
+        print(f"Skipped: {entry}/ (not empty - contains user files)")
+        skipped += 1
+
+if root.exists():
+    for current_root, dirnames, _filenames in os.walk(root, topdown=False):
+        current = Path(current_root)
+        if current == root:
             continue
-        fi
+        try:
+            current.rmdir()
+            removed += 1
+        except OSError:
+            pass
 
-        full_path="$trae_full_path/$file_path"
-        resolved_full="$(resolve_path "$full_path")"
+if root.exists():
+    try:
+        root.rmdir()
+        removed += 1
+    except OSError:
+        pass
 
-        case "$resolved_full" in
-            "$trae_root_resolved"|"$trae_root_resolved"/*)
-                ;;
-            *)
-                echo "Skipped: $file_path (invalid manifest entry)"
-                skipped=$((skipped + 1))
-                continue
-                ;;
-        esac
-
-        if [ -f "$resolved_full" ]; then
-            rm -f "$resolved_full"
-            echo "Removed: $file_path"
-            removed=$((removed + 1))
-        elif [ -d "$resolved_full" ]; then
-            # Only remove directory if it's empty
-            if [ -z "$(ls -A "$resolved_full" 2>/dev/null)" ]; then
-                rmdir "$resolved_full" 2>/dev/null || true
-                if [ ! -d "$resolved_full" ]; then
-                    echo "Removed: $file_path/"
-                    removed=$((removed + 1))
-                fi
-            else
-                echo "Skipped: $file_path/ (not empty - contains user files)"
-                skipped=$((skipped + 1))
-            fi
-        else
-            skipped=$((skipped + 1))
-        fi
-    done < "$MANIFEST"
-
-    while IFS= read -r empty_dir; do
-        [ "$empty_dir" = "$trae_full_path" ] && continue
-        relative_dir="${empty_dir#$trae_full_path/}"
-        rmdir "$empty_dir" 2>/dev/null || true
-        if [ ! -d "$empty_dir" ]; then
-            echo "Removed: $relative_dir/"
-            removed=$((removed + 1))
-        fi
-    done < <(find "$trae_full_path" -depth -type d -empty 2>/dev/null | sort -r)
-    
-    # Try to remove the main trae directory if it's empty
-    if [ -d "$trae_full_path" ] && [ -z "$(ls -A "$trae_full_path" 2>/dev/null)" ]; then
-        rmdir "$trae_full_path" 2>/dev/null || true
-        if [ ! -d "$trae_full_path" ]; then
-            echo "Removed: $trae_dir/"
-            removed=$((removed + 1))
-        fi
-    fi
-    
-    echo ""
-    echo "Uninstall complete!"
-    echo ""
-    echo "Summary:"
-    echo "  Removed: $removed items"
-    echo "  Skipped: $skipped items (not found or user-modified)"
-    echo ""
-    if [ -d "$trae_full_path" ]; then
-        echo "Note: $trae_dir directory still exists (contains user-added files)"
-    fi
+print()
+print("Uninstall complete!")
+print()
+print("Summary:")
+print(f"  Removed: {removed} items")
+print(f"  Skipped: {skipped} items (not found or user-modified)")
+print()
+if root.exists():
+    print(f"Note: {trae_dir} directory still exists (contains user-added files)")
+PY
 }
 
 # Execute uninstall

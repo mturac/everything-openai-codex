@@ -93,7 +93,7 @@ OpenAI Codexのスケジュール済みタスクを使用して、定期的な�
 mcp__scheduled-tasks__create_scheduled_task({
   name: "daily-pr-review",
   schedule: "0 9 * * 1-5",  # 平日午前9時
-  prompt: "mehmet-turac/everything-openai-codexのすべてのオープンPRを確認します。各について：CIステータスをチェック、変更を確認、問題にフラグを立てます。メモリに概要を投稿します。",
+  prompt: "mturac/everything-openai-codexのすべてのオープンPRを確認します。各について：CIステータスをチェック、変更を確認、問題にフラグを立てます。メモリに概要を投稿します。",
   project_dir: "/path/to/repo"
 })
 ```

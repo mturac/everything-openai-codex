@@ -177,7 +177,10 @@ if (
       const parsed = TOML.parse(merged);
       assert.strictEqual(parsed.approval_policy, 'never');
       assert.strictEqual(parsed.sandbox_mode, 'workspace-write');
-      assert.strictEqual(parsed.web_search, 'live');
+      assert.strictEqual(parsed.web_search, 'cached');
+      assert.strictEqual(parsed.default_permissions, ':workspace');
+      assert.strictEqual(parsed.features.hooks, true);
+      assert.strictEqual(parsed.features.plugin_hooks, true);
       assert.strictEqual(parsed.features.multi_agent, true);
       assert.strictEqual(parsed.profiles.strict.approval_policy, 'on-request');
       assert.strictEqual(parsed.profiles.yolo.approval_policy, 'never');
@@ -297,6 +300,9 @@ if (
       const merged = fs.readFileSync(configPath, 'utf8');
       const parsed = TOML.parse(merged);
       assert.strictEqual(parsed.mcp_servers.exa.url, 'https://mcp.exa.ai/mcp');
+      assert.strictEqual(parsed.mcp_servers.exa.tool_timeout_sec, 45);
+      assert.strictEqual(parsed.mcp_servers.openaiDeveloperDocs.url, 'https://developers.openai.com/mcp');
+      assert.deepStrictEqual(parsed.mcp_servers.openaiDeveloperDocs.enabled_tools, ['search', 'fetch']);
       assert.strictEqual(parsed.mcp_servers.github.command, 'bash');
       assert.deepStrictEqual(parsed.mcp_servers.memory.args, ['@modelcontextprotocol/server-memory']);
       assert.strictEqual(parsed.mcp_servers.supabase.tool_timeout_sec, 120);
@@ -368,7 +374,7 @@ if (
       'url = "https://mcp.exa.ai/mcp"',
       '',
     ].join('\n');
-    const allServersDisabled = 'supabase,playwright,context7,exa,github,memory,sequential-thinking';
+    const allServersDisabled = 'supabase,playwright,context7,openaiDeveloperDocs,exa,github,memory,sequential-thinking';
 
     try {
       fs.writeFileSync(configPath, original);
@@ -380,6 +386,7 @@ if (
       assert.strictEqual(result.status, 0, `${result.stdout}\n${result.stderr}`);
       assert.match(result.stdout, /Disabled via ecc_DISABLED_MCPS/);
       assert.match(result.stdout, /\[skip\] mcp_servers\.context7 \(disabled\)/);
+      assert.match(result.stdout, /\[skip\] mcp_servers\.openaiDeveloperDocs \(disabled\)/);
       assert.match(result.stdout, /\[skip\] mcp_servers\.exa \(disabled\)/);
       assert.match(result.stdout, /\[update\] mcp_servers\.context7-mcp \(disabled\)/);
       assert.match(result.stdout, /\[update\] mcp_servers\.exa \(disabled\)/);
@@ -403,7 +410,7 @@ if (
     const configPath = path.join(codexDir, 'config.toml');
     const agentsPath = path.join(codexDir, 'AGENTS.md');
     const config = [
-      'persistent_instructions = ""',
+      'instructions = ""',
       '',
       '[agents]',
       'explorer = { description = "Read-only codebase explorer for gathering evidence before changes are proposed." }',
@@ -441,9 +448,12 @@ if (
       const parsedConfig = TOML.parse(syncedConfig);
       assert.strictEqual(parsedConfig.approval_policy, 'on-request');
       assert.strictEqual(parsedConfig.sandbox_mode, 'workspace-write');
-      assert.strictEqual(parsedConfig.web_search, 'live');
+      assert.strictEqual(parsedConfig.web_search, 'cached');
+      assert.strictEqual(parsedConfig.default_permissions, ':workspace');
       assert.ok(!Object.prototype.hasOwnProperty.call(parsedConfig, 'multi_agent'));
       assert.ok(parsedConfig.features);
+      assert.strictEqual(parsedConfig.features.hooks, true);
+      assert.strictEqual(parsedConfig.features.plugin_hooks, true);
       assert.strictEqual(parsedConfig.features.multi_agent, true);
       assert.ok(parsedConfig.profiles);
       assert.strictEqual(parsedConfig.profiles.strict.approval_policy, 'on-request');
@@ -459,6 +469,8 @@ if (
       assert.ok(parsedConfig.mcp_servers.memory);
       assert.ok(parsedConfig.mcp_servers['sequential-thinking']);
       assert.ok(parsedConfig.mcp_servers.context7);
+      assert.ok(parsedConfig.mcp_servers.openaiDeveloperDocs);
+      assert.strictEqual(parsedConfig.mcp_servers.github.tool_timeout_sec, 60);
 
       for (const roleFile of ['explorer.toml', 'reviewer.toml', 'docs-researcher.toml']) {
         assert.ok(fs.existsSync(path.join(codexDir, 'agents', roleFile)));
@@ -477,7 +489,7 @@ if (
     const codexDir = path.join(homeDir, '.codex');
     const configPath = path.join(codexDir, 'config.toml');
     const config = [
-      'persistent_instructions = ""',
+      'instructions = ""',
       '',
       '[agents.explorer]',
       'description = "Read-only codebase explorer for gathering evidence before changes are proposed."',

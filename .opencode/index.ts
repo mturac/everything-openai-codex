@@ -26,8 +26,8 @@
  *
  * Option 2: Clone and use directly
  * ```bash
- * git clone https://github.com/mehmet-turac/everything-OpenAI Codex
- * cd everything-OpenAI Codex
+ * git clone https://github.com/mehmet-turac/everything-openai-codex
+ * cd everything-openai-codex
  * opencode
  * ```
  *

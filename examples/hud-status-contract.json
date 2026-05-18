@@ -4,9 +4,9 @@
   "context": {
     "harness": "codex",
     "model": "gpt-5",
-    "repo": "mehmet-turac/everything-OpenAI Codex",
+    "repo": "mehmet-turac/everything-openai-codex",
     "branch": "main",
-    "worktree": "/repo/everything-OpenAI Codex",
+    "worktree": "/repo/everything-openai-codex",
     "sessionId": "session-active",
     "contextWindow": {
       "remainingPct": 62,
@@ -52,7 +52,7 @@
       {
         "name": "CI",
         "status": "pass",
-        "url": "https://github.com/mehmet-turac/everything-OpenAI Codex/actions"
+        "url": "https://github.com/mehmet-turac/everything-openai-codex/actions"
       }
     ]
   },
@@ -106,7 +106,7 @@
       "latestStatusUpdateId": "status-update-id"
     },
     "GitHub": {
-      "repo": "mehmet-turac/everything-OpenAI Codex",
+      "repo": "mehmet-turac/everything-openai-codex",
       "latestPullRequest": 1820
     },
     "handoff": {

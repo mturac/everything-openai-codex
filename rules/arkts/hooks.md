@@ -53,7 +53,7 @@ Run hvigor build to check for ArkTS compilation errors:
   "hooks": [
     {
       "command": "hvigorw assembleHap -p product=default 2>&1 | tail -20",
-      "async": true,
+      "async": false,
       "timeout": 60000
     }
   ]
@@ -94,7 +94,7 @@ Reinstall dependencies:
   "hooks": [
     {
       "command": "ohpm install 2>&1 | tail -10",
-      "async": true,
+      "async": false,
       "timeout": 30000
     }
   ]

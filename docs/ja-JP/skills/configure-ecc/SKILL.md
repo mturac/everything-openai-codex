@@ -28,7 +28,7 @@ Everything OpenAI Codex プロジェクトのインタラクティブなステ�
 
 ```bash
 rm -rf /tmp/Everything OpenAI Codex
-git clone https://github.com/mehmet-turac/everything-openai-codex.git /tmp/Everything OpenAI Codex
+git clone https://github.com/mturac/everything-openai-codex.git /tmp/Everything OpenAI Codex
 ```
 
 以降のすべてのコピー操作のソースとして `ecc_ROOT=/tmp/Everything OpenAI Codex` を設定します。

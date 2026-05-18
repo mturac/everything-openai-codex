@@ -1,6 +1,6 @@
 ---
 description: Create implementation plan with risk assessment
-agent: Everything OpenAI Codex:planner
+agent: everything-openai-codex:planner
 subtask: true
 ---
 

@@ -796,7 +796,7 @@ A cross-platform desktop application for
 managing and exploring ecc components.
 
 Version: 1.10.0
-Project: github.com/mehmet-turac/everything-OpenAI Codex"""
+Project: github.com/mehmet-turac/everything-openai-codex"""
         
         ttk.Label(about_frame, text=about_text, justify=tk.LEFT).pack(anchor=tk.W)
     

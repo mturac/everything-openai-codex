@@ -47,12 +47,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mehmet-turac/everything-OpenAI Codex.git"
+    "url": "git+https://github.com/mehmet-turac/everything-openai-codex.git"
   },
   "bugs": {
-    "url": "https://github.com/mehmet-turac/everything-OpenAI Codex/issues"
+    "url": "https://github.com/mehmet-turac/everything-openai-codex/issues"
   },
-  "homepage": "https://github.com/mehmet-turac/everything-OpenAI Codex#readme",
+  "homepage": "https://github.com/mehmet-turac/everything-openai-codex#readme",
   "publishConfig": {
     "access": "public"
   },

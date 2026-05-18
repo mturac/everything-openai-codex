@@ -171,4 +171,4 @@ src/
 
 ---
 
-*[Everything OpenAI Codex](https://github.com/mehmet-turac/everything-openai-codex)の一部*
+*[Everything OpenAI Codex](https://github.com/mturac/everything-openai-codex)の一部*

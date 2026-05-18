@@ -75,7 +75,7 @@ function ensureFakeRepo(repoRoot) {
   fs.mkdirSync(path.join(repoRoot, 'scripts'), { recursive: true });
   fs.writeFileSync(
     path.join(repoRoot, 'package.json'),
-    JSON.stringify({ name: 'everything-OpenAI Codex', version: '1.10.0' }, null, 2)
+    JSON.stringify({ name: 'everything-openai-codex', version: '1.10.0' }, null, 2)
   );
   fs.writeFileSync(path.join(repoRoot, 'scripts', 'install-apply.js'), '#!/usr/bin/env node\n');
 }

@@ -17,7 +17,8 @@
 # Top-level runtime settings (current Codex schema)
 approval_policy = "on-request"
 sandbox_mode = "workspace-write"
-web_search = "live"
+default_permissions = ":workspace"
+web_search = "cached"
 
 # External notifications receive a JSON payload on stdin.
 notify = [
@@ -27,9 +28,9 @@ notify = [
   "-sound", "default",
 ]
 
-# Persistent instructions are appended to every prompt (additive, unlike
+# Instructions are appended to every prompt (additive, unlike
 # model_instructions_file which replaces AGENTS.md).
-persistent_instructions = "Follow project AGENTS.md guidelines. Use available MCP servers when they can help."
+instructions = "Follow project AGENTS.md guidelines. Use available MCP servers when they can help."
 
 # model_instructions_file replaces built-in instructions instead of AGENTS.md,
 # so leave it unset unless you intentionally want a single override file.
@@ -86,6 +87,10 @@ startup_timeout_sec = 30
 # args = ["-y", "@cloudflare/mcp-server-cloudflare"]
 
 [features]
+# Hook execution is part of the plugin integration contract.
+hooks = true
+plugin_hooks = true
+
 # Codex multi-agent collaboration is stable and on by default in current builds.
 # Keep the explicit toggle here so the repo documents its expectation clearly.
 multi_agent = true

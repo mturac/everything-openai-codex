@@ -1,6 +1,6 @@
 ---
 description: Review code for quality, security, and maintainability
-agent: Everything OpenAI Codex:code-reviewer
+agent: everything-openai-codex:code-reviewer
 subtask: true
 ---
 

@@ -1,6 +1,6 @@
 ---
 description: Analyze instincts and suggest or generate evolved structures
-agent: Everything OpenAI Codex:build
+agent: everything-openai-codex:build
 ---
 
 # Evolve Command

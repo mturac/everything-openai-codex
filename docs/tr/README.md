@@ -1,8 +1,8 @@
 # Everything OpenAI Codex
 
-[![Stars](https://img.shields.io/github/stars/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/stargazers)
-[![Forks](https://img.shields.io/github/forks/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/network/members)
-[![Contributors](https://img.shields.io/github/contributors/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/graphs/contributors)
+[![Stars](https://img.shields.io/github/stars/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/stargazers)
+[![Forks](https://img.shields.io/github/forks/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/network/members)
+[![Contributors](https://img.shields.io/github/contributors/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/graphs/contributors)
 [![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20haftalık%20indirme&logo=npm)](https://www.npmjs.com/package/ecc-universal)
 [![npm ecc-agentshield](https://img.shields.io/npm/dw/ecc-agentshield?label=ecc-agentshield%20haftalık%20indirme&logo=npm)](https://www.npmjs.com/package/ecc-agentshield)
 [![GitHub App Install](https://img.shields.io/badge/GitHub%20App-150%20kurulum-2ea44f?logo=github)](https://github.com/marketplace/ecc-tools)
@@ -15,7 +15,7 @@
 ![Perl](https://img.shields.io/badge/-Perl-39457E?logo=perl&logoColor=white)
 ![Markdown](https://img.shields.io/badge/-Markdown-000000?logo=markdown&logoColor=white)
 
-> **140K+ yıldız** | **21K+ fork** | **170+ katkıda bulunan** | **12+ dil ekosistemi** | **OpenAI Hackathon Kazananı**
+> **Güncel GitHub ve npm rozetleri yukarıdadır.** ecc, 12+ dil ekosistemi ve herkese açık rc.1 yayın hattı olan MIT lisanslı bir Codex workflow sistemidir.
 
 ---
 
@@ -29,7 +29,7 @@
 
 ---
 
-**AI agent harness'ları için performans optimizasyon sistemi. OpenAI hackathon kazananından.**
+**AI agent harness'ları için performans optimizasyon sistemi; günlük OpenAI Codex üretim kullanımından çıkarıldı.**
 
 Sadece konfigürasyon dosyaları değil. Tam bir sistem: skill'ler, instinct'ler, memory optimizasyonu, sürekli öğrenme, güvenlik taraması ve araştırma odaklı geliştirme. 10+ ay boyunca gerçek ürünler inşa ederken yoğun günlük kullanımla evrimleşmiş production-ready agent'lar, hook'lar, command'lar, rule'lar ve MCP konfigürasyonları.
 
@@ -110,7 +110,7 @@ Bu repository yalnızca ham kodu içerir. Rehberler her şeyi açıklıyor.
 - **Çapraz harness paritesi** — OpenAI Codex, Cursor, OpenCode ve Codex app/CLI arasında davranış sıkılaştırıldı.
 - **997 internal test geçiyor** — Hook/runtime refactor ve uyumluluk güncellemelerinden sonra tam suite yeşil.
 
-[Tam değişiklik günlüğü için Releases bölümüne bakın](https://github.com/mehmet-turac/everything-openai-codex/releases).
+[Tam değişiklik günlüğü için Releases bölümüne bakın](https://github.com/mturac/everything-openai-codex/releases).
 
 ---
 
@@ -122,7 +122,7 @@ Bu repository yalnızca ham kodu içerir. Rehberler her şeyi açıklıyor.
 
 ```bash
 # Marketplace ekle
-/plugin marketplace add https://github.com/mehmet-turac/everything-openai-codex
+/plugin marketplace add https://github.com/mturac/everything-openai-codex
 
 # Plugin'i kur
 /plugin install ecc@ecc
@@ -134,7 +134,7 @@ Bu repository yalnızca ham kodu içerir. Rehberler her şeyi açıklıyor.
 
 ```bash
 # Önce repo'yu klonlayın
-git clone https://github.com/mehmet-turac/everything-openai-codex.git
+git clone https://github.com/mturac/everything-openai-codex.git
 cd Everything OpenAI Codex
 
 # Bağımlılıkları kurun (paket yöneticinizi seçin)
@@ -361,7 +361,7 @@ Bu, plugin'den mevcut tüm agent'ları, command'ları ve skill'leri gösterir.
 <details>
 <summary><b>Hook'larım çalışmıyor / "Duplicate hooks file" hatası alıyorum</b></summary>
 
-Bu en yaygın sorundur. `.codex-plugin/plugin.json`'a bir `"hooks"` alanı **EKLEMEYİN**. OpenAI Codex v2.1+ kurulu plugin'lerden `hooks/hooks.json`'ı otomatik olarak yükler. Açıkça belirtmek duplicate algılama hatalarına neden olur. Bkz. [#29](https://github.com/mehmet-turac/everything-openai-codex/issues/29), [#52](https://github.com/mehmet-turac/everything-openai-codex/issues/52), [#103](https://github.com/mehmet-turac/everything-openai-codex/issues/103).
+Bu en yaygın sorundur. `.codex-plugin/plugin.json`'a bir `"hooks"` alanı **EKLEMEYİN**. OpenAI Codex v2.1+ kurulu plugin'lerden `hooks/hooks.json`'ı otomatik olarak yükler. Açıkça belirtmek duplicate algılama hatalarına neden olur. Bkz. [#29](https://github.com/mturac/everything-openai-codex/issues/29), [#52](https://github.com/mturac/everything-openai-codex/issues/52), [#103](https://github.com/mturac/everything-openai-codex/issues/103).
 </details>
 
 <details>
@@ -402,7 +402,7 @@ Her component tamamen bağımsızdır.
 Evet. ecc çapraz platformdur:
 - **Cursor**: `.cursor/` içinde önceden çevrilmiş config'ler. [Cursor IDE Desteği](../../README.md#cursor-ide-support) bölümüne bakın.
 - **OpenCode**: `.opencode/` içinde tam plugin desteği. [OpenCode Desteği](../../README.md#opencode-support) bölümüne bakın.
-- **Codex**: macOS app ve CLI için birinci sınıf destek. PR [#257](https://github.com/mehmet-turac/everything-openai-codex/pull/257)'ye bakın.
+- **Codex**: macOS app ve CLI için birinci sınıf destek. PR [#257](https://github.com/mturac/everything-openai-codex/pull/257)'ye bakın.
 - **Antigravity**: İş akışları, skill'ler ve `.agent/` içinde düzleştirilmiş rule'lar için sıkı entegre kurulum.
 - **OpenAI Codex**: Native — bu birincil hedeftir.
 </details>

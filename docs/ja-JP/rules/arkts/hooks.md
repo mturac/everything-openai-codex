@@ -53,7 +53,7 @@ ArkTS のコンパイルエラーを確認するために hvigor ビルドを実
   "hooks": [
     {
       "command": "hvigorw assembleHap -p product=default 2>&1 | tail -20",
-      "async": true,
+      "async": false,
       "timeout": 60000
     }
   ]
@@ -94,7 +94,7 @@ ArkTS のコンパイルエラーを確認するために hvigor ビルドを実
   "hooks": [
     {
       "command": "ohpm install 2>&1 | tail -10",
-      "async": true,
+      "async": false,
       "timeout": 30000
     }
   ]

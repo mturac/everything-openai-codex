@@ -1,6 +1,6 @@
 ---
 description: Run verification loop to validate implementation
-agent: Everything OpenAI Codex:build
+agent: everything-openai-codex:build
 ---
 
 # Verify Command

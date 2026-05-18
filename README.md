@@ -4,9 +4,9 @@
 
 ![Everything OpenAI Codex — the performance system for AI agent harnesses](assets/hero.png)
 
-[![Stars](https://img.shields.io/github/stars/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/stargazers)
-[![Forks](https://img.shields.io/github/forks/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/network/members)
-[![Contributors](https://img.shields.io/github/contributors/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/graphs/contributors)
+[![Stars](https://img.shields.io/github/stars/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/stargazers)
+[![Forks](https://img.shields.io/github/forks/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/network/members)
+[![Contributors](https://img.shields.io/github/contributors/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/graphs/contributors)
 [![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-universal)
 [![npm ecc-agentshield](https://img.shields.io/npm/dw/ecc-agentshield?label=ecc-agentshield%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-agentshield)
 [![GitHub App Install](https://img.shields.io/badge/GitHub%20App-150%20installs-2ea44f?logo=github)](https://github.com/marketplace/ecc-tools)
@@ -19,7 +19,7 @@
 ![Perl](https://img.shields.io/badge/-Perl-39457E?logo=perl&logoColor=white)
 ![Markdown](https://img.shields.io/badge/-Markdown-000000?logo=markdown&logoColor=white)
 
-> **182K+ stars** | **28K+ forks** | **170+ contributors** | **12+ language ecosystems** | **OpenAI Hackathon Winner**
+> **Live GitHub and npm badges above are the source of truth.** ecc is a field-tested, MIT-licensed Codex workflow system with 12+ language ecosystems and a public rc.1 release track.
 
 ---
 
@@ -34,13 +34,45 @@
 
 ---
 
-**The performance optimization system for AI agent harnesses. From an OpenAI hackathon participant.**
+**The operating system for serious OpenAI Codex work.**
 
-Not just configs. A complete system: skills, instincts, memory optimization, continuous learning, security scanning, and research-first development. Production-ready agents, skills, hooks, rules, MCP configurations, and legacy command shims evolved over 10+ months of intensive daily use building real products.
+Everything OpenAI Codex, or **ecc**, turns a raw agent harness into a repeatable engineering environment: scoped instructions, reusable skills, quality gates, session memory, install profiles, cross-harness adapters, and release evidence in one open-source repo.
 
-Works across **OpenAI Codex**, **Codex**, **Cursor**, **OpenCode**, **Gemini**, **Zed**, **GitHub Copilot**, and other AI agent harnesses.
+This is not a prompt dump. It is a maintained workflow system extracted from daily Codex use on real software projects. The repo currently ships a validated catalog of **60 agents, 230 skills, 110 rules, 28 hook matchers, 29 install modules, and 75 legacy command shims**.
+
+Works across **OpenAI Codex**, **Cursor**, **OpenCode**, **Gemini**, **Zed**, **GitHub Copilot**, Trae, and adjacent agent harnesses.
 
 ecc v2.0.0-rc.1 adds the public Hermes operator story on top of that reusable layer: start with the [Hermes setup guide](docs/HERMES-SETUP.md), then review the [rc.1 release notes](docs/releases/2.0.0-rc.1/release-notes.md) and [cross-harness architecture](docs/architecture/cross-harness.md).
+
+## Why This Exists
+
+AI coding tools get dramatically better when the harness has memory, boundaries, checks, and reusable operating patterns. ecc packages those pieces as installable, test-covered surfaces instead of asking every project to rediscover them.
+
+| If you need... | ecc gives you... |
+|---|---|
+| Safer Codex sessions | AGENTS.md guidance, hook gates, no-verify blocks, MCP health checks, and supply-chain scanners |
+| Better long-running work | session capture, compaction prompts, observer memory, status snapshots, and handoff-friendly logs |
+| Reusable expertise | skill packs for backend, frontend, security, ML, docs, operations, and release work |
+| Cross-tool portability | install targets and adapters for Codex, Cursor, OpenCode, Gemini, Zed, Copilot, Trae, and more |
+| Reviewer confidence | catalog checks, manifest validators, PromptGuard-aware prompt surfaces, and a broad regression suite |
+
+## Start Here
+
+Use one path only:
+
+```bash
+# Recommended for OpenAI Codex plugin users
+/plugin install ecc@ecc
+```
+
+or:
+
+```bash
+# Manual, low-context install for a local project
+npx ecc-install --profile minimal --target codex
+```
+
+Do not stack plugin and full manual installs. If you already did, use [Reset / Uninstall ecc](#reset--uninstall-ecc).
 
 ---
 
@@ -59,7 +91,7 @@ ecc v2.0.0-rc.1 adds the public Hermes operator story on top of that reusable la
   </a>
 </td>
 <td width="25%" align="center">
-  <a href="https://github.com/mehmet-turac/everything-openai-codex/discussions">
+  <a href="https://github.com/mturac/everything-openai-codex/discussions">
     <strong>Community</strong>
     <br />
     <sub>Discussions · Q&amp;A · Show & Tell</sub>
@@ -123,7 +155,7 @@ This repo is the raw code only. The guides explain everything.
 ### v2.0.0-rc.1 — Surface Refresh, Operator Workflows, and ecc 2.0 Alpha (Apr 2026)
 
 - **Dashboard GUI** — New Tkinter-based desktop application (`ecc_dashboard.py` or `npm run dashboard`) with dark/light theme toggle, font customization, and project logo in header and taskbar.
-- **Public surface synced to the live repo** — metadata, catalog counts, plugin manifests, and install-facing docs now match the actual OSS surface: 60 agents, 231 skills, and 75 legacy command shims.
+- **Public surface synced to the live repo** — metadata, catalog counts, plugin manifests, and install-facing docs now match the actual OSS surface: 60 agents, 230 skills, and 75 legacy command shims.
 - **Operator and outbound workflow expansion** — `brand-voice`, `social-graph-ranker`, `connections-optimizer`, `customer-billing-ops`, `ecc-tools-cost-audit`, `google-workspace-ops`, `project-flow-ops`, and `workspace-surface-audit` round out the operator lane.
 - **Media and launch tooling** — `manim-video`, `remotion-video-creation`, and upgraded social publishing surfaces make technical explainers and launch content part of the same system.
 - **Framework and product surface growth** — `nestjs-patterns`, richer Codex/OpenCode install surfaces, and expanded cross-harness packaging keep the repo usable beyond OpenAI Codex alone.
@@ -172,7 +204,7 @@ This repo is the raw code only. The guides explain everything.
 
 ### v1.4.1 — Bug Fix (Feb 2026)
 
-- **Fixed instinct import content loss** — `parse_instinct_file()` was silently dropping all content after frontmatter (Action, Evidence, Examples sections) during `/instinct-import`. ([#148](https://github.com/mehmet-turac/everything-openai-codex/issues/148), [#161](https://github.com/mehmet-turac/everything-openai-codex/pull/161))
+- **Fixed instinct import content loss** — `parse_instinct_file()` was silently dropping all content after frontmatter (Action, Evidence, Examples sections) during `/instinct-import`. ([#148](https://github.com/mturac/everything-openai-codex/issues/148), [#161](https://github.com/mturac/everything-openai-codex/pull/161))
 
 ### v1.4.0 — Multi-Language Rules, Installation Wizard & PM2 (Feb 2026)
 
@@ -196,7 +228,7 @@ This repo is the raw code only. The guides explain everything.
 - **Session management** — `/sessions` command for session history
 - **Continuous learning v2** — Instinct-based learning with confidence scoring, import/export, evolution
 
-See the full changelog in [Releases](https://github.com/mehmet-turac/everything-openai-codex/releases).
+See the full changelog in [Releases](https://github.com/mturac/everything-openai-codex/releases).
 
 ---
 
@@ -265,7 +297,7 @@ npx ecc install --profile minimal --target codex --with capability:machine-learn
 
 ```bash
 # Add marketplace
-/plugin marketplace add https://github.com/mehmet-turac/everything-openai-codex
+/plugin marketplace add https://github.com/mturac/everything-openai-codex
 
 # Install plugin
 /plugin install ecc@ecc
@@ -275,7 +307,7 @@ npx ecc install --profile minimal --target codex --with capability:machine-learn
 
 ecc now has three public identifiers, and they are not interchangeable:
 
-- GitHub source repo: `mehmet-turac/everything-openai-codex`
+- GitHub source repo: `mturac/everything-openai-codex`
 - Codex marketplace/plugin identifier: `ecc@ecc`
 - npm package: `ecc-universal`
 
@@ -295,7 +327,7 @@ This is intentional. OpenAI marketplace/plugin installs are keyed by a canonical
 
 ```bash
 # Clone the repo first
-git clone https://github.com/mehmet-turac/everything-openai-codex.git
+git clone https://github.com/mturac/everything-openai-codex.git
 cd Everything OpenAI Codex
 
 # Install dependencies (pick your package manager)
@@ -392,7 +424,7 @@ If you stacked methods, clean up in this order:
 /plugin list ecc@ecc
 ```
 
-**That's it!** You now have access to 60 agents, 231 skills, and 75 legacy command shims.
+**That's it!** You now have access to 60 agents, 230 skills, and 75 legacy command shims.
 
 ### Dashboard GUI
 
@@ -491,13 +523,12 @@ Windows PowerShell:
 
 ## What's Inside
 
-This repo is a **OpenAI Codex plugin** - install it directly or copy components manually.
+This repo is an **OpenAI Codex plugin** - install it directly or copy components manually.
 
 ```
 Everything OpenAI Codex/
-|-- .codex-plugin/   # Plugin and marketplace manifests
+|-- .codex-plugin/   # Plugin manifest
 |   |-- plugin.json         # Plugin metadata and component paths
-|   |-- marketplace.json    # Marketplace catalog for /plugin marketplace add
 |
 |-- agents/           # 60 specialized subagents for delegation
 |   |-- planner.md           # Feature implementation planning
@@ -703,7 +734,9 @@ Everything OpenAI Codex/
 |   |-- images/
 |       |-- ecc-logo.png
 |
-|-- marketplace.json  # Self-hosted marketplace config (for /plugin marketplace add)
+|-- .agents/
+    |-- plugins/
+        |-- marketplace.json  # Self-hosted marketplace config (for /plugin marketplace add)
 ```
 
 ---
@@ -812,7 +845,7 @@ OpenAI Codex v2.1+ **automatically loads** `hooks/hooks.json` from any installed
 Duplicate hooks file detected: ./hooks/hooks.json resolves to already-loaded file
 ```
 
-**History:** This has caused repeated fix/revert cycles in this repo ([#29](https://github.com/mehmet-turac/everything-openai-codex/issues/29), [#52](https://github.com/mehmet-turac/everything-openai-codex/issues/52), [#103](https://github.com/mehmet-turac/everything-openai-codex/issues/103)). The behavior changed between OpenAI Codex versions, leading to confusion. We now have a regression test to prevent this from being reintroduced.
+**History:** This has caused repeated fix/revert cycles in this repo ([#29](https://github.com/mturac/everything-openai-codex/issues/29), [#52](https://github.com/mturac/everything-openai-codex/issues/52), [#103](https://github.com/mturac/everything-openai-codex/issues/103)). The behavior changed between OpenAI Codex versions, leading to confusion. We now have a regression test to prevent this from being reintroduced.
 
 ---
 
@@ -824,7 +857,7 @@ The easiest way to use this repo - install as a OpenAI Codex plugin:
 
 ```bash
 # Add this repo as a marketplace
-/plugin marketplace add https://github.com/mehmet-turac/everything-openai-codex
+/plugin marketplace add https://github.com/mturac/everything-openai-codex
 
 # Install the plugin
 /plugin install ecc@ecc
@@ -838,7 +871,7 @@ Or add directly to your `~/.codex/settings.json`:
     "ecc": {
       "source": {
         "source": "github",
-        "repo": "mehmet-turac/everything-openai-codex"
+        "repo": "mturac/everything-openai-codex"
       }
     }
   },
@@ -854,7 +887,7 @@ This gives you instant access to all commands, agents, skills, and hooks.
 >
 > ```bash
 > # Clone the repo first
-> git clone https://github.com/mehmet-turac/everything-openai-codex.git
+> git clone https://github.com/mturac/everything-openai-codex.git
 >
 > # Option A: User-level rules (applies to all projects)
 > mkdir -p ~/.codex/rules/ecc
@@ -878,7 +911,7 @@ If you prefer manual control over what's installed:
 
 ```bash
 # Clone the repo
-git clone https://github.com/mehmet-turac/everything-openai-codex.git
+git clone https://github.com/mturac/everything-openai-codex.git
 
 # Copy agents to your Codex config
 cp Everything OpenAI Codex/agents/*.md ~/.codex/agents/
@@ -1083,7 +1116,7 @@ This shows all available agents, commands, and skills from the plugin.
 <details>
 <summary><b>My hooks aren't working / I see "Duplicate hooks file" errors</b></summary>
 
-This is the most common issue. **Do NOT add a `"hooks"` field to `.codex-plugin/plugin.json`.** OpenAI Codex v2.1+ automatically loads `hooks/hooks.json` from installed plugins. Explicitly declaring it causes duplicate detection errors. See [#29](https://github.com/mehmet-turac/everything-openai-codex/issues/29), [#52](https://github.com/mehmet-turac/everything-openai-codex/issues/52), [#103](https://github.com/mehmet-turac/everything-openai-codex/issues/103).
+This is the most common issue. **Do NOT add a `"hooks"` field to `.codex-plugin/plugin.json`.** OpenAI Codex v2.1+ automatically loads `hooks/hooks.json` from installed plugins. Explicitly declaring it causes duplicate detection errors. See [#29](https://github.com/mturac/everything-openai-codex/issues/29), [#52](https://github.com/mturac/everything-openai-codex/issues/52), [#103](https://github.com/mturac/everything-openai-codex/issues/103).
 </details>
 
 <details>
@@ -1145,7 +1178,7 @@ Yes. ecc is cross-platform:
 - **Cursor**: Pre-translated configs in `.cursor/`. See [Cursor IDE Support](#cursor-ide-support).
 - **Gemini CLI**: Experimental project-local support via `.gemini/GEMINI.md` and shared installer plumbing.
 - **OpenCode**: Full plugin support in `.opencode/`. See [OpenCode Support](#opencode-support).
-- **Codex**: First-class support for both macOS app and CLI, with adapter drift guards and SessionStart fallback. See PR [#257](https://github.com/mehmet-turac/everything-openai-codex/pull/257).
+- **Codex**: First-class support for both macOS app and CLI, with adapter drift guards and SessionStart fallback. See PR [#257](https://github.com/mturac/everything-openai-codex/pull/257).
 - **GitHub Copilot (VS Code)**: Instruction and prompt layer via `.github/copilot-instructions.md`, `.vscode/settings.json`, and `.github/prompts/`. See [GitHub Copilot Support](#github-copilot-support).
 - **Antigravity**: Tightly integrated setup for workflows, skills, and flattened rules in `.agent/`. See [Antigravity Guide](docs/ANTIGRAVITY-GUIDE.md).
 - **JoyCode / CodeBuddy**: Project-local selective install adapters for commands, agents, skills, and flattened rules. See [JoyCode Adapter Guide](docs/JOYCODE-GUIDE.md).
@@ -1303,6 +1336,10 @@ The sync script safely merges ecc MCP servers into your existing `~/.codex/confi
 
 For Context7, ecc uses the canonical Codex section name `[mcp_servers.context7]` while still launching the `@upstash/context7-mcp` package. If you already have a legacy `[mcp_servers.context7-mcp]` entry, `--update-mcp` migrates it to the canonical section name.
 
+Codex install profiles:
+- **Safe default plugin** — `.codex-plugin/plugin.json` keeps `mcpServers` empty so plugin install does not auto-load broad external tools or create overlong provider tool names. Use this for public/plugin-directory installs.
+- **Full MCP profile** — copy `.codex/config.toml` or run `bash scripts/sync-ecc-to-codex.sh --update-mcp` to install the curated MCP set from `.mcp.json`/Codex config, including GitHub, Context7, OpenAI Docs, Exa, Memory, Playwright, and Sequential Thinking.
+
 Codex macOS app:
 - Open this repository as your workspace.
 - The root `AGENTS.md` is auto-detected.
@@ -1317,7 +1354,7 @@ Codex macOS app:
 | Config | 1 | `.codex/config.toml` — top-level approvals/sandbox/web_search, MCP servers, notifications, profiles |
 | AGENTS.md | 2 | Root (universal) + `.codex/AGENTS.md` (Codex-specific supplement) |
 | Skills | 32 | `.agents/skills/` — SKILL.md + agents/openai.yaml per skill |
-| MCP Servers | 6 | GitHub, Context7, Exa, Memory, Playwright, Sequential Thinking (7 with Supabase via `--update-mcp` sync) |
+| MCP Servers | 7 | GitHub, Context7, OpenAI Docs, Exa, Memory, Playwright, Sequential Thinking (8 with Supabase via `--update-mcp` sync) |
 | Profiles | 2 | `strict` (read-only sandbox) and `yolo` (full auto-approve) |
 | Agent Roles | 3 | `.codex/agents/` — explorer, reviewer, docs-researcher |
 
@@ -1423,7 +1460,7 @@ The configuration is automatically detected from `.opencode/opencode.json`.
 |---------|-------------|----------|--------|
 | Agents | PASS: 60 agents | PASS: 12 agents | **OpenAI Codex leads** |
 | Commands | PASS: 75 commands | PASS: 35 commands | **OpenAI Codex leads** |
-| Skills | PASS: 231 skills | PASS: 37 skills | **OpenAI Codex leads** |
+| Skills | PASS: 230 skills | PASS: 37 skills | **OpenAI Codex leads** |
 | Hooks | PASS: 8 event types | PASS: 11 events | **OpenCode has more!** |
 | Rules | PASS: 29 rules | PASS: 13 instructions | **OpenAI Codex leads** |
 | MCP Servers | PASS: 14 servers | PASS: Full | **Full parity** |
@@ -1585,7 +1622,7 @@ ecc is the **first plugin to maximize every major AI coding tool**. Here's how e
 |---------|------------|------------|-----------|----------|----------------|
 | **Agents** | 60 | Shared (AGENTS.md) | Shared (AGENTS.md) | 12 | N/A |
 | **Commands** | 75 | Shared | Instruction-based | 35 | 6 prompts |
-| **Skills** | 231 | Shared | 10 (native format) | 37 | Via instructions |
+| **Skills** | 230 | Shared | 10 (native format) | 37 | Via instructions |
 | **Hook Events** | 8 types | 15 types | None yet | 11 types | None |
 | **Hook Scripts** | 20+ scripts | 16 scripts (DRY adapter) | N/A | Plugin hooks | N/A |
 | **Rules** | 34 (common + lang) | 34 (YAML frontmatter) | Instruction-based | 13 instructions | 1 always-on file |
@@ -1601,13 +1638,13 @@ ecc is the **first plugin to maximize every major AI coding tool**. Here's how e
 - **AGENTS.md** at root is the universal cross-tool file (read by OpenAI Codex, Cursor, Codex, and OpenCode — GitHub Copilot uses `.github/copilot-instructions.md` instead)
 - **DRY adapter pattern** lets Cursor reuse OpenAI Codex's hook scripts without duplication
 - **Skills format** (SKILL.md with YAML frontmatter) works across OpenAI Codex, Codex, and OpenCode
-- Codex's lack of hooks is compensated by `AGENTS.md`, optional `model_instructions_file` overrides, and sandbox permissions
+- Codex hooks are supported and enabled through `hooks/hooks.json`; plugin-bundled hooks require `features.plugin_hooks = true`, while `AGENTS.md` and sandbox permissions remain the instruction-layer fallback
 
 ---
 
 ## Background
 
-I've been using OpenAI Codex since the experimental rollout. Won the OpenAI x Forum Ventures hackathon in Sep 2025 with [@DRodriguezFX](https://x.com/DRodriguezFX) — built [zenith.chat](https://zenith.chat) entirely using OpenAI Codex.
+I've been using OpenAI Codex since the experimental rollout and have been turning repeated production workflows into reusable ecc skills, hooks, rules, and install profiles.
 
 These configs are battle-tested across multiple production applications.
 
@@ -1738,7 +1775,7 @@ This project is free and open source. Sponsors help keep it maintained and growi
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=mehmet-turac/everything-openai-codex&type=Date)](https://star-history.com/#mehmet-turac/everything-openai-codex&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=mturac/everything-openai-codex&type=Date)](https://star-history.com/#mturac/everything-openai-codex&Date)
 
 ---
 

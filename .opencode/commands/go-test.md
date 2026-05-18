@@ -1,6 +1,6 @@
 ---
 description: Go TDD workflow with table-driven tests
-agent: Everything OpenAI Codex:tdd-guide
+agent: everything-openai-codex:tdd-guide
 subtask: true
 ---
 

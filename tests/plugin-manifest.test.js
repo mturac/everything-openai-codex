@@ -1,9 +1,8 @@
 /**
  * Tests for plugin manifests:
  *   - .codex-plugin/plugin.json (OpenAI Codex plugin)
- *   - .codex-plugin/plugin.json (Codex native plugin)
- *   - .mcp.json (MCP server config at plugin root)
  *   - .agents/plugins/marketplace.json (Codex marketplace discovery)
+ *   - .mcp.json (MCP server config at plugin root)
  *
  * Enforces rules from:
  *   - .codex-plugin/PLUGIN_SCHEMA_NOTES.md (OpenAI Codex validator rules)
@@ -190,7 +189,6 @@ test('docs/zh-CN/README.md latest release heading matches package.json', () => {
 console.log('\n=== .codex-plugin/plugin.json ===\n');
 
 const codexPluginPath = path.join(repoRoot, '.codex-plugin', 'plugin.json');
-const codexMarketplacePath = path.join(repoRoot, '.codex-plugin', 'marketplace.json');
 
 test('codex plugin.json exists', () => {
   assert.ok(fs.existsSync(codexPluginPath), 'Expected .codex-plugin/plugin.json to exist');
@@ -226,7 +224,7 @@ test('codex plugin.json commands is an array', () => {
 });
 
 test('codex plugin.json disables bundled MCP servers for provider tool-name compatibility', () => {
-  const legacyPluginName = 'everything-OpenAI Codex';
+  const legacyPluginName = 'everything-openai-codex';
   const reportedOverlongToolName = `mcp__plugin_${legacyPluginName}_github__create_pull_request_review`;
 
   assert.ok(
@@ -251,13 +249,15 @@ test('codex plugin.json does NOT have explicit hooks declaration', () => {
   );
 });
 
-console.log('\n=== .codex-plugin/marketplace.json ===\n');
+console.log('\n=== .agents/plugins/marketplace.json ===\n');
 
-test('codex marketplace.json exists', () => {
-  assert.ok(fs.existsSync(codexMarketplacePath), 'Expected .codex-plugin/marketplace.json to exist');
+const agentsMarketplacePath = path.join(repoRoot, '.agents', 'plugins', 'marketplace.json');
+
+test('marketplace.json exists at .agents/plugins/', () => {
+  assert.ok(fs.existsSync(agentsMarketplacePath), 'Expected .agents/plugins/marketplace.json to exist');
 });
 
-const codexMarketplace = loadJsonObject(codexMarketplacePath, '.codex-plugin/marketplace.json');
+const codexMarketplace = loadJsonObject(agentsMarketplacePath, '.agents/plugins/marketplace.json');
 
 test('codex marketplace.json keeps only Codex-supported top-level keys', () => {
   const unsupportedTopLevelKeys = ['$schema', 'description'];
@@ -277,73 +277,6 @@ test('codex marketplace.json has plugins array with the published plugin entry',
 
 test('codex marketplace.json plugin version matches package.json', () => {
   assert.strictEqual(codexMarketplace.plugins[0].version, expectedVersion);
-});
-
-// ── Codex plugin manifest ─────────────────────────────────────────────────────
-// Per official docs: https://platform.openai.com/docs/codex/plugins
-// - .codex-plugin/plugin.json is the required manifest
-// - skills, mcpServers, apps are STRING paths relative to plugin root (not arrays)
-// - .mcp.json must be at plugin root (NOT inside .codex-plugin/)
-console.log('\n=== .codex-plugin/plugin.json ===\n');
-
-const codexPluginPath = path.join(repoRoot, '.codex-plugin', 'plugin.json');
-
-test('codex plugin.json exists', () => {
-  assert.ok(fs.existsSync(codexPluginPath), 'Expected .codex-plugin/plugin.json to exist');
-});
-
-const codexPlugin = loadJsonObject(codexPluginPath, '.codex-plugin/plugin.json');
-
-test('codex plugin.json has name field', () => {
-  assert.ok(codexPlugin.name, 'Expected name field');
-});
-
-test('codex plugin.json uses short plugin slug', () => {
-  assert.strictEqual(codexPlugin.name, 'ecc');
-});
-
-test('codex plugin.json has version field', () => {
-  assert.ok(codexPlugin.version, 'Expected version field');
-});
-
-test('codex plugin.json version matches package.json', () => {
-  assert.strictEqual(codexPlugin.version, expectedVersion);
-});
-
-test('codex plugin.json skills is a string (not array) per official spec', () => {
-  assert.strictEqual(
-    typeof codexPlugin.skills,
-    'string',
-    'skills must be a string path per Codex official docs, not an array',
-  );
-});
-
-test('codex plugin.json mcpServers is a string path (not array) per official spec', () => {
-  assert.strictEqual(
-    typeof codexPlugin.mcpServers,
-    'string',
-    'mcpServers must be a string path per Codex official docs',
-  );
-});
-
-test('codex plugin.json mcpServers exactly matches "./.mcp.json"', () => {
-  assert.strictEqual(
-    codexPlugin.mcpServers,
-    './.mcp.json',
-    'mcpServers must point exactly to "./.mcp.json" per official docs',
-  );
-  const mcpPath = path.join(repoRoot, codexPlugin.mcpServers.replace(/^\.\//, ''));
-  assert.ok(
-    fs.existsSync(mcpPath),
-    `mcpServers file missing at plugin root: ${codexPlugin.mcpServers}`,
-  );
-});
-
-test('codex plugin.json has interface.displayName', () => {
-  assert.ok(
-    codexPlugin.interface && codexPlugin.interface.displayName,
-    'Expected interface.displayName for plugin directory presentation',
-  );
 });
 
 // ── .mcp.json at plugin root ──────────────────────────────────────────────────
@@ -373,12 +306,16 @@ test('.mcp.json includes at least github, context7, and exa servers', () => {
   const servers = Object.keys(mcpConfig.mcpServers);
   assert.ok(servers.includes('github'), 'Expected github MCP server');
   assert.ok(servers.includes('context7'), 'Expected context7 MCP server');
+  assert.ok(servers.includes('openaiDeveloperDocs'), 'Expected OpenAI Docs MCP server');
   assert.ok(servers.includes('exa'), 'Expected exa MCP server');
 });
 
 test('.mcp.json declares exa as an http MCP server', () => {
   assert.strictEqual(mcpConfig.mcpServers.exa.type, 'http', 'Expected exa MCP server to declare type=http');
   assert.strictEqual(mcpConfig.mcpServers.exa.url, 'https://mcp.exa.ai/mcp', 'Expected exa MCP server URL to remain unchanged');
+  assert.strictEqual(mcpConfig.mcpServers.exa.tool_timeout_sec, 45, 'Expected exa MCP server to declare a tool timeout');
+  assert.strictEqual(mcpConfig.mcpServers.openaiDeveloperDocs.url, 'https://developers.openai.com/mcp', 'Expected OpenAI Docs MCP URL');
+  assert.deepStrictEqual(mcpConfig.mcpServers.openaiDeveloperDocs.enabled_tools, ['search', 'fetch'], 'Expected OpenAI Docs MCP tool allowlist');
 });
 
 // ── Codex marketplace file ────────────────────────────────────────────────────
@@ -482,7 +419,7 @@ test('user-facing docs do not use overlong legacy marketplace install commands',
   const offenders = [];
   for (const filePath of markdownFiles) {
     const source = fs.readFileSync(filePath, 'utf8');
-    if (/\/plugin\s+(install|list)\s+everything-OpenAI Codex(?:@everything-OpenAI Codex)?\b/.test(source)) {
+    if (/\/plugin\s+(install|list)\s+everything-openai-codex(?:@everything-openai-codex)?\b/.test(source)) {
       offenders.push(path.relative(repoRoot, filePath));
     }
   }
@@ -504,7 +441,7 @@ test('user-facing docs do not use the legacy non-URL marketplace add form', () =
   const offenders = [];
   for (const filePath of markdownFiles) {
     const source = fs.readFileSync(filePath, 'utf8');
-    if (source.includes('/plugin marketplace add mehmet-turac/everything-OpenAI Codex')) {
+    if (source.includes('/plugin marketplace add mehmet-turac/everything-openai-codex')) {
       offenders.push(path.relative(repoRoot, filePath));
     }
   }

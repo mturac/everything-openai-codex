@@ -208,7 +208,7 @@ So the rule is simple:
 
 ## Related Work
 
-- [Issue #1186](https://github.com/mehmet-turac/everything-openai-codex/issues/1186)
-- [Discussion #1077](https://github.com/mehmet-turac/everything-openai-codex/discussions/1077)
+- [Issue #1186](https://github.com/mturac/everything-openai-codex/issues/1186)
+- [Discussion #1077](https://github.com/mturac/everything-openai-codex/discussions/1077)
 - [Antigravity Guide](./ANTIGRAVITY-GUIDE.md)
 - [Troubleshooting](./TROUBLESHOOTING.md)

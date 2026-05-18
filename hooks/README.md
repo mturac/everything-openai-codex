@@ -186,7 +186,7 @@ For hooks that should not block the main flow (e.g., background analysis):
 {
   "type": "command",
   "command": "node my-slow-hook.js",
-  "async": true,
+  "async": false,
   "timeout": 30
 }
 ```

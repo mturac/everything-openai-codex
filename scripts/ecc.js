@@ -130,7 +130,7 @@ Examples:
   ecc sessions
   ecc sessions session-active --json
   ecc work-items upsert linear-ecc-20 --source linear --source-id ecc-20 --title "Review control-plane contract" --status blocked
-  ecc work-items sync-github --repo mehmet-turac/everything-OpenAI Codex
+  ecc work-items sync-github --repo mehmet-turac/everything-openai-codex
   ecc session-inspect codex:latest
   ecc loop-status --json
   ecc uninstall --target antigravity --dry-run

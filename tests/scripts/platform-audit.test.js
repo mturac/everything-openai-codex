@@ -31,7 +31,7 @@ function writeFile(rootDir, relativePath, content) {
 function seedRepo(rootDir, overrides = {}) {
   const files = {
     'package.json': JSON.stringify({
-      name: 'everything-OpenAI Codex',
+      name: 'everything-openai-codex',
       scripts: {
         'platform:audit': 'node scripts/platform-audit.js',
         'discussion:audit': 'node scripts/discussion-audit.js',
@@ -177,7 +177,7 @@ function runTests() {
         `--root=${rootDir}`,
         '--json',
         '--repo',
-        'mehmet-turac/everything-OpenAI Codex',
+        'mehmet-turac/everything-openai-codex',
         '--max-open-prs',
         '5',
         '--max-open-issues',
@@ -188,7 +188,7 @@ function runTests() {
 
       assert.strictEqual(parsed.format, 'json');
       assert.strictEqual(parsed.root, path.resolve(rootDir));
-      assert.deepStrictEqual(parsed.repos, ['mehmet-turac/everything-OpenAI Codex']);
+      assert.deepStrictEqual(parsed.repos, ['mehmet-turac/everything-openai-codex']);
       assert.strictEqual(parsed.thresholds.maxOpenPrs, 5);
       assert.strictEqual(parsed.thresholds.maxOpenIssues, 6);
       assert.deepStrictEqual(parsed.allowUntracked, ['docs/drafts/']);
@@ -256,12 +256,12 @@ function runTests() {
     try {
       seedRepo(projectRoot);
       const shimPath = writeGhShim(projectRoot, {
-        'pr list --repo mehmet-turac/everything-OpenAI Codex --state open --json number,title,isDraft,mergeStateStatus,updatedAt,url,author': [],
-        'issue list --repo mehmet-turac/everything-OpenAI Codex --state open --json number,title,updatedAt,url,author,labels': [],
-        [discussionEnabledGhKey('mehmet-turac', 'everything-OpenAI Codex')]: {
+        'pr list --repo mehmet-turac/everything-openai-codex --state open --json number,title,isDraft,mergeStateStatus,updatedAt,url,author': [],
+        'issue list --repo mehmet-turac/everything-openai-codex --state open --json number,title,updatedAt,url,author,labels': [],
+        [discussionEnabledGhKey('mehmet-turac', 'everything-openai-codex')]: {
           data: { repository: { hasDiscussionsEnabled: true } }
         },
-        [discussionGhKey('mehmet-turac', 'everything-OpenAI Codex')]: {
+        [discussionGhKey('mehmet-turac', 'everything-openai-codex')]: {
           data: {
             repository: {
               hasDiscussionsEnabled: true,
@@ -289,7 +289,7 @@ function runTests() {
         '--format=json',
         `--root=${projectRoot}`,
         '--repo',
-        'mehmet-turac/everything-OpenAI Codex'
+        'mehmet-turac/everything-openai-codex'
       ], {
         cwd: projectRoot,
         env: {
@@ -325,12 +325,12 @@ function runTests() {
         author: { login: 'contributor' }
       }));
       const shimPath = writeGhShim(projectRoot, {
-        'pr list --repo mehmet-turac/everything-OpenAI Codex --state open --json number,title,isDraft,mergeStateStatus,updatedAt,url,author': prs,
-        'issue list --repo mehmet-turac/everything-OpenAI Codex --state open --json number,title,updatedAt,url,author,labels': [],
-        [discussionEnabledGhKey('mehmet-turac', 'everything-OpenAI Codex')]: {
+        'pr list --repo mehmet-turac/everything-openai-codex --state open --json number,title,isDraft,mergeStateStatus,updatedAt,url,author': prs,
+        'issue list --repo mehmet-turac/everything-openai-codex --state open --json number,title,updatedAt,url,author,labels': [],
+        [discussionEnabledGhKey('mehmet-turac', 'everything-openai-codex')]: {
           data: { repository: { hasDiscussionsEnabled: true } }
         },
-        [discussionGhKey('mehmet-turac', 'everything-OpenAI Codex')]: {
+        [discussionGhKey('mehmet-turac', 'everything-openai-codex')]: {
           data: {
             repository: {
               hasDiscussionsEnabled: true,
@@ -358,7 +358,7 @@ function runTests() {
         '--format=json',
         `--root=${projectRoot}`,
         '--repo',
-        'mehmet-turac/everything-OpenAI Codex',
+        'mehmet-turac/everything-openai-codex',
         '--max-open-prs',
         '2'
       ], {

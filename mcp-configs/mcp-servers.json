@@ -2,7 +2,9 @@
   "mcpServers": {
     "jira": {
       "command": "uvx",
-      "args": ["mcp-atlassian==0.21.0"],
+      "args": [
+        "mcp-atlassian==0.21.0"
+      ],
       "env": {
         "JIRA_URL": "YOUR_JIRA_URL_HERE",
         "JIRA_EMAIL": "YOUR_JIRA_EMAIL_HERE",
@@ -12,15 +14,27 @@
     },
     "github": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
       "env": {
         "GITHUB_PERSONAL_ACCESS_TOKEN": "YOUR_GITHUB_PAT_HERE"
       },
-      "description": "GitHub operations - PRs, issues, repos"
+      "description": "GitHub operations - PRs, issues, repos",
+      "startup_timeout_sec": 30,
+      "tool_timeout_sec": 60,
+      "disabled_tools": [
+        "create_or_update_file",
+        "push_files"
+      ]
     },
     "firecrawl": {
       "command": "npx",
-      "args": ["-y", "firecrawl-mcp"],
+      "args": [
+        "-y",
+        "firecrawl-mcp"
+      ],
       "env": {
         "FIRECRAWL_API_KEY": "YOUR_FIRECRAWL_KEY_HERE"
       },
@@ -28,28 +42,52 @@
     },
     "supabase": {
       "command": "npx",
-      "args": ["-y", "@supabase/mcp-server-supabase@latest", "--project-ref=YOUR_PROJECT_REF"],
+      "args": [
+        "-y",
+        "@supabase/mcp-server-supabase@latest",
+        "--project-ref=YOUR_PROJECT_REF"
+      ],
       "description": "Supabase database operations"
     },
     "memory": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-memory"],
-      "description": "Persistent memory across sessions"
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ],
+      "description": "Persistent memory across sessions",
+      "startup_timeout_sec": 30,
+      "tool_timeout_sec": 30,
+      "enabled_tools": [
+        "read_graph",
+        "search_nodes",
+        "open_nodes"
+      ]
     },
     "omega-memory": {
       "command": "uvx",
-      "args": ["omega-memory", "serve"],
+      "args": [
+        "omega-memory",
+        "serve"
+      ],
       "description": "Persistent agent memory with semantic search, multi-agent coordination, and knowledge graphs — run via uvx (richer than the basic memory store)"
     },
     "longhand": {
       "command": "longhand",
-      "args": ["mcp-server"],
+      "args": [
+        "mcp-server"
+      ],
       "description": "Lossless OpenAI Codex session history — indexes raw tool calls, file edits, and thinking blocks from ~/.codex/projects/*.jsonl into local SQLite + ChromaDB before OpenAI Codex rotates them. Complements memory/omega-memory (synthesized) with verbatim recall. Install: pip install longhand && longhand setup"
     },
     "sequential-thinking": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
-      "description": "Chain-of-thought reasoning"
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+      "description": "Chain-of-thought reasoning",
+      "startup_timeout_sec": 30,
+      "tool_timeout_sec": 60
     },
     "vercel": {
       "type": "http",
@@ -58,7 +96,10 @@
     },
     "railway": {
       "command": "npx",
-      "args": ["-y", "@railway/mcp-server"],
+      "args": [
+        "-y",
+        "@railway/mcp-server"
+      ],
       "description": "Railway deployments"
     },
     "cloudflare-docs": {
@@ -88,7 +129,10 @@
     },
     "exa-web-search": {
       "command": "npx",
-      "args": ["-y", "exa-mcp-server"],
+      "args": [
+        "-y",
+        "exa-mcp-server"
+      ],
       "env": {
         "EXA_API_KEY": "YOUR_EXA_API_KEY_HERE"
       },
@@ -96,27 +140,47 @@
     },
     "context7": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp@latest"],
-      "description": "Live documentation lookup — use with /docs command and documentation-lookup skill (resolve-library-id, query-docs)."
+      "args": [
+        "-y",
+        "@upstash/context7-mcp@latest"
+      ],
+      "description": "Live documentation lookup — use with /docs command and documentation-lookup skill (resolve-library-id, query-docs).",
+      "startup_timeout_sec": 30,
+      "tool_timeout_sec": 45
     },
     "magic": {
       "command": "npx",
-      "args": ["-y", "@magicuidesign/mcp@latest"],
+      "args": [
+        "-y",
+        "@magicuidesign/mcp@latest"
+      ],
       "description": "Magic UI components"
     },
     "filesystem": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/path/to/your/projects"],
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/path/to/your/projects"
+      ],
       "description": "Filesystem operations (set your path)"
     },
     "playwright": {
       "command": "npx",
-      "args": ["-y", "@playwright/mcp", "--browser", "chrome"],
+      "args": [
+        "-y",
+        "@playwright/mcp",
+        "--browser",
+        "chrome"
+      ],
       "description": "Browser automation and testing via Playwright"
     },
     "fal-ai": {
       "command": "npx",
-      "args": ["-y", "fal-ai-mcp-server"],
+      "args": [
+        "-y",
+        "fal-ai-mcp-server"
+      ],
       "env": {
         "FAL_KEY": "YOUR_FAL_KEY_HERE"
       },
@@ -124,7 +188,10 @@
     },
     "browserbase": {
       "command": "npx",
-      "args": ["-y", "@browserbasehq/mcp-server-browserbase"],
+      "args": [
+        "-y",
+        "@browserbasehq/mcp-server-browserbase"
+      ],
       "env": {
         "BROWSERBASE_API_KEY": "YOUR_BROWSERBASE_KEY_HERE"
       },
@@ -145,7 +212,10 @@
     },
     "token-optimizer": {
       "command": "npx",
-      "args": ["-y", "token-optimizer-mcp"],
+      "args": [
+        "-y",
+        "token-optimizer-mcp"
+      ],
       "description": "Token optimization for 95%+ context reduction via content deduplication and compression"
     },
     "laraplugins": {
@@ -155,7 +225,10 @@
     },
     "confluence": {
       "command": "npx",
-      "args": ["-y", "confluence-mcp-server"],
+      "args": [
+        "-y",
+        "confluence-mcp-server"
+      ],
       "env": {
         "CONFLUENCE_BASE_URL": "YOUR_CONFLUENCE_URL_HERE",
         "CONFLUENCE_EMAIL": "YOUR_EMAIL_HERE",
@@ -165,11 +238,26 @@
     },
     "evalview": {
       "command": "python3",
-      "args": ["-m", "evalview", "mcp", "serve"],
+      "args": [
+        "-m",
+        "evalview",
+        "mcp",
+        "serve"
+      ],
       "env": {
         "OPENAI_API_KEY": "YOUR_OPENAI_API_KEY_HERE"
       },
       "description": "AI agent regression testing — snapshot behavior, detect regressions in tool calls and output quality. 8 tools: create_test, run_snapshot, run_check, list_tests, validate_skill, generate_skill_tests, run_skill_test, generate_visual_report. API key optional — deterministic checks (tool diff, output hash) work without it. Install: pip install \"evalview>=0.5,<1\""
+    },
+    "openaiDeveloperDocs": {
+      "type": "http",
+      "url": "https://developers.openai.com/mcp",
+      "tool_timeout_sec": 30,
+      "enabled_tools": [
+        "search",
+        "fetch"
+      ],
+      "description": "OpenAI developer documentation for Codex, OpenAI API, Apps SDK, and platform docs"
     }
   },
   "_comments": {

@@ -1,6 +1,6 @@
 ---
 description: Run evaluation against acceptance criteria
-agent: Everything OpenAI Codex:build
+agent: everything-openai-codex:build
 ---
 
 # Eval Command

@@ -41,7 +41,7 @@ function freezeRecord(record) {
 
 const ADAPTER_RECORDS = Object.freeze([
   {
-    id: 'codex',
+    id: 'openai-codex',
     harness: 'OpenAI Codex',
     state: 'Native',
     supported_assets: [

@@ -28,7 +28,7 @@ function writeFile(rootDir, relativePath, content) {
 function seedRepo(rootDir, overrides = {}) {
   const files = {
     'package.json': JSON.stringify({
-      name: 'everything-OpenAI Codex',
+      name: 'everything-openai-codex',
       files: [
         'scripts/observability-readiness.js',
         'scripts/operator-readiness-dashboard.js',
@@ -207,7 +207,7 @@ function runTests() {
         '--allow-untracked',
         'docs/drafts/',
         '--repo',
-        'mehmet-turac/everything-OpenAI Codex',
+        'mehmet-turac/everything-openai-codex',
         '--generated-at',
         '2026-05-15T00:00:00.000Z'
       ]);
@@ -216,7 +216,7 @@ function runTests() {
       assert.strictEqual(parsed.root, path.resolve(rootDir));
       assert.strictEqual(parsed.skipGithub, true);
       assert.deepStrictEqual(parsed.allowUntracked, ['docs/drafts/']);
-      assert.deepStrictEqual(parsed.repos, ['mehmet-turac/everything-OpenAI Codex']);
+      assert.deepStrictEqual(parsed.repos, ['mehmet-turac/everything-openai-codex']);
       assert.strictEqual(parsed.generatedAt, '2026-05-15T00:00:00.000Z');
 
       assert.throws(() => parseArgs(['node', 'script', '--format', 'xml']), /Invalid format/);

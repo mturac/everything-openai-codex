@@ -23,7 +23,7 @@ try {
   process.exit(1);
 }
 
-const ROOT_KEYS = ['approval_policy', 'sandbox_mode', 'web_search', 'notify', 'persistent_instructions'];
+const ROOT_KEYS = ['approval_policy', 'sandbox_mode', 'default_permissions', 'web_search', 'notify', 'instructions'];
 const TABLE_PATHS = [
   'features',
   'profiles.strict',
@@ -198,6 +198,18 @@ function stringifyTable(tablePath, value) {
   return TOML.stringify(snippet).trim();
 }
 
+function applyCurrentCodexBaseline(referenceConfig) {
+  referenceConfig.default_permissions = referenceConfig.default_permissions || ':workspace';
+  referenceConfig.web_search = 'cached';
+  referenceConfig.features = {
+    ...(referenceConfig.features || {}),
+    hooks: true,
+    plugin_hooks: true,
+    multi_agent: true,
+  };
+  return referenceConfig;
+}
+
 function stringifyTableKeys(tableValue) {
   const lines = [];
   for (const [key, value] of Object.entries(tableValue)) {
@@ -237,7 +249,7 @@ function main() {
   let referenceConfig;
   try {
     targetConfig = TOML.parse(raw);
-    referenceConfig = TOML.parse(referenceRaw);
+    referenceConfig = applyCurrentCodexBaseline(TOML.parse(referenceRaw));
   } catch (error) {
     console.error(`[ecc-codex] Failed to parse TOML: ${error.message}`);
     process.exit(1);

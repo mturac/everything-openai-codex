@@ -36,7 +36,7 @@ for (const relativePath of publicInstallDocs) {
   const content = fs.readFileSync(path.join(repoRoot, relativePath), 'utf8');
 
   test(`${relativePath} does not use the overlong legacy marketplace plugin identifier`, () => {
-    assert.ok(!content.includes('everything-OpenAI Codex@everything-OpenAI Codex'));
+    assert.ok(!content.includes('everything-openai-codex@everything-openai-codex'));
   });
 
   test(`${relativePath} documents the short marketplace plugin identifier`, () => {
@@ -86,7 +86,7 @@ for (const relativePath of publicCommandNamespaceDocs) {
 
   test(`${relativePath} uses the canonical plugin command namespace`, () => {
     assert.ok(
-      !content.includes('/everything-OpenAI Codex:'),
+      !content.includes('/everything-openai-codex:'),
       'Expected docs not to advertise the overlong legacy plugin command namespace'
     );
     assert.ok(

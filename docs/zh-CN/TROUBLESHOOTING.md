@@ -282,7 +282,7 @@ codex --version
 # Requires OpenAI Codex 2.0+
 
 # Manual install (if marketplace fails)
-git clone https://github.com/mehmet-turac/everything-openai-codex.git
+git clone https://github.com/mturac/everything-openai-codex.git
 cp -r Everything OpenAI Codex ~/.codex/plugins/ecc
 ```
 
@@ -420,7 +420,7 @@ find ~/.codex/plugins -name "*.sh" -exec dos2unix {} \;
 
 如果您仍然遇到问题：
 
-1. **检查 GitHub Issues**：[github.com/mehmet-turac/everything-openai-codex/issues](https://github.com/mehmet-turac/everything-openai-codex/issues)
+1. **检查 GitHub Issues**：[github.com/mturac/everything-openai-codex/issues](https://github.com/mturac/everything-openai-codex/issues)
 2. **启用调试日志记录**：
    ```bash
    export CODEX_DEBUG=1

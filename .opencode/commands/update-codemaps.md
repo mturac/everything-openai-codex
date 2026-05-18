@@ -1,6 +1,6 @@
 ---
 description: Update codemaps for codebase navigation
-agent: Everything OpenAI Codex:doc-updater
+agent: everything-openai-codex:doc-updater
 subtask: true
 ---
 

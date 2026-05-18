@@ -10,7 +10,7 @@ description: 電気とガス調達、料金最適化、需要料金管理、再�
   demand charges, evaluating PPAs, or developing energy strategies.
 license: Apache-2.0
 version: 1.0.0
-homepage: https://github.com/mehmet-turac/everything-openai-codex
+homepage: https://github.com/mturac/everything-openai-codex
 origin: ecc
 metadata:
   author: evos

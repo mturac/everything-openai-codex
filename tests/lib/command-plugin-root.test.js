@@ -26,20 +26,20 @@ const skillHealthDoc = fs.readFileSync(path.join(__dirname, '..', '..', 'command
 test('sessions command uses shared inline resolver in all node scripts', () => {
   assert.strictEqual((sessionsDoc.match(/const _r = /g) || []).length, 6);
   assert.strictEqual((sessionsDoc.match(/\['marketplaces','ecc'\]/g) || []).length, 6);
-  assert.strictEqual((sessionsDoc.match(/\['marketplaces','everything-OpenAI Codex'\]/g) || []).length, 6);
-  assert.strictEqual((sessionsDoc.match(/\['ecc','everything-OpenAI Codex'\]/g) || []).length, 6);
+  assert.strictEqual((sessionsDoc.match(/\['marketplaces','everything-openai-codex'\]/g) || []).length, 6);
+  assert.strictEqual((sessionsDoc.match(/\['ecc','everything-openai-codex'\]/g) || []).length, 12);
 });
 
 test('skill-health command uses shared inline resolver in all shell snippets', () => {
   assert.strictEqual((skillHealthDoc.match(/var r=/g) || []).length, 3);
   assert.strictEqual((skillHealthDoc.match(/\['marketplaces','ecc'\]/g) || []).length, 3);
-  assert.strictEqual((skillHealthDoc.match(/\['marketplaces','everything-OpenAI Codex'\]/g) || []).length, 3);
-  assert.strictEqual((skillHealthDoc.match(/\['ecc','everything-OpenAI Codex'\]/g) || []).length, 3);
+  assert.strictEqual((skillHealthDoc.match(/\['marketplaces','everything-openai-codex'\]/g) || []).length, 3);
+  assert.strictEqual((skillHealthDoc.match(/\['ecc','everything-openai-codex'\]/g) || []).length, 6);
 });
 
 test('inline resolver covers current and legacy marketplace plugin roots', () => {
   assert.ok(INLINE_RESOLVE.includes('"marketplaces","ecc"'));
-  assert.ok(INLINE_RESOLVE.includes('"marketplaces","everything-OpenAI Codex"'));
+  assert.ok(INLINE_RESOLVE.includes('"marketplaces","everything-openai-codex"'));
 });
 
 console.log(`Passed: ${passed}`);

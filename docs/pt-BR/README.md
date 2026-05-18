@@ -2,9 +2,9 @@
 
 # Everything OpenAI Codex
 
-[![Stars](https://img.shields.io/github/stars/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/stargazers)
-[![Forks](https://img.shields.io/github/forks/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/network/members)
-[![Contributors](https://img.shields.io/github/contributors/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/graphs/contributors)
+[![Stars](https://img.shields.io/github/stars/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/stargazers)
+[![Forks](https://img.shields.io/github/forks/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/network/members)
+[![Contributors](https://img.shields.io/github/contributors/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/graphs/contributors)
 [![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-universal)
 [![npm ecc-agentshield](https://img.shields.io/npm/dw/ecc-agentshield?label=ecc-agentshield%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-agentshield)
 [![GitHub App Install](https://img.shields.io/badge/GitHub%20App-150%20installs-2ea44f?logo=github)](https://github.com/marketplace/ecc-tools)
@@ -121,7 +121,7 @@ Comece em menos de 2 minutos:
 
 ```bash
 # Adicionar marketplace
-/plugin marketplace add https://github.com/mehmet-turac/everything-openai-codex
+/plugin marketplace add https://github.com/mturac/everything-openai-codex
 
 # Instalar plugin
 /plugin install ecc@ecc
@@ -133,7 +133,7 @@ Comece em menos de 2 minutos:
 
 ```bash
 # Clone o repositório primeiro
-git clone https://github.com/mehmet-turac/everything-openai-codex.git
+git clone https://github.com/mturac/everything-openai-codex.git
 cd Everything OpenAI Codex
 
 # Instalar dependências (escolha seu gerenciador de pacotes)
@@ -310,7 +310,7 @@ codex --version
 
 ```bash
 # Adicionar este repositório como marketplace
-/plugin marketplace add https://github.com/mehmet-turac/everything-openai-codex
+/plugin marketplace add https://github.com/mturac/everything-openai-codex
 
 # Instalar o plugin
 /plugin install ecc@ecc
@@ -324,7 +324,7 @@ Ou adicione diretamente ao seu `~/.codex/settings.json`:
     "ecc": {
       "source": {
         "source": "github",
-        "repo": "mehmet-turac/everything-openai-codex"
+        "repo": "mturac/everything-openai-codex"
       }
     }
   },
@@ -338,7 +338,7 @@ Ou adicione diretamente ao seu `~/.codex/settings.json`:
 >
 > ```bash
 > # Clone o repositório primeiro
-> git clone https://github.com/mehmet-turac/everything-openai-codex.git
+> git clone https://github.com/mturac/everything-openai-codex.git
 >
 > # Opção A: Regras no nível do usuário (aplica a todos os projetos)
 > mkdir -p ~/.codex/rules
@@ -356,7 +356,7 @@ Ou adicione diretamente ao seu `~/.codex/settings.json`:
 
 ```bash
 # Clonar o repositório
-git clone https://github.com/mehmet-turac/everything-openai-codex.git
+git clone https://github.com/mturac/everything-openai-codex.git
 
 # Copiar agentes para sua config Codex
 cp Everything OpenAI Codex/agents/*.md ~/.codex/agents/

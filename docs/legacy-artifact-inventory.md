@@ -44,7 +44,7 @@ Expected result:
 
 ```text
 ../_legacy-documents-ecc-context-2026-04-30
-../_legacy-documents-ecc-Everything OpenAI Codex-2026-04-30
+../_legacy-documents-ecc-everything-openai-codex-2026-04-30
 ```
 
 ## Inventory
@@ -68,7 +68,7 @@ release assets.
 
 | Artifact | State | Evidence | Action |
 | --- | --- | --- | --- |
-| `../_legacy-documents-ecc-Everything OpenAI Codex-2026-04-30` | Archive/no-action | Separate legacy checkout on `fix/configure-ecc-skill-copy-paths-1483` at `b78ddbd0`; useful configure-ecc and install-path concepts have been superseded by current install docs and tests. The checkout also has untracked localized project-guidelines examples and a Finder duplicate `skills/social-graph-ranker/SKILL 2.md`. | Do not import wholesale. If configure-ecc copy-root regressions reappear, use this branch only as source-attributed archaeology and port through a fresh maintainer branch. Leave Finder duplicates out of source control. |
+| `../_legacy-documents-ecc-everything-openai-codex-2026-04-30` | Archive/no-action | Separate legacy checkout on `fix/configure-ecc-skill-copy-paths-1483` at `b78ddbd0`; useful configure-ecc and install-path concepts have been superseded by current install docs and tests. The checkout also has untracked localized project-guidelines examples and a Finder duplicate `skills/social-graph-ranker/SKILL 2.md`. | Do not import wholesale. If configure-ecc copy-root regressions reappear, use this branch only as source-attributed archaeology and port through a fresh maintainer branch. Leave Finder duplicates out of source control. |
 | `../_legacy-documents-ecc-context-2026-04-30` | Milestone-tracked | Archived `ecc-context` repo is four commits ahead of its origin and contains context, gameplan, knowledge, marketing, AgentShield, and ecc Tools planning material. It also contains local/private surfaces such as `.env` and local settings. | Keep as a sanitized extraction source for roadmap, launch, AgentShield, and ecc Tools work. Never copy raw context, secrets, personal paths, private settings, or unpublished drafts into this repo. Port only focused, public-safe content with attribution. |
 
 ## Workspace Legacy Import Rules

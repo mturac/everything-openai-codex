@@ -8,7 +8,7 @@ npm publication, plugin tag, marketplace submission, or announcement post.
 | Field | Evidence |
 | --- | --- |
 | Upstream main | `e6c16b40b80b3b323586c9e8341faa87c01a728c` |
-| Git remote | `https://github.com/mehmet-turac/everything-openai-codex.git` |
+| Git remote | `https://github.com/mturac/everything-openai-codex.git` |
 | Evidence scope | Current `main` after the Japanese and Thai localization merge batch, post-merge ja-JP markdown anchor repair, Zed install-target support, Mini Shai-Hulud/TanStack protection recheck, `gh-token-monitor` token-store IOC coverage, AgentShield policy-promotion Action output mirror, ecc-Tools hosted promotion judge audit-trace mirror, ecc-Tools billing announcement preflight mirror, ecc-Tools production Marketplace readback-state mirror, legacy-tail dashboard routing, Linear progress readiness, and the deterministic preview-pack smoke gate |
 | Local status caveat | `git status --short --branch` showed `## main...origin/main` plus unrelated untracked `docs/drafts/`; generated evidence files are committed after the source snapshot they describe |
 
@@ -26,7 +26,7 @@ final release commit with a strictly clean checkout before publishing.
 
 Tracked repositories in the platform audit were:
 
-- `mehmet-turac/everything-openai-codex`
+- `mturac/everything-openai-codex`
 - `mehmet-turac/agentshield`
 - `mehmet-turac/JARVIS`
 - `ecc-Tools/ecc-Tools`
@@ -83,7 +83,7 @@ Tracked repositories in the platform audit were:
 | ecc-Tools production Marketplace readback-state slice | ecc-Tools local `npm test` and `git diff --check`; Cloudflare `wrangler secret list` confirmed `INTERNAL_API_SECRET` exists by name; `wrangler kv key list` for `account-billing:` and `billing-state:` both returned empty lists; GitHub Actions `25998610438` | Local gates passed; remote CI completed successfully for `eb69412`; live announcement remains blocked until Marketplace purchase/webhook records populate KV |
 | GitHub queues | `gh pr list`; `gh issue list`; `node scripts/platform-audit.js --json --allow-untracked docs/drafts/` | 0 open PRs, 0 open issues, 0 discussion maintainer-touch gaps, 0 answerable Q&A missing accepted answers, 0 GitHub fetch errors, and platform audit ready across the tracked repo set after generated evidence is committed |
 | Operator dashboard | `npm run operator:dashboard -- --markdown --allow-untracked docs/drafts/ --write docs/releases/2.0.0-rc.1/operator-readiness-dashboard-2026-05-17.md` | Dashboard generated for `e6c16b40b80b3b323586c9e8341faa87c01a728c` with platform ready true, dashboard ready true, and macro publication gates still incomplete |
-| GitHub Actions CI | `gh run watch 26003629550 --repo mehmet-turac/everything-openai-codex --exit-status` | Completed successfully for `36d390aa7d733d458963a203b91998d3aec477b2`, including Validate Components, Lint, Security Scan, Coverage, and the full OS/Node/package-manager matrix |
+| GitHub Actions CI | `gh run watch 26003629550 --repo mturac/everything-openai-codex --exit-status` | Completed successfully for `36d390aa7d733d458963a203b91998d3aec477b2`, including Validate Components, Lint, Security Scan, Coverage, and the full OS/Node/package-manager matrix |
 
 ## Current Publication Blockers
 

@@ -451,5 +451,5 @@ Kurulumunuzu tarayın: [github.com/mehmet-turac/agentshield](https://github.com/
 > [OpenAI Codex'un Her Şeyine Dair Uzun Kılavuz](https://x.com/mehmet_turac/status/2014040193557471352)
 
 gidip yapın ve ayrıca bu repo'ları kaydedin:
-- [github.com/mehmet-turac/everything-openai-codex](https://github.com/mehmet-turac/everything-openai-codex)
+- [github.com/mturac/everything-openai-codex](https://github.com/mturac/everything-openai-codex)
 - [github.com/mehmet-turac/agentshield](https://github.com/mehmet-turac/agentshield)

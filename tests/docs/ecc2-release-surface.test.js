@@ -110,12 +110,12 @@ test('business launch copy stays aligned with the rc.1 public surface', () => {
     'business launch copy should stay pre-publication until release URLs exist'
   );
   assert.ok(
-    source.includes('https://github.com/mehmet-turac/everything-OpenAI Codex'),
+    source.includes('https://github.com/mehmet-turac/everything-openai-codex'),
     'business launch copy should include the public repo URL'
   );
   assert.ok(
     source.includes(
-      'https://github.com/mehmet-turac/everything-OpenAI Codex/blob/main/docs/releases/2.0.0-rc.1/release-notes.md'
+      'https://github.com/mehmet-turac/everything-openai-codex/blob/main/docs/releases/2.0.0-rc.1/release-notes.md'
     ),
     'business launch copy should link to the rc.1 release notes'
   );

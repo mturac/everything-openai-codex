@@ -1,6 +1,6 @@
 ---
 description: Rust TDD workflow with unit and property tests
-agent: Everything OpenAI Codex:tdd-guide
+agent: everything-openai-codex:tdd-guide
 subtask: true
 ---
 

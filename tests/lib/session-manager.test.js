@@ -95,7 +95,7 @@ function runTests() {
 **Date:** 2026-02-01
 **Started:** 10:30
 **Last Updated:** 14:45
-**Project:** everything-OpenAI Codex
+**Project:** everything-openai-codex
 **Branch:** feature/session-metadata
 **Worktree:** /tmp/ecc-worktree
 
@@ -118,7 +118,7 @@ src/main.ts
     assert.strictEqual(meta.date, '2026-02-01');
     assert.strictEqual(meta.started, '10:30');
     assert.strictEqual(meta.lastUpdated, '14:45');
-    assert.strictEqual(meta.project, 'everything-OpenAI Codex');
+    assert.strictEqual(meta.project, 'everything-openai-codex');
     assert.strictEqual(meta.branch, 'feature/session-metadata');
     assert.strictEqual(meta.worktree, '/tmp/ecc-worktree');
     assert.strictEqual(meta.completed.length, 2);

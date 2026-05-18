@@ -51,7 +51,7 @@ Comandos slash que invocam fluxos de trabalho úteis:
 
 ```bash
 # 1. Fork e clone
-gh repo fork mehmet-turac/everything-openai-codex --clone
+gh repo fork mturac/everything-openai-codex --clone
 cd Everything OpenAI Codex
 
 # 2. Criar uma branch
@@ -418,7 +418,7 @@ Como você testou isso.
 
 ## Dúvidas?
 
-- **Issues:** [github.com/mehmet-turac/everything-openai-codex/issues](https://github.com/mehmet-turac/everything-openai-codex/issues)
+- **Issues:** [github.com/mturac/everything-openai-codex/issues](https://github.com/mturac/everything-openai-codex/issues)
 - **X/Twitter:** [@mehmet_turac](https://x.com/mehmet_turac)
 
 ---

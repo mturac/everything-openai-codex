@@ -34,8 +34,8 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/mehmet-turac/everything-OpenAI Codex"
-Repository = "https://github.com/mehmet-turac/everything-OpenAI Codex"
+Homepage = "https://github.com/mturac/everything-openai-codex"
+Repository = "https://github.com/mturac/everything-openai-codex"
 
 [project.scripts]
 llm-select = "llm.cli.selector:main"

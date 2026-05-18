@@ -11,7 +11,7 @@ const {
 
 const SCHEMA_VERSION = 'ecc.discussion-audit.v1';
 const DEFAULT_REPOS = Object.freeze([
-  'mehmet-turac/everything-OpenAI Codex',
+  'mehmet-turac/everything-openai-codex',
   'mehmet-turac/agentshield',
   'mehmet-turac/JARVIS',
   'ecc-Tools/ecc-Tools',

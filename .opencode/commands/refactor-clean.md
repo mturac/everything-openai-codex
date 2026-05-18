@@ -1,6 +1,6 @@
 ---
 description: Remove dead code and consolidate duplicates
-agent: Everything OpenAI Codex:refactor-cleaner
+agent: everything-openai-codex:refactor-cleaner
 subtask: true
 ---
 

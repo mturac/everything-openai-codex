@@ -49,7 +49,7 @@
 
 ```bash
 # 1. 포크 및 클론
-gh repo fork mehmet-turac/everything-openai-codex --clone
+gh repo fork mturac/everything-openai-codex --clone
 cd Everything OpenAI Codex
 
 # 2. 브랜치 생성
@@ -445,7 +445,7 @@ docs: improve contributing guide
 
 ## 질문이 있으신가요?
 
-- **이슈:** [github.com/mehmet-turac/everything-openai-codex/issues](https://github.com/mehmet-turac/everything-openai-codex/issues)
+- **이슈:** [github.com/mturac/everything-openai-codex/issues](https://github.com/mturac/everything-openai-codex/issues)
 - **X/Twitter:** [@mehmet_turac](https://x.com/mehmet_turac)
 
 ---

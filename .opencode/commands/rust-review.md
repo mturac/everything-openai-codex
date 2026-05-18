@@ -1,6 +1,6 @@
 ---
 description: Rust code review for ownership, safety, and idiomatic patterns
-agent: Everything OpenAI Codex:rust-reviewer
+agent: everything-openai-codex:rust-reviewer
 subtask: true
 ---
 

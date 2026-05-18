@@ -53,7 +53,7 @@
 
 ```bash
 # 1. Fork とクローン
-gh repo fork mehmet-turac/everything-openai-codex --clone
+gh repo fork mturac/everything-openai-codex --clone
 cd Everything OpenAI Codex
 
 # 2. ブランチを作成
@@ -422,7 +422,7 @@ docs: improve contributing guide
 
 ## 質問がありますか？
 
-- **Issues:** [github.com/mehmet-turac/everything-openai-codex/issues](https://github.com/mehmet-turac/everything-openai-codex/issues)
+- **Issues:** [github.com/mturac/everything-openai-codex/issues](https://github.com/mturac/everything-openai-codex/issues)
 - **X/Twitter:** [@mehmet_turac](https://x.com/mehmet_turac)
 
 ---

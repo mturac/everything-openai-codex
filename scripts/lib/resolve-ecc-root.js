@@ -5,7 +5,7 @@ const path = require('path');
 const os = require('os');
 
 const CURRENT_PLUGIN_SLUG = 'ecc';
-const LEGACY_PLUGIN_SLUG = 'everything-OpenAI Codex';
+const LEGACY_PLUGIN_SLUG = 'everything-openai-codex';
 const CURRENT_PLUGIN_HANDLE = `${CURRENT_PLUGIN_SLUG}@${CURRENT_PLUGIN_SLUG}`;
 const LEGACY_PLUGIN_HANDLE = `${LEGACY_PLUGIN_SLUG}@${LEGACY_PLUGIN_SLUG}`;
 const PLUGIN_CACHE_SLUGS = [CURRENT_PLUGIN_SLUG, LEGACY_PLUGIN_SLUG];
@@ -13,6 +13,7 @@ const PLUGIN_ROOT_SEGMENTS = [
   [CURRENT_PLUGIN_SLUG],
   [CURRENT_PLUGIN_HANDLE],
   ['marketplaces', CURRENT_PLUGIN_SLUG],
+  [CURRENT_PLUGIN_SLUG, LEGACY_PLUGIN_SLUG],
   [LEGACY_PLUGIN_SLUG],
   [LEGACY_PLUGIN_HANDLE],
   ['marketplaces', LEGACY_PLUGIN_SLUG],
@@ -25,7 +26,7 @@ const PLUGIN_ROOT_SEGMENTS = [
  *   1. CODEX_PLUGIN_ROOT env var (set by OpenAI Codex for hooks, or by user)
  *   2. Standard install location (~/.codex/) — when scripts exist there
  *   3. Known plugin roots under ~/.codex/plugins/ (current + legacy slugs)
- *   4. Plugin cache auto-detection — scans ~/.codex/plugins/cache/{ecc,everything-OpenAI Codex}/
+ *   4. Plugin cache auto-detection — scans ~/.codex/plugins/cache/{ecc,everything-openai-codex}/
  *   5. Fallback to ~/.codex/ (original behaviour)
  *
  * @param {object} [options]

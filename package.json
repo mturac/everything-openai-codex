@@ -13,7 +13,6 @@
     "hooks",
     "mcp",
     "rules",
-    "openai-codex",
     "openai",
     "tdd",
     "code-review",
@@ -23,7 +22,6 @@
     "cursor",
     "cursor-ide",
     "opencode",
-    "openai-codex",
     "presentations",
     "slides"
   ],
@@ -34,17 +32,16 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mehmet-turac/everything-OpenAI Codex.git"
+    "url": "git+https://github.com/mturac/everything-openai-codex.git"
   },
-  "homepage": "https://github.com/mehmet-turac/everything-OpenAI Codex#readme",
+  "homepage": "https://github.com/mturac/everything-openai-codex#readme",
   "bugs": {
-    "url": "https://github.com/mehmet-turac/everything-OpenAI Codex/issues"
+    "url": "https://github.com/mturac/everything-openai-codex/issues"
   },
   "files": [
     ".agents/",
     ".codex-plugin/",
     ".codex/",
-    ".codex-plugin/",
     ".cursor/",
     ".gemini/",
     ".opencode/",
@@ -125,7 +122,6 @@
     "skills/blueprint/",
     "skills/brand-voice/",
     "skills/carrier-relationship-management/",
-    "skills/codex-devfleet/",
     "skills/cisco-ios-patterns/",
     "skills/clickhouse-io/",
     "skills/code-tour/",
@@ -298,7 +294,7 @@
     "ecc-install": "scripts/install-apply.js"
   },
   "scripts": {
-    "postinstall": "echo '\\n  ecc-universal installed!\\n  Run: npx ecc typescript\\n  Compat: npx ecc-install typescript\\n  Docs: https://github.com/mehmet-turac/everything-OpenAI Codex\\n'",
+    "postinstall": "echo '\\n  ecc-universal installed!\\n  Run: npx ecc typescript\\n  Compat: npx ecc-install typescript\\n  Docs: https://github.com/mturac/everything-openai-codex\\n'",
     "catalog:check": "node scripts/ci/catalog.js --text",
     "catalog:sync": "node scripts/ci/catalog.js --write --text",
     "command-registry:generate": "node scripts/ci/generate-command-registry.js",

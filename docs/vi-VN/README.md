@@ -4,13 +4,13 @@
 
 ![Everything OpenAI Codex - hệ thống hiệu năng cho AI agent harness](../../assets/hero.png)
 
-[![Stars](https://img.shields.io/github/stars/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/stargazers)
-[![Forks](https://img.shields.io/github/forks/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/network/members)
-[![Contributors](https://img.shields.io/github/contributors/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/graphs/contributors)
+[![Stars](https://img.shields.io/github/stars/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/stargazers)
+[![Forks](https://img.shields.io/github/forks/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/network/members)
+[![Contributors](https://img.shields.io/github/contributors/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/graphs/contributors)
 [![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-universal)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](../../LICENSE)
 
-> **140K+ sao** | **21K+ fork** | **170+ contributor** | **12+ hệ sinh thái ngôn ngữ** | **OpenAI Hackathon Winner**
+> **Các badge GitHub và npm ở trên là nguồn hiện tại.** ecc là hệ thống workflow Codex giấy phép MIT, bao phủ 12+ hệ sinh thái ngôn ngữ và có nhánh phát hành rc.1 công khai.
 
 ---
 
@@ -28,7 +28,7 @@
 
 ecc không chỉ là một bộ cấu hình. Repo này đóng gói agents, skills, hooks, rules, MCP config, selective install, kiểm tra bảo mật, và workflow vận hành cho OpenAI Codex, Codex, Cursor, OpenCode, Gemini và các harness agent khác.
 
-Trang tiếng Việt này là bản onboarding gọn, được phục hồi từ đóng góp cộng đồng trong PR [#1322](https://github.com/mehmet-turac/everything-openai-codex/pull/1322) và cập nhật để khớp mặt cài đặt hiện tại. README tiếng Anh vẫn là nguồn chuẩn đầy đủ nhất.
+Trang tiếng Việt này là bản onboarding gọn, được phục hồi từ đóng góp cộng đồng trong PR [#1322](https://github.com/mturac/everything-openai-codex/pull/1322) và cập nhật để khớp mặt cài đặt hiện tại. README tiếng Anh vẫn là nguồn chuẩn đầy đủ nhất.
 
 ---
 
@@ -48,7 +48,7 @@ Nếu bạn đã cài chồng nhiều lần và thấy skill/hook bị trùng, x
 
 ```bash
 # Thêm marketplace
-/plugin marketplace add https://github.com/mehmet-turac/everything-openai-codex
+/plugin marketplace add https://github.com/mturac/everything-openai-codex
 
 # Cài plugin
 /plugin install ecc@ecc
@@ -56,7 +56,7 @@ Nếu bạn đã cài chồng nhiều lần và thấy skill/hook bị trùng, x
 
 ecc có ba định danh công khai khác nhau:
 
-- Repo GitHub: `mehmet-turac/everything-openai-codex`
+- Repo GitHub: `mturac/everything-openai-codex`
 - Plugin Codex marketplace: `ecc@ecc`
 - Gói npm: `ecc-universal`
 
@@ -67,7 +67,7 @@ Các tên này cố ý khác nhau. Plugin OpenAI Codex dùng `ecc@ecc`; npm vẫ
 Plugin OpenAI Codex không tự phân phối `rules/`. Nếu bạn đã cài bằng plugin, **đừng** chạy thêm full installer. Hãy copy riêng rule pack bạn muốn:
 
 ```bash
-git clone https://github.com/mehmet-turac/everything-openai-codex.git
+git clone https://github.com/mturac/everything-openai-codex.git
 cd Everything OpenAI Codex
 
 mkdir -p ~/.codex/rules/ecc
@@ -76,7 +76,7 @@ cp -R rules/typescript ~/.codex/rules/ecc/
 ```
 
 ```powershell
-git clone https://github.com/mehmet-turac/everything-openai-codex.git
+git clone https://github.com/mturac/everything-openai-codex.git
 cd Everything OpenAI Codex
 
 New-Item -ItemType Directory -Force -Path "$HOME/.codex/rules/ecc" | Out-Null

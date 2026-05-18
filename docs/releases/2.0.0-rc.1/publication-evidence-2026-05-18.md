@@ -8,7 +8,7 @@ npm publication, plugin tag, marketplace submission, or announcement post.
 | Field | Evidence |
 | --- | --- |
 | Upstream main | `80f6c27957cb2bee7614f093ec7237afd93c3c9f` |
-| Git remote | `https://github.com/mehmet-turac/everything-openai-codex.git` |
+| Git remote | `https://github.com/mturac/everything-openai-codex.git` |
 | Evidence scope | Current `main` after PR #1970 workflow-security validator bypass fixes, PR #1971 metrics bridge cost-reporting fixes, PR #1972 `uncloud` skill merge, PR #1973 stale script cleanup, issue #1974 cost-reporting verification/closure, PR #1976 OpenAI/AstraFlow provider response guards, catalog/operator dashboard refresh, Mini Shai-Hulud/TanStack protection recheck, current-head CI/security scan, work-items sync, and Linear progress sync |
 | Local status caveat | `git status --short --branch` showed `## main...origin/main` plus unrelated untracked `docs/drafts/`; generated evidence files are committed after the source snapshot they describe |
 
@@ -21,14 +21,14 @@ final release commit with a strictly clean checkout before publishing.
 | --- | --- | --- |
 | Trunk PRs | `gh pr list --limit 100 --json number,title,state,author,updatedAt,url` | 0 open PRs |
 | Trunk issues | `gh issue list --limit 100 --json number,title,state,updatedAt,url,labels` | 0 open issues |
-| Discussion audit | `npm run discussion:audit -- --json` | Ready; 58 sampled discussions in `mehmet-turac/everything-openai-codex`, 0 needing maintainer touch, 0 answerable discussions missing accepted answer, and 0 fetch errors |
+| Discussion audit | `npm run discussion:audit -- --json` | Ready; 58 sampled discussions in `mturac/everything-openai-codex`, 0 needing maintainer touch, 0 answerable discussions missing accepted answer, and 0 fetch errors |
 | Platform audit | `node scripts/platform-audit.js --json --allow-untracked docs/drafts/` | Ready; tracked repos report 0 open PRs, 0 open issues, 0 discussion maintainer-touch gaps, 0 answerable Q&A missing accepted answers, and 0 blocking dirty files |
 | Work-items sync | `node scripts/work-items.js sync-github --repo <tracked-repo>` for five tracked repos; `node scripts/status.js --json`; `node scripts/work-items.js list --json` | All five tracked repos synced with 0 open PRs/issues and no changed work items; local status reports 0 open, 0 blocked, and 0 closed work items |
 | Operator dashboard | `node scripts/operator-readiness-dashboard.js --markdown --allow-untracked docs/drafts/ --write docs/releases/2.0.0-rc.1/operator-readiness-dashboard-2026-05-18.md` | Generated current dashboard for `80f6c27957cb2bee7614f093ec7237afd93c3c9f`; dashboard ready true, publication ready false because release, npm, plugin, billing, and announcement gates are approval-gated |
 
 Tracked repositories in the platform audit and work-items sync were:
 
-- `mehmet-turac/everything-openai-codex`
+- `mturac/everything-openai-codex`
 - `mehmet-turac/agentshield`
 - `mehmet-turac/JARVIS`
 - `ecc-Tools/ecc-Tools`
@@ -62,8 +62,8 @@ Tracked repositories in the platform audit and work-items sync were:
 | npm signatures | `npm audit signatures` | 213 verified registry signatures; 17 verified attestations |
 | Workflow security | `node scripts/ci/validate-workflow-security.js` | Validated 8 workflow files |
 | AgentShield project scan | `npx --no-install ecc-agentshield scan --format json` | Grade A / 99; 0 critical, 0 high, 0 medium; 6 low docs-example skill telemetry/governance findings |
-| Current-head CI security scan | `gh run view 26014623528 --repo mehmet-turac/everything-openai-codex --json status,conclusion,jobs,url` | Completed successfully for `80f6c27957cb2bee7614f093ec7237afd93c3c9f`; 37/37 CI jobs passed, including lint, workflow/component validation, coverage, cross-platform package-manager tests, npm audit, and supply-chain IOC scan |
-| Latest Supply-Chain Watch | `gh run view 26010432490 --repo mehmet-turac/everything-openai-codex --json status,conclusion,headSha,url` | Completed successfully for `25ac57ac40e9fc5a0606e76e6339e72c79748c99`; rerun from the final release commit before publication |
+| Current-head CI security scan | `gh run view 26014623528 --repo mturac/everything-openai-codex --json status,conclusion,jobs,url` | Completed successfully for `80f6c27957cb2bee7614f093ec7237afd93c3c9f`; 37/37 CI jobs passed, including lint, workflow/component validation, coverage, cross-platform package-manager tests, npm audit, and supply-chain IOC scan |
+| Latest Supply-Chain Watch | `gh run view 26010432490 --repo mturac/everything-openai-codex --json status,conclusion,headSha,url` | Completed successfully for `25ac57ac40e9fc5a0606e76e6339e72c79748c99`; rerun from the final release commit before publication |
 
 ## Linear Progress Sync
 

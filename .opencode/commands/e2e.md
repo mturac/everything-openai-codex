@@ -1,6 +1,6 @@
 ---
 description: Generate and run E2E tests with Playwright
-agent: Everything OpenAI Codex:e2e-runner
+agent: everything-openai-codex:e2e-runner
 subtask: true
 ---
 

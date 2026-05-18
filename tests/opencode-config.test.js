@@ -89,7 +89,7 @@ if (
       }
 
       assert.ok(
-        match[1].startsWith('everything-OpenAI Codex:'),
+        match[1].startsWith('everything-openai-codex:'),
         `Expected plugin-scoped agent id in ${entry}, got: ${match[1]}`
       );
     }

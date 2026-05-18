@@ -275,7 +275,7 @@ codex --version
 # OpenAI Codex 2.0+が必要
 
 # 手動インストール（Marketplaceが失敗する場合）
-git clone https://github.com/mehmet-turac/everything-openai-codex.git
+git clone https://github.com/mturac/everything-openai-codex.git
 cp -r Everything OpenAI Codex ~/.codex/plugins/ecc
 ```
 
@@ -407,7 +407,7 @@ find ~/.codex/plugins -name "*.sh" -exec dos2unix {} \;
 
 問題が解決しない場合：
 
-1. **GitHub Issuesを確認**: [github.com/mehmet-turac/everything-openai-codex/issues](https://github.com/mehmet-turac/everything-openai-codex/issues)
+1. **GitHub Issuesを確認**: [github.com/mturac/everything-openai-codex/issues](https://github.com/mturac/everything-openai-codex/issues)
 2. **デバッグログを有効化**:
    ```bash
    export CODEX_DEBUG=1

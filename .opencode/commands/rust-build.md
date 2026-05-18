@@ -1,6 +1,6 @@
 ---
 description: Fix Rust build errors and borrow checker issues
-agent: Everything OpenAI Codex:rust-build-resolver
+agent: everything-openai-codex:rust-build-resolver
 subtask: true
 ---
 

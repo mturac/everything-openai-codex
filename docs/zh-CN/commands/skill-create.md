@@ -173,4 +173,4 @@ src/
 
 ***
 
-*属于 [Everything OpenAI Codex](https://github.com/mehmet-turac/everything-openai-codex)*
+*属于 [Everything OpenAI Codex](https://github.com/mturac/everything-openai-codex)*

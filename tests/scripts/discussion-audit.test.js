@@ -102,10 +102,10 @@ function runTests() {
 
     try {
       const shimPath = writeGhShim(rootDir, {
-        [discussionEnabledGhKey('mehmet-turac', 'everything-OpenAI Codex')]: {
+        [discussionEnabledGhKey('mehmet-turac', 'everything-openai-codex')]: {
           data: { repository: { hasDiscussionsEnabled: true } }
         },
-        [discussionGhKey('mehmet-turac', 'everything-OpenAI Codex')]: {
+        [discussionGhKey('mehmet-turac', 'everything-openai-codex')]: {
           data: {
             repository: {
               hasDiscussionsEnabled: true,
@@ -142,7 +142,7 @@ function runTests() {
       const parsed = JSON.parse(run([
         '--json',
         '--repo',
-        'mehmet-turac/everything-OpenAI Codex'
+        'mehmet-turac/everything-openai-codex'
       ], {
         cwd: rootDir,
         env: {
@@ -165,10 +165,10 @@ function runTests() {
 
     try {
       const shimPath = writeGhShim(rootDir, {
-        [discussionEnabledGhKey('mehmet-turac', 'everything-OpenAI Codex')]: {
+        [discussionEnabledGhKey('mehmet-turac', 'everything-openai-codex')]: {
           data: { repository: { hasDiscussionsEnabled: true } }
         },
-        [discussionGhKey('mehmet-turac', 'everything-OpenAI Codex')]: {
+        [discussionGhKey('mehmet-turac', 'everything-openai-codex')]: {
           data: {
             repository: {
               hasDiscussionsEnabled: true,
@@ -195,7 +195,7 @@ function runTests() {
       const result = runProcess([
         '--json',
         '--repo',
-        'mehmet-turac/everything-OpenAI Codex',
+        'mehmet-turac/everything-openai-codex',
         '--exit-code'
       ], {
         cwd: rootDir,
@@ -220,10 +220,10 @@ function runTests() {
 
     try {
       const shimPath = writeGhShim(rootDir, {
-        [discussionEnabledGhKey('mehmet-turac', 'everything-OpenAI Codex')]: {
+        [discussionEnabledGhKey('mehmet-turac', 'everything-openai-codex')]: {
           data: { repository: { hasDiscussionsEnabled: true } }
         },
-        [discussionGhKey('mehmet-turac', 'everything-OpenAI Codex')]: {
+        [discussionGhKey('mehmet-turac', 'everything-openai-codex')]: {
           data: {
             repository: {
               hasDiscussionsEnabled: true,
@@ -237,7 +237,7 @@ function runTests() {
         '--write',
         outputPath,
         '--repo',
-        'mehmet-turac/everything-OpenAI Codex'
+        'mehmet-turac/everything-openai-codex'
       ], {
         cwd: rootDir,
         env: { ecc_GH_SHIM: shimPath }

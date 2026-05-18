@@ -15,7 +15,7 @@ Bu uzun kılavuz, verimli oturumları israf olanlardan ayıran tekniklere giriyo
 
 Buradaki temalar: token ekonomisi, memory kalıcılığı, doğrulama desenleri, paralelleştirme stratejileri ve yeniden kullanılabilir iş akışları oluşturmanın bileşik etkileri. Bunlar, ilk saat içinde context çürümesiyle rahatsız edilme ile saatlerce üretken oturumları sürdürme arasındaki farkı yaratan, 10+ aylık günlük kullanımda geliştirdiğim desenlerdir.
 
-Kısa ve uzun kılavuzlarda ele alınan her şey GitHub'da mevcuttur: `github.com/mehmet-turac/everything-openai-codex`
+Kısa ve uzun kılavuzlarda ele alınan her şey GitHub'da mevcuttur: `github.com/mturac/everything-openai-codex`
 
 ---
 
@@ -40,7 +40,7 @@ Lazy loading ile, context window sorunu çoğunlukla çözülmüştür. Ancak to
 Oturumlar arasında memory paylaşımı için, ilerlemeyi özetleyen ve kontrol eden, ardından `.codex` klasörünüzde bir `.tmp` dosyasına kaydeden ve oturumunuz sonuna kadar ona ekleyen bir skill veya command en iyi bahistir. Ertesi gün bunu context olarak kullanabilir ve kaldığı yerden devam edebilir, her oturum için yeni bir dosya oluşturun böylece eski context'i yeni işe kirletmezsiniz.
 
 ![Session Storage File Tree](../assets/images/longform/03-session-storage.png)
-*Oturum depolama örneği -> <https://github.com/mehmet-turac/everything-openai-codex/tree/main/examples/sessions>*
+*Oturum depolama örneği -> <https://github.com/mturac/everything-openai-codex/tree/main/examples/sessions>*
 
 Codex mevcut durumu özetleyen bir dosya oluşturur. İnceleyin, gerekirse düzenlemeler isteyin, ardından yeniden başlayın. Yeni konuşma için, sadece dosya yolunu sağlayın. Özellikle context limitlerini aşarken ve karmaşık işi sürdürmeniz gerektiğinde kullanışlıdır. Bu dosyalar şunları içermelidir:
 - Hangi yaklaşımların işe yaradığı (kanıtla doğrulanabilir)
@@ -82,7 +82,7 @@ alias codex-research='codex --system-prompt "$(cat ~/.codex/contexts/research.md
 - **Stop Hook (Oturum Sonu)**: Oturum sonunda, öğrenmeleri bir dosyaya kalıcı hale getirin
 - **SessionStart Hook**: Yeni oturumda, önceki context'i otomatik yükleyin
 
-Bu hook'ları oluşturdum ve repo'da `github.com/mehmet-turac/everything-openai-codex/tree/main/hooks/memory-persistence` adresindeler
+Bu hook'ları oluşturdum ve repo'da `github.com/mturac/everything-openai-codex/tree/main/hooks/memory-persistence` adresindeler
 
 ---
 
@@ -94,7 +94,7 @@ Bir prompt'u birden çok kez tekrarlamanız gerekti ve Codex aynı probleme tak�
 
 **Çözüm:** OpenAI Codex önemsiz olmayan bir şey keşfettiğinde - bir hata ayıklama tekniği, bir geçici çözüm, projeye özgü bir desen - bu bilgiyi yeni bir skill olarak kaydeder. Benzer bir problem bir dahaki sefer ortaya çıktığında, skill otomatik olarak yüklenir.
 
-Bunu yapan bir sürekli öğrenme skill'i oluşturdum: `github.com/mehmet-turac/everything-openai-codex/tree/main/skills/continuous-learning`
+Bunu yapan bir sürekli öğrenme skill'i oluşturdum: `github.com/mturac/everything-openai-codex/tree/main/skills/continuous-learning`
 
 **Neden Stop Hook (UserPromptSubmit Değil):**
 
@@ -351,4 +351,4 @@ alias q='cd ~/Desktop/projects'
 
 ---
 
-*Her iki kılavuzda ele alınan her şey GitHub'da [Everything OpenAI Codex](https://github.com/mehmet-turac/everything-openai-codex) adresinde mevcuttur*
+*Her iki kılavuzda ele alınan her şey GitHub'da [Everything OpenAI Codex](https://github.com/mturac/everything-openai-codex) adresinde mevcuttur*

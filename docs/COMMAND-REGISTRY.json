@@ -739,7 +739,7 @@
     {
       "command": "sessions",
       "description": "Manage OpenAI Codex session history, aliases, and session metadata.",
-      "type": "general",
+      "type": "testing",
       "primaryAgents": [],
       "allAgents": [],
       "skills": [],
@@ -803,12 +803,12 @@
   "statistics": {
     "byType": {
       "build": 2,
-      "general": 8,
+      "general": 7,
       "orchestration": 6,
       "planning": 2,
       "refactoring": 1,
       "review": 9,
-      "testing": 47
+      "testing": 48
     },
     "topAgents": [
       {

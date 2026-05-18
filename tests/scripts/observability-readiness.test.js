@@ -46,7 +46,7 @@ function runProcess(args = [], options = {}) {
 function seedMinimalRepo(rootDir, overrides = {}) {
   const files = {
     'package.json': JSON.stringify({
-      name: 'everything-OpenAI Codex',
+      name: 'everything-openai-codex',
       files: ['scripts/observability-readiness.js'],
       scripts: {
         'harness:audit': 'node scripts/harness-audit.js',

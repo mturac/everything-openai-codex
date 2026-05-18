@@ -1,6 +1,6 @@
 ---
 description: Promote project instincts to global scope
-agent: Everything OpenAI Codex:build
+agent: everything-openai-codex:build
 ---
 
 # Promote Command

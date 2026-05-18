@@ -86,21 +86,27 @@ function dlxServer(name, pkg, extraFields, extraToml) {
 /** Each entry: key = section name under mcp_servers, value = { toml, fields } */
 const DEFAULT_MCP_STARTUP_TIMEOUT_SEC = 30;
 const DEFAULT_MCP_STARTUP_TIMEOUT_TOML = `startup_timeout_sec = ${DEFAULT_MCP_STARTUP_TIMEOUT_SEC}`;
+const DEFAULT_MCP_TOOL_TIMEOUT_SEC = 60;
+const DEFAULT_MCP_TOOL_TIMEOUT_TOML = `tool_timeout_sec = ${DEFAULT_MCP_TOOL_TIMEOUT_SEC}`;
 
 const ecc_SERVERS = {
   supabase: dlxServer('supabase', '@supabase/mcp-server-supabase@latest', { startup_timeout_sec: 20.0, tool_timeout_sec: 120.0 }, 'startup_timeout_sec = 20.0\ntool_timeout_sec = 120.0'),
-  playwright: dlxServer('playwright', '@playwright/mcp@latest', { startup_timeout_sec: DEFAULT_MCP_STARTUP_TIMEOUT_SEC }, DEFAULT_MCP_STARTUP_TIMEOUT_TOML),
-  context7: dlxServer('context7', '@upstash/context7-mcp@latest', { startup_timeout_sec: DEFAULT_MCP_STARTUP_TIMEOUT_SEC }, DEFAULT_MCP_STARTUP_TIMEOUT_TOML),
+  playwright: dlxServer('playwright', '@playwright/mcp@latest', { startup_timeout_sec: DEFAULT_MCP_STARTUP_TIMEOUT_SEC, tool_timeout_sec: DEFAULT_MCP_TOOL_TIMEOUT_SEC, disabled_tools: ['browser_install'] }, `${DEFAULT_MCP_STARTUP_TIMEOUT_TOML}\n${DEFAULT_MCP_TOOL_TIMEOUT_TOML}\ndisabled_tools = ["browser_install"]`),
+  context7: dlxServer('context7', '@upstash/context7-mcp@latest', { startup_timeout_sec: DEFAULT_MCP_STARTUP_TIMEOUT_SEC, tool_timeout_sec: 45 }, `${DEFAULT_MCP_STARTUP_TIMEOUT_TOML}\ntool_timeout_sec = 45`),
+  openaiDeveloperDocs: {
+    fields: { url: 'https://developers.openai.com/mcp', tool_timeout_sec: 30, enabled_tools: ['search', 'fetch'] },
+    toml: `[mcp_servers.openaiDeveloperDocs]\nurl = "https://developers.openai.com/mcp"\ntool_timeout_sec = 30\nenabled_tools = ["search", "fetch"]`
+  },
   exa: {
-    fields: { url: 'https://mcp.exa.ai/mcp' },
-    toml: `[mcp_servers.exa]\nurl = "https://mcp.exa.ai/mcp"`
+    fields: { url: 'https://mcp.exa.ai/mcp', tool_timeout_sec: 45 },
+    toml: `[mcp_servers.exa]\nurl = "https://mcp.exa.ai/mcp"\ntool_timeout_sec = 45`
   },
   github: {
-    fields: { command: 'bash', args: ['-lc', GH_BOOTSTRAP], startup_timeout_sec: DEFAULT_MCP_STARTUP_TIMEOUT_SEC },
-    toml: `[mcp_servers.github]\ncommand = "bash"\nargs = ["-lc", ${JSON.stringify(GH_BOOTSTRAP)}]\n${DEFAULT_MCP_STARTUP_TIMEOUT_TOML}`
+    fields: { command: 'bash', args: ['-lc', GH_BOOTSTRAP], startup_timeout_sec: DEFAULT_MCP_STARTUP_TIMEOUT_SEC, tool_timeout_sec: DEFAULT_MCP_TOOL_TIMEOUT_SEC, disabled_tools: ['create_or_update_file', 'push_files'] },
+    toml: `[mcp_servers.github]\ncommand = "bash"\nargs = ["-lc", ${JSON.stringify(GH_BOOTSTRAP)}]\n${DEFAULT_MCP_STARTUP_TIMEOUT_TOML}\n${DEFAULT_MCP_TOOL_TIMEOUT_TOML}\ndisabled_tools = ["create_or_update_file", "push_files"]`
   },
-  memory: dlxServer('memory', '@modelcontextprotocol/server-memory', { startup_timeout_sec: DEFAULT_MCP_STARTUP_TIMEOUT_SEC }, DEFAULT_MCP_STARTUP_TIMEOUT_TOML),
-  'sequential-thinking': dlxServer('sequential-thinking', '@modelcontextprotocol/server-sequential-thinking', { startup_timeout_sec: DEFAULT_MCP_STARTUP_TIMEOUT_SEC }, DEFAULT_MCP_STARTUP_TIMEOUT_TOML)
+  memory: dlxServer('memory', '@modelcontextprotocol/server-memory', { startup_timeout_sec: DEFAULT_MCP_STARTUP_TIMEOUT_SEC, tool_timeout_sec: 30, enabled_tools: ['read_graph', 'search_nodes', 'open_nodes'] }, `${DEFAULT_MCP_STARTUP_TIMEOUT_TOML}\ntool_timeout_sec = 30\nenabled_tools = ["read_graph", "search_nodes", "open_nodes"]`),
+  'sequential-thinking': dlxServer('sequential-thinking', '@modelcontextprotocol/server-sequential-thinking', { startup_timeout_sec: DEFAULT_MCP_STARTUP_TIMEOUT_SEC, tool_timeout_sec: DEFAULT_MCP_TOOL_TIMEOUT_SEC }, `${DEFAULT_MCP_STARTUP_TIMEOUT_TOML}\n${DEFAULT_MCP_TOOL_TIMEOUT_TOML}`)
 };
 
 // Append --features arg for supabase after dlxServer builds the base

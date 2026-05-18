@@ -1,6 +1,6 @@
 ---
 description: Export instincts for sharing
-agent: Everything OpenAI Codex:build
+agent: everything-openai-codex:build
 ---
 
 # Instinct Export Command

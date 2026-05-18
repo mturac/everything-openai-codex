@@ -1,6 +1,6 @@
 ---
 description: Import instincts from external sources
-agent: Everything OpenAI Codex:build
+agent: everything-openai-codex:build
 ---
 
 # Instinct Import Command

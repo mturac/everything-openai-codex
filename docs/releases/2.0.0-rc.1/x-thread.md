@@ -71,13 +71,13 @@ The deeper local integrations stay local until they are sanitized, and publicati
 11/ Start here:
 
 Repo:
-<https://github.com/mehmet-turac/everything-openai-codex>
+<https://github.com/mturac/everything-openai-codex>
 
 Hermes x ecc setup:
-<https://github.com/mehmet-turac/everything-openai-codex/blob/main/docs/HERMES-SETUP.md>
+<https://github.com/mturac/everything-openai-codex/blob/main/docs/HERMES-SETUP.md>
 
 12/ Release notes:
-<https://github.com/mehmet-turac/everything-openai-codex/blob/main/docs/releases/2.0.0-rc.1/release-notes.md>
+<https://github.com/mturac/everything-openai-codex/blob/main/docs/releases/2.0.0-rc.1/release-notes.md>
 
 URL ledger:
-<https://github.com/mehmet-turac/everything-openai-codex/blob/main/docs/releases/2.0.0-rc.1/release-url-ledger-2026-05-18.md>
+<https://github.com/mturac/everything-openai-codex/blob/main/docs/releases/2.0.0-rc.1/release-url-ledger-2026-05-18.md>

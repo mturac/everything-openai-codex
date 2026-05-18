@@ -1,6 +1,6 @@
 ---
 description: Go code review for idiomatic patterns
-agent: Everything OpenAI Codex:go-reviewer
+agent: everything-openai-codex:go-reviewer
 subtask: true
 ---
 

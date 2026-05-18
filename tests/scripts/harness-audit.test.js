@@ -291,10 +291,10 @@ function runTests() {
     const projectRoot = createTempDir('harness-audit-marketplace-project-');
 
     try {
-      fs.mkdirSync(path.join(homeDir, '.codex', 'plugins', 'marketplaces', 'everything-OpenAI Codex', '.codex-plugin'), { recursive: true });
+      fs.mkdirSync(path.join(homeDir, '.codex', 'plugins', 'marketplaces', 'everything-openai-codex', '.codex-plugin'), { recursive: true });
       fs.writeFileSync(
-        path.join(homeDir, '.codex', 'plugins', 'marketplaces', 'everything-OpenAI Codex', '.codex-plugin', 'plugin.json'),
-        JSON.stringify({ name: 'everything-OpenAI Codex' }, null, 2)
+        path.join(homeDir, '.codex', 'plugins', 'marketplaces', 'everything-openai-codex', '.codex-plugin', 'plugin.json'),
+        JSON.stringify({ name: 'everything-openai-codex' }, null, 2)
       );
 
       fs.mkdirSync(path.join(projectRoot, '.github', 'workflows'), { recursive: true });
@@ -324,10 +324,10 @@ function runTests() {
     const projectRoot = createTempDir('harness-audit-marketplace-project-');
 
     try {
-      fs.mkdirSync(path.join(projectRoot, '.codex', 'plugins', 'marketplaces', 'everything-OpenAI Codex', '.codex-plugin'), { recursive: true });
+      fs.mkdirSync(path.join(projectRoot, '.codex', 'plugins', 'marketplaces', 'everything-openai-codex', '.codex-plugin'), { recursive: true });
       fs.writeFileSync(
-        path.join(projectRoot, '.codex', 'plugins', 'marketplaces', 'everything-OpenAI Codex', '.codex-plugin', 'plugin.json'),
-        JSON.stringify({ name: 'everything-OpenAI Codex' }, null, 2)
+        path.join(projectRoot, '.codex', 'plugins', 'marketplaces', 'everything-openai-codex', '.codex-plugin', 'plugin.json'),
+        JSON.stringify({ name: 'everything-openai-codex' }, null, 2)
       );
 
       fs.mkdirSync(path.join(projectRoot, '.github', 'workflows'), { recursive: true });
@@ -357,10 +357,10 @@ function runTests() {
     const projectRoot = createTempDir('harness-audit-marketplace-project-');
 
     try {
-      fs.mkdirSync(path.join(homeDir, '.codex', 'plugins', 'marketplaces', 'everything-OpenAI Codex', '.codex-plugin'), { recursive: true });
+      fs.mkdirSync(path.join(homeDir, '.codex', 'plugins', 'marketplaces', 'everything-openai-codex', '.codex-plugin'), { recursive: true });
       fs.writeFileSync(
-        path.join(homeDir, '.codex', 'plugins', 'marketplaces', 'everything-OpenAI Codex', '.codex-plugin', 'plugin.json'),
-        JSON.stringify({ name: 'everything-OpenAI Codex' }, null, 2)
+        path.join(homeDir, '.codex', 'plugins', 'marketplaces', 'everything-openai-codex', '.codex-plugin', 'plugin.json'),
+        JSON.stringify({ name: 'everything-openai-codex' }, null, 2)
       );
 
       fs.mkdirSync(path.join(projectRoot, '.github', 'workflows'), { recursive: true });
@@ -393,7 +393,7 @@ function runTests() {
     const homeDir = createTempDir('harness-audit-manifest-home-');
     const projectRoot = createTempDir('harness-audit-manifest-project-');
     const pluginsDir = path.join(homeDir, '.codex', 'plugins');
-    const installRoot = path.join(pluginsDir, 'cache', 'everything-OpenAI Codex', 'ecc', '2.0.0');
+    const installRoot = path.join(pluginsDir, 'cache', 'everything-openai-codex', 'ecc', '2.0.0');
 
     try {
       fs.mkdirSync(path.join(installRoot, '.codex-plugin'), { recursive: true });
@@ -405,8 +405,8 @@ function runTests() {
         path.join(pluginsDir, 'installed_plugins.json'),
         JSON.stringify({
           plugins: {
-            'ecc@everything-OpenAI Codex': [
-              { installPath: path.join('cache', 'everything-OpenAI Codex', 'ecc', '2.0.0') },
+            'ecc@everything-openai-codex': [
+              { installPath: path.join('cache', 'everything-openai-codex', 'ecc', '2.0.0') },
             ],
           },
         }, null, 2)
@@ -417,7 +417,7 @@ function runTests() {
       try {
         const found = findPluginInstall(projectRoot);
         assert.ok(found);
-        assert.ok(found.includes(`${path.sep}cache${path.sep}everything-OpenAI Codex${path.sep}ecc${path.sep}2.0.0${path.sep}`));
+        assert.ok(found.includes(`${path.sep}cache${path.sep}everything-openai-codex${path.sep}ecc${path.sep}2.0.0${path.sep}`));
       } finally {
         if (originalHome === undefined) {
           delete process.env.HOME;
@@ -434,7 +434,7 @@ function runTests() {
   if (test('detects newest Codex plugin install from cache marketplace layout', () => {
     const homeDir = createTempDir('harness-audit-cache-home-');
     const projectRoot = createTempDir('harness-audit-cache-project-');
-    const pluginRoot = path.join(homeDir, '.codex', 'plugins', 'cache', 'everything-OpenAI Codex', 'ecc');
+    const pluginRoot = path.join(homeDir, '.codex', 'plugins', 'cache', 'everything-openai-codex', 'ecc');
 
     try {
       for (const version of ['1.8.0', '1.10.0']) {

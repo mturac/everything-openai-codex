@@ -10,7 +10,7 @@ npm publication, plugin tag, marketplace submission, or announcement post.
 | Upstream main base | `1949d75e18e59a37de269d88b188fc701f5cf122` |
 | Evidence branch | `codex/rc1-agentshield-86-evidence` |
 | Evidence scope | Current `main` after PR #1932, #1933, #1934, #1935, and #1936; AgentShield #86; and ecc-Tools #75 |
-| Git remote | `https://github.com/mehmet-turac/everything-openai-codex.git` |
+| Git remote | `https://github.com/mturac/everything-openai-codex.git` |
 | Local status caveat | Working tree had the unrelated untracked `docs/drafts/` directory before this docs refresh |
 
 The actual release operator should repeat all publish-facing checks from the
@@ -20,7 +20,7 @@ final release commit with a clean checkout before publishing.
 
 | Surface | Command | Result |
 | --- | --- | --- |
-| Trunk PRs/issues | `gh pr list` and `gh issue list` for `mehmet-turac/everything-openai-codex` | 0 open PRs, 0 open issues |
+| Trunk PRs/issues | `gh pr list` and `gh issue list` for `mturac/everything-openai-codex` | 0 open PRs, 0 open issues |
 | AgentShield PRs/issues | `gh pr list` and `gh issue list` for `mehmet-turac/agentshield` | 0 open PRs, 0 open issues |
 | JARVIS PRs/issues | `gh pr list` and `gh issue list` for `mehmet-turac/JARVIS` | 0 open PRs, 0 open issues |
 | ecc Tools PRs/issues | `env -u GITHUB_TOKEN gh pr list` and `env -u GITHUB_TOKEN gh issue list` for `ecc-Tools/ecc-Tools` | 0 open PRs, 0 open issues |

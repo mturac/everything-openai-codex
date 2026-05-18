@@ -177,7 +177,7 @@ interface HookInput {
 {
   "type": "command",
   "command": "node my-slow-hook.js",
-  "async": true,
+  "async": false,
   "timeout": 30
 }
 ```

@@ -1,6 +1,6 @@
 ---
 description: Fix build and TypeScript errors with minimal changes
-agent: Everything OpenAI Codex:build-error-resolver
+agent: everything-openai-codex:build-error-resolver
 subtask: true
 ---
 

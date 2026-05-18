@@ -10,7 +10,7 @@ publication, plugin tag, marketplace submission, or announcement post.
 | Upstream main base | `0598af70a51346bae34d987b9bed143386055967` |
 | Evidence branch | `codex/release-publication-evidence` |
 | Evidence scope | Working tree with this branch's package hygiene and release-doc updates |
-| Git remote | `https://github.com/mehmet-turac/everything-openai-codex.git` |
+| Git remote | `https://github.com/mturac/everything-openai-codex.git` |
 | Local status caveat | Working tree had the unrelated untracked `docs/drafts/` directory |
 
 The actual release operator should repeat these checks from the final release
@@ -20,7 +20,7 @@ commit with a clean checkout before publishing.
 
 | Surface | Command | Result |
 | --- | --- | --- |
-| GitHub prerelease | `gh release view v2.0.0-rc.1 --repo mehmet-turac/everything-openai-codex --json tagName,url,isPrerelease` | `release not found` |
+| GitHub prerelease | `gh release view v2.0.0-rc.1 --repo mturac/everything-openai-codex --json tagName,url,isPrerelease` | `release not found` |
 | npm dist-tags | `npm view ecc-universal dist-tags --json` | `{ "latest": "1.10.0" }` |
 | npm package metadata | `node -p "require('./package.json').name + '@' + require('./package.json').version"` | `ecc-universal@2.0.0-rc.1` |
 | Product identity | `rg -n "Everything OpenAI Codex" README.md CHANGELOG.md docs/releases/2.0.0-rc.1` | Present in README and rc.1 release docs |

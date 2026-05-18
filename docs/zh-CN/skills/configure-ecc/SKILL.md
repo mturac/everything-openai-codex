@@ -30,7 +30,7 @@ origin: ecc
 
 ```bash
 rm -rf /tmp/Everything OpenAI Codex
-git clone https://github.com/mehmet-turac/everything-openai-codex.git /tmp/Everything OpenAI Codex
+git clone https://github.com/mturac/everything-openai-codex.git /tmp/Everything OpenAI Codex
 ```
 
 将 `ecc_ROOT=/tmp/Everything OpenAI Codex` 设置为所有后续复制操作的源。

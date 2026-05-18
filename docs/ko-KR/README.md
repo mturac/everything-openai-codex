@@ -2,9 +2,9 @@
 
 # Everything OpenAI Codex
 
-[![Stars](https://img.shields.io/github/stars/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/stargazers)
-[![Forks](https://img.shields.io/github/forks/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/network/members)
-[![Contributors](https://img.shields.io/github/contributors/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/graphs/contributors)
+[![Stars](https://img.shields.io/github/stars/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/stargazers)
+[![Forks](https://img.shields.io/github/forks/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/network/members)
+[![Contributors](https://img.shields.io/github/contributors/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/graphs/contributors)
 [![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-universal)
 [![npm ecc-agentshield](https://img.shields.io/npm/dw/ecc-agentshield?label=ecc-agentshield%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-agentshield)
 [![GitHub App Install](https://img.shields.io/badge/GitHub%20App-150%20installs-2ea44f?logo=github)](https://github.com/marketplace/ecc-tools)
@@ -100,7 +100,7 @@
 - **30명 이상의 커뮤니티 기여** — 6개 언어에 걸친 30명의 기여자
 - **978개 내부 테스트** — 에이전트, 스킬, 커맨드, 훅, 룰 전반에 걸친 검증
 
-전체 변경 내역은 [Releases](https://github.com/mehmet-turac/everything-openai-codex/releases)에서 확인하세요.
+전체 변경 내역은 [Releases](https://github.com/mturac/everything-openai-codex/releases)에서 확인하세요.
 
 ---
 
@@ -112,7 +112,7 @@
 
 ```bash
 # 마켓플레이스 추가
-/plugin marketplace add https://github.com/mehmet-turac/everything-openai-codex
+/plugin marketplace add https://github.com/mturac/everything-openai-codex
 
 # 플러그인 설치
 /plugin install ecc@ecc
@@ -124,7 +124,7 @@
 
 ```bash
 # 먼저 저장소 클론
-git clone https://github.com/mehmet-turac/everything-openai-codex.git
+git clone https://github.com/mturac/everything-openai-codex.git
 cd Everything OpenAI Codex
 
 # 권장: 설치 스크립트 사용 (common + 언어별 룰을 안전하게 처리)
@@ -356,7 +356,7 @@ OpenAI Codex v2.1+는 설치된 플러그인의 `hooks/hooks.json`을 **자동�
 
 ```bash
 # 마켓플레이스 추가
-/plugin marketplace add https://github.com/mehmet-turac/everything-openai-codex
+/plugin marketplace add https://github.com/mturac/everything-openai-codex
 
 # 플러그인 설치
 /plugin install ecc@ecc
@@ -370,7 +370,7 @@ OpenAI Codex v2.1+는 설치된 플러그인의 `hooks/hooks.json`을 **자동�
     "ecc": {
       "source": {
         "source": "github",
-        "repo": "mehmet-turac/everything-openai-codex"
+        "repo": "mturac/everything-openai-codex"
       }
     }
   },
@@ -383,7 +383,7 @@ OpenAI Codex v2.1+는 설치된 플러그인의 `hooks/hooks.json`을 **자동�
 > **참고:** OpenAI Codex 플러그인 시스템은 `rules`를 플러그인으로 배포하는 것을 지원하지 않습니다. 룰은 수동으로 설치해야 합니다:
 >
 > ```bash
-> git clone https://github.com/mehmet-turac/everything-openai-codex.git
+> git clone https://github.com/mturac/everything-openai-codex.git
 >
 > # 옵션 A: 사용자 레벨 룰 (모든 프로젝트에 적용)
 > mkdir -p ~/.codex/rules
@@ -403,7 +403,7 @@ OpenAI Codex v2.1+는 설치된 플러그인의 `hooks/hooks.json`을 **자동�
 
 ```bash
 # 저장소 클론
-git clone https://github.com/mehmet-turac/everything-openai-codex.git
+git clone https://github.com/mturac/everything-openai-codex.git
 
 # 에이전트 복사
 cp Everything OpenAI Codex/agents/*.md ~/.codex/agents/
@@ -709,7 +709,7 @@ OpenAI Codex 사용 비용이 부담된다면 토큰 소비를 관리해야 합�
 
 ## Star 히스토리
 
-[![Star History Chart](https://api.star-history.com/svg?repos=mehmet-turac/everything-openai-codex&type=Date)](https://star-history.com/#mehmet-turac/everything-openai-codex&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=mturac/everything-openai-codex&type=Date)](https://star-history.com/#mturac/everything-openai-codex&Date)
 
 ---
 

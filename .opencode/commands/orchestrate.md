@@ -1,6 +1,6 @@
 ---
 description: Orchestrate multiple agents for complex tasks
-agent: Everything OpenAI Codex:planner
+agent: everything-openai-codex:planner
 subtask: true
 ---
 

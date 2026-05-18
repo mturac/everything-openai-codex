@@ -2,7 +2,7 @@
 /**
  * scripts/codemaps/generate.ts
  *
- * Codemap Generator for everything-OpenAI Codex (ecc)
+ * Codemap Generator for everything-openai-codex (ecc)
  *
  * Scans the current working directory and generates architectural
  * codemap documentation under docs/CODEMAPS/ as specified by the

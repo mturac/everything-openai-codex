@@ -5,7 +5,7 @@ This path is for a new contributor who wants to verify the release surface befor
 ## Clone
 
 ```bash
-git clone https://github.com/mehmet-turac/everything-openai-codex.git
+git clone https://github.com/mturac/everything-openai-codex.git
 cd Everything OpenAI Codex
 ```
 

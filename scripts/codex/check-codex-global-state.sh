@@ -97,12 +97,12 @@ fi
 if [[ -f "$CONFIG_FILE" ]]; then
   check_config_pattern '^multi_agent[[:space:]]*=[[:space:]]*true' "multi_agent is enabled"
   check_config_absent '^[[:space:]]*collab[[:space:]]*=' "deprecated collab flag is absent"
-  # persistent_instructions is recommended but optional; warn instead of fail
+  # instructions is recommended but optional; warn instead of fail
   # so users who rely on AGENTS.md alone are not blocked (#967).
-  if search_file '^[[:space:]]*persistent_instructions[[:space:]]*=' "$CONFIG_FILE"; then
-    ok "persistent_instructions is configured"
+  if search_file '^[[:space:]]*instructions[[:space:]]*=' "$CONFIG_FILE"; then
+    ok "instructions is configured"
   else
-    warn "persistent_instructions is not set (recommended but optional)"
+    warn "instructions is not set (recommended but optional)"
   fi
   check_config_pattern '^\[profiles\.strict\]' "profiles.strict exists"
   check_config_pattern '^\[profiles\.yolo\]' "profiles.yolo exists"

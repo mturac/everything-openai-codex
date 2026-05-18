@@ -20,7 +20,7 @@ Reason:
 - the exact npm package name `ecc` is already occupied by an unrelated elliptic
   curve cryptography package;
 - the repo name `mehmet-turac/ecc` is not present, but renaming
-  `mehmet-turac/everything-openai-codex` before rc.1 would create avoidable URL,
+  `mturac/everything-openai-codex` before rc.1 would create avoidable URL,
   package, docs, and marketplace churn;
 - Codex and Codex plugin surfaces are already short enough as `ecc`;
 - rc.1 should prove the release, plugin, and publication pipeline before any
@@ -32,7 +32,7 @@ Reason:
 | --- | --- | --- | --- | --- |
 | Product display name | `Everything OpenAI Codex` | `rg -n "Everything OpenAI Codex" README.md CHANGELOG.md docs/releases/2.0.0-rc.1` | Present across README, release notes, launch copy, and plugin manifests | Keep for rc.1 |
 | Short name | `ecc` | README/release docs | Used as the short cross-harness brand | Keep and prefer in tight copy |
-| GitHub repo | `mehmet-turac/everything-openai-codex` | `git remote get-url origin` | `https://github.com/mehmet-turac/everything-openai-codex.git` | Keep for rc.1 |
+| GitHub repo | `mturac/everything-openai-codex` | `git remote get-url origin` | `https://github.com/mturac/everything-openai-codex.git` | Keep for rc.1 |
 | Possible short repo | `mehmet-turac/ecc` | `gh repo view mehmet-turac/ecc` | Not found with current auth | Candidate after rc.1 only |
 | npm package | `ecc-universal` | `node -p "require('./package.json').name"` | `ecc-universal` | Keep for rc.1 |
 | npm package version | `2.0.0-rc.1` local, `1.10.0` registry latest | `node -p "require('./package.json').version"` and `npm view ecc-universal name version dist-tags --json` | Local rc.1 is ready; registry latest remains `1.10.0` | Publish rc as `next`, not `latest` |
@@ -69,7 +69,7 @@ do it as a staged migration:
 
 1. Keep `ecc-universal` as the npm package until a replacement package has a
    verified owner, deprecation plan, and install migration.
-2. Keep `mehmet-turac/everything-openai-codex` as the canonical repo until release
+2. Keep `mturac/everything-openai-codex` as the canonical repo until release
    notes, docs, plugin marketplace entries, npm metadata, and external links
    are prepared for redirects.
 3. Use `ecc` as the product name in new diagrams, status payloads, and

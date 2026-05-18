@@ -2,7 +2,7 @@
 
 Community-reported workarounds for current OpenAI Codex bugs that can affect ecc users.
 
-These are upstream OpenAI Codex behaviors, not ecc bugs. The entries below summarize the production-tested workarounds collected in [issue #644](https://github.com/mehmet-turac/everything-openai-codex/issues/644) on OpenAI Codex `v2.1.79` (macOS, heavy hook usage, MCP connectors enabled). Treat them as pragmatic stopgaps until upstream fixes land.
+These are upstream OpenAI Codex behaviors, not ecc bugs. The entries below summarize the production-tested workarounds collected in [issue #644](https://github.com/mturac/everything-openai-codex/issues/644) on OpenAI Codex `v2.1.79` (macOS, heavy hook usage, MCP connectors enabled). Treat them as pragmatic stopgaps until upstream fixes land.
 
 ## Community Workarounds For Open OpenAI Codex Bugs
 
@@ -72,4 +72,4 @@ exit 2
 - [hook-bug-workarounds.md](./hook-bug-workarounds.md) for the shorter hook/compaction/MCP recovery checklist.
 - [hooks/README.md](../hooks/README.md) for ecc's documented hook lifecycle and exit-code behavior.
 - [token-optimization.md](./token-optimization.md) for cost and context management settings.
-- [issue #644](https://github.com/mehmet-turac/everything-openai-codex/issues/644) for the original report and tested environment.
+- [issue #644](https://github.com/mturac/everything-openai-codex/issues/644) for the original report and tested environment.

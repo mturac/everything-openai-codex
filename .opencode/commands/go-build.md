@@ -1,6 +1,6 @@
 ---
 description: Fix Go build and vet errors
-agent: Everything OpenAI Codex:go-build-resolver
+agent: everything-openai-codex:go-build-resolver
 subtask: true
 ---
 

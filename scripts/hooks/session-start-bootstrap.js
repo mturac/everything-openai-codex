@@ -31,7 +31,7 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 
 const CURRENT_PLUGIN_SLUG = 'ecc';
-const LEGACY_PLUGIN_SLUG = 'everything-OpenAI Codex';
+const LEGACY_PLUGIN_SLUG = 'everything-openai-codex';
 const KNOWN_PLUGIN_PATHS = [
   [CURRENT_PLUGIN_SLUG],
   [`${CURRENT_PLUGIN_SLUG}@${CURRENT_PLUGIN_SLUG}`],
@@ -65,7 +65,7 @@ function hasRunnerRoot(candidate) {
  *   1. CODEX_PLUGIN_ROOT environment variable
  *   2. ~/.codex (direct install)
  *   3. Several well-known plugin sub-paths under ~/.codex/plugins/ (current + legacy)
- *   4. Versioned cache directories under ~/.codex/plugins/cache/{ecc,everything-OpenAI Codex}/
+ *   4. Versioned cache directories under ~/.codex/plugins/cache/{ecc,everything-openai-codex}/
  *   5. Falls back to ~/.codex if nothing else matches
  *
  * @returns {string}
@@ -93,7 +93,7 @@ function resolvePluginRoot() {
     }
   }
 
-  // Walk versioned cache: ~/.codex/plugins/cache/{ecc,everything-OpenAI Codex}/<org>/<version>/
+  // Walk versioned cache: ~/.codex/plugins/cache/{ecc,everything-openai-codex}/<org>/<version>/
   try {
     for (const slug of CACHE_PLUGIN_SLUGS) {
       const cacheBase = path.join(codexDir, 'plugins', 'cache', slug);

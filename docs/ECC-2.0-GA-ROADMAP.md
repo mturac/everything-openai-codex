@@ -16,7 +16,7 @@ execution truth is split across:
 
 As of 2026-05-18:
 
-- GitHub queues are clean across `mehmet-turac/everything-openai-codex`,
+- GitHub queues are clean across `mturac/everything-openai-codex`,
   `mehmet-turac/agentshield`, `mehmet-turac/JARVIS`, `ecc-Tools/ecc-Tools`, and
   `ecc-Tools/ecc-website`: the latest `platform-audit` sweep found 0 open PRs,
   0 open issues, 0 discussion maintainer-touch gaps, 0 answerable Q&A missing
@@ -25,7 +25,7 @@ As of 2026-05-18:
   `scripts/work-items.js sync-github` across all five tracked repos, leaving
   no open or blocked local work items.
 - GitHub discussions are current across those tracked repos:
-  `mehmet-turac/everything-openai-codex` has 58 total discussions and 0 without
+  `mturac/everything-openai-codex` has 58 total discussions and 0 without
   maintainer touch after May 15 maintainer updates on #73 and #1239; AgentShield,
   JARVIS, ecc Tools, and the ecc Tools website have discussions disabled or 0
   total discussions.

@@ -1,6 +1,6 @@
 ---
 description: Extract patterns and learnings from current session
-agent: Everything OpenAI Codex:build
+agent: everything-openai-codex:build
 ---
 
 # Learn Command

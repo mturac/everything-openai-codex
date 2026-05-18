@@ -1,6 +1,6 @@
 ---
 description: Enforce TDD workflow with 80%+ coverage
-agent: Everything OpenAI Codex:tdd-guide
+agent: everything-openai-codex:tdd-guide
 subtask: true
 ---
 

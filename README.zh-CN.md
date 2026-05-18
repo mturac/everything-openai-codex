@@ -1,8 +1,8 @@
 # Everything OpenAI Codex
 
-[![Stars](https://img.shields.io/github/stars/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/stargazers)
-[![Forks](https://img.shields.io/github/forks/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/network/members)
-[![Contributors](https://img.shields.io/github/contributors/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/graphs/contributors)
+[![Stars](https://img.shields.io/github/stars/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/stargazers)
+[![Forks](https://img.shields.io/github/forks/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/network/members)
+[![Contributors](https://img.shields.io/github/contributors/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/graphs/contributors)
 [![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-universal)
 [![npm ecc-agentshield](https://img.shields.io/npm/dw/ecc-agentshield?label=ecc-agentshield%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-agentshield)
 [![GitHub App Install](https://img.shields.io/badge/GitHub%20App-150%20installs-2ea44f?logo=github)](https://github.com/marketplace/ecc-tools)
@@ -15,7 +15,7 @@
 ![Perl](https://img.shields.io/badge/-Perl-39457E?logo=perl&logoColor=white)
 ![Markdown](https://img.shields.io/badge/-Markdown-000000?logo=markdown&logoColor=white)
 
-> **140K+ stars** | **21K+ forks** | **170+ 贡献者** | **12+ 语言系统** | **OpenAI黑客松获胜者**
+> **上方 GitHub 与 npm 徽章是当前来源。** ecc 是 MIT 许可的 Codex 工作流系统，覆盖 12+ 语言生态，并维护公开的 rc.1 发布轨道。
 
 ---
 
@@ -99,7 +99,7 @@
 
 ```bash
 # 添加市场
-/plugin marketplace add https://github.com/mehmet-turac/everything-openai-codex
+/plugin marketplace add https://github.com/mturac/everything-openai-codex
 
 # 安装插件
 /plugin install ecc@ecc
@@ -117,7 +117,7 @@
 
 ```bash
 # 首先克隆仓库
-git clone https://github.com/mehmet-turac/everything-openai-codex.git
+git clone https://github.com/mturac/everything-openai-codex.git
 cd Everything OpenAI Codex
 
 # 安装依赖（选择你常用的包管理器）
@@ -160,7 +160,7 @@ Copy-Item -Recurse rules/typescript "$HOME/.codex/rules/"
 /plugin list ecc@ecc
 ```
 
-**完成！** 你现在可以使用 60 个代理、231 个技能和 75 个命令。
+**完成！** 你现在可以使用 60 个代理、230 个技能和 75 个命令。
 
 ### multi-* 命令需要额外配置
 
@@ -535,7 +535,7 @@ OpenAI Codex v2.1+ 会**按照约定自动加载**已安装插件中的 `hooks/h
 检测到重复的钩子文件：./hooks/hooks.json 指向已加载的文件
 ```
 
-**历史说明**：该问题曾在本仓库中引发多次「修复-回滚」循环（[#29](https://github.com/mehmet-turac/everything-openai-codex/issues/29)、[#52](https://github.com/mehmet-turac/everything-openai-codex/issues/52)、[#103](https://github.com/mehmet-turac/everything-openai-codex/issues/103)）。因 OpenAI Codex 版本间行为变更导致混淆，现已添加回归测试，防止该问题再次出现。
+**历史说明**：该问题曾在本仓库中引发多次「修复-回滚」循环（[#29](https://github.com/mturac/everything-openai-codex/issues/29)、[#52](https://github.com/mturac/everything-openai-codex/issues/52)、[#103](https://github.com/mturac/everything-openai-codex/issues/103)）。因 OpenAI Codex 版本间行为变更导致混淆，现已添加回归测试，防止该问题再次出现。
 
 ---
 
@@ -547,7 +547,7 @@ OpenAI Codex v2.1+ 会**按照约定自动加载**已安装插件中的 `hooks/h
 
 ```bash
 # 将此仓库添加为市场
-/plugin marketplace add https://github.com/mehmet-turac/everything-openai-codex
+/plugin marketplace add https://github.com/mturac/everything-openai-codex
 
 # 安装插件
 /plugin install ecc@ecc
@@ -561,7 +561,7 @@ OpenAI Codex v2.1+ 会**按照约定自动加载**已安装插件中的 `hooks/h
     "ecc": {
       "source": {
         "source": "github",
-        "repo": "mehmet-turac/everything-openai-codex"
+        "repo": "mturac/everything-openai-codex"
       }
     }
   },
@@ -577,7 +577,7 @@ OpenAI Codex v2.1+ 会**按照约定自动加载**已安装插件中的 `hooks/h
 >
 > ```bash
 > # 首先克隆仓库
-> git clone https://github.com/mehmet-turac/everything-openai-codex.git
+> git clone https://github.com/mturac/everything-openai-codex.git
 >
 > # 方案 A：用户级规则（对所有项目生效）
 > mkdir -p ~/.codex/rules
@@ -601,7 +601,7 @@ OpenAI Codex v2.1+ 会**按照约定自动加载**已安装插件中的 `hooks/h
 
 ```bash
 # 克隆仓库
-git clone https://github.com/mehmet-turac/everything-openai-codex.git
+git clone https://github.com/mturac/everything-openai-codex.git
 
 # 将智能体文件复制到 Codex 配置目录
 cp Everything OpenAI Codex/agents/*.md ~/.codex/agents/
@@ -751,7 +751,7 @@ node tests/hooks/hooks.test.js
 
 ## 背景
 
-自实验性推出以来，我一直在使用 OpenAI Codex。2025 年 9 月，与 [@DRodriguezFX](https://x.com/DRodriguezFX) 一起使用 OpenAI Codex 构建 [zenith.chat](https://zenith.chat)，赢得了 OpenAI x Forum Ventures 黑客马拉松。
+自实验性推出以来，我一直在使用 OpenAI Codex，并把重复出现的生产工作流沉淀为可复用的 ecc 技能、钩子、规则和安装配置。
 
 这些配置在多个生产应用中经过了实战测试。
 
@@ -802,7 +802,7 @@ node tests/hooks/hooks.test.js
 
 ## Star 历史
 
-[![Star History Chart](https://api.star-history.com/svg?repos=mehmet-turac/everything-openai-codex&type=Date)](https://star-history.com/#mehmet-turac/everything-openai-codex&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=mturac/everything-openai-codex&type=Date)](https://star-history.com/#mturac/everything-openai-codex&Date)
 
 ---
 

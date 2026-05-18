@@ -1,6 +1,6 @@
 ---
 description: Configure package manager preference
-agent: Everything OpenAI Codex:build
+agent: everything-openai-codex:build
 ---
 
 # Setup Package Manager Command

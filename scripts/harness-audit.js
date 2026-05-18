@@ -171,7 +171,7 @@ function hasFileWithExtension(rootDir, relativeDir, extensions) {
 
 function detectTargetMode(rootDir) {
   const packageJson = safeParseJson(safeRead(rootDir, 'package.json'));
-  if (packageJson?.name === 'everything-OpenAI Codex') {
+  if (packageJson?.name === 'everything-openai-codex') {
     return 'repo';
   }
 
@@ -189,18 +189,18 @@ function detectTargetMode(rootDir) {
 
 const ecc_PLUGIN_KEY_PATTERNS = [
   /^ecc@/i,
-  /^everything-OpenAI Codex@/i,
+  /^everything-openai-codex@/i,
 ];
 
 const ecc_LEGACY_PLUGIN_DIRS = [
   'ecc',
   'ecc@ecc',
-  'everything-OpenAI Codex',
-  'everything-OpenAI Codex@everything-OpenAI Codex',
+  'everything-openai-codex',
+  'everything-openai-codex@everything-openai-codex',
 ];
 
-const ecc_CACHE_MARKETPLACES = ['everything-OpenAI Codex', 'ecc'];
-const ecc_CACHE_PLUGIN_NAMES = ['ecc', 'everything-OpenAI Codex'];
+const ecc_CACHE_MARKETPLACES = ['everything-openai-codex', 'ecc'];
+const ecc_CACHE_PLUGIN_NAMES = ['ecc', 'everything-openai-codex'];
 
 function uniquePaths(paths) {
   return [...new Set(paths.filter(Boolean))];
@@ -622,7 +622,7 @@ function getConsumerChecks(rootDir) {
       category: 'Tool Coverage',
       points: 4,
       scopes: ['repo'],
-      path: '~/.codex/plugins/ecc/ (legacy everything-OpenAI Codex paths also supported)',
+      path: '~/.codex/plugins/ecc/ (legacy everything-openai-codex paths also supported)',
       description: 'Everything OpenAI Codex is installed for the active user or project',
       pass: Boolean(pluginInstall),
       fix: 'Install the ecc plugin for this user or project before auditing project-specific harness quality.',

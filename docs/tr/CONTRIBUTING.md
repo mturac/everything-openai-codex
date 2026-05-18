@@ -51,7 +51,7 @@ Faydalı workflow'ları çağıran slash command'lar:
 
 ```bash
 # 1. Fork ve clone
-gh repo fork mehmet-turac/everything-openai-codex --clone
+gh repo fork mturac/everything-openai-codex --clone
 cd Everything OpenAI Codex
 
 # 2. Branch oluştur
@@ -453,7 +453,7 @@ Bunu nasıl test ettiniz.
 
 ## Sorularınız mı var?
 
-- **Issue'lar:** [github.com/mehmet-turac/everything-openai-codex/issues](https://github.com/mehmet-turac/everything-openai-codex/issues)
+- **Issue'lar:** [github.com/mturac/everything-openai-codex/issues](https://github.com/mturac/everything-openai-codex/issues)
 - **X/Twitter:** [@mehmet_turac](https://x.com/mehmet_turac)
 
 ---

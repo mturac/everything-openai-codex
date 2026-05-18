@@ -1,6 +1,6 @@
 ---
 description: List registered projects and instinct counts
-agent: Everything OpenAI Codex:build
+agent: everything-openai-codex:build
 ---
 
 # Projects Command

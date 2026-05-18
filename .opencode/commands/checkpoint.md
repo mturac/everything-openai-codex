@@ -1,6 +1,6 @@
 ---
 description: Save verification state and progress checkpoint
-agent: Everything OpenAI Codex:build
+agent: everything-openai-codex:build
 ---
 
 # Checkpoint Command

@@ -2,9 +2,9 @@
 
 # Everything OpenAI Codex
 
-[![Stars](https://img.shields.io/github/stars/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/stargazers)
-[![Forks](https://img.shields.io/github/forks/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/network/members)
-[![Contributors](https://img.shields.io/github/contributors/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/graphs/contributors)
+[![Stars](https://img.shields.io/github/stars/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/stargazers)
+[![Forks](https://img.shields.io/github/forks/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/network/members)
+[![Contributors](https://img.shields.io/github/contributors/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/graphs/contributors)
 [![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20weekly%20downloads\&logo=npm)](https://www.npmjs.com/package/ecc-universal)
 [![npm ecc-agentshield](https://img.shields.io/npm/dw/ecc-agentshield?label=ecc-agentshield%20weekly%20downloads\&logo=npm)](https://www.npmjs.com/package/ecc-agentshield)
 [![GitHub App Install](https://img.shields.io/badge/GitHub%20App-150%20installs-2ea44f?logo=github)](https://github.com/marketplace/ecc-tools)
@@ -17,7 +17,7 @@
 ![Perl](https://img.shields.io/badge/-Perl-39457E?logo=perl\&logoColor=white)
 ![Markdown](https://img.shields.io/badge/-Markdown-000000?logo=markdown\&logoColor=white)
 
-> **140K+ stars** | **21K+ forks** | **170+ contributors** | **12+ language ecosystems** | **OpenAI Hackathon Winner**
+> **上方 GitHub 与 npm 徽章是当前来源。** ecc 是 MIT 许可的 Codex 工作流系统，覆盖 12+ 语言生态，并维护公开的 rc.1 发布轨道。
 
 ***
 
@@ -31,7 +31,7 @@
 
 ***
 
-**适用于 AI 智能体平台的性能优化系统。来自 OpenAI 黑客马拉松的获奖作品。**
+**适用于 AI 智能体平台的性能优化系统，来自日常 OpenAI Codex 生产使用。**
 
 不仅仅是配置。一个完整的系统：技能、本能、内存优化、持续学习、安全扫描以及研究优先的开发。经过 10 多个月的密集日常使用和构建真实产品的经验，演进出生产就绪的智能体、钩子、命令、规则和 MCP 配置。
 
@@ -131,7 +131,7 @@
 
 ### v1.4.1 — 错误修复 (2026年2月)
 
-* **修复了直觉导入内容丢失问题** — `parse_instinct_file()` 在 `/instinct-import` 期间会静默丢弃 frontmatter 之后的所有内容（Action, Evidence, Examples 部分）。已由社区贡献者 @ericcai0814 修复 ([#148](https://github.com/mehmet-turac/everything-openai-codex/issues/148), [#161](https://github.com/mehmet-turac/everything-openai-codex/pull/161))
+* **修复了直觉导入内容丢失问题** — `parse_instinct_file()` 在 `/instinct-import` 期间会静默丢弃 frontmatter 之后的所有内容（Action, Evidence, Examples 部分）。已由社区贡献者 @ericcai0814 修复 ([#148](https://github.com/mturac/everything-openai-codex/issues/148), [#161](https://github.com/mturac/everything-openai-codex/pull/161))
 
 ### v1.4.0 — 多语言规则、安装向导 & PM2 (2026年2月)
 
@@ -155,7 +155,7 @@
 * **会话管理** — `/sessions` 命令用于查看会话历史
 * **持续学习 v2** — 基于直觉的学习，带有置信度评分、导入/导出、进化
 
-完整的更新日志请参见 [Releases](https://github.com/mehmet-turac/everything-openai-codex/releases)。
+完整的更新日志请参见 [Releases](https://github.com/mturac/everything-openai-codex/releases)。
 
 ***
 
@@ -167,7 +167,7 @@
 
 ```bash
 # Add marketplace
-/plugin marketplace add https://github.com/mehmet-turac/everything-openai-codex
+/plugin marketplace add https://github.com/mturac/everything-openai-codex
 
 # Install plugin
 /plugin install ecc@ecc
@@ -183,7 +183,7 @@
 
 ```bash
 # Clone the repo first
-git clone https://github.com/mehmet-turac/everything-openai-codex.git
+git clone https://github.com/mturac/everything-openai-codex.git
 cd Everything OpenAI Codex
 
 # Install dependencies (pick your package manager)
@@ -224,7 +224,7 @@ Copy-Item -Recurse rules/typescript "$HOME/.codex/rules/"
 /plugin list ecc@ecc
 ```
 
-**搞定！** 你现在可以使用 60 个智能体、231 项技能和 75 个命令了。
+**搞定！** 你现在可以使用 60 个智能体、230 项技能和 75 个命令了。
 
 ***
 
@@ -591,7 +591,7 @@ OpenAI Codex v2.1+ **会自动加载** 任何已安装插件中的 `hooks/hooks.
 重复的钩子文件检测到：./hooks/hooks.json 解析到已加载的文件
 ```
 
-**历史背景：** 这已导致此仓库中多次修复/还原循环（[#29](https://github.com/mehmet-turac/everything-openai-codex/issues/29), [#52](https://github.com/mehmet-turac/everything-openai-codex/issues/52), [#103](https://github.com/mehmet-turac/everything-openai-codex/issues/103)）。OpenAI Codex 版本之间的行为发生了变化，导致了混淆。我们现在有一个回归测试来防止这种情况再次发生。
+**历史背景：** 这已导致此仓库中多次修复/还原循环（[#29](https://github.com/mturac/everything-openai-codex/issues/29), [#52](https://github.com/mturac/everything-openai-codex/issues/52), [#103](https://github.com/mturac/everything-openai-codex/issues/103)）。OpenAI Codex 版本之间的行为发生了变化，导致了混淆。我们现在有一个回归测试来防止这种情况再次发生。
 
 ***
 
@@ -603,7 +603,7 @@ OpenAI Codex v2.1+ **会自动加载** 任何已安装插件中的 `hooks/hooks.
 
 ```bash
 # Add this repo as a marketplace
-/plugin marketplace add https://github.com/mehmet-turac/everything-openai-codex
+/plugin marketplace add https://github.com/mturac/everything-openai-codex
 
 # Install the plugin
 /plugin install ecc@ecc
@@ -617,7 +617,7 @@ OpenAI Codex v2.1+ **会自动加载** 任何已安装插件中的 `hooks/hooks.
     "ecc": {
       "source": {
         "source": "github",
-        "repo": "mehmet-turac/everything-openai-codex"
+        "repo": "mturac/everything-openai-codex"
       }
     }
   },
@@ -633,7 +633,7 @@ OpenAI Codex v2.1+ **会自动加载** 任何已安装插件中的 `hooks/hooks.
 >
 > ```bash
 > # 首先克隆仓库
-> git clone https://github.com/mehmet-turac/everything-openai-codex.git
+> git clone https://github.com/mturac/everything-openai-codex.git
 >
 > # 选项 A：用户级规则（适用于所有项目）
 > mkdir -p ~/.codex/rules
@@ -657,7 +657,7 @@ OpenAI Codex v2.1+ **会自动加载** 任何已安装插件中的 `hooks/hooks.
 
 ```bash
 # Clone the repo
-git clone https://github.com/mehmet-turac/everything-openai-codex.git
+git clone https://github.com/mturac/everything-openai-codex.git
 
 # Copy agents to your Codex config
 cp Everything OpenAI Codex/agents/*.md ~/.codex/agents/
@@ -827,7 +827,7 @@ e2e-testing 技能                              → e2e-runner: 关键用户流�
 <details>
 <summary><b>我的钩子不工作 / 我看到“重复钩子文件”错误</b></summary>
 
-这是最常见的问题。**不要在 `.codex-plugin/plugin.json` 中添加 `"hooks"` 字段。** OpenAI Codex v2.1+ 会自动从已安装的插件加载 `hooks/hooks.json`。显式声明它会导致重复检测错误。参见 [#29](https://github.com/mehmet-turac/everything-openai-codex/issues/29), [#52](https://github.com/mehmet-turac/everything-openai-codex/issues/52), [#103](https://github.com/mehmet-turac/everything-openai-codex/issues/103)。
+这是最常见的问题。**不要在 `.codex-plugin/plugin.json` 中添加 `"hooks"` 字段。** OpenAI Codex v2.1+ 会自动从已安装的插件加载 `hooks/hooks.json`。显式声明它会导致重复检测错误。参见 [#29](https://github.com/mturac/everything-openai-codex/issues/29), [#52](https://github.com/mturac/everything-openai-codex/issues/52), [#103](https://github.com/mturac/everything-openai-codex/issues/103)。
 
 </details>
 
@@ -899,7 +899,7 @@ cp -r Everything OpenAI Codex/rules/common ~/.codex/rules/common
 
 * **Cursor**: 预翻译的配置位于 `.cursor/`。参见 [Cursor IDE 支持](#cursor-ide-支持)。
 * **OpenCode**: `.opencode/` 中的完整插件支持。参见 [OpenCode 支持](#opencode-支持)。
-* **Codex**: 对 macOS 应用和 CLI 的一流支持，带有适配器漂移防护和 SessionStart 回退。参见 PR [#257](https://github.com/mehmet-turac/everything-openai-codex/pull/257)。
+* **Codex**: 对 macOS 应用和 CLI 的一流支持，带有适配器漂移防护和 SessionStart 回退。参见 PR [#257](https://github.com/mturac/everything-openai-codex/pull/257)。
 * **Antigravity**: 为工作流、技能和扁平化规则紧密集成的设置，位于 `.agent/`。参见 [Antigravity 指南](../ANTIGRAVITY-GUIDE.md)。
 * **OpenAI Codex**: 原生支持 — 这是主要目标。
 
@@ -1138,7 +1138,7 @@ opencode
 |---------|-------------|----------|--------|
 | 智能体 | PASS: 60 个 | PASS: 12 个 | **OpenAI Codex 领先** |
 | 命令 | PASS: 75 个 | PASS: 35 个 | **OpenAI Codex 领先** |
-| 技能 | PASS: 231 项 | PASS: 37 项 | **OpenAI Codex 领先** |
+| 技能 | PASS: 230 项 | PASS: 37 项 | **OpenAI Codex 领先** |
 | 钩子 | PASS: 8 种事件类型 | PASS: 11 种事件 | **OpenCode 更多！** |
 | 规则 | PASS: 29 条 | PASS: 13 条指令 | **OpenAI Codex 领先** |
 | MCP 服务器 | PASS: 14 个 | PASS: 完整 | **完全对等** |
@@ -1246,7 +1246,7 @@ ecc 是**第一个最大化利用每个主要 AI 编码工具的插件**。以�
 |---------|------------|------------|-----------|----------|
 | **智能体** | 60 | 共享 (AGENTS.md) | 共享 (AGENTS.md) | 12 |
 | **命令** | 75 | 共享 | 基于指令 | 35 |
-| **技能** | 231 | 共享 | 10 (原生格式) | 37 |
+| **技能** | 230 | 共享 | 10 (原生格式) | 37 |
 | **钩子事件** | 8 种类型 | 15 种类型 | 暂无 | 11 种类型 |
 | **钩子脚本** | 20+ 个脚本 | 16 个脚本 (DRY 适配器) | N/A | 插件钩子 |
 | **规则** | 34 (通用 + 语言) | 34 (YAML 前页) | 基于指令 | 13 条指令 |
@@ -1269,7 +1269,7 @@ ecc 是**第一个最大化利用每个主要 AI 编码工具的插件**。以�
 
 ## 背景
 
-我从实验性推出以来就一直在使用 OpenAI Codex。在 2025 年 9 月，与 [@DRodriguezFX](https://x.com/DRodriguezFX) 一起使用 OpenAI Codex 构建 [zenith.chat](https://zenith.chat)，赢得了 OpenAI x Forum Ventures 黑客马拉松。
+我从实验性推出以来就一直在使用 OpenAI Codex，并把重复出现的生产工作流沉淀为可复用的 ecc 技能、钩子、规则和安装配置。
 
 这些配置已在多个生产应用程序中经过实战测试。
 
@@ -1392,7 +1392,7 @@ ecc 是**第一个最大化利用每个主要 AI 编码工具的插件**。以�
 
 ## Star 历史
 
-[![Star History Chart](https://api.star-history.com/svg?repos=mehmet-turac/everything-openai-codex\&type=Date)](https://star-history.com/#mehmet-turac/everything-openai-codex\&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=mturac/everything-openai-codex\&type=Date)](https://star-history.com/#mturac/everything-openai-codex\&Date)
 
 ***
 

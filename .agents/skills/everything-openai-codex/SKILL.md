@@ -1,11 +1,19 @@
 ---
-name: Everything OpenAI Codex-conventions
+name: everything-openai-codex
 description: Development conventions and patterns for Everything OpenAI Codex. JavaScript project with conventional commits.
 ---
 
 # Everything OpenAI Codex Conventions
 
 > Generated from [mehmet-turac/everything-openai-codex](https://github.com/mehmet-turac/everything-openai-codex) on 2026-03-20
+
+## Responsibility Contract
+
+- Role: senior maintainer for the Everything OpenAI Codex repository.
+- Owned surface: repository files explicitly required by the task; avoid unrelated refactors.
+- Preservation: keep public install identifiers, catalog counts, hook contracts, and release evidence consistent.
+- Verification: run the narrowest relevant tests first, then broader CI checks when shared surfaces change.
+- Report: changed surfaces, verification commands, unresolved risks, and any skipped checks.
 
 ## Overview
 
@@ -304,24 +312,24 @@ Register the agent in AGENTS.md
 Optionally update README.md and docs/COMMAND-AGENT-MAP.md
 ```
 
-### Add New Command
+### Add New Workflow Surface
 
-Adds a new command to the system, often paired with a backing skill.
+Adds or updates a workflow entrypoint. Default to skills-first; only add a command shim when legacy slash compatibility is still required.
 
 **Frequency**: ~1 times per month
 
 **Steps**:
-1. Create a new markdown file under commands/{command-name}.md
-2. Optionally add or update a backing skill under skills/{skill-name}/SKILL.md
+1. Create or update the canonical workflow under skills/{skill-name}/SKILL.md
+2. Only if needed, add or update commands/{command-name}.md as a compatibility shim
 
 **Files typically involved**:
-- `commands/*.md`
 - `skills/*/SKILL.md`
+- `commands/*.md` (only when a legacy shim is intentionally retained)
 
 **Example commit sequence**:
 ```
-Create a new markdown file under commands/{command-name}.md
-Optionally add or update a backing skill under skills/{skill-name}/SKILL.md
+Create or update the canonical skill under skills/{skill-name}/SKILL.md
+Only if needed, add or update commands/{command-name}.md as a compatibility shim
 ```
 
 ### Sync Catalog Counts

@@ -39,6 +39,14 @@ ensure_manifest_entry() {
     fi
 }
 
+append_manifest_entry() {
+    local manifest="$1"
+    local entry="$2"
+
+    touch "$manifest"
+    echo "$entry" >> "$manifest"
+}
+
 manifest_has_entry() {
     local manifest="$1"
     local entry="$2"
@@ -53,15 +61,7 @@ copy_managed_file() {
     local manifest_entry="$4"
     local make_executable="${5:-0}"
 
-    local already_managed=0
-    if manifest_has_entry "$manifest" "$manifest_entry"; then
-        already_managed=1
-    fi
-
     if [ -f "$target_path" ]; then
-        if [ "$already_managed" -eq 1 ]; then
-            ensure_manifest_entry "$manifest" "$manifest_entry"
-        fi
         return 1
     fi
 
@@ -69,7 +69,7 @@ copy_managed_file() {
     if [ "$make_executable" -eq 1 ]; then
         chmod +x "$target_path"
     fi
-    ensure_manifest_entry "$manifest" "$manifest_entry"
+    append_manifest_entry "$manifest" "$manifest_entry"
     return 0
 }
 
@@ -122,6 +122,7 @@ do_install() {
     skills=0
     rules=0
     other=0
+    copied_skills_file="$(mktemp)"
 
     # Copy commands from repo root
     if [ -d "$REPO_ROOT/commands" ]; then
@@ -149,26 +150,19 @@ do_install() {
 
     # Copy skills from repo root (if available)
     if [ -d "$REPO_ROOT/skills" ]; then
-        for d in "$REPO_ROOT/skills"/*/; do
-            [ -d "$d" ] || continue
-            skill_name="$(basename "$d")"
+        while IFS= read -r source_file; do
+            relative_from_skills="${source_file#$REPO_ROOT/skills/}"
+            skill_name="${relative_from_skills%%/*}"
+            relative_path="${relative_from_skills#*/}"
             target_skill_dir="$trae_full_path/skills/$skill_name"
-            skill_copied=0
 
-            while IFS= read -r source_file; do
-                relative_path="${source_file#$d}"
-                target_path="$target_skill_dir/$relative_path"
-
-                mkdir -p "$(dirname "$target_path")"
-                if copy_managed_file "$source_file" "$target_path" "$MANIFEST" "skills/$skill_name/$relative_path"; then
-                    skill_copied=1
-                fi
-            done < <(find "$d" -type f | sort)
-
-            if [ "$skill_copied" -eq 1 ]; then
-                skills=$((skills + 1))
+            mkdir -p "$(dirname "$target_skill_dir/$relative_path")"
+            if copy_managed_file "$source_file" "$target_skill_dir/$relative_path" "$MANIFEST" "skills/$skill_name/$relative_path"; then
+                echo "$skill_name" >> "$copied_skills_file"
             fi
-        done
+        done < <(find "$REPO_ROOT/skills" -type f | sort)
+
+        skills="$(sort -u "$copied_skills_file" | wc -l | tr -d ' ')"
     fi
 
     # Copy rules from repo root
@@ -208,6 +202,8 @@ do_install() {
 
     # Add manifest file itself to manifest
     ensure_manifest_entry "$MANIFEST" ".ecc-manifest"
+    sort -u "$MANIFEST" -o "$MANIFEST"
+    rm -f "$copied_skills_file"
 
     # Installation summary
     echo "Installation complete!"

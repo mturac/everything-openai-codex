@@ -171,4 +171,4 @@ Gelişmiş özellikler için (10k+ commit, ekip paylaşımı, otomatik PR'lar), 
 
 ---
 
-*[Everything OpenAI Codex](https://github.com/mehmet-turac/everything-openai-codex)'un bir parçası*
+*[Everything OpenAI Codex](https://github.com/mturac/everything-openai-codex)'un bir parçası*

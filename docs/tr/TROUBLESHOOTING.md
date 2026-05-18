@@ -264,7 +264,7 @@ codex --version
 # OpenAI Codex 2.0+ gerektirir
 
 # Manuel kurulum (marketplace başarısız olursa)
-git clone https://github.com/mehmet-turac/everything-openai-codex.git
+git clone https://github.com/mturac/everything-openai-codex.git
 cp -r Everything OpenAI Codex ~/.codex/plugins/ecc
 ```
 
@@ -396,7 +396,7 @@ find ~/.codex/plugins -name "*.sh" -exec dos2unix {} \;
 
 Hala sorunlar yaşıyorsanız:
 
-1. **GitHub Issues'ı Kontrol Edin**: [github.com/mehmet-turac/everything-openai-codex/issues](https://github.com/mehmet-turac/everything-openai-codex/issues)
+1. **GitHub Issues'ı Kontrol Edin**: [github.com/mturac/everything-openai-codex/issues](https://github.com/mturac/everything-openai-codex/issues)
 2. **Debug Logging'i Etkinleştirin**:
    ```bash
    export CODEX_DEBUG=1

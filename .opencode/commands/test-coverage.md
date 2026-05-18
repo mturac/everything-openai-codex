@@ -1,6 +1,6 @@
 ---
 description: Analyze and improve test coverage
-agent: Everything OpenAI Codex:tdd-guide
+agent: everything-openai-codex:tdd-guide
 subtask: true
 ---
 

@@ -10,7 +10,7 @@ npm publication, plugin tag, marketplace submission, or announcement post.
 | Upstream main base | `209abd403b7eaa968c6d4fa67be82e04b55706d6` |
 | Evidence branch | `docs/post-hardening-release-evidence-20260513` |
 | Evidence scope | Current `main` after PR #1850 and PR #1851 |
-| Git remote | `https://github.com/mehmet-turac/everything-openai-codex.git` |
+| Git remote | `https://github.com/mturac/everything-openai-codex.git` |
 | Local status caveat | Working tree had the unrelated untracked `docs/drafts/` directory |
 
 The actual release operator should repeat these checks from the final release
@@ -21,7 +21,7 @@ commit with a clean checkout before publishing.
 | Surface | Command | Result |
 | --- | --- | --- |
 | GitHub PRs and issues | `gh pr list` / `gh issue list` across trunk, AgentShield, and JARVIS | 0 open PRs and 0 open issues on accessible `mehmet-turac` repos |
-| Trunk discussions | GraphQL discussion count for `mehmet-turac/everything-openai-codex` | 0 open discussions |
+| Trunk discussions | GraphQL discussion count for `mturac/everything-openai-codex` | 0 open discussions |
 | Dependabot alerts | Dependabot alert API for trunk, AgentShield, and JARVIS | 0 open alerts |
 | Release state | `gh release view v2.0.0-rc.1` | Still not created; release remains approval-gated |
 

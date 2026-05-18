@@ -1,6 +1,6 @@
 ---
 description: Show learned instincts (project + global) with confidence
-agent: Everything OpenAI Codex:build
+agent: everything-openai-codex:build
 ---
 
 # Instinct Status Command

@@ -4,9 +4,9 @@
 
 ![Everything OpenAI Codex — ระบบเพิ่มประสิทธิภาพสำหรับ AI agent harness](../../assets/hero.png)
 
-[![Stars](https://img.shields.io/github/stars/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/stargazers)
-[![Forks](https://img.shields.io/github/forks/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/network/members)
-[![Contributors](https://img.shields.io/github/contributors/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/graphs/contributors)
+[![Stars](https://img.shields.io/github/stars/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/stargazers)
+[![Forks](https://img.shields.io/github/forks/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/network/members)
+[![Contributors](https://img.shields.io/github/contributors/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/graphs/contributors)
 [![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-universal)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](../../LICENSE)
 
@@ -50,7 +50,7 @@ ecc ไม่ใช่แค่ชุดไฟล์คอนฟิก แต่
 
 ```bash
 # เพิ่ม marketplace
-/plugin marketplace add https://github.com/mehmet-turac/everything-openai-codex
+/plugin marketplace add https://github.com/mturac/everything-openai-codex
 
 # ติดตั้ง plugin
 /plugin install ecc@ecc
@@ -58,7 +58,7 @@ ecc ไม่ใช่แค่ชุดไฟล์คอนฟิก แต่
 
 ecc มีชื่อเรียกในระบบสาธารณะ 3 ชื่อที่ต่างกัน:
 
-- GitHub repo: `mehmet-turac/everything-openai-codex`
+- GitHub repo: `mturac/everything-openai-codex`
 - Codex marketplace plugin: `ecc@ecc`
 - npm package: `ecc-universal`
 
@@ -69,7 +69,7 @@ ecc มีชื่อเรียกในระบบสาธารณะ 3 �
 Plugin ของ OpenAI Codex จะไม่ติดตั้ง `rules/` ให้อัตโนมัติ หากคุณติดตั้งผ่าน plugin **อย่า** รัน full installer เพิ่ม ให้คัดลอกเฉพาะชุด rule ที่ต้องการแทน:
 
 ```bash
-git clone https://github.com/mehmet-turac/everything-openai-codex.git
+git clone https://github.com/mturac/everything-openai-codex.git
 cd Everything OpenAI Codex
 
 mkdir -p ~/.codex/rules/ecc
@@ -78,7 +78,7 @@ cp -R rules/typescript ~/.codex/rules/ecc/
 ```
 
 ```powershell
-git clone https://github.com/mehmet-turac/everything-openai-codex.git
+git clone https://github.com/mturac/everything-openai-codex.git
 cd Everything OpenAI Codex
 
 New-Item -ItemType Directory -Force -Path "$HOME/.codex/rules/ecc" | Out-Null
@@ -230,7 +230,7 @@ ecc จะลบเฉพาะไฟล์ที่อยู่ใน install-s
 
 ```bash
 # 1. Fork และ clone
-gh repo fork mehmet-turac/everything-openai-codex --clone
+gh repo fork mturac/everything-openai-codex --clone
 cd Everything OpenAI Codex
 
 # 2. สร้าง branch
@@ -249,7 +249,7 @@ git add . && git commit -m "feat: add my-skill" && git push -u origin feat/my-co
 
 ## ชุมชน & สนับสนุน
 
-- [GitHub Discussions](https://github.com/mehmet-turac/everything-openai-codex/discussions) — ถาม-ตอบ, โชว์ผลงาน
+- [GitHub Discussions](https://github.com/mturac/everything-openai-codex/discussions) — ถาม-ตอบ, โชว์ผลงาน
 - [GitHub Sponsors](https://github.com/sponsors/mehmet-turac) — สนับสนุน OSS เริ่มที่ $5/เดือน
 - [ecc Pro](https://ecc.tools/pricing) — private repo + GitHub App ($19/seat/เดือน)
 - [ecc Tools GitHub App](https://github.com/marketplace/ecc-tools) — ติดตั้ง, PR audit, มี free tier

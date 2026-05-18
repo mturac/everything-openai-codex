@@ -136,10 +136,10 @@ function runTests() {
     }
   })) passed++; else failed++;
 
-  if (test('finds exact legacy plugin install at ~/.codex/plugins/everything-OpenAI Codex', () => {
+  if (test('finds exact legacy plugin install at ~/.codex/plugins/everything-openai-codex', () => {
     const homeDir = createTempDir();
     try {
-      const expected = setupLegacyPluginInstall(homeDir, ['everything-OpenAI Codex']);
+      const expected = setupLegacyPluginInstall(homeDir, ['everything-openai-codex']);
       const result = resolveEccRoot({ envRoot: '', homeDir });
       assert.strictEqual(result, expected);
     } finally {
@@ -147,10 +147,10 @@ function runTests() {
     }
   })) passed++; else failed++;
 
-  if (test('finds exact legacy plugin install at ~/.codex/plugins/everything-OpenAI Codex@everything-OpenAI Codex', () => {
+  if (test('finds exact legacy plugin install at ~/.codex/plugins/everything-openai-codex@everything-openai-codex', () => {
     const homeDir = createTempDir();
     try {
-      const expected = setupLegacyPluginInstall(homeDir, ['everything-OpenAI Codex@everything-OpenAI Codex']);
+      const expected = setupLegacyPluginInstall(homeDir, ['everything-openai-codex@everything-openai-codex']);
       const result = resolveEccRoot({ envRoot: '', homeDir });
       assert.strictEqual(result, expected);
     } finally {
@@ -169,10 +169,10 @@ function runTests() {
     }
   })) passed++; else failed++;
 
-  if (test('finds marketplace legacy plugin install at ~/.codex/plugins/marketplaces/everything-OpenAI Codex', () => {
+  if (test('finds marketplace legacy plugin install at ~/.codex/plugins/marketplaces/everything-openai-codex', () => {
     const homeDir = createTempDir();
     try {
-      const expected = setupLegacyPluginInstall(homeDir, ['marketplaces', 'everything-OpenAI Codex']);
+      const expected = setupLegacyPluginInstall(homeDir, ['marketplaces', 'everything-openai-codex']);
       const result = resolveEccRoot({ envRoot: '', homeDir });
       assert.strictEqual(result, expected);
     } finally {
@@ -220,13 +220,13 @@ function runTests() {
   if (test('handles multiple versions in plugin cache', () => {
     const homeDir = createTempDir();
     try {
-      setupPluginCache(homeDir, 'everything-OpenAI Codex', 'legacy-org', '1.7.0');
+      setupPluginCache(homeDir, 'everything-openai-codex', 'legacy-org', '1.7.0');
       const expected = setupPluginCache(homeDir, 'ecc', 'mehmet-turac', CURRENT_PACKAGE_VERSION);
       const result = resolveEccRoot({ envRoot: '', homeDir });
       // Should find one of them (either is valid)
       assert.ok(
         result === expected ||
-        result === path.join(homeDir, '.codex', 'plugins', 'cache', 'everything-OpenAI Codex', 'legacy-org', '1.7.0'),
+        result === path.join(homeDir, '.codex', 'plugins', 'cache', 'everything-openai-codex', 'legacy-org', '1.7.0'),
         'Should resolve to a valid plugin cache directory'
       );
     } finally {

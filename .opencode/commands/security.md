@@ -1,6 +1,6 @@
 ---
 description: Run comprehensive security review
-agent: Everything OpenAI Codex:security-reviewer
+agent: everything-openai-codex:security-reviewer
 subtask: true
 ---
 

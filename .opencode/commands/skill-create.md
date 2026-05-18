@@ -1,6 +1,6 @@
 ---
 description: Generate skills from git history analysis
-agent: Everything OpenAI Codex:build
+agent: everything-openai-codex:build
 ---
 
 # Skill Create Command

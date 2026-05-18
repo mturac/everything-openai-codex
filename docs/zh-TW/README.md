@@ -1,6 +1,6 @@
 # Everything OpenAI Codex
 
-[![Stars](https://img.shields.io/github/stars/mehmet-turac/everything-openai-codex?style=flat)](https://github.com/mehmet-turac/everything-openai-codex/stargazers)
+[![Stars](https://img.shields.io/github/stars/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/stargazers)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Shell](https://img.shields.io/badge/-Shell-4EAA25?logo=gnu-bash&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
@@ -67,7 +67,7 @@
 
 ```bash
 # 新增市集
-/plugin marketplace add https://github.com/mehmet-turac/everything-openai-codex
+/plugin marketplace add https://github.com/mturac/everything-openai-codex
 
 # 安裝外掛程式
 /plugin install ecc@ecc
@@ -79,7 +79,7 @@
 
 ```bash
 # 首先複製儲存庫
-git clone https://github.com/mehmet-turac/everything-openai-codex.git
+git clone https://github.com/mturac/everything-openai-codex.git
 
 # 複製規則（應用於所有專案）
 cp -r Everything OpenAI Codex/rules/* ~/.codex/rules/
@@ -267,7 +267,7 @@ Everything OpenAI Codex/
 
 ```bash
 # 將此儲存庫新增為市集
-/plugin marketplace add https://github.com/mehmet-turac/everything-openai-codex
+/plugin marketplace add https://github.com/mturac/everything-openai-codex
 
 # 安裝外掛程式
 /plugin install ecc@ecc
@@ -281,7 +281,7 @@ Everything OpenAI Codex/
     "ecc": {
       "source": {
         "source": "github",
-        "repo": "mehmet-turac/everything-openai-codex"
+        "repo": "mturac/everything-openai-codex"
       }
     }
   },
@@ -301,7 +301,7 @@ Everything OpenAI Codex/
 
 ```bash
 # 複製儲存庫
-git clone https://github.com/mehmet-turac/everything-openai-codex.git
+git clone https://github.com/mturac/everything-openai-codex.git
 
 # 將代理程式複製到您的 Codex 設定
 cp Everything OpenAI Codex/agents/*.md ~/.codex/agents/
@@ -459,7 +459,7 @@ node tests/hooks/hooks.test.js
 
 ## Star 歷史
 
-[![Star History Chart](https://api.star-history.com/svg?repos=mehmet-turac/everything-openai-codex&type=Date)](https://star-history.com/#mehmet-turac/everything-openai-codex&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=mturac/everything-openai-codex&type=Date)](https://star-history.com/#mturac/everything-openai-codex&Date)
 
 ---
 

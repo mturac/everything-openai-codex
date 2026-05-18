@@ -56,8 +56,8 @@ For the May 18 live/pending release URL ledger, see
 | Surface | Expected value | Source of truth | Fresh check | Evidence artifact | Owner | Status |
 | --- | --- | --- | --- | --- | --- | --- |
 | Product name | Everything OpenAI Codex / ecc | `README.md`, `CHANGELOG.md`, release notes | `rg -n "Everything OpenAI Codex" README.md CHANGELOG.md docs/releases/2.0.0-rc.1` | `publication-evidence-2026-05-12.md` | Release owner | Evidence recorded |
-| GitHub repo | `mehmet-turac/everything-openai-codex` | Git remote and release URLs | `git remote get-url origin` | `publication-evidence-2026-05-12.md` | Release owner | Evidence recorded |
-| Git tag | `v2.0.0-rc.1` | GitHub releases | `gh release view v2.0.0-rc.1 --repo mehmet-turac/everything-openai-codex` | `release not found` | Release owner | Blocked until release approval |
+| GitHub repo | `mturac/everything-openai-codex` | Git remote and release URLs | `git remote get-url origin` | `publication-evidence-2026-05-12.md` | Release owner | Evidence recorded |
+| Git tag | `v2.0.0-rc.1` | GitHub releases | `gh release view v2.0.0-rc.1 --repo mturac/everything-openai-codex` | `release not found` | Release owner | Blocked until release approval |
 | npm package | `ecc-universal` | `package.json` | `node -p "require('./package.json').name"` | `publication-evidence-2026-05-12.md` | Package owner | Evidence recorded |
 | npm version | `2.0.0-rc.1` | `VERSION`, `package.json`, lockfiles | `node -p "require('./package.json').version"` | `publication-evidence-2026-05-12.md` | Package owner | Evidence recorded |
 | npm dist-tag | `next` for rc, `latest` only for GA | npm registry | `npm view ecc-universal dist-tags --json` | Current registry only has `latest: 1.10.0`; `next` is pending publish | Package owner | Blocked until publish approval |
