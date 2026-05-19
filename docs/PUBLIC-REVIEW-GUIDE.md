@@ -78,7 +78,7 @@ For awesome lists, plugin directories, and community catalogs:
 
 ## Alignment With Codex Workflows
 
-EOC's public positioning matches the Codex workflow direction documented by OpenAI: repeatable skills, PR review, long-horizon task follow-through, codebase-aware changes, and evidence-backed verification.
+EOC's public positioning is intended to align with public Codex workflow patterns: repeatable skills, PR review, long-horizon task follow-through, codebase-aware changes, and evidence-backed verification.
 
 Relevant official references:
 

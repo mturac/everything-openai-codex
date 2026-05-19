@@ -4,7 +4,7 @@ Everything OpenAI Codex is an open-source workflow system for OpenAI Codex users
 
 ## Short Copy
 
-Everything OpenAI Codex turns a raw Codex setup into a repeatable engineering workspace: 60 agents, 232 skills, 75 command shims, hooks, memory, safety checks, and cross-harness adapters in one MIT-licensed repo.
+Everything OpenAI Codex turns a raw Codex setup into a repeatable engineering workspace: agents, skills, command shims, hooks, memory, safety checks, and cross-harness adapters in one MIT-licensed repo.
 
 ## One-Line Copy
 
@@ -17,6 +17,7 @@ Open-source operating system for serious OpenAI Codex workflows.
 - Manual install: `npx eoc-install --profile minimal --target codex`
 - Screenshots: `assets/screenshots/`
 - Hero image: `assets/hero.png`
+- Current surface counts: see the release notes or run the repository validation checks before quoting numbers externally.
 
 ## Suggested Tags
 
@@ -55,4 +56,4 @@ It is not a prompt dump. It ships agents, skills, commands, hooks, install profi
 
 Repo: <https://github.com/mturac/everything-openai-codex>
 
-I am looking for feedback from Codex users on what should be smaller, clearer, or safer before calling it stable.
+I am looking for feedback from Codex users on what should be smaller, clearer, or safer before calling the public package stable.
