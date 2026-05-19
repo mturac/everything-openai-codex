@@ -40,4 +40,4 @@ Kesin komut parçacıkları ve tekrarlanabilir çekme süreci için [`docs/busin
 ## Buradan Sponsor Olun
 
 - GitHub Sponsors: [https://github.com/sponsors/mehmet-turac](https://github.com/sponsors/mehmet-turac)
-- Proje sitesi: [https://ecc.tools](https://ecc.tools)
+- Proje sitesi: [https://eco.tools](https://eco.tools)

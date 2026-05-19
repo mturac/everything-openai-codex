@@ -14,7 +14,7 @@ ecc'de bir güvenlik açığı keşfederseniz, lütfen sorumlu bir şekilde bild
 
 **Güvenlik açıkları için herkese açık GitHub issue açmayın.**
 
-Bunun yerine, **<security@ecc.tools>** adresine aşağıdaki bilgilerle e-posta gönderin:
+Bunun yerine, **<security@eco.tools>** adresine aşağıdaki bilgilerle e-posta gönderin:
 
 - Güvenlik açığının açıklaması
 - Yeniden oluşturma adımları

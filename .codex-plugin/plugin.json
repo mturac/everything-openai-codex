@@ -7,7 +7,7 @@
     "email": "me@mehmet_turac.com",
     "url": "https://x.com/mehmet_turac"
   },
-  "homepage": "https://ecc.tools",
+  "homepage": "https://eco.tools",
   "repository": "https://github.com/mturac/everything-openai-codex",
   "license": "MIT",
   "keywords": [
@@ -33,6 +33,6 @@
       "Read",
       "Write"
     ],
-    "websiteURL": "https://ecc.tools"
+    "websiteURL": "https://eco.tools"
   }
 }

@@ -74,12 +74,12 @@ Release notes: https://github.com/mehmet-turac/everything-openai-codex/blob/main
 ## OpenAI Developer Community
 
 ```text
-Title: Everything OpenAI Codex: a Codex workflow OS with 230 skills, agents, hooks, rules, and safety gates
+Title: Everything OpenAI Codex: a Codex workflow OS with 232 skills, agents, hooks, rules, and safety gates
 
 I published Everything OpenAI Codex, an MIT-licensed workflow system for OpenAI Codex.
 
 It packages the parts that made Codex useful in real daily engineering work:
-- 60 agents and 230 skills
+- 60 agents and 232 skills
 - session memory, status snapshots, and handoff-friendly logs
 - install targets for Codex plus adapters for Cursor, OpenCode, Gemini, Zed, Copilot, and Trae
 
@@ -95,7 +95,7 @@ Respect to affaan-m/everything-claude-code; this is a Codex-focused adaptation w
 ## Reddit / r/OpenAI / r/codex
 
 ```text
-Title: I adapted an "everything" workflow OS for OpenAI Codex: 230 skills, agents, hooks, rules, and install profiles
+Title: I adapted an "everything" workflow OS for OpenAI Codex: 232 skills, agents, hooks, rules, and install profiles
 
 I published Everything OpenAI Codex, an MIT-licensed repo for making Codex sessions more repeatable.
 
@@ -117,7 +117,7 @@ Title: Show HN: Everything OpenAI Codex, an open-source workflow OS for Codex
 
 I built Everything OpenAI Codex, an MIT-licensed workflow system for OpenAI Codex.
 
-It is a large installable Codex surface: agents, skills, hooks, rules, memory/session tooling, security checks, release validation, and cross-harness adapters. The current public catalog ships 60 agents, 230 skills, 110 rules, 28 hook matchers, 29 install modules, and 75 legacy command shims.
+It is a large installable Codex surface: agents, skills, hooks, rules, memory/session tooling, security checks, release validation, and cross-harness adapters. The current public catalog ships 60 agents, 232 skills, 110 rules, 28 hook matchers, 29 install modules, and 75 legacy command shims.
 
 The repo is here:
 https://github.com/mehmet-turac/everything-openai-codex

@@ -5538,7 +5538,7 @@ mod tests {
             &cfg,
             &repo_root,
             "Open the billing portal and confirm the refund banner",
-            Some("https://ecc.tools/account"),
+            Some("https://eco.tools/account"),
             Some("Use the production account flow"),
             None,
             TaskPriority::Critical,
@@ -5553,7 +5553,7 @@ mod tests {
         assert_eq!(request.request_kind, RemoteDispatchKind::ComputerUse);
         assert_eq!(
             request.target_url.as_deref(),
-            Some("https://ecc.tools/account")
+            Some("https://eco.tools/account")
         );
         assert_eq!(request.agent_type, "codex");
         assert_eq!(request.project, "ops");
@@ -5563,7 +5563,7 @@ mod tests {
         assert!(request.task.contains("Goal: Open the billing portal"));
         assert!(request
             .task
-            .contains("Target URL: https://ecc.tools/account"));
+            .contains("Target URL: https://eco.tools/account"));
         assert!(request
             .task
             .contains("Context: Use the production account flow"));

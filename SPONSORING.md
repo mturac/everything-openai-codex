@@ -40,4 +40,4 @@ For exact command snippets and a repeatable pull process, see [`docs/business/me
 ## Sponsor Here
 
 - GitHub Sponsors: [https://github.com/sponsors/mehmet-turac](https://github.com/sponsors/mehmet-turac)
-- Project site: [https://ecc.tools](https://ecc.tools)
+- Project site: [https://eco.tools](https://eco.tools)

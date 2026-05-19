@@ -40,4 +40,4 @@ eccはOpenAI Codex、Cursor、OpenCode、Codex app/CLIにまたがるオープ�
 ## スポンサーになる
 
 - GitHub Sponsors: [https://github.com/sponsors/mehmet-turac](https://github.com/sponsors/mehmet-turac)
-- プロジェクトサイト: [https://ecc.tools](https://ecc.tools)
+- プロジェクトサイト: [https://eco.tools](https://eco.tools)
