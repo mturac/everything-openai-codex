@@ -24,6 +24,8 @@ Open-source operating system for serious OpenAI Codex workflows.
 
 ## Submission Targets
 
+Queue status and rejection notes are tracked in the dated [public PR queue snapshot](public-pr-queue-2026-05-20.md).
+
 | Target | Fit | Submission path | Notes |
 |---|---|---|---|
 | ToolHunter | Developer tools and AI agents | <https://www.toolhunter.cc/submit> | Manual review, developer relevance required. |
@@ -32,7 +34,7 @@ Open-source operating system for serious OpenAI Codex workflows.
 | ForgeIndex | Local/open-source AI projects | <https://forgeindex.ai/> | Google Form asks for project name, description, tags, GitHub URL, and optional demo. |
 | Project Free To Use | Free tools, APIs, OSS projects | <https://projectfreetouse.com/submit> | Reviewed before publishing. |
 | StackScout | AI developer tools | <https://stackscout.dev/> | Best angle: AI code assistants or agent frameworks. |
-| Awesome AI Agents | GitHub awesome list | <https://github.com/kyrolabs/awesome-agents> | Submit by PR if contribution rules allow. |
+| Awesome AI Agents | GitHub awesome list | <https://github.com/kyrolabs/awesome-agents> | Closed silently on 2026-05-19; do not retry without new adoption evidence. |
 | Awesome AI Software Development Agents | GitHub awesome list | <https://github.com/flatlogic/awesome-ai-software-development-agents> | Submit by PR with clear description. |
 | Reddit r/codex | Codex users | <https://www.reddit.com/r/codex/> | Use a Show-and-Tell post after plugin PR is stable. |
 | Dev.to | Developer launch article | <https://dev.to/> | Publish a technical walkthrough, not a product pitch. |
