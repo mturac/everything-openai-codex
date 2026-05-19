@@ -42,6 +42,26 @@ Works across **OpenAI Codex**, **Cursor**, **OpenCode**, **Gemini**, **Zed**, **
 
 EOC v2.0.0-rc.1 adds the public Hermes operator story on top of that reusable layer: start with the [Hermes setup guide](docs/HERMES-SETUP.md), then review the [rc.1 release notes](docs/releases/2.0.0-rc.1/release-notes.md) and [cross-harness architecture](docs/architecture/cross-harness.md).
 
+## EOC Execution Model
+
+EOC is organized around a repeatable operator loop, not a single prompt pack:
+
+```text
+Intake -> Route -> Plan -> Execute -> Verify -> Capture -> Resume
+```
+
+That loop is backed by concrete repo surfaces:
+
+| Loop stage | EOC surface |
+|---|---|
+| Intake and boundaries | `AGENTS.md`, `agent.yaml`, install profiles, `.codexignore`, and safety rules define what the agent owns before work starts |
+| Routing | `skills/`, `agents/`, `rules/`, `commands/`, and cross-harness adapters map a task to the right specialist workflow |
+| Execution | hook profiles, MCP configs, install manifests, and orchestration scripts keep runs reproducible across Codex, Cursor, OpenCode, Gemini, Zed, Copilot, and Trae |
+| Verification | `/quality-gate`, `skills/verification-loop/`, `skills/eval-harness/`, `scripts/preview-pack-smoke.js`, manifest validators, and docs tests turn completion into evidence |
+| Capture and resume | `scripts/status.js`, `scripts/work-items.js`, `scripts/session-inspect.js`, `scripts/sessions-cli.js`, hook snapshots, and `ecc2/` alpha session commands preserve state for handoff or continuation |
+
+The stable public layer is the contract-and-workflow system above. The Rust control plane in `ecc2/` is the in-tree alpha runtime for dashboard, session, status, start, stop, resume, and daemon flows; it is intentionally labeled alpha until packaging and cross-harness resume semantics mature.
+
 ## Why This Exists
 
 AI coding tools get dramatically better when the harness has memory, boundaries, checks, and reusable operating patterns. EOC packages those pieces as installable, test-covered surfaces instead of asking every project to rediscover them.
