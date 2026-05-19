@@ -45,6 +45,14 @@ function operationFor(plan, suffix) {
   ));
 }
 
+function normalizeSourceRelativePath(relativePath) {
+  return String(relativePath).split(/[\\/]+/).join('/');
+}
+
+function sourcePathEquals(operation, expectedPath) {
+  return normalizeSourceRelativePath(operation.sourceRelativePath) === normalizeSourceRelativePath(expectedPath);
+}
+
 function writeLegacySourceFixture(root) {
   writeJson(root, 'package.json', { version: '9.8.7' });
   writeFile(root, path.join('rules', 'common', 'coding-style.md'), '# Common\n');
@@ -352,15 +360,15 @@ function runTests() {
       assert.ok(!normalizedSources.some(source => source.includes('node_modules')));
       assert.ok(!normalizedSources.some(source => source.includes('.git')));
       assert.ok(plan.operations.some(operation => (
-        operation.sourceRelativePath === path.join('.codex-plugin', 'plugin.json')
+        sourcePathEquals(operation, path.join('.codex-plugin', 'plugin.json'))
         && operation.destinationPath === path.join(homeDir, '.codex', 'plugin.json')
       )));
       assert.ok(plan.operations.some(operation => (
-        operation.sourceRelativePath === path.join('rules', 'common', 'coding-style.md')
+        sourcePathEquals(operation, path.join('rules', 'common', 'coding-style.md'))
         && operation.destinationPath === path.join(homeDir, '.codex', 'rules', 'ecc', 'common', 'coding-style.md')
       )));
       assert.ok(plan.operations.some(operation => (
-        operation.sourceRelativePath === path.join('skills', 'demo', 'SKILL.md')
+        sourcePathEquals(operation, path.join('skills', 'demo', 'SKILL.md'))
         && operation.destinationPath === path.join(homeDir, '.codex', 'skills', 'ecc', 'demo', 'SKILL.md')
       )));
       assert.deepStrictEqual(plan.warnings, ['fixture warning']);
