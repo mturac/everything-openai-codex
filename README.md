@@ -7,7 +7,7 @@
 [![Stars](https://img.shields.io/github/stars/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/stargazers)
 [![Forks](https://img.shields.io/github/forks/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/network/members)
 [![Contributors](https://img.shields.io/github/contributors/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/graphs/contributors)
-[![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-universal)
+[![npm @mturac/eoc](https://img.shields.io/npm/dw/@mturac%2Feoc?label=%40mturac%2Feoc%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/@mturac/eoc)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Shell](https://img.shields.io/badge/-Shell-4EAA25?logo=gnu-bash&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
@@ -268,9 +268,9 @@ EOC now has three public identifiers, and they are not interchangeable:
 
 - GitHub source repo: `mturac/everything-openai-codex`
 - Codex marketplace/plugin identifier: `eoc@eoc`
-- npm package: `ecc-universal`
+- npm package: `@mturac/eoc`
 
-This is intentional. OpenAI marketplace/plugin installs are keyed by a canonical plugin identifier, so EOC uses `eoc@eoc` to keep tool names and slash-command namespaces short enough for strict Desktop/API validators. Older posts may still show the former long marketplace identifier; treat that as a legacy alias only. Separately, the npm package stayed on `ecc-universal`, so npm installs and marketplace installs intentionally use different names.
+This is intentional. OpenAI marketplace/plugin installs are keyed by a canonical plugin identifier, so EOC uses `eoc@eoc` to keep tool names and slash-command namespaces short enough for strict Desktop/API validators. Older posts may still show the former long marketplace identifier; treat that as a legacy alias only. Separately, npm installs use `@mturac/eoc`, so npm installs and marketplace installs intentionally use different names.
 
 ### Step 2: Install Rules Only If You Need Them
 
@@ -1432,13 +1432,13 @@ opencode
 
 **Option 2: Install as npm package**
 ```bash
-npm install ecc-universal
+npm install @mturac/eoc
 ```
 
 Then add to your `opencode.json`:
 ```json
 {
-  "plugin": ["ecc-universal"]
+  "plugin": ["@mturac/eoc"]
 }
 ```
 

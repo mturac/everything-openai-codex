@@ -5,7 +5,7 @@
 [![Stars](https://img.shields.io/github/stars/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/stargazers)
 [![Forks](https://img.shields.io/github/forks/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/network/members)
 [![Contributors](https://img.shields.io/github/contributors/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/graphs/contributors)
-[![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20weekly%20downloads\&logo=npm)](https://www.npmjs.com/package/ecc-universal)
+[![npm @mturac/eoc](https://img.shields.io/npm/dw/@mturac%2Feoc?label=%40mturac%2Feoc%20weekly%20downloads\&logo=npm)](https://www.npmjs.com/package/@mturac/eoc)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Shell](https://img.shields.io/badge/-Shell-4EAA25?logo=gnu-bash\&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript\&logoColor=white)
@@ -1118,14 +1118,14 @@ opencode
 **选项 2：作为 npm 包安装**
 
 ```bash
-npm install ecc-universal
+npm install @mturac/eoc
 ```
 
 然后添加到您的 `opencode.json`：
 
 ```json
 {
-  "plugin": ["ecc-universal"]
+  "plugin": ["@mturac/eoc"]
 }
 ```
 

@@ -7,7 +7,7 @@
 [![Stars](https://img.shields.io/github/stars/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/stargazers)
 [![Forks](https://img.shields.io/github/forks/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/network/members)
 [![Contributors](https://img.shields.io/github/contributors/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/graphs/contributors)
-[![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-universal)
+[![npm @mturac/eoc](https://img.shields.io/npm/dw/@mturac%2Feoc?label=%40mturac%2Feoc%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/@mturac/eoc)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](../../LICENSE)
 
 > **Các badge GitHub và npm ở trên là nguồn hiện tại.** ecc là hệ thống workflow Codex giấy phép MIT, bao phủ 12+ hệ sinh thái ngôn ngữ và có nhánh phát hành rc.1 công khai.
@@ -58,9 +58,9 @@ ecc có ba định danh công khai khác nhau:
 
 - Repo GitHub: `mturac/everything-openai-codex`
 - Plugin Codex marketplace: `eoc@eoc`
-- Gói npm: `ecc-universal`
+- Gói npm: `@mturac/eoc`
 
-Các tên này cố ý khác nhau. Plugin OpenAI Codex dùng `eoc@eoc`; npm vẫn dùng `ecc-universal`.
+Các tên này cố ý khác nhau. Plugin OpenAI Codex dùng `eoc@eoc`; npm vẫn dùng `@mturac/eoc`.
 
 ### Copy rules nếu cần
 

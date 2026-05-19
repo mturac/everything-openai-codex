@@ -327,7 +327,7 @@ As of 2026-05-18:
   announcement publication on fresh evidence fields.
 - `docs/releases/2.0.0-rc.1/naming-and-publication-matrix.md` records the
   rc.1 naming decision: ship as Everything OpenAI Codex (ecc), keep
-  `ecc-universal` for npm, keep `ecc` for Codex/Codex plugin slugs, and defer
+  `@mturac/eoc` for npm, keep `ecc` for Codex/Codex plugin slugs, and defer
   any broader repo/package rename until after the release pipeline is proven.
 - `docs/releases/2.0.0-rc.1/publication-evidence-2026-05-12.md` records the
   dry-run publication evidence pass: npm pack/publish dry-runs, temp install

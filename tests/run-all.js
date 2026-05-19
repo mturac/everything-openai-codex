@@ -12,6 +12,10 @@ const fs = require('fs');
 const testsDir = __dirname;
 const repoRoot = path.resolve(testsDir, '..');
 const TEST_GLOB = 'tests/**/*.test.js';
+const TEST_TIMEOUT_MS = Number.parseInt(
+  process.env.ECC_TEST_FILE_TIMEOUT_MS || process.env.EOC_TEST_FILE_TIMEOUT_MS || '300000',
+  10
+);
 
 function matchesTestGlob(relativePath) {
   const normalized = relativePath.split(path.sep).join('/');
@@ -75,7 +79,8 @@ for (const testFile of testFiles) {
 
   const result = spawnSync('node', [testPath], {
     encoding: 'utf8',
-    stdio: ['pipe', 'pipe', 'pipe']
+    stdio: ['pipe', 'pipe', 'pipe'],
+    timeout: Number.isFinite(TEST_TIMEOUT_MS) && TEST_TIMEOUT_MS > 0 ? TEST_TIMEOUT_MS : 300000,
   });
 
   const stdout = result.stdout || '';
@@ -89,19 +94,26 @@ for (const testFile of testFiles) {
   const combined = stdout + stderr;
   const passedMatch = combined.match(/Passed:\s*(\d+)/);
   const failedMatch = combined.match(/Failed:\s*(\d+)/);
+  const parsedFailedCount = parseInt(failedMatch?.[1] || '0', 10);
 
   if (passedMatch) totalPassed += parseInt(passedMatch[1], 10);
-  if (failedMatch) totalFailed += parseInt(failedMatch[1], 10);
+  if (failedMatch) totalFailed += parsedFailedCount;
 
   if (result.error) {
-    console.log(`✗ ${displayPath} failed to start: ${result.error.message}`);
-    totalFailed += failedMatch ? 0 : 1;
+    const timedOut = result.error.code === 'ETIMEDOUT';
+    const timeoutSeconds = Math.round((Number.isFinite(TEST_TIMEOUT_MS) ? TEST_TIMEOUT_MS : 300000) / 1000);
+    const message = timedOut
+      ? `timed out after ${timeoutSeconds}s`
+      : `failed to start: ${result.error.message}`;
+    console.log(`✗ ${displayPath} ${message}`);
+    totalFailed += parsedFailedCount > 0 ? 0 : 1;
     continue;
   }
 
   if (result.status !== 0) {
-    console.log(`✗ ${displayPath} exited with status ${result.status}`);
-    totalFailed += failedMatch ? 0 : 1;
+    const reason = result.signal ? `signal ${result.signal}` : `status ${result.status}`;
+    console.log(`✗ ${displayPath} exited with ${reason}`);
+    totalFailed += parsedFailedCount > 0 ? 0 : 1;
   }
 }
 

@@ -76,7 +76,7 @@ Tracked repositories in the platform audit and work-items sync were:
 ## Current Publication Blockers
 
 - GitHub prerelease `v2.0.0-rc.1` is still not created in this pass.
-- npm `ecc-universal@2.0.0-rc.1` is still not published to the `next`
+- npm `@mturac/eoc@2.0.0-rc.1` is still not published to the `next`
   dist-tag.
 - Codex plugin tag and marketplace propagation remain approval-gated.
 - Codex repo-marketplace distribution is verified for rc.1, but official

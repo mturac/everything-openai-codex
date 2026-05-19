@@ -24,7 +24,7 @@ Bunlar pratik başlangıç noktalarıdır ve ortaklık kapsamına göre ayarlana
 
 Aylık paylaşılan metrikler şunları içerebilir:
 
-- npm indirmeleri (`ecc-universal`, `ecc-agentshield`)
+- npm indirmeleri (`@mturac/eoc`, `ecc-agentshield`)
 - Repository benimseme (yıldızlar, fork'lar, katkıda bulunanlar)
 - GitHub App kurulum trendi
 - Sürüm ritmi ve güvenilirlik kilometre taşları

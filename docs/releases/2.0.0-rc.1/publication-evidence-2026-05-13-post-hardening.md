@@ -88,7 +88,7 @@ ecc's current guardrails cover those classes through:
 ## Blockers Still Requiring Approval Or External Action
 
 - Create or verify GitHub prerelease `v2.0.0-rc.1`.
-- Publish `ecc-universal@2.0.0-rc.1` with npm dist-tag `next`.
+- Publish `@mturac/eoc@2.0.0-rc.1` with npm dist-tag `next`.
 - Create and push the Codex plugin tag only after explicit approval.
 - Confirm the live Codex/Codex/OpenCode marketplace submission path or record
   the manual submission owner and status.

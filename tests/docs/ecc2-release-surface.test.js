@@ -180,7 +180,7 @@ test('preview pack manifest assembles release, Hermes, and publication gates', (
 
   for (const blocker of [
     'GitHub prerelease `v2.0.0-rc.1`',
-    'npm `ecc-universal@2.0.0-rc.1`',
+    'npm `@mturac/eoc@2.0.0-rc.1`',
     'Codex plugin tag',
     'Codex repo-marketplace distribution evidence',
     'ecc Tools billing/product readiness',

@@ -58,14 +58,14 @@ For the May 18 live/pending release URL ledger, see
 | Product name | Everything OpenAI Codex / ecc | `README.md`, `CHANGELOG.md`, release notes | `rg -n "Everything OpenAI Codex" README.md CHANGELOG.md docs/releases/2.0.0-rc.1` | `publication-evidence-2026-05-12.md` | Release owner | Evidence recorded |
 | GitHub repo | `mturac/everything-openai-codex` | Git remote and release URLs | `git remote get-url origin` | `publication-evidence-2026-05-12.md` | Release owner | Evidence recorded |
 | Git tag | `v2.0.0-rc.1` | GitHub releases | `gh release view v2.0.0-rc.1 --repo mturac/everything-openai-codex` | `release not found` | Release owner | Blocked until release approval |
-| npm package | `ecc-universal` | `package.json` | `node -p "require('./package.json').name"` | `publication-evidence-2026-05-12.md` | Package owner | Evidence recorded |
+| npm package | `@mturac/eoc` | `package.json` | `node -p "require('./package.json').name"` | `publication-evidence-2026-05-12.md` | Package owner | Evidence recorded |
 | npm version | `2.0.0-rc.1` | `VERSION`, `package.json`, lockfiles | `node -p "require('./package.json').version"` | `publication-evidence-2026-05-12.md` | Package owner | Evidence recorded |
-| npm dist-tag | `next` for rc, `latest` only for GA | npm registry | `npm view ecc-universal dist-tags --json` | Current registry only has `latest: 1.10.0`; `next` is pending publish | Package owner | Blocked until publish approval |
+| npm dist-tag | `next` for rc, `latest` only for GA | npm registry | `npm view @mturac/eoc dist-tags --json` | `@mturac/eoc` currently returns 404; `next` is pending first publish | Package owner | Blocked until publish approval |
 | Codex plugin slug | `ecc` / `ecc@ecc` install path | `.codex-plugin/plugin.json`, `.codex-plugin/marketplace.json` | `node tests/hooks/hooks.test.js` | `publication-evidence-2026-05-12.md` | Plugin owner | Evidence recorded |
 | Codex plugin manifest | `2.0.0-rc.1`, no unsupported `agents` or explicit `hooks` fields | `.codex-plugin/plugin.json`, `.codex-plugin/PLUGIN_SCHEMA_NOTES.md` | `codex plugin validate .codex-plugin/plugin.json` | `publication-evidence-2026-05-12.md` | Plugin owner | Evidence recorded |
 | Codex plugin manifest | `2.0.0-rc.1` with shared skill source | `.codex-plugin/plugin.json` | `node tests/docs/ecc2-release-surface.test.js` | `publication-evidence-2026-05-12.md` | Plugin owner | Evidence recorded |
 | Codex repo marketplace | `ecc@2.0.0-rc.1` exposed through `.agents/plugins/marketplace.json` | `.agents/plugins/marketplace.json`, `.codex-plugin/README.md` | `HOME="$(mktemp -d)" codex plugin marketplace add <local-checkout>` | `publication-evidence-2026-05-15.md` | Plugin owner | Repo-marketplace path verified; official Plugin Directory publishing coming soon |
-| OpenCode package | `ecc-universal` plugin module | `.opencode/package.json`, `.opencode/index.ts` | `npm run build:opencode` | `publication-evidence-2026-05-12.md` | Package owner | Evidence recorded |
+| OpenCode package | `@mturac/eoc` plugin module | `.opencode/package.json`, `.opencode/index.ts` | `npm run build:opencode` | `publication-evidence-2026-05-12.md` | Package owner | Evidence recorded |
 | Agent metadata | `2.0.0-rc.1` | `agent.yaml`, `.agents/plugins/marketplace.json` | `node tests/scripts/catalog.test.js` | `publication-evidence-2026-05-12.md` | Release owner | Evidence recorded |
 | Migration copy | rc.1 upgrade path, not GA claim | `release-notes.md`, `quickstart.md`, `HERMES-SETUP.md` | `npx markdownlint-cli '**/*.md' --ignore node_modules` | `publication-evidence-2026-05-13.md` | Docs owner | Evidence recorded |
 
@@ -109,7 +109,7 @@ Record the exact commit SHA and command output before any publication action:
 ## Do Not Publish If
 
 - `main` has unreviewed release-surface changes after the evidence was recorded.
-- `npm view ecc-universal dist-tags --json` contradicts the intended rc/GA tag.
+- `npm view @mturac/eoc dist-tags --json` contradicts the intended rc/GA tag.
 - Codex plugin validation is unavailable or no clean-checkout install smoke
   test is recorded for the intended release commit.
 - Release notes or announcement drafts still contain placeholder URLs,

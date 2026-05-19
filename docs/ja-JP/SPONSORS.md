@@ -33,7 +33,7 @@
 
 スポンサーの会話で以下の実績ポイントを使用してください：
 
-- `ecc-universal` と `ecc-agentshield` のライブnpmインストール/ダウンロードメトリクス
+- `@mturac/eoc` と `ecc-agentshield` のライブnpmインストール/ダウンロードメトリクス
 - MarketplaceインストールによるGitHub Appの配布
 - 公開採用シグナル：スター、フォーク、コントリビューター、リリース頻度
 - クロスハーネスサポート：OpenAI Codex、Cursor、OpenCode、Codex app/CLI

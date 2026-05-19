@@ -86,7 +86,7 @@ do_install() {
     fi
 
     # Check if we're already inside a .trae or .trae-cn directory
-    local current_dir_name="$(basename "$target_dir")"
+    local current_dir_name="${target_dir##*/}"
     local trae_full_path
 
     if [ "$current_dir_name" = ".trae" ] || [ "$current_dir_name" = ".trae-cn" ]; then
@@ -128,7 +128,7 @@ do_install() {
     if [ -d "$REPO_ROOT/commands" ]; then
         for f in "$REPO_ROOT/commands"/*.md; do
             [ -f "$f" ] || continue
-            local_name=$(basename "$f")
+            local_name="${f##*/}"
             target_path="$trae_full_path/commands/$local_name"
             if copy_managed_file "$f" "$target_path" "$MANIFEST" "commands/$local_name"; then
                 commands=$((commands + 1))
@@ -140,7 +140,7 @@ do_install() {
     if [ -d "$REPO_ROOT/agents" ]; then
         for f in "$REPO_ROOT/agents"/*.md; do
             [ -f "$f" ] || continue
-            local_name=$(basename "$f")
+            local_name="${f##*/}"
             target_path="$trae_full_path/agents/$local_name"
             if copy_managed_file "$f" "$target_path" "$MANIFEST" "agents/$local_name"; then
                 agents=$((agents + 1))
@@ -156,8 +156,9 @@ do_install() {
             relative_path="${relative_from_skills#*/}"
             target_skill_dir="$trae_full_path/skills/$skill_name"
 
-            mkdir -p "$(dirname "$target_skill_dir/$relative_path")"
-            if copy_managed_file "$source_file" "$target_skill_dir/$relative_path" "$MANIFEST" "skills/$skill_name/$relative_path"; then
+            target_path="$target_skill_dir/$relative_path"
+            mkdir -p "${target_path%/*}"
+            if copy_managed_file "$source_file" "$target_path" "$MANIFEST" "skills/$skill_name/$relative_path"; then
                 echo "$skill_name" >> "$copied_skills_file"
             fi
         done < <(find "$REPO_ROOT/skills" -type f | sort)
@@ -171,7 +172,7 @@ do_install() {
             relative_path="${rule_file#$REPO_ROOT/rules/}"
             target_path="$trae_full_path/rules/$relative_path"
 
-            mkdir -p "$(dirname "$target_path")"
+            mkdir -p "${target_path%/*}"
             if copy_managed_file "$rule_file" "$target_path" "$MANIFEST" "rules/$relative_path"; then
                 rules=$((rules + 1))
             fi
@@ -181,7 +182,7 @@ do_install() {
     # Copy README files from this directory
     for readme_file in "$SCRIPT_DIR/README.md" "$SCRIPT_DIR/README.zh-CN.md"; do
         if [ -f "$readme_file" ]; then
-            local_name=$(basename "$readme_file")
+            local_name="${readme_file##*/}"
             target_path="$trae_full_path/$local_name"
             if copy_managed_file "$readme_file" "$target_path" "$MANIFEST" "$local_name"; then
                 other=$((other + 1))
@@ -192,7 +193,7 @@ do_install() {
     # Copy install and uninstall scripts
     for script_file in "$SCRIPT_DIR/install.sh" "$SCRIPT_DIR/uninstall.sh"; do
         if [ -f "$script_file" ]; then
-            local_name=$(basename "$script_file")
+            local_name="${script_file##*/}"
             target_path="$trae_full_path/$local_name"
             if copy_managed_file "$script_file" "$target_path" "$MANIFEST" "$local_name" 1; then
                 other=$((other + 1))
@@ -214,7 +215,7 @@ do_install() {
     echo "  Skills:    $skills"
     echo "  Rules:     $rules"
     echo ""
-    echo "Directory:   $(basename "$trae_full_path")"
+    echo "Directory:   ${trae_full_path##*/}"
     echo ""
     echo "Next steps:"
     echo "  1. Open your project in Trae"

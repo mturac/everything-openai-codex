@@ -166,7 +166,7 @@ as coming soon:
 ## Current Publication Blockers
 
 - GitHub prerelease `v2.0.0-rc.1` is still not created in this pass.
-- npm `ecc-universal@2.0.0-rc.1` is still not published to the `next` dist-tag.
+- npm `@mturac/eoc@2.0.0-rc.1` is still not published to the `next` dist-tag.
 - Codex plugin tag and marketplace propagation remain approval-gated.
 - Codex plugin repo-marketplace distribution is verified for rc.1, but official
   Plugin Directory publishing is still blocked on OpenAI's coming-soon

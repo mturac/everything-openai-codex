@@ -92,7 +92,7 @@ jobs:
           - Improved release-note generation and changelog hygiene
 
           ### Notes
-          - npm package: \`ecc-universal\`
+          - npm package: \`@mturac/eoc\`
           - Codex marketplace/plugin identifier: \`eoc@eoc\`
           - For migration tips and compatibility notes, see README and CHANGELOG.
           EOF

@@ -1,5 +1,5 @@
 {
-  "name": "ecc-universal",
+  "name": "@mturac/eoc",
   "version": "2.0.0-rc.1",
   "description": "Complete collection of battle-tested OpenAI Codex configs — agents, skills, hooks, rules, and legacy command shims evolved over 10+ months of intensive daily use by an OpenAI hackathon participant",
   "publishConfig": {
@@ -298,7 +298,7 @@
     "eoc-install": "scripts/install-apply.js"
   },
   "scripts": {
-    "postinstall": "echo '\\n  ecc-universal installed!\\n  Run: npx eoc typescript\\n  Compat: npx eoc-install typescript\\n  Docs: https://github.com/mturac/everything-openai-codex\\n'",
+    "postinstall": "echo '\\n  @mturac/eoc installed!\\n  Run: npx eoc typescript\\n  Compat: npx eoc-install typescript\\n  Docs: https://github.com/mturac/everything-openai-codex\\n'",
     "catalog:check": "node scripts/ci/catalog.js --text",
     "catalog:sync": "node scripts/ci/catalog.js --write --text",
     "command-registry:generate": "node scripts/ci/generate-command-registry.js",

@@ -24,7 +24,7 @@ eccはOpenAI Codex、Cursor、OpenCode、Codex app/CLIにまたがるオープ�
 
 月次で共有されるメトリクスには以下が含まれます：
 
-- npmダウンロード数（`ecc-universal`、`ecc-agentshield`）
+- npmダウンロード数（`@mturac/eoc`、`ecc-agentshield`）
 - リポジトリ採用状況（スター、フォーク、コントリビューター）
 - GitHub Appインストール推移
 - リリース頻度と信頼性マイルストーン

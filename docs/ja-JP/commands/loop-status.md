@@ -9,7 +9,7 @@ description: アクティブなループの状態、進捗、障害シグナル�
 このスラッシュコマンドは、現在のセッションがデキューした後にのみ実行できます。ウェッジしたセッションやシブリングセッションを検査する必要がある場合は、別のターミナルからパッケージ化されたCLIを実行してください:
 
 ```bash
-npx --package ecc-universal ecc loop-status --json
+npx --package @mturac/eoc ecc loop-status --json
 ```
 
 CLIは`~/.codex/projects/**`配下のローカルCodexトランスクリプトJSONLファイルをスキャンし、古い`ScheduleWakeup`コールやマッチする`tool_result`がない`Bash`ツールコールを報告します。

@@ -54,7 +54,7 @@ const REQUIRED_VERIFICATION_COMMANDS = [
 
 const REQUIRED_PUBLICATION_BLOCKERS = [
   'GitHub prerelease `v2.0.0-rc.1`',
-  'npm `ecc-universal@2.0.0-rc.1`',
+  'npm `@mturac/eoc@2.0.0-rc.1`',
   'Codex plugin tag',
   'Codex repo-marketplace distribution evidence',
   'ecc Tools billing/product readiness',

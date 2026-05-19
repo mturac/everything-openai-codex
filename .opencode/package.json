@@ -1,5 +1,5 @@
 {
-  "name": "ecc-universal",
+  "name": "@mturac/eoc",
   "version": "2.0.0-rc.1",
   "description": "Everything OpenAI Codex (ecc) plugin for OpenCode - agents, commands, hooks, and skills",
   "main": "dist/index.js",

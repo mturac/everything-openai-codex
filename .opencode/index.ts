@@ -10,13 +10,13 @@
  *
  * Option 1: Install via npm
  * ```bash
- * npm install ecc-universal
+ * npm install @mturac/eoc
  * ```
  *
  * Then add to your opencode.json:
  * ```json
  * {
- *   "plugin": ["ecc-universal"]
+ *   "plugin": ["@mturac/eoc"]
  * }
  * ```
  *
@@ -45,7 +45,7 @@ export const VERSION = "1.6.0"
 
 // Plugin metadata
 export const metadata = {
-  name: "ecc-universal",
+  name: "@mturac/eoc",
   version: VERSION,
   description: "Everything OpenAI Codex plugin for OpenCode",
   author: "mehmet-turac",

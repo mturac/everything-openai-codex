@@ -41,7 +41,8 @@ jobs:
 
             async function getNpmDownloads(range, pkg) {
               try {
-                const res = await fetch(`https://api.npmjs.org/downloads/point/${range}/${pkg}`);
+                const encodedPackage = encodeURIComponent(pkg);
+                const res = await fetch(`https://api.npmjs.org/downloads/point/${range}/${encodedPackage}`);
                 if (!res.ok) return null;
                 const data = await res.json();
                 return data.downloads ?? null;
@@ -100,9 +101,9 @@ jobs:
               views14d,
               clones14d
             ] = await Promise.all([
-              getNpmDownloads("last-week", "ecc-universal"),
+              getNpmDownloads("last-week", "@mturac/eoc"),
               getNpmDownloads("last-week", "ecc-agentshield"),
-              getNpmDownloads("last-month", "ecc-universal"),
+              getNpmDownloads("last-month", "@mturac/eoc"),
               getNpmDownloads("last-month", "ecc-agentshield"),
               github.rest.repos.get({ owner, repo }),
               getContributorsCount(),
@@ -115,7 +116,7 @@ jobs:
             const forks = repoData.data.forks_count;
 
             const tableHeader = [
-              "| Month (UTC) | ecc-universal (week) | ecc-agentshield (week) | ecc-universal (30d) | ecc-agentshield (30d) | Stars | Forks | Contributors | GitHub App installs (manual) | Views (14d) | Clones (14d) | Releases |",
+              "| Month (UTC) | @mturac/eoc (week) | ecc-agentshield (week) | @mturac/eoc (30d) | ecc-agentshield (30d) | Stars | Forks | Contributors | GitHub App installs (manual) | Views (14d) | Clones (14d) | Releases |",
               "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|"
             ].join("\n");
 

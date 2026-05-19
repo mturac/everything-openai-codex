@@ -7,7 +7,7 @@
 [![Stars](https://img.shields.io/github/stars/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/stargazers)
 [![Forks](https://img.shields.io/github/forks/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/network/members)
 [![Contributors](https://img.shields.io/github/contributors/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/graphs/contributors)
-[![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-universal)
+[![npm @mturac/eoc](https://img.shields.io/npm/dw/@mturac%2Feoc?label=%40mturac%2Feoc%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/@mturac/eoc)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](../../LICENSE)
 
 > **badge GitHub และ npm ด้านบนคือแหล่งข้อมูลจริงล่าสุด** ecc เป็นระบบ workflow สำหรับ OpenAI Codex แบบ MIT พร้อม catalog ที่ตรวจสอบได้และ release track rc.1 สาธารณะ
@@ -60,9 +60,9 @@ ecc มีชื่อเรียกในระบบสาธารณะ 3 �
 
 - GitHub repo: `mturac/everything-openai-codex`
 - Codex marketplace plugin: `eoc@eoc`
-- npm package: `ecc-universal`
+- npm package: `@mturac/eoc`
 
-ชื่อเหล่านี้ตั้งใจให้ต่างกัน Plugin บน OpenAI Codex ใช้ `eoc@eoc` ส่วน npm ยังคงใช้ `ecc-universal`
+ชื่อเหล่านี้ตั้งใจให้ต่างกัน Plugin บน OpenAI Codex ใช้ `eoc@eoc` ส่วน npm ยังคงใช้ `@mturac/eoc`
 
 ### คัดลอกไฟล์ rules เพิ่มเติม (ถ้าต้องการ)
 

@@ -550,13 +550,13 @@ node tests/hooks/hooks.test.js
 
 ## Cursor IDE サポート
 
-ecc-universal は [Cursor IDE](https://cursor.com) の事前翻訳設定を含みます。`.cursor/` ディレクトリには、Cursor フォーマット向けに適応されたルール、エージェント、スキル、コマンド、MCP 設定が含まれています。
+@mturac/eoc は [Cursor IDE](https://cursor.com) の事前翻訳設定を含みます。`.cursor/` ディレクトリには、Cursor フォーマット向けに適応されたルール、エージェント、スキル、コマンド、MCP 設定が含まれています。
 
 ### クイックスタート (Cursor)
 
 ```bash
 # パッケージをインストール
-npm install ecc-universal
+npm install @mturac/eoc
 
 # 言語をインストール
 ./install.sh --target cursor typescript
@@ -659,13 +659,13 @@ opencode
 
 **オプション2：npmパッケージとしてインストール**
 ```bash
-npm install ecc-universal
+npm install @mturac/eoc
 ```
 
 その後`opencode.json`に追加：
 ```json
 {
-  "plugin": ["ecc-universal"]
+  "plugin": ["@mturac/eoc"]
 }
 ```
 

@@ -7,7 +7,7 @@
 [![Stars](https://img.shields.io/github/stars/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/stargazers)
 [![Forks](https://img.shields.io/github/forks/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/network/members)
 [![Contributors](https://img.shields.io/github/contributors/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/graphs/contributors)
-[![npm ecc-universal](https://img.shields.io/npm/dw/ecc-universal?label=ecc-universal%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/ecc-universal)
+[![npm @mturac/eoc](https://img.shields.io/npm/dw/@mturac%2Feoc?label=%40mturac%2Feoc%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/@mturac/eoc)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](../../LICENSE)
 ![Shell](https://img.shields.io/badge/-Shell-4EAA25?logo=gnu-bash&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
@@ -194,9 +194,9 @@ npx eoc consult "security reviews" --target codex
 
 - исходный репозиторий GitHub: `mturac/everything-openai-codex`
 - идентификатор Codex marketplace/plugin: `eoc@eoc`
-- npm-пакет: `ecc-universal`
+- npm-пакет: `@mturac/eoc`
 
-Это сделано намеренно. Установки OpenAI marketplace/plugin ключуются каноническим идентификатором плагина, поэтому ecc использует `eoc@eoc`, чтобы имена инструментов и пространства имен slash-команд оставались достаточно короткими для строгих валидаторов Desktop/API. Старые публикации могут всё ещё показывать прежний длинный marketplace-идентификатор; считайте его только устаревшим alias. Отдельно npm-пакет остался `ecc-universal`, поэтому npm-установки и marketplace-установки намеренно используют разные имена.
+Это сделано намеренно. Установки OpenAI marketplace/plugin ключуются каноническим идентификатором плагина, поэтому ecc использует `eoc@eoc`, чтобы имена инструментов и пространства имен slash-команд оставались достаточно короткими для строгих валидаторов Desktop/API. Старые публикации могут всё ещё показывать прежний длинный marketplace-идентификатор; считайте его только устаревшим alias. Отдельно npm-пакет остался `@mturac/eoc`, поэтому npm-установки и marketplace-установки намеренно используют разные имена.
 
 ### Шаг 2: Установите правила (обязательно)
 
@@ -1318,13 +1318,13 @@ opencode
 
 **Вариант 2: установить как npm package**
 ```bash
-npm install ecc-universal
+npm install @mturac/eoc
 ```
 
 Затем добавьте в `opencode.json`:
 ```json
 {
-  "plugin": ["ecc-universal"]
+  "plugin": ["@mturac/eoc"]
 }
 ```
 

@@ -52,7 +52,7 @@ What this means:
 Current install surfaces:
 
 - OpenAI Codex plugin
-- `ecc-universal` on npm
+- `@mturac/eoc` on npm
 - Codex plugin manifest
 - OpenCode package/plugin surface
 - AgentShield CLI + npm + GitHub Marketplace action

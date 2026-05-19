@@ -21,8 +21,31 @@ function cleanup(dirPath) {
   fs.rmSync(dirPath, { recursive: true, force: true });
 }
 
+function createFixtureInstaller() {
+  const fixtureRoot = createTempDir('trae-fixture-');
+  const fixtureTraeDir = path.join(fixtureRoot, '.trae');
+
+  fs.mkdirSync(path.join(fixtureRoot, 'commands'), { recursive: true });
+  fs.mkdirSync(path.join(fixtureRoot, 'agents'), { recursive: true });
+  fs.mkdirSync(path.join(fixtureRoot, 'skills', 'fixture-skill'), { recursive: true });
+  fs.mkdirSync(path.join(fixtureRoot, 'rules', 'common'), { recursive: true });
+  fs.mkdirSync(fixtureTraeDir, { recursive: true });
+
+  fs.writeFileSync(path.join(fixtureRoot, 'commands', 'quality-gate.md'), '# Quality Gate\n');
+  fs.writeFileSync(path.join(fixtureRoot, 'agents', 'reviewer.md'), '# Reviewer\n');
+  fs.writeFileSync(path.join(fixtureRoot, 'skills', 'fixture-skill', 'SKILL.md'), '# Fixture Skill\n');
+  fs.writeFileSync(path.join(fixtureRoot, 'rules', 'common', 'code-review.md'), '# Code Review\n');
+  fs.copyFileSync(INSTALL_SCRIPT, path.join(fixtureTraeDir, 'install.sh'));
+  fs.copyFileSync(UNINSTALL_SCRIPT, path.join(fixtureTraeDir, 'uninstall.sh'));
+
+  return {
+    root: fixtureRoot,
+    installScript: path.join(fixtureTraeDir, 'install.sh'),
+  };
+}
+
 function runInstall(options = {}) {
-  return execFileSync('bash', [INSTALL_SCRIPT, ...(options.args || [])], {
+  return execFileSync('bash', [options.installScript || INSTALL_SCRIPT, ...(options.args || [])], {
     cwd: options.cwd,
     env: {
       ...process.env,
@@ -81,6 +104,7 @@ function runTests() {
   }
 
   if (test('does not claim ownership of preexisting target files', () => {
+    const fixture = createFixtureInstaller();
     const homeDir = createTempDir('trae-home-');
     const projectRoot = createTempDir('trae-project-');
 
@@ -89,7 +113,7 @@ function runTests() {
       fs.mkdirSync(path.dirname(preexistingCommandPath), { recursive: true });
       fs.writeFileSync(preexistingCommandPath, 'user owned command\n');
 
-      runInstall({ cwd: projectRoot, homeDir });
+      runInstall({ cwd: projectRoot, homeDir, installScript: fixture.installScript });
 
       const manifestLines = readManifestLines(projectRoot);
       assert.ok(!manifestLines.includes('commands/quality-gate.md'), 'Preexisting file should not be recorded in manifest');
@@ -98,6 +122,7 @@ function runTests() {
 
       assert.strictEqual(fs.readFileSync(preexistingCommandPath, 'utf8'), 'user owned command\n');
     } finally {
+      cleanup(fixture.root);
       cleanup(homeDir);
       cleanup(projectRoot);
     }
@@ -126,16 +151,17 @@ function runTests() {
   })) passed++; else failed++;
 
   if (test('reinstall preserves managed manifest coverage without duplicate entries', () => {
+    const fixture = createFixtureInstaller();
     const homeDir = createTempDir('trae-home-');
     const projectRoot = createTempDir('trae-project-');
 
     try {
-      runInstall({ cwd: projectRoot, homeDir });
+      runInstall({ cwd: projectRoot, homeDir, installScript: fixture.installScript });
 
       const managedCommandPath = path.join(projectRoot, '.trae', 'commands', 'quality-gate.md');
       fs.rmSync(managedCommandPath);
 
-      runInstall({ cwd: projectRoot, homeDir });
+      runInstall({ cwd: projectRoot, homeDir, installScript: fixture.installScript });
 
       const manifestLines = readManifestLines(projectRoot);
       const entryCount = manifestLines.filter((line) => line === 'commands/quality-gate.md').length;
@@ -143,6 +169,7 @@ function runTests() {
       assert.strictEqual(entryCount, 1, 'Managed file should appear once in manifest after reinstall');
       assert.ok(fs.existsSync(managedCommandPath), 'Managed file should be recreated on reinstall');
     } finally {
+      cleanup(fixture.root);
       cleanup(homeDir);
       cleanup(projectRoot);
     }

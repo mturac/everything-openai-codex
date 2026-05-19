@@ -21,8 +21,8 @@ commit with a clean checkout before publishing.
 | Surface | Command | Result |
 | --- | --- | --- |
 | GitHub prerelease | `gh release view v2.0.0-rc.1 --repo mturac/everything-openai-codex --json tagName,url,isPrerelease` | `release not found` |
-| npm dist-tags | `npm view ecc-universal dist-tags --json` | `{ "latest": "1.10.0" }` |
-| npm package metadata | `node -p "require('./package.json').name + '@' + require('./package.json').version"` | `ecc-universal@2.0.0-rc.1` |
+| npm dist-tags | `npm view @mturac/eoc dist-tags --json` | `E404 Not Found until first publish` |
+| npm package metadata | `node -p "require('./package.json').name + '@' + require('./package.json').version"` | `@mturac/eoc@2.0.0-rc.1` |
 | Product identity | `rg -n "Everything OpenAI Codex" README.md CHANGELOG.md docs/releases/2.0.0-rc.1` | Present in README and rc.1 release docs |
 
 ## npm Dry Run
@@ -35,18 +35,18 @@ so `npm pack` fails if Python bytecode appears in the package surface.
 | Command | Result |
 | --- | --- |
 | `node tests/scripts/npm-publish-surface.test.js` | Passed `2/2`; includes Python bytecode exclusion assertion |
-| `npm pack --dry-run --json` | `ecc-universal-2.0.0-rc.1.tgz`; `entryCount: 965`; `size: 1565968`; `unpackedSize: 4934637`; `hasBytecode: false` |
+| `npm pack --dry-run --json` | `mturac-eoc-2.0.0-rc.1.tgz`; `entryCount: 965`; `size: 1565968`; `unpackedSize: 4934637`; `hasBytecode: false` |
 | `npm publish --tag next --dry-run --json` | Dry-run target is npm registry with `tag next`; `entryCount: 965`; `hasBytecode: false` |
 
 Temporary install smoke:
 
 | Command | Result |
 | --- | --- |
-| `npm pack --pack-destination /tmp/ecc-publication-smoke-dd9ud5 --json` | Created `ecc-universal-2.0.0-rc.1.tgz` for local install smoke |
-| `npm install --prefix /tmp/ecc-publication-smoke-dd9ud5 /tmp/ecc-publication-smoke-dd9ud5/ecc-universal-2.0.0-rc.1.tgz` | Added 8 packages |
-| `node /tmp/ecc-publication-smoke-dd9ud5/node_modules/ecc-universal/scripts/ecc.js --help` | Printed ecc selective-install CLI help |
-| `node /tmp/ecc-publication-smoke-dd9ud5/node_modules/ecc-universal/scripts/catalog.js profiles --json` | Returned the 6 install profiles: `minimal`, `core`, `developer`, `security`, `research`, `full` |
-| `find /tmp/ecc-publication-smoke-dd9ud5/node_modules/ecc-universal -path '*__pycache__*' -o -name '*.pyc' -o -name '*.pyo' -o -name '*.pyd'` | No output |
+| `npm pack --pack-destination /tmp/ecc-publication-smoke-dd9ud5 --json` | Created `mturac-eoc-2.0.0-rc.1.tgz` for local install smoke |
+| `npm install --prefix /tmp/ecc-publication-smoke-dd9ud5 /tmp/ecc-publication-smoke-dd9ud5/mturac-eoc-2.0.0-rc.1.tgz` | Added 8 packages |
+| `node /tmp/ecc-publication-smoke-dd9ud5/node_modules/@mturac/eoc/scripts/ecc.js --help` | Printed ecc selective-install CLI help |
+| `node /tmp/ecc-publication-smoke-dd9ud5/node_modules/@mturac/eoc/scripts/catalog.js profiles --json` | Returned the 6 install profiles: `minimal`, `core`, `developer`, `security`, `research`, `full` |
+| `find /tmp/ecc-publication-smoke-dd9ud5/node_modules/@mturac/eoc -path '*__pycache__*' -o -name '*.pyc' -o -name '*.pyo' -o -name '*.pyd'` | No output |
 
 ## Plugin And Harness Evidence
 
@@ -92,7 +92,7 @@ instances were found.
 ## Remaining Blockers
 
 - Create or verify GitHub prerelease `v2.0.0-rc.1`.
-- Publish `ecc-universal@2.0.0-rc.1` with npm dist-tag `next`.
+- Publish `@mturac/eoc@2.0.0-rc.1` with npm dist-tag `next`.
 - Create and push the Codex plugin tag only after explicit approval. The clean
   checkout dry run and temp install smoke now pass.
 - Confirm the live Codex/Codex/OpenCode marketplace submission path or record

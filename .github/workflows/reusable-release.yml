@@ -110,7 +110,7 @@ jobs:
           - Better workflow and operator ergonomics
 
           ### Package Notes
-          - npm package: \`ecc-universal\`
+          - npm package: \`@mturac/eoc\`
           - Codex marketplace/plugin identifier: \`eoc@eoc\`
           EOF
 

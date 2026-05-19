@@ -33,7 +33,7 @@
 
 在赞助者对话中使用这些证明点：
 
-* `ecc-universal` 和 `ecc-agentshield` 的实时 npm 安装/下载指标
+* `@mturac/eoc` 和 `ecc-agentshield` 的实时 npm 安装/下载指标
 * 通过 Marketplace 安装的 GitHub App 分发
 * 公开采用信号：星标、分叉、贡献者、发布节奏
 * 跨平台支持：OpenAI Codex、Cursor、OpenCode、Codex 应用/CLI
