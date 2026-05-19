@@ -50,7 +50,9 @@ function runTests() {
       'Conflict behavior',
       'do not decide silently',
       'OSS PR queue mode',
+      'Daily quiet platform watch',
       'do not comment',
+      'artifact output only; no public comments',
       'Do not post "any update?" comments',
       'zero public-action carve-outs',
       'separate user-approved task',
@@ -65,6 +67,7 @@ function runTests() {
       'gh pr view <number>',
       'reread PR body after edit',
       'PromptGuard for prompt-like files',
+      '.github/workflows/platform-watch.yml',
     ]) {
       assert.ok(body.includes(phrase), `missing PR queue contract phrase: ${phrase}`);
     }

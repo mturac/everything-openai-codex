@@ -1,7 +1,7 @@
 {
   "name": "eoc",
   "version": "2.0.0-rc.1",
-  "description": "Open-source Codex workflow collection with 60 agents, 230 skills, 75 legacy command shims, install profiles, repo conventions, validation checks, and documentation.",
+  "description": "Open-source Codex workflow collection with 60 agents, 232 skills, 75 legacy command shims, install profiles, repo conventions, validation checks, and documentation.",
   "author": {
     "name": "mehmet-turac",
     "email": "me@mehmet_turac.com",

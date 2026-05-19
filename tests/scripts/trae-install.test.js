@@ -11,6 +11,7 @@ const { execFileSync } = require('child_process');
 const REPO_ROOT = path.join(__dirname, '..', '..');
 const INSTALL_SCRIPT = path.join(REPO_ROOT, '.trae', 'install.sh');
 const UNINSTALL_SCRIPT = path.join(REPO_ROOT, '.trae', 'uninstall.sh');
+const SCRIPT_TIMEOUT_MS = 240000;
 
 function createTempDir(prefix) {
   return fs.mkdtempSync(path.join(os.tmpdir(), prefix));
@@ -29,7 +30,7 @@ function runInstall(options = {}) {
     },
     encoding: 'utf8',
     stdio: ['pipe', 'pipe', 'pipe'],
-    timeout: 60000,
+    timeout: SCRIPT_TIMEOUT_MS,
   });
 }
 
@@ -43,7 +44,7 @@ function runUninstall(options = {}) {
     encoding: 'utf8',
     input: options.input || 'y\n',
     stdio: ['pipe', 'pipe', 'pipe'],
-    timeout: 60000,
+    timeout: SCRIPT_TIMEOUT_MS,
   });
 }
 

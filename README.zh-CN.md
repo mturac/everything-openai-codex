@@ -130,7 +130,7 @@ Copy-Item -Recurse rules/typescript "$HOME/.codex/rules/"
 /plugin list eoc@eoc
 ```
 
-**完成！** 你现在可以使用 60 个代理、230 个技能和 75 个命令。
+**完成！** 你现在可以使用 60 个代理、232 个技能和 75 个命令。
 
 ### multi-* 命令需要额外配置
 

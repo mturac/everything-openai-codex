@@ -127,6 +127,19 @@ If the risk cannot be verified with a command or public artifact, report it as r
 /canary-watch --oss-prs mturac/everything-openai-codex --query "everything-openai-codex author:mturac"
 ```
 
+**Daily quiet platform watch**: run the repository queue and listing checks once per day, upload artifacts, and let the check fail when evidence needs action
+```
+node scripts/platform-audit.js --json --use-env-github-token --allow-untracked artifacts/ --write artifacts/platform-watch/platform-audit.json
+node scripts/discussion-audit.js --json --use-env-github-token --write artifacts/platform-watch/discussion-audit.json
+node scripts/operator-readiness-dashboard.js --json --use-env-github-token --allow-untracked artifacts/ --write artifacts/platform-watch/operator-readiness-dashboard.json
+```
+
+Daily automation rules:
+- read-only GitHub token permissions only
+- artifact output only; no public comments, no stale pings, no issue creation
+- fail the workflow when PRs, issues, discussions, conflicts, or listing-review blockers need action
+- use the artifact as the proof packet before deciding whether a separate human-approved response is needed
+
 ### Alert Thresholds
 
 ```yaml
@@ -257,6 +270,6 @@ No comments needed. Keep monitoring for concrete maintainer feedback or CI failu
 Pair with:
 - `/browser-qa` for pre-deploy verification
 - Hooks: add as a PostToolUse hook on `git push` to auto-check after deploys
-- CI: run in GitHub Actions after deploy step
+- CI: run `.github/workflows/platform-watch.yml` daily for quiet queue, discussion, and listing-review evidence
 - `scripts/work-items.js` for syncing GitHub PR/issue queue state into the local status surface
 - `automation-audit-ops` when PR monitoring overlaps with launch, CI, hook, or marketplace automation

@@ -36,7 +36,7 @@
 
 Everything OpenAI Codex, or **EOC**, turns a raw agent harness into a repeatable engineering environment: scoped instructions, reusable skills, quality gates, session memory, install profiles, cross-harness adapters, and release evidence in one open-source repo.
 
-This is not a prompt dump. It is a maintained workflow system extracted from daily Codex use on real software projects. The repo currently ships a validated catalog of **60 agents, 230 skills, 110 rules, 28 hook matchers, 29 install modules, and 75 legacy command shims**.
+This is not a prompt dump. It is a maintained workflow system extracted from daily Codex use on real software projects. The repo currently ships a validated catalog of **60 agents, 232 skills, 110 rules, 28 hook matchers, 29 install modules, and 75 legacy command shims**.
 
 Works across **OpenAI Codex**, **Cursor**, **OpenCode**, **Gemini**, **Zed**, **GitHub Copilot**, Trae, and adjacent agent harnesses.
 
@@ -127,7 +127,7 @@ This repo is the source of truth. Use maintained repository docs instead of exte
 ### v2.0.0-rc.1 — Surface Refresh, Operator Workflows, and EOC 2.0 Alpha (Apr 2026)
 
 - **Dashboard GUI** — New Tkinter-based desktop application (`ecc_dashboard.py` or `npm run dashboard`) with dark/light theme toggle, font customization, and project logo in header and taskbar.
-- **Public surface synced to the live repo** — metadata, catalog counts, plugin manifests, and install-facing docs now match the actual OSS surface: 60 agents, 230 skills, and 75 legacy command shims.
+- **Public surface synced to the live repo** — metadata, catalog counts, plugin manifests, and install-facing docs now match the actual OSS surface: 60 agents, 232 skills, and 75 legacy command shims.
 - **Operator and outbound workflow expansion** — `brand-voice`, `social-graph-ranker`, `connections-optimizer`, `customer-billing-ops`, `google-workspace-ops`, `project-flow-ops`, and `workspace-surface-audit` round out the operator lane.
 - **Media and launch tooling** — `manim-video`, `remotion-video-creation`, and upgraded social publishing surfaces make technical explainers and launch content part of the same system.
 - **Framework and product surface growth** — `nestjs-patterns`, richer Codex/OpenCode install surfaces, and expanded cross-harness packaging keep the repo usable beyond OpenAI Codex alone.
@@ -382,7 +382,7 @@ If you stacked methods, clean up in this order:
 /plugin list eoc@eoc
 ```
 
-**That's it!** You now have access to 60 agents, 230 skills, and 75 legacy command shims.
+**That's it!** You now have access to 60 agents, 232 skills, and 75 legacy command shims.
 
 ### Dashboard GUI
 
@@ -1361,7 +1361,7 @@ The configuration is automatically detected from `.opencode/opencode.json`.
 |---------|-------------|----------|--------|
 | Agents | PASS: 60 agents | PASS: 12 agents | **OpenAI Codex leads** |
 | Commands | PASS: 75 commands | PASS: 35 commands | **OpenAI Codex leads** |
-| Skills | PASS: 230 skills | PASS: 37 skills | **OpenAI Codex leads** |
+| Skills | PASS: 232 skills | PASS: 37 skills | **OpenAI Codex leads** |
 | Hooks | PASS: 8 event types | PASS: 11 events | **OpenCode has more!** |
 | Rules | PASS: 110 rules | PASS: 13 instructions | **OpenAI Codex leads** |
 | MCP Servers | PASS: 14 servers | PASS: Full | **Full parity** |
@@ -1521,7 +1521,7 @@ ecc is the **first plugin to maximize every major AI coding tool**. Here's how e
 |---------|------------|------------|-----------|----------|----------------|
 | **Agents** | 60 | Shared (AGENTS.md) | Shared (AGENTS.md) | 12 | N/A |
 | **Commands** | 75 | Shared | Instruction-based | 35 | 6 prompts |
-| **Skills** | 230 | Shared | 10 (native format) | 37 | Via instructions |
+| **Skills** | 232 | Shared | 10 (native format) | 37 | Via instructions |
 | **Hook Events** | 8 types | 15 types | None yet | 11 types | None |
 | **Hook Scripts** | 20+ scripts | 16 scripts (DRY adapter) | N/A | Plugin hooks | N/A |
 | **Rules** | 34 (common + lang) | 34 (YAML frontmatter) | Instruction-based | 13 instructions | 1 always-on file |
