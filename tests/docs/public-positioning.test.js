@@ -63,6 +63,20 @@ test('release workflows advertise the short Codex plugin identifier', () => {
   }
 });
 
+test('public review guide documents reviewer-safe positioning', () => {
+  const readme = read('README.md');
+  const guide = read('docs/PUBLIC-REVIEW-GUIDE.md');
+
+  assert.ok(readme.includes('docs/PUBLIC-REVIEW-GUIDE.md'));
+  assert.ok(guide.includes('Intake -> Route -> Plan -> Execute -> Verify -> Capture -> Resume'));
+  assert.ok(guide.includes('not a prompt dump'));
+  assert.ok(guide.includes('not a paid marketplace product'));
+  assert.ok(guide.includes('silent closes stay recorded'));
+  assert.ok(guide.includes('Skill Adaptation Policy'));
+  assert.ok(guide.includes('OpenAI Codex use cases'));
+  assert.ok(!guide.includes('OpenAI Hackathon Winner'));
+});
+
 if (failed > 0) {
   console.log(`\nFailed: ${failed}`);
   process.exit(1);
