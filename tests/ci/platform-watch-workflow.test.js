@@ -61,9 +61,9 @@ function run() {
 
   if (test('generates evidence artifacts without public posting actions', () => {
     assert.match(source, /npm ci --ignore-scripts/);
-    assert.match(source, /node scripts\/platform-audit\.js --json --use-env-github-token/);
-    assert.match(source, /node scripts\/discussion-audit\.js --json --use-env-github-token/);
-    assert.match(source, /node scripts\/operator-readiness-dashboard\.js --json --use-env-github-token/);
+    assert.match(source, /node scripts\/platform-audit\.js --json --use-env-github-token --repo mturac\/everything-openai-codex/);
+    assert.match(source, /node scripts\/discussion-audit\.js --json --use-env-github-token --repo mturac\/everything-openai-codex/);
+    assert.match(source, /node scripts\/operator-readiness-dashboard\.js --json --use-env-github-token --repo mturac\/everything-openai-codex/);
     assert.match(source, /uses: actions\/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a/);
     assert.match(source, /name: daily-platform-watch/);
     assert.doesNotMatch(source, /gh\s+(?:pr|issue)\s+(?:comment|create|close|edit)/);

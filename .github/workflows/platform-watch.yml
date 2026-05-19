@@ -40,12 +40,12 @@ jobs:
       - name: Generate quiet watch artifacts
         run: |
           mkdir -p artifacts/platform-watch
-          node scripts/platform-audit.js --json --use-env-github-token --allow-untracked artifacts/ --write artifacts/platform-watch/platform-audit.json
-          node scripts/platform-audit.js --markdown --use-env-github-token --allow-untracked artifacts/ --write artifacts/platform-watch/platform-audit.md
-          node scripts/discussion-audit.js --json --use-env-github-token --write artifacts/platform-watch/discussion-audit.json
-          node scripts/discussion-audit.js --markdown --use-env-github-token --write artifacts/platform-watch/discussion-audit.md
-          node scripts/operator-readiness-dashboard.js --json --use-env-github-token --allow-untracked artifacts/ --write artifacts/platform-watch/operator-readiness-dashboard.json
-          node scripts/operator-readiness-dashboard.js --markdown --use-env-github-token --allow-untracked artifacts/ --write artifacts/platform-watch/operator-readiness-dashboard.md
+          node scripts/platform-audit.js --json --use-env-github-token --repo mturac/everything-openai-codex --allow-untracked artifacts/ --write artifacts/platform-watch/platform-audit.json
+          node scripts/platform-audit.js --markdown --use-env-github-token --repo mturac/everything-openai-codex --allow-untracked artifacts/ --write artifacts/platform-watch/platform-audit.md
+          node scripts/discussion-audit.js --json --use-env-github-token --repo mturac/everything-openai-codex --write artifacts/platform-watch/discussion-audit.json
+          node scripts/discussion-audit.js --markdown --use-env-github-token --repo mturac/everything-openai-codex --write artifacts/platform-watch/discussion-audit.md
+          node scripts/operator-readiness-dashboard.js --json --use-env-github-token --repo mturac/everything-openai-codex --allow-untracked artifacts/ --write artifacts/platform-watch/operator-readiness-dashboard.json
+          node scripts/operator-readiness-dashboard.js --markdown --use-env-github-token --repo mturac/everything-openai-codex --allow-untracked artifacts/ --write artifacts/platform-watch/operator-readiness-dashboard.md
 
       - name: Enforce watch readiness
         run: |

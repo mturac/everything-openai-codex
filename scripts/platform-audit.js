@@ -11,11 +11,7 @@ const {
 
 const SCHEMA_VERSION = 'ecc.platform-audit.v1';
 const DEFAULT_REPOS = Object.freeze([
-  'mehmet-turac/everything-openai-codex',
-  'mehmet-turac/agentshield',
-  'mehmet-turac/JARVIS',
-  'ecc-Tools/ecc-Tools',
-  'ecc-Tools/ecc-website',
+  'mturac/everything-openai-codex',
 ]);
 const DEFAULT_THRESHOLDS = Object.freeze({
   maxOpenPrs: 20,
