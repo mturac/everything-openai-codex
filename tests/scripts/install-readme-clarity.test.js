@@ -82,7 +82,7 @@ function runTests() {
       'README should document the shell minimal profile command'
     );
     assert.ok(
-      readme.includes('npx ecc-install --profile minimal --target codex'),
+      readme.includes('npx eoc-install --profile minimal --target codex'),
       'README should document the npx minimal profile command'
     );
     assert.ok(
@@ -101,7 +101,7 @@ function runTests() {
       'README should surface component discovery before install steps'
     );
     assert.ok(
-      readme.includes('npx ecc consult "security reviews" --target codex'),
+      readme.includes('npx eoc consult "security reviews" --target codex'),
       'README should document the packaged consult command'
     );
     assert.ok(
