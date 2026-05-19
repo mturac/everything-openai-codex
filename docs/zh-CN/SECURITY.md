@@ -14,7 +14,7 @@
 
 **请勿为安全漏洞创建公开的 GitHub 议题。**
 
-请将信息发送至 **<security@eco.tools>**，邮件中需包含：
+如果此仓库启用了 GitHub private vulnerability reporting，请优先使用该流程。若 GitHub 未显示该选项，请通过 <https://github.com/mturac> 的维护者资料联系维护者，不要公开发布漏洞利用细节。请包含：
 
 * 漏洞描述
 * 复现步骤

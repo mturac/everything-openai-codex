@@ -4,10 +4,9 @@
   "description": "Open-source Codex workflow collection with 60 agents, 232 skills, 75 legacy command shims, install profiles, repo conventions, validation checks, and documentation.",
   "author": {
     "name": "mehmet-turac",
-    "email": "me@mehmet_turac.com",
     "url": "https://x.com/mehmet_turac"
   },
-  "homepage": "https://eco.tools",
+  "homepage": "https://github.com/mturac/everything-openai-codex",
   "repository": "https://github.com/mturac/everything-openai-codex",
   "license": "MIT",
   "keywords": [
@@ -33,6 +32,6 @@
       "Read",
       "Write"
     ],
-    "websiteURL": "https://eco.tools"
+    "websiteURL": "https://github.com/mturac/everything-openai-codex"
   }
 }

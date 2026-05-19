@@ -8676,7 +8676,7 @@ mod tests {
             "--goal",
             "Confirm the recovery banner",
             "--target-url",
-            "https://eco.tools/account",
+            "https://github.com/mturac/everything-openai-codex",
             "--context",
             "Use the production flow",
             "--priority",
@@ -8704,7 +8704,7 @@ mod tests {
                     },
             }) => {
                 assert_eq!(goal, "Confirm the recovery banner");
-                assert_eq!(target_url.as_deref(), Some("https://eco.tools/account"));
+                assert_eq!(target_url.as_deref(), Some("https://github.com/mturac/everything-openai-codex"));
                 assert_eq!(context.as_deref(), Some("Use the production flow"));
                 assert_eq!(priority, TaskPriorityArg::Critical);
                 assert_eq!(agent.as_deref(), Some("codex"));
@@ -10655,7 +10655,7 @@ mod tests {
                     "name": "browser-billing-check",
                     "kind": "computer_use",
                     "goal": "Verify the billing portal warning banner",
-                    "target_url": "https://eco.tools/account",
+                    "target_url": "https://github.com/mturac/everything-openai-codex",
                     "context": "Use the production account flow",
                     "priority": "critical",
                     "use_worktree": false
@@ -10992,7 +10992,7 @@ Route existing installs to portal first before checkout.
                         "name": "browser-billing-check",
                         "kind": "computer_use",
                         "goal": "Verify the billing portal warning banner",
-                        "target_url": "https://eco.tools/account",
+                        "target_url": "https://github.com/mturac/everything-openai-codex",
                         "context": "Use the production account flow",
                         "priority": "critical"
                     },
@@ -11026,7 +11026,7 @@ Route existing installs to portal first before checkout.
         assert!(report.requests.iter().any(|request| request.command_snippet.as_deref()
             == Some("ecc remote add --task \"Handle account recovery triage\" --priority high --agent \"codex\" --no-worktree --project \"ecc-tools\" --task-group \"recovery\"")));
         assert!(report.requests.iter().any(|request| request.command_snippet.as_deref()
-            == Some("ecc remote computer-use --goal \"Verify the billing portal warning banner\" --target-url \"https://eco.tools/account\" --context \"Use the production account flow\" --priority critical")));
+            == Some("ecc remote computer-use --goal \"Verify the billing portal warning banner\" --target-url \"https://github.com/mturac/everything-openai-codex\" --context \"Use the production account flow\" --priority critical")));
 
         Ok(())
     }
@@ -11053,7 +11053,7 @@ Route existing installs to portal first before checkout.
                     "name": "browser-billing-check",
                     "kind": "computer_use",
                     "goal": "Verify the billing portal warning banner",
-                    "target_url": "https://eco.tools/account",
+                    "target_url": "https://github.com/mturac/everything-openai-codex",
                     "context": "Use the production account flow",
                     "priority": "critical",
                     "project": "remote-ops",
@@ -11097,7 +11097,7 @@ Route existing installs to portal first before checkout.
         assert_eq!(requests[0].task_group, "browser");
         assert_eq!(
             requests[0].target_url.as_deref(),
-            Some("https://eco.tools/account")
+            Some("https://github.com/mturac/everything-openai-codex")
         );
         assert!(requests[0].task.contains("Computer-use task."));
         assert_eq!(
@@ -11125,11 +11125,11 @@ Route existing installs to portal first before checkout.
         fs::create_dir_all(root.join("services"))?;
         fs::write(
             root.join(".env.local"),
-            "STRIPE_SECRET_KEY=sk_test_secret\nPUBLIC_BASE_URL=https://eco.tools\n",
+            "STRIPE_SECRET_KEY=sk_test_secret\nPUBLIC_BASE_URL=https://github.com/mturac/everything-openai-codex\n",
         )?;
         fs::write(
             root.join(".envrc"),
-            "export OPENAI_API_KEY=sk-openai-secret\nexport PUBLIC_DOCS_URL=https://docs.eco.tools\n",
+            "export OPENAI_API_KEY=sk-openai-secret\nexport PUBLIC_DOCS_URL=https://github.com/mturac/everything-openai-codex/tree/main/docs\n",
         )?;
         fs::write(root.join("config.yaml"), "model: codex\n")?;
         fs::write(
@@ -11172,11 +11172,11 @@ Route existing installs to portal first before checkout.
         let root = tempdir.path();
         fs::write(
             root.join(".env.local"),
-            "STRIPE_SECRET_KEY=sk_test_secret\nPUBLIC_BASE_URL=https://eco.tools\n",
+            "STRIPE_SECRET_KEY=sk_test_secret\nPUBLIC_BASE_URL=https://github.com/mturac/everything-openai-codex\n",
         )?;
         fs::write(
             root.join(".env.production"),
-            "export OPENAI_API_KEY=sk-openai-secret\nexport PUBLIC_DOCS_URL=https://docs.eco.tools\n",
+            "export OPENAI_API_KEY=sk-openai-secret\nexport PUBLIC_DOCS_URL=https://github.com/mturac/everything-openai-codex/tree/main/docs\n",
         )?;
 
         let tempdb = TestDir::new("legacy-env-import-live-db")?;
@@ -11194,7 +11194,7 @@ Route existing installs to portal first before checkout.
                 || item.status == LegacyEnvImportSourceStatus::Ready
         }));
 
-        let recalled = db.recall_context_entities(None, "stripe docs eco.tools", 10)?;
+        let recalled = db.recall_context_entities(None, "stripe docs GitHub repo", 10)?;
         assert!(recalled
             .iter()
             .any(|entry| entry.entity.name == "STRIPE_SECRET_KEY"));
@@ -12170,7 +12170,7 @@ Guide users to repair before reinstall so wiped setups do not buy twice.
             r#"# Hermes service config
 STRIPE_SECRET_KEY=sk_test_secret
 STRIPE_PRO_PRICE_ID=price_pro_monthly
-PUBLIC_BASE_URL="https://eco.tools"
+PUBLIC_BASE_URL="https://github.com/mturac/everything-openai-codex"
 STRIPE_WEBHOOK_SECRET=whsec_secret
 GITHUB_TOKEN=ghp_should_not_import
 INVALID LINE
@@ -12198,7 +12198,7 @@ INVALID LINE
         assert_eq!(stats.observations_added, 3);
         assert_eq!(stats.skipped_records, 0);
 
-        let recalled = db.recall_context_entities(None, "stripe eco.tools", 10)?;
+        let recalled = db.recall_context_entities(None, "stripe GitHub repo", 10)?;
         assert!(recalled
             .iter()
             .any(|entry| entry.entity.name == "STRIPE_SECRET_KEY"));
@@ -12241,7 +12241,7 @@ INVALID LINE
                 .details
                 .get("value")
                 .map(String::as_str),
-            Some("https://eco.tools")
+            Some("https://github.com/mturac/everything-openai-codex")
         );
 
         Ok(())

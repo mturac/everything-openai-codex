@@ -14,7 +14,7 @@ If you discover a security vulnerability in ecc, please report it responsibly.
 
 **Do not open a public GitHub issue for security vulnerabilities.**
 
-Instead, email **<security@eco.tools>** with:
+Instead, use GitHub private vulnerability reporting for this repository when it is available. If GitHub does not show that option, contact the maintainer through the GitHub profile at <https://github.com/mturac> without posting exploit details publicly. Include:
 
 - A description of the vulnerability
 - Steps to reproduce

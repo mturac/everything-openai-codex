@@ -40,4 +40,4 @@ ecc 作为一个开源智能体性能测试系统，在 OpenAI Codex、Cursor、
 ## 在此赞助
 
 * GitHub Sponsors: <https://github.com/sponsors/mehmet-turac>
-* 项目网站: <https://eco.tools>
+* 项目仓库: <https://github.com/mturac/everything-openai-codex>

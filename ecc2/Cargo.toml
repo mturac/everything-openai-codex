@@ -4,8 +4,8 @@ version = "0.1.0"
 edition = "2021"
 description = "ecc 2.0 — Agentic IDE control plane with TUI dashboard"
 license = "MIT"
-authors = ["mehmet-turac <me@mehmet_turac.com>"]
-repository = "https://github.com/mehmet-turac/everything-openai-codex"
+authors = ["mehmet-turac"]
+repository = "https://github.com/mturac/everything-openai-codex"
 
 [features]
 default = ["vendored-openssl"]

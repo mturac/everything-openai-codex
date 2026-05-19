@@ -54,7 +54,7 @@ Thank you to everyone funding ecc's open-source work. Your sponsorship is what l
 
 [**Become a Sponsor →**](https://github.com/sponsors/mehmet-turac)
 
-For corporate sponsorship inquiries, custom partnerships, or PR integrations, email **[mehmet-turac@eco.tools](mailto:mehmet-turac@eco.tools)** with your company name and intended tier. We'll move fast — most agreements close within 48 hours.
+For corporate sponsorship inquiries, custom partnerships, or PR integrations, start from [GitHub Sponsors](https://github.com/sponsors/mehmet-turac) or the maintainer profile at <https://github.com/mturac>. Include your company name and intended tier.
 
 ---
 

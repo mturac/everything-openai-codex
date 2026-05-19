@@ -14,7 +14,7 @@ ecc'de bir güvenlik açığı keşfederseniz, lütfen sorumlu bir şekilde bild
 
 **Güvenlik açıkları için herkese açık GitHub issue açmayın.**
 
-Bunun yerine, **<security@eco.tools>** adresine aşağıdaki bilgilerle e-posta gönderin:
+Bunun yerine, bu depo için kullanılabiliyorsa GitHub private vulnerability reporting akışını kullanın. GitHub bu seçeneği göstermiyorsa, açık exploit detayı paylaşmadan <https://github.com/mturac> profilinden maintainer ile iletişime geçin. Şunları ekleyin:
 
 - Güvenlik açığının açıklaması
 - Yeniden oluşturma adımları
