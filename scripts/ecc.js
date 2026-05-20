@@ -116,6 +116,7 @@ Examples:
   ecc plan --profile core --target cursor
   ecc catalog profiles
   ecc catalog components --family language
+  ecc catalog search security
   ecc catalog show framework:nextjs
   ecc consult "security reviews"
   ecc list-installed --json

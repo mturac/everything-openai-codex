@@ -54,6 +54,7 @@ function runTests() {
     assert.strictEqual(result.code, 0);
     assert.ok(result.stdout.includes('Usage:'));
     assert.ok(result.stdout.includes('node scripts/catalog.js show <component-id>'));
+    assert.ok(result.stdout.includes('node scripts/catalog.js search <query>'));
   })) passed++; else failed++;
 
   if (test('lists install profiles', () => {
@@ -83,6 +84,31 @@ function runTests() {
     assert.deepStrictEqual(parsed.moduleIds, ['framework-language']);
     assert.ok(Array.isArray(parsed.modules));
     assert.strictEqual(parsed.modules[0].id, 'framework-language');
+  })) passed++; else failed++;
+
+  if (test('searches catalog entries by keyword and emits JSON', () => {
+    const result = run(['search', 'security', '--json']);
+    assert.strictEqual(result.code, 0, result.stderr);
+    const parsed = JSON.parse(result.stdout);
+    assert.strictEqual(parsed.query, 'security');
+    assert.ok(Array.isArray(parsed.results));
+    assert.ok(parsed.results.length > 0);
+    assert.ok(parsed.results.some(entry => entry.id === 'capability:security'));
+    assert.ok(parsed.results.every(entry => ['component', 'module', 'profile'].includes(entry.type)));
+  })) passed++; else failed++;
+
+  if (test('search supports family and target filters for components', () => {
+    const result = run(['search', 'typescript', '--family', 'language', '--target', 'codex', '--json']);
+    assert.strictEqual(result.code, 0, result.stderr);
+    const parsed = JSON.parse(result.stdout);
+    assert.ok(parsed.results.some(entry => entry.id === 'lang:typescript'));
+    assert.ok(!parsed.results.some(entry => entry.type === 'component' && entry.family !== 'language'));
+  })) passed++; else failed++;
+
+  if (test('fails search without a query', () => {
+    const result = run(['search']);
+    assert.strictEqual(result.code, 1);
+    assert.ok(result.stderr.includes('Catalog search requires a query'));
   })) passed++; else failed++;
 
   if (test('fails on unknown subcommands', () => {

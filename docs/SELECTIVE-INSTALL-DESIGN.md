@@ -262,6 +262,7 @@ Recommended shape:
 ecc catalog profiles
 ecc catalog components
 ecc catalog components --family language
+ecc catalog search security
 ecc catalog show framework:nextjs
 ```
 
@@ -269,6 +270,7 @@ Purpose:
 
 - let users discover valid component names without reading docs
 - keep config authoring approachable
+- make large catalogs searchable by intent before users know exact component IDs
 
 ### Compatibility CLI
 

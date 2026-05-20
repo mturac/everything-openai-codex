@@ -3,6 +3,7 @@
 const {
   getInstallComponent,
   listInstallComponents,
+  listInstallModules,
   listInstallProfiles,
 } = require('./lib/install-manifests');
 
@@ -29,11 +30,13 @@ Discover ecc install components and profiles
 Usage:
   node scripts/catalog.js profiles [--json]
   node scripts/catalog.js components [--family <family>] [--target <target>] [--json]
+  node scripts/catalog.js search <query> [--family <family>] [--target <target>] [--json]
   node scripts/catalog.js show <component-id> [--json]
 
 Examples:
   node scripts/catalog.js profiles
   node scripts/catalog.js components --family language
+  node scripts/catalog.js search security
   node scripts/catalog.js show framework:nextjs
 `);
 
@@ -54,6 +57,7 @@ function parseArgs(argv) {
   const parsed = {
     command: null,
     componentId: null,
+    query: [],
     family: null,
     target: null,
     json: false,
@@ -88,6 +92,8 @@ function parseArgs(argv) {
       index += 1;
     } else if (parsed.command === 'show' && !parsed.componentId) {
       parsed.componentId = arg;
+    } else if (parsed.command === 'search') {
+      parsed.query.push(arg);
     } else {
       throw new Error(`Unknown argument: ${arg}`);
     }
@@ -132,6 +138,101 @@ function printComponent(component) {
   }
 }
 
+function normalizeSearchText(value) {
+  return String(value || '').trim().toLowerCase();
+}
+
+function includesQuery(value, query) {
+  return normalizeSearchText(value).includes(query);
+}
+
+function scoreMatch(fields, query) {
+  return fields.reduce((score, field, index) => {
+    const normalized = normalizeSearchText(field);
+    if (!normalized.includes(query)) {
+      return score;
+    }
+    return score + (index === 0 ? 4 : 1);
+  }, 0);
+}
+
+function searchCatalog(options) {
+  const query = normalizeSearchText(options.query.join(' '));
+  if (!query) {
+    throw new Error('Catalog search requires a query');
+  }
+
+  const components = listInstallComponents({
+    family: options.family,
+    target: options.target,
+  }).map(component => ({
+    type: 'component',
+    id: component.id,
+    family: component.family,
+    targets: component.targets,
+    description: component.description,
+    score: scoreMatch(
+      [component.id, component.family, component.description, component.moduleIds.join(' ')],
+      query
+    ),
+  }));
+
+  const modules = listInstallModules()
+    .filter(module => !options.target || module.targets.includes(options.target))
+    .map(module => ({
+      type: 'module',
+      id: module.id,
+      family: module.kind,
+      targets: module.targets,
+      description: module.description,
+      score: scoreMatch(
+        [module.id, module.kind, module.description, module.stability, module.cost],
+        query
+      ),
+    }));
+
+  const profiles = listInstallProfiles().map(profile => ({
+    type: 'profile',
+    id: profile.id,
+    family: 'profile',
+    targets: [],
+    description: profile.description,
+    score: scoreMatch([profile.id, profile.description], query),
+  }));
+
+  return [...components, ...modules, ...profiles]
+    .filter(result => result.score > 0 || includesQuery(result.id, query))
+    .sort((left, right) => {
+      if (right.score !== left.score) {
+        return right.score - left.score;
+      }
+      return left.id.localeCompare(right.id);
+    })
+    .map(result => {
+      const publicResult = { ...result };
+      delete publicResult.score;
+      return publicResult;
+    });
+}
+
+function printSearchResults(results, query) {
+  if (results.length === 0) {
+    console.log(`No catalog matches for "${query}".`);
+    return;
+  }
+
+  console.log(`Catalog search results for "${query}":\n`);
+  for (const result of results.slice(0, 25)) {
+    const targetText = result.targets.length > 0 ? ` targets=${result.targets.join(', ')}` : '';
+    console.log(`- ${result.id} [${result.type}:${result.family}]${targetText}`);
+    console.log(`  ${result.description}`);
+  }
+
+  if (results.length > 25) {
+    console.log(`\nShowing 25 of ${results.length} matches. Use --json for the full result set.`);
+  }
+}
+
 function main() {
   try {
     const options = parseArgs(process.argv);
@@ -159,6 +260,17 @@ function main() {
         console.log(JSON.stringify({ components }, null, 2));
       } else {
         printComponents(components);
+      }
+      return;
+    }
+
+    if (options.command === 'search') {
+      const results = searchCatalog(options);
+      const query = options.query.join(' ');
+      if (options.json) {
+        console.log(JSON.stringify({ query, results }, null, 2));
+      } else {
+        printSearchResults(results, query);
       }
       return;
     }

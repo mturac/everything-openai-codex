@@ -17,13 +17,13 @@ product proof, not outrun it.
 
 ## Now
 
-| Area | Improvement | Success signal | Evidence command |
-|---|---|---|---|
-| Activation | Add a first-ten-minutes path that starts from plugin install, source dry-run, catalog browse, and doctor output | A new evaluator can complete the path without reading the full README | `node scripts/install-apply.js --profile minimal --target codex --dry-run` |
-| Install health | Make `ecc doctor` print the recommended repair command beside each issue | Doctor output moves from diagnosis to guided recovery | `node scripts/ecc.js doctor --target codex` |
-| Catalog discovery | Add keyword search to `ecc catalog` for skills, agents, rules, profiles, and install modules | Users can find "review", "security", "frontend", or "memory" without browsing directories | `node scripts/ecc.js catalog search security` |
-| Demo proof | Add a single local smoke command that verifies plugin/source copy, catalog, doctor, and status basics | Maintainers can refresh demo confidence before posting or submitting | `npm run preview-pack:smoke` plus the new smoke command |
-| README routing | Keep README short-path navigation pointed at product proof, review guide, release notes, and go-to-market | Visitors know where to evaluate, where to trust, and where to contribute | `node tests/docs/public-positioning.test.js` |
+| Status | Area | Improvement | Success signal | Evidence command |
+|---|---|---|---|---|
+| Open | Activation | Add a first-ten-minutes path that starts from plugin install, source dry-run, catalog browse, and doctor output | A new evaluator can complete the path without reading the full README | `node scripts/install-apply.js --profile minimal --target codex --dry-run` |
+| Open | Install health | Make `ecc doctor` print the recommended repair command beside each issue | Doctor output moves from diagnosis to guided recovery | `node scripts/ecc.js doctor --target codex` |
+| Shipped | Catalog discovery | Add keyword search to `ecc catalog` for skills, agents, rules, profiles, and install modules | Users can find "review", "security", "frontend", or "memory" without browsing directories | `node scripts/ecc.js catalog search security` |
+| Open | Demo proof | Add a single local smoke command that verifies plugin/source copy, catalog, doctor, and status basics | Maintainers can refresh demo confidence before posting or submitting | `npm run preview-pack:smoke` plus the new smoke command |
+| Open | README routing | Keep README short-path navigation pointed at product proof, review guide, release notes, and go-to-market | Visitors know where to evaluate, where to trust, and where to contribute | `node tests/docs/public-positioning.test.js` |
 
 ## Next
 
