@@ -7,7 +7,6 @@
 [![Stars](https://img.shields.io/github/stars/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/stargazers)
 [![Forks](https://img.shields.io/github/forks/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/network/members)
 [![Contributors](https://img.shields.io/github/contributors/mturac/everything-openai-codex?style=flat)](https://github.com/mturac/everything-openai-codex/graphs/contributors)
-[![npm @mturac/eoc](https://img.shields.io/npm/dw/@mturac%2Feoc?label=%40mturac%2Feoc%20weekly%20downloads&logo=npm)](https://www.npmjs.com/package/@mturac/eoc)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Shell](https://img.shields.io/badge/-Shell-4EAA25?logo=gnu-bash&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white)
@@ -17,7 +16,7 @@
 ![Perl](https://img.shields.io/badge/-Perl-39457E?logo=perl&logoColor=white)
 ![Markdown](https://img.shields.io/badge/-Markdown-000000?logo=markdown&logoColor=white)
 
-> **Live GitHub and npm badges above are the source of truth.** EOC is a field-tested, MIT-licensed Codex workflow system with 12+ language ecosystems and a public rc.1 release track.
+> **Live GitHub badges above are the source of truth.** EOC is a field-tested, MIT-licensed Codex workflow system with 12+ language ecosystems, a working repo-marketplace plugin path, and a public rc.1 release track.
 
 ---
 
@@ -80,17 +79,22 @@ Use one path only:
 
 ```bash
 # Recommended for OpenAI Codex plugin users
+/plugin marketplace add https://github.com/mturac/everything-openai-codex
 /plugin install eoc@eoc
 ```
 
 or:
 
 ```bash
-# Manual, low-context install for a local project
-npx eoc-install --profile minimal --target codex
+# Source install for local/manual evaluation
+git clone https://github.com/mturac/everything-openai-codex.git
+cd everything-openai-codex
+npm install
+node scripts/install-apply.js --profile minimal --target codex --dry-run
+node scripts/install-apply.js --profile minimal --target codex
 ```
 
-Do not stack plugin and full manual installs. If you already did, use [Reset / Uninstall ecc](#reset--uninstall-ecc).
+Do not stack plugin and full manual installs. If you already layered install methods, use [Reset / Uninstall ecc](#reset--uninstall-ecc).
 
 ---
 
@@ -213,11 +217,13 @@ If hooks feel too global or you only want ecc's rules, agents, commands, and cor
 
 ```bash
 ./install.sh --profile minimal --target codex
+# or, from a packaged/tarball install:
+npx eoc-install --profile minimal --target codex
 ```
 
 ```powershell
 .\install.ps1 --profile minimal --target codex
-# or
+# or, from a packaged/tarball install:
 npx eoc-install --profile minimal --target codex
 ```
 
@@ -247,12 +253,12 @@ For production ML/MLOps workflows, keep the install opt-in and component-scoped:
 
 ```bash
 npx eoc consult "mlops training model deployment" --target codex
-npx eoc install --profile minimal --target codex --with capability:machine-learning
+node scripts/install-apply.js --profile minimal --target codex --with capability:machine-learning
 ```
 
 ### Step 1: Install the Plugin (Recommended)
 
-> NOTE: The plugin is convenient, but the OSS installer below is still the most reliable path if your OpenAI Codex build has trouble resolving self-hosted marketplace entries.
+> NOTE: The plugin is the default Codex path. Use the source installer only when you want local/manual control or you are debugging a marketplace cache issue.
 
 ```bash
 # Add marketplace
@@ -268,9 +274,9 @@ EOC now has three public identifiers, and they are not interchangeable:
 
 - GitHub source repo: `mturac/everything-openai-codex`
 - Codex marketplace/plugin identifier: `eoc@eoc`
-- npm package: `@mturac/eoc`
+- npm package: `@mturac/eoc` (registry packaging channel; not required for the Codex plugin path)
 
-This is intentional. OpenAI marketplace/plugin installs are keyed by a canonical plugin identifier, so EOC uses `eoc@eoc` to keep tool names and slash-command namespaces short enough for strict Desktop/API validators. Older posts may still show the former long marketplace identifier; treat that as a legacy alias only. Separately, npm installs use `@mturac/eoc`, so npm installs and marketplace installs intentionally use different names.
+This is intentional. OpenAI marketplace/plugin installs are keyed by a canonical plugin identifier, so EOC uses `eoc@eoc` to keep tool names and slash-command namespaces short enough for strict Desktop/API validators. Older posts may still show the former long marketplace identifier; treat that as a legacy alias only. Separately, the npm channel uses `@mturac/eoc`, so npm installs and marketplace installs intentionally use different names.
 
 ### Step 2: Install Rules Only If You Need Them
 
@@ -325,8 +331,6 @@ Use this only if you are intentionally skipping the plugin path:
 
 ```powershell
 .\install.ps1 --profile full
-# or
-npx eoc-install --profile full
 ```
 
 If you choose this path, stop there. Do not also run `/plugin install`.
@@ -762,7 +766,7 @@ Duplicate hooks file detected: ./hooks/hooks.json resolves to already-loaded fil
 
 ### Option 1: Install as Plugin (Recommended)
 
-The easiest way to use this repo - install as a OpenAI Codex plugin:
+The easiest way to use this repo is the OpenAI Codex plugin:
 
 ```bash
 # Add this repo as a marketplace
@@ -790,7 +794,7 @@ Or add directly to your `~/.codex/settings.json`:
 }
 ```
 
-This gives you instant access to all commands, agents, skills, and hooks.
+This gives you access to commands, agents, skills, and hooks.
 
 > **Note:** The OpenAI Codex plugin system does not support distributing `rules` via plugins ([upstream limitation](https://code.openai-codex.com/docs/en/plugins-reference)). You need to install rules manually:
 >

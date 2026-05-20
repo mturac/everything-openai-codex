@@ -13,11 +13,12 @@ Open-source operating system for serious OpenAI Codex workflows.
 ## Links
 
 - GitHub: <https://github.com/mturac/everything-openai-codex>
-- Plugin install: `/plugin install eoc@eoc`
-- Manual install: `npx eoc-install --profile minimal --target codex`
+- Plugin install: `/plugin marketplace add https://github.com/mturac/everything-openai-codex` then `/plugin install eoc@eoc`
+- Source install: `git clone https://github.com/mturac/everything-openai-codex.git && cd everything-openai-codex && npm install && node scripts/install-apply.js --profile minimal --target codex --dry-run`
 - Screenshots: `assets/screenshots/`
 - Hero image: `assets/hero.png`
 - Current surface counts: see the release notes or run the repository validation checks before quoting numbers externally.
+- Go-to-market plan: [GO-TO-MARKET.md](GO-TO-MARKET.md)
 
 ## Suggested Tags
 
@@ -48,9 +49,10 @@ Everything OpenAI Codex is an MIT-licensed workflow system for OpenAI Codex. It 
 
 I packaged my Codex workflow system as an open-source repo: Everything OpenAI Codex.
 
-It is not a prompt dump. It ships agents, skills, commands, hooks, install profiles, memory patterns, and validation checks that I use for real coding work. The current rc.1 surface includes 60 agents, 232 skills, 75 command shims, and a Codex plugin install path:
+It is not a prompt dump. It ships agents, skills, commands, hooks, install profiles, memory patterns, and validation checks that I use for real coding work. The current rc.1 surface includes 60 agents, 232 skills, and 75 command shims.
 
 ```bash
+/plugin marketplace add https://github.com/mturac/everything-openai-codex
 /plugin install eoc@eoc
 ```
 
