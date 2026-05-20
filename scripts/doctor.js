@@ -55,6 +55,44 @@ function statusLabel(status) {
   return status.toUpperCase();
 }
 
+function buildIssueFix(result, issue) {
+  const target = result.adapter && result.adapter.target ? result.adapter.target : result.adapter.id;
+  const repairPreview = `node scripts/ecc.js repair --target ${target} --dry-run`;
+
+  if ([
+    'missing-managed-files',
+    'drifted-managed-files',
+    'unverified-managed-operations',
+    'manifest-version-mismatch',
+    'repo-version-mismatch',
+    'resolution-drift',
+  ].includes(issue.code)) {
+    return repairPreview;
+  }
+
+  if (issue.code === 'missing-source-files') {
+    return 'Pull or restore the EOC source repo, then rerun the repair dry-run.';
+  }
+
+  if (issue.code === 'missing-target-root') {
+    return `Restore the target root or reinstall with node scripts/ecc.js install --target ${target}`;
+  }
+
+  if (issue.code === 'target-root-mismatch' || issue.code === 'install-state-path-mismatch') {
+    return `Run doctor from the project that owns this install-state, then preview repair with ${repairPreview}`;
+  }
+
+  if (issue.code === 'invalid-install-state') {
+    return 'Inspect the install-state JSON before repair; it could not be parsed safely.';
+  }
+
+  if (issue.code === 'resolution-unavailable') {
+    return 'Fix the recorded install request or manifests, then rerun doctor.';
+  }
+
+  return repairPreview;
+}
+
 function printHuman(report) {
   if (report.results.length === 0) {
     console.log('No ecc install-state files found for the current home/project context.');
@@ -74,6 +112,7 @@ function printHuman(report) {
 
     for (const issue of result.issues) {
       console.log(`  - [${issue.severity}] ${issue.code}: ${issue.message}`);
+      console.log(`    Fix: ${buildIssueFix(result, issue)}`);
     }
   }
 
