@@ -120,6 +120,7 @@ This repo is the source of truth. Use maintained repository docs instead of exte
 |----------|----------------|
 | [Hermes setup](docs/HERMES-SETUP.md) | Set up the Hermes x EOC operator workflow |
 | [Public review guide](docs/PUBLIC-REVIEW-GUIDE.md) | Evaluate EOC quickly for directories, awesome lists, and community submissions |
+| [Product improvement backlog](docs/PRODUCT-IMPROVEMENT-BACKLOG.md) | Prioritize activation, catalog discovery, install health, package trust, and demo proof |
 | [rc.1 release notes](docs/releases/2.0.0-rc.1/release-notes.md) | Understand the current public release surface |
 | [Cross-harness architecture](docs/architecture/cross-harness.md) | Port skills, rules, and adapters between harnesses |
 | [Token optimization](docs/token-optimization.md) | Tune Codex model, compaction, and cost settings |

@@ -11,6 +11,7 @@ Primary users are Codex power users, AI coding workflow builders, devtools maint
 - Lead with evidence: screenshots, install dry-run, release notes, and the public review guide.
 - Use one high-fit post or PR per channel, then respond to feedback instead of reposting.
 - Promote the repo-marketplace plugin path first; treat npm as optional packaging, not the primary launch story.
+- Treat the [product improvement backlog](PRODUCT-IMPROVEMENT-BACKLOG.md) as the launch throttle: improve activation, discovery, and proof before broad promotion.
 
 ## Launch Phases
 
@@ -39,6 +40,7 @@ Primary users are Codex power users, AI coding workflow builders, devtools maint
 ## Immediate Checklist
 
 - Keep `/plugin marketplace add ...` and `/plugin install eoc@eoc` as the first install path.
+- Complete at least one **Now** item from the product improvement backlog before each larger public push.
 - Decide later whether npm registry distribution matters for the launch; it is not required for Codex plugin adoption.
 - Add or refresh screenshots under `assets/screenshots/`.
 - Run `npm pack --dry-run` before public submission.

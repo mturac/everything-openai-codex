@@ -19,6 +19,7 @@ Open-source operating system for serious OpenAI Codex workflows.
 - Hero image: `assets/hero.png`
 - Current surface counts: see the release notes or run the repository validation checks before quoting numbers externally.
 - Go-to-market plan: [GO-TO-MARKET.md](GO-TO-MARKET.md)
+- Product improvement backlog: [PRODUCT-IMPROVEMENT-BACKLOG.md](PRODUCT-IMPROVEMENT-BACKLOG.md)
 
 ## Suggested Tags
 
