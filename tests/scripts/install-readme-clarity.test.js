@@ -51,7 +51,7 @@ function runTests() {
 
   if (test('README documents reset and uninstall flow', () => {
     assert.ok(
-      readme.includes('### Reset / Uninstall ecc'),
+      readme.includes('### Reset / Uninstall EOC'),
       'README should have a visible reset/uninstall section'
     );
     assert.ok(
@@ -59,15 +59,15 @@ function runTests() {
       'README should document dry-run uninstall'
     );
     assert.ok(
-      readme.includes('node scripts/ecc.js list-installed'),
+      readme.includes('node scripts/eoc.js list-installed'),
       'README should document install-state inspection before reinstalling'
     );
     assert.ok(
-      readme.includes('node scripts/ecc.js doctor'),
+      readme.includes('node scripts/eoc.js doctor'),
       'README should document doctor before reinstalling'
     );
     assert.ok(
-      readme.includes('ecc only removes files recorded in its install-state.'),
+      readme.includes('EOC only removes files recorded in its install-state.'),
       'README should explain uninstall safety boundaries'
     );
   })) passed++; else failed++;
@@ -120,7 +120,7 @@ function runTests() {
       'README should avoid overclaiming Cursor agent loading semantics'
     );
     assert.ok(
-      readme.includes('ecc does not install root `AGENTS.md` into `.cursor/`.'),
+      readme.includes('EOC does not install root `AGENTS.md` into `.cursor/`.'),
       'README should explain why root AGENTS.md is not copied into Cursor context'
     );
   })) passed++; else failed++;

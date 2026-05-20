@@ -104,18 +104,18 @@ test('release docs do not contain unresolved public-link placeholders', () => {
 
 test('business launch copy stays aligned with the rc.1 public surface', () => {
   const source = read('docs/business/social-launch-copy.md');
-  assert.ok(source.includes('ecc v2.0.0-rc.1'), 'business launch copy should use the rc.1 release');
+  assert.ok(source.includes('EOC v2.0.0-rc.1'), 'business launch copy should use the rc.1 release');
   assert.ok(
     source.includes('preview pack is ready for final release review'),
     'business launch copy should stay pre-publication until release URLs exist'
   );
   assert.ok(
-    source.includes('https://github.com/mehmet-turac/everything-openai-codex'),
+    source.includes('https://github.com/mturac/everything-openai-codex'),
     'business launch copy should include the public repo URL'
   );
   assert.ok(
     source.includes(
-      'https://github.com/mehmet-turac/everything-openai-codex/blob/main/docs/releases/2.0.0-rc.1/release-notes.md'
+      'https://github.com/mturac/everything-openai-codex/blob/main/docs/releases/2.0.0-rc.1/release-notes.md'
     ),
     'business launch copy should link to the rc.1 release notes'
   );
@@ -132,7 +132,7 @@ test('announcement drafts avoid live-release claims before publication', () => {
   for (const relativePath of announcementFiles) {
     const source = read(relativePath);
     assert.ok(
-      !/ecc v2\.0\.0-rc\.1 is live\./.test(source),
+      !/(?:ecc|EOC) v2\.0\.0-rc\.1 is live\./.test(source),
       `${relativePath} must not claim rc.1 is live before the release gate completes`
     );
   }

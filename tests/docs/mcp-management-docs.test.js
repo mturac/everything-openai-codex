@@ -56,7 +56,7 @@ test('README MCP guidance avoids settings.json disable instructions', () => {
     'README should route runtime MCP disables through /mcp and ~/.codex.json'
   );
   assert.ok(
-    source.includes('`ecc_DISABLED_MCPS` is an ecc install/sync filter, not a live OpenAI Codex toggle.'),
+    source.includes('`ecc_DISABLED_MCPS` is an EOC install/sync filter, not a live OpenAI Codex toggle.'),
     'README should explain ecc_DISABLED_MCPS scope'
   );
   assert.ok(

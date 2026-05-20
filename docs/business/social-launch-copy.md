@@ -5,7 +5,7 @@ Use these templates as launch-ready starting points. Review channel tone before 
 ## X Post: Release Announcement
 
 ```text
-EOC v2.0.0-rc.1 is ready for public review.
+EOC v2.0.0-rc.1 preview pack is ready for final release review.
 
 The repo is moving from an OpenAI Codex config pack into a cross-harness operating system for agentic work.
 
@@ -55,7 +55,7 @@ EOC v2.0.0-rc.1 pushes that further: reusable skills, thin harness adapters, and
 ## LinkedIn Post: Partner-Friendly Summary
 
 ```text
-EOC v2.0.0-rc.1 is ready for public review.
+EOC v2.0.0-rc.1 preview pack is ready for final release review.
 
 The practical shift: EOC is no longer just an OpenAI Codex config pack. It is becoming a cross-harness operating system for agentic work.
 
