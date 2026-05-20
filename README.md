@@ -361,6 +361,7 @@ node scripts/ecc.js doctor
 node scripts/ecc.js catalog search security
 node scripts/ecc.js repair
 node scripts/ecc.js uninstall --dry-run
+npm run demo:smoke
 ```
 
 ecc only removes files recorded in its install-state. It will not delete unrelated files it did not install.
