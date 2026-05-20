@@ -7,7 +7,7 @@ const { listAvailableLanguages } = require('./lib/install-executor');
 const COMMANDS = {
   install: {
     script: 'install-apply.js',
-    description: 'Install ecc content into a supported target',
+    description: 'Install EOC content into a supported target',
   },
   plan: {
     script: 'install-plan.js',
@@ -19,7 +19,7 @@ const COMMANDS = {
   },
   consult: {
     script: 'consult.js',
-    description: 'Recommend ecc components and profiles from a natural language query',
+    description: 'Recommend EOC components and profiles from a natural language query',
   },
   'install-plan': {
     script: 'install-plan.js',
@@ -31,19 +31,19 @@ const COMMANDS = {
   },
   doctor: {
     script: 'doctor.js',
-    description: 'Diagnose missing or drifted ecc-managed files',
+    description: 'Diagnose missing or drifted EOC-managed files',
   },
   repair: {
     script: 'repair.js',
-    description: 'Restore drifted or missing ecc-managed files',
+    description: 'Restore drifted or missing EOC-managed files',
   },
   'auto-update': {
     script: 'auto-update.js',
-    description: 'Pull latest ecc changes and reinstall the current managed targets',
+    description: 'Pull latest EOC changes and reinstall the current managed targets',
   },
   status: {
     script: 'status.js',
-    description: 'Query the ecc SQLite state store status summary',
+    description: 'Query the EOC SQLite state store status summary',
   },
   'platform-audit': {
     script: 'platform-audit.js',
@@ -55,7 +55,7 @@ const COMMANDS = {
   },
   sessions: {
     script: 'sessions-cli.js',
-    description: 'List or inspect ecc sessions from the SQLite state store',
+    description: 'List or inspect EOC sessions from the SQLite state store',
   },
   'work-items': {
     script: 'work-items.js',
@@ -63,7 +63,7 @@ const COMMANDS = {
   },
   'session-inspect': {
     script: 'session-inspect.js',
-    description: 'Emit canonical ecc session snapshots from dmux or Codex history targets',
+    description: 'Emit canonical EOC session snapshots from dmux or Codex history targets',
   },
   'loop-status': {
     script: 'loop-status.js',
@@ -71,7 +71,7 @@ const COMMANDS = {
   },
   uninstall: {
     script: 'uninstall.js',
-    description: 'Remove ecc-managed files recorded in install-state',
+    description: 'Remove EOC-managed files recorded in install-state',
   },
 };
 
@@ -96,45 +96,46 @@ const PRIMARY_COMMANDS = [
 
 function showHelp(exitCode = 0) {
   console.log(`
-ecc selective-install CLI
+EOC selective-install CLI
 
 Usage:
-  ecc <command> [args...]
-  ecc [install args...]
+  eoc <command> [args...]
+  eoc [install args...]
 
 Commands:
 ${PRIMARY_COMMANDS.map(command => `  ${command.padEnd(15)} ${COMMANDS[command].description}`).join('\n')}
 
 Compatibility:
-  ecc-install        Legacy install entrypoint retained for existing flows
-  ecc [args...]      Without a command, args are routed to "install"
-  ecc help <command> Show help for a specific command
+  eoc-install        Install entrypoint for npm users
+  ecc                Legacy alias retained for existing EOC installs
+  ecc-install        Legacy install alias retained for existing flows
+  eoc help <command> Show help for a specific command
 
 Examples:
-  ecc typescript
-  ecc install --profile developer --target codex
-  ecc plan --profile core --target cursor
-  ecc catalog profiles
-  ecc catalog components --family language
-  ecc catalog search security
-  ecc catalog show framework:nextjs
-  ecc consult "security reviews"
-  ecc list-installed --json
-  ecc doctor --target cursor
-  ecc repair --dry-run
-  ecc auto-update --dry-run
-  ecc status --json
-  ecc status --exit-code
-  ecc status --markdown --write status.md
-  ecc platform-audit --json --allow-untracked docs/drafts/
-  ecc security-ioc-scan --home
-  ecc sessions
-  ecc sessions session-active --json
-  ecc work-items upsert linear-ecc-20 --source linear --source-id ecc-20 --title "Review control-plane contract" --status blocked
-  ecc work-items sync-github --repo mehmet-turac/everything-openai-codex
-  ecc session-inspect codex:latest
-  ecc loop-status --json
-  ecc uninstall --target antigravity --dry-run
+  eoc typescript
+  eoc install --profile developer --target codex
+  eoc plan --profile core --target cursor
+  eoc catalog profiles
+  eoc catalog components --family language
+  eoc catalog search security
+  eoc catalog show framework:nextjs
+  eoc consult "security reviews"
+  eoc list-installed --json
+  eoc doctor --target cursor
+  eoc repair --dry-run
+  eoc auto-update --dry-run
+  eoc status --json
+  eoc status --exit-code
+  eoc status --markdown --write status.md
+  eoc platform-audit --json --allow-untracked docs/drafts/
+  eoc security-ioc-scan --home
+  eoc sessions
+  eoc sessions session-active --json
+  eoc work-items upsert linear-eoc-20 --source linear --source-id eoc-20 --title "Review control-plane contract" --status blocked
+  eoc work-items sync-github --repo mehmet-turac/everything-openai-codex
+  eoc session-inspect codex:latest
+  eoc loop-status --json
+  eoc uninstall --target antigravity --dry-run
 `);
 
   process.exit(exitCode);

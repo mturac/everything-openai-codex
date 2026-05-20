@@ -79,6 +79,7 @@
     "scripts/discussion-audit.js",
     "scripts/doctor.js",
     "scripts/ecc.js",
+    "scripts/eoc.js",
     "scripts/demo-smoke.js",
     "scripts/gemini-adapt-agents.js",
     "scripts/harness-adapter-compliance.js",
@@ -294,7 +295,7 @@
   ],
   "bin": {
     "ecc": "scripts/ecc.js",
-    "eoc": "scripts/ecc.js",
+    "eoc": "scripts/eoc.js",
     "ecc-install": "scripts/install-apply.js",
     "eoc-install": "scripts/install-apply.js"
   },

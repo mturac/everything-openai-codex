@@ -94,7 +94,7 @@ node scripts/install-apply.js --profile minimal --target codex --dry-run
 node scripts/install-apply.js --profile minimal --target codex
 ```
 
-Do not stack plugin and full manual installs. If you already layered install methods, use [Reset / Uninstall ecc](#reset--uninstall-ecc).
+Do not stack plugin and full manual installs. If you already layered install methods, use [Reset / Uninstall EOC](#reset--uninstall-eoc).
 
 ---
 
@@ -137,7 +137,7 @@ This repo is the source of truth. Use maintained repository docs instead of exte
 - **Media and launch tooling** — `manim-video`, `remotion-video-creation`, and upgraded social publishing surfaces make technical explainers and launch content part of the same system.
 - **Framework and product surface growth** — `nestjs-patterns`, richer Codex/OpenCode install surfaces, and expanded cross-harness packaging keep the repo usable beyond OpenAI Codex alone.
 - **EOC 2.0 alpha is in-tree** — the Rust control-plane prototype in `ecc2/` now builds locally and exposes `dashboard`, `start`, `sessions`, `status`, `stop`, `resume`, and `daemon` commands. It is usable as an alpha, not yet a general release.
-- **Operator status snapshots** — `ecc status --markdown --write status.md` turns the local state store into a portable handoff covering readiness, active sessions, skill-run health, install health, pending governance events, and linked work items from Linear/GitHub/handoffs. Use `ecc work-items upsert ...` for manual entries, `ecc work-items sync-github --repo owner/repo` for PR/issue queue state, and `ecc status --exit-code` to fail automation when readiness needs attention.
+- **Operator status snapshots** — `eoc status --markdown --write status.md` turns the local state store into a portable handoff covering readiness, active sessions, skill-run health, install health, pending governance events, and linked work items from Linear/GitHub/handoffs. Use `eoc work-items upsert ...` for manual entries, `eoc work-items sync-github --repo owner/repo` for PR/issue queue state, and `eoc status --exit-code` to fail automation when readiness needs attention.
 
 ### v1.9.0 — Selective Install & Language Expansion (Mar 2026)
 
@@ -210,11 +210,11 @@ Most OpenAI Codex users should use exactly one install path:
 - **Use the manual installer only if** you want finer-grained control, want to avoid the plugin path entirely, or your OpenAI Codex build has trouble resolving the self-hosted marketplace entry.
 - **Do not stack install methods.** The most common broken setup is: `/plugin install` first, then `install.sh --profile full` or `npx eoc-install --profile full` afterward.
 
-If you already layered multiple installs and things look duplicated, skip straight to [Reset / Uninstall ecc](#reset--uninstall-ecc).
+If you already layered multiple installs and things look duplicated, skip straight to [Reset / Uninstall EOC](#reset--uninstall-eoc).
 
 ### Low-context / no-hooks path
 
-If hooks feel too global or you only want ecc's rules, agents, commands, and core workflow skills, skip the plugin and use the minimal manual profile:
+If hooks feel too global or you only want EOC's rules, agents, commands, and core workflow skills, skip the plugin and use the minimal manual profile:
 
 ```bash
 ./install.sh --profile minimal --target codex
@@ -283,11 +283,11 @@ This is intentional. OpenAI marketplace/plugin installs are keyed by a canonical
 
 > WARNING: **Important:** OpenAI Codex plugins cannot distribute `rules` automatically.
 >
-> If you already installed EOC via `/plugin install`, **do not run `./install.sh --profile full`, `.\install.ps1 --profile full`, or `npx eoc-install --profile full` afterward**. The plugin already loads ecc skills, commands, and hooks. Running the full installer after a plugin install copies those same surfaces into your user directories and can create duplicate skills plus duplicate runtime behavior.
+> If you already installed EOC via `/plugin install`, **do not run `./install.sh --profile full`, `.\install.ps1 --profile full`, or `npx eoc-install --profile full` afterward**. The plugin already loads EOC skills, commands, and hooks. Running the full installer after a plugin install copies those same surfaces into your user directories and can create duplicate skills plus duplicate runtime behavior.
 >
 > For plugin installs, manually copy only the `rules/` directories you want under `~/.codex/rules/ecc/`. Start with `rules/common` plus one language or framework pack you actually use. Do not copy every rules directory unless you explicitly want all of that context in Codex.
 >
-> Use the full installer only when you are doing a fully manual ecc install instead of the plugin path.
+> Use the full installer only when you are doing a fully manual EOC install instead of the plugin path.
 >
 
 ```bash
@@ -298,24 +298,24 @@ cd everything-openai-codex
 # Install dependencies (pick your package manager)
 npm install        # or: pnpm install | yarn install | bun install
 
-# Plugin install path: copy only ecc rules into an ecc-owned namespace
+# Plugin install path: copy only EOC rules into the legacy ecc-owned namespace
 mkdir -p ~/.codex/rules/ecc
 cp -R rules/common ~/.codex/rules/ecc/
 cp -R rules/typescript ~/.codex/rules/ecc/
 
-# Fully manual ecc install path (use this instead of /plugin install)
+# Fully manual EOC install path (use this instead of /plugin install)
 # ./install.sh --profile full
 ```
 
 ```powershell
 # Windows PowerShell
 
-# Plugin install path: copy only ecc rules into an ecc-owned namespace
+# Plugin install path: copy only EOC rules into the legacy ecc-owned namespace
 New-Item -ItemType Directory -Force -Path "$HOME/.codex/rules/ecc" | Out-Null
 Copy-Item -Recurse rules/common "$HOME/.codex/rules/ecc/"
 Copy-Item -Recurse rules/typescript "$HOME/.codex/rules/ecc/"
 
-# Fully manual ecc install path (use this instead of /plugin install)
+# Fully manual EOC install path (use this instead of /plugin install)
 # .\install.ps1 --profile full
 # npx eoc-install --profile full
 ```
@@ -336,9 +336,9 @@ Use this only if you are intentionally skipping the plugin path:
 
 If you choose this path, stop there. Do not also run `/plugin install`.
 
-### Reset / Uninstall ecc
+### Reset / Uninstall EOC
 
-If ecc feels duplicated, intrusive, or broken, do not keep reinstalling it on top of itself.
+If EOC feels duplicated, intrusive, or broken, do not keep reinstalling it on top of itself.
 
 - **Plugin path:** remove the plugin from OpenAI Codex, then delete the specific rule folders you manually copied under `~/.codex/rules/ecc/`.
 - **Manual installer / CLI path:** from the repo root, preview removal first:
@@ -347,7 +347,7 @@ If ecc feels duplicated, intrusive, or broken, do not keep reinstalling it on to
 node scripts/uninstall.js --dry-run
 ```
 
-Then remove ecc-managed files:
+Then remove EOC-managed files:
 
 ```bash
 node scripts/uninstall.js
@@ -356,20 +356,20 @@ node scripts/uninstall.js
 You can also use the lifecycle wrapper:
 
 ```bash
-node scripts/ecc.js list-installed
-node scripts/ecc.js doctor
-node scripts/ecc.js catalog search security
-node scripts/ecc.js repair
-node scripts/ecc.js uninstall --dry-run
+node scripts/eoc.js list-installed
+node scripts/eoc.js doctor
+node scripts/eoc.js catalog search security
+node scripts/eoc.js repair
+node scripts/eoc.js uninstall --dry-run
 npm run demo:smoke
 ```
 
-ecc only removes files recorded in its install-state. It will not delete unrelated files it did not install.
+EOC only removes files recorded in its install-state. It will not delete unrelated files it did not install.
 
 If you stacked methods, clean up in this order:
 
 1. Remove the OpenAI Codex plugin install.
-2. Run the ecc uninstall command from the repo root to remove install-state-managed files.
+2. Run the EOC uninstall command from the repo root to remove install-state-managed files.
 3. Delete any extra rule folders you copied manually and no longer want.
 4. Reinstall once, using a single path.
 
@@ -377,7 +377,7 @@ If you stacked methods, clean up in this order:
 
 ```bash
 # Skills are the primary workflow surface.
-# Existing slash-style command names still work while ecc migrates off commands/.
+# Existing slash-style command names still work while EOC migrates off commands/.
 
 # Plugin install uses the canonical namespaced form
 /eoc:plan "Add user authentication"
@@ -393,7 +393,7 @@ If you stacked methods, clean up in this order:
 
 ### Dashboard GUI
 
-Launch the desktop dashboard to visually explore ecc components:
+Launch the desktop dashboard to visually explore EOC components:
 
 ```bash
 npm run dashboard
@@ -862,7 +862,7 @@ cp everything-openai-codex/commands/*.md ~/.codex/commands/
 
 #### Install hooks
 
-Do not copy the raw repo `hooks/hooks.json` into `~/.codex/settings.json` or `~/.codex/hooks/hooks.json`. That file is plugin/repo-oriented and is meant to be installed through the ecc installer or loaded as a plugin, so raw copying is not a supported manual install path.
+Do not copy the raw repo `hooks/hooks.json` into `~/.codex/settings.json` or `~/.codex/hooks/hooks.json`. That file is plugin/repo-oriented and is meant to be installed through the EOC installer or loaded as a plugin, so raw copying is not a supported manual install path.
 
 Use the installer to install only the Codex hook runtime so command paths are rewritten correctly:
 
@@ -884,19 +884,19 @@ Windows note: the Codex config directory is `%USERPROFILE%\\.codex`, not `~/code
 
 #### Configure MCPs
 
-Codex plugin installs intentionally do not auto-enable ecc's bundled MCP server definitions. This avoids overlong plugin MCP tool names on strict third-party gateways while keeping manual MCP setup available.
+Codex plugin installs intentionally do not auto-enable EOC's bundled MCP server definitions. This avoids overlong plugin MCP tool names on strict third-party gateways while keeping manual MCP setup available.
 
 Use OpenAI Codex's `/mcp` command or CLI-managed MCP setup for live OpenAI Codex server changes. Use `/mcp` for OpenAI Codex runtime disables; OpenAI Codex persists those choices in `~/.codex.json`.
 
 For repo-local MCP access, copy desired MCP server definitions from `mcp-configs/mcp-servers.json` into a project-scoped `.mcp.json`.
 
-If you already run your own copies of ecc-bundled MCPs, set:
+If you already run your own copies of EOC-bundled MCPs, set:
 
 ```bash
 export ecc_DISABLED_MCPS="github,context7,exa,playwright,sequential-thinking,memory"
 ```
 
-ecc-managed install and Codex sync flows will skip or remove those bundled servers instead of re-adding duplicates. `ecc_DISABLED_MCPS` is an ecc install/sync filter, not a live OpenAI Codex toggle.
+EOC-managed install and Codex sync flows will skip or remove those bundled servers instead of re-adding duplicates. `ecc_DISABLED_MCPS` is an EOC install/sync filter, not a live OpenAI Codex toggle.
 
 **Important:** Replace `YOUR_*_HERE` placeholders with your actual API keys.
 
@@ -921,7 +921,7 @@ You are a senior code reviewer...
 
 ### Skills
 
-Skills are the primary workflow surface. They can be invoked directly, suggested automatically, and reused by agents. ecc still ships maintained `commands/` during migration, while retired short-name shims live under `legacy-command-shims/` for explicit opt-in only. New workflow development should land in `skills/` first.
+Skills are the primary workflow surface. They can be invoked directly, suggested automatically, and reused by agents. EOC still ships maintained `commands/` during migration, while retired short-name shims live under `legacy-command-shims/` for explicit opt-in only. New workflow development should land in `skills/` first.
 
 ```markdown
 # TDD Workflow
@@ -1036,9 +1036,9 @@ This is the most common issue. **Do NOT add a `"hooks"` field to `.codex-plugin/
 </details>
 
 <details>
-<summary><b>Can I use ecc with OpenAI Codex on a custom API endpoint or model gateway?</b></summary>
+<summary><b>Can I use EOC with OpenAI Codex on a custom API endpoint or model gateway?</b></summary>
 
-Yes. ecc does not hardcode OpenAI-hosted transport settings. It runs locally through OpenAI Codex's normal CLI/plugin surface, so it works with:
+Yes. EOC does not hardcode OpenAI-hosted transport settings. It runs locally through OpenAI Codex's normal CLI/plugin surface, so it works with:
 
 - OpenAI-hosted OpenAI Codex
 - Official OpenAI Codex gateway setups using `OPENAI_BASE_URL` and `OPENAI_AUTH_TOKEN`
@@ -1052,7 +1052,7 @@ export OPENAI_AUTH_TOKEN=your-token
 codex
 ```
 
-If your gateway remaps model names, configure that in OpenAI Codex rather than in ecc. ecc's hooks, skills, commands, and rules are model-provider agnostic once the `codex` CLI is already working.
+If your gateway remaps model names, configure that in OpenAI Codex rather than in EOC. EOC's hooks, skills, commands, and rules are model-provider agnostic once the `codex` CLI is already working.
 
 Official references:
 - [OpenAI Codex LLM gateway docs](https://docs.openai.com/en/docs/codex/llm-gateway)
@@ -1090,7 +1090,7 @@ Each component is fully independent.
 <details>
 <summary><b>Does this work with Cursor / OpenCode / Codex / Antigravity / GitHub Copilot?</b></summary>
 
-Yes. ecc is cross-platform:
+Yes. EOC is cross-platform:
 - **Cursor**: Pre-translated configs in `.cursor/`. See [Cursor IDE Support](#cursor-ide-support).
 - **Gemini CLI**: Experimental project-local support via `.gemini/GEMINI.md` and shared installer plumbing.
 - **OpenCode**: Full plugin support in `.opencode/`. See [OpenCode Support](#opencode-support).
@@ -1154,7 +1154,7 @@ Please contribute! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ### Community Ecosystem Notes
 
-These are not bundled with ecc and are not audited by this repo, but they are worth knowing about if you are exploring the broader OpenAI Codex skills ecosystem:
+These are not bundled with EOC and are not audited by this repo, but they are worth knowing about if you are exploring the broader OpenAI Codex skills ecosystem:
 
 - [codex-seo](https://github.com/AgriciDaniel/codex-seo) — SEO-focused skill and agent collection
 - [codex-ads](https://github.com/AgriciDaniel/codex-ads) — Ad-audit and paid-growth workflow collection
@@ -1192,9 +1192,9 @@ These are not bundled with ecc and are not audited by this repo, but they are wo
 
 ### Cursor Loading Notes
 
-ecc does not install root `AGENTS.md` into `.cursor/`. Cursor treats nested `AGENTS.md` files as directory context, so copying ecc's repo identity into a host project would pollute that project.
+EOC does not install root `AGENTS.md` into `.cursor/`. Cursor treats nested `AGENTS.md` files as directory context, so copying EOC's repo identity into a host project would pollute that project.
 
-Cursor-native loading behavior can vary by Cursor build. ecc installs agents as `.cursor/agents/ecc-*.md`; if your Cursor build does not expose project agents, those files still work as explicit reference definitions instead of hidden global prompt context.
+Cursor-native loading behavior can vary by Cursor build. EOC installs agents as `.cursor/agents/ecc-*.md`; if your Cursor build does not expose project agents, those files still work as explicit reference definitions instead of hidden global prompt context.
 
 ### Hook Architecture (DRY Adapter Pattern)
 
@@ -1234,7 +1234,7 @@ alwaysApply: false
 # Run Codex CLI in the repo — AGENTS.md and .codex/ are auto-detected
 codex
 
-# Automatic setup: sync ecc assets (AGENTS.md, skills, MCP servers) into ~/.codex
+# Automatic setup: sync EOC assets (AGENTS.md, skills, MCP servers) into ~/.codex
 npm install && bash scripts/sync-ecc-to-codex.sh
 # or: pnpm install && bash scripts/sync-ecc-to-codex.sh
 # or: yarn install && bash scripts/sync-ecc-to-codex.sh
@@ -1244,9 +1244,9 @@ npm install && bash scripts/sync-ecc-to-codex.sh
 cp .codex/config.toml ~/.codex/config.toml
 ```
 
-The sync script safely merges ecc MCP servers into your existing `~/.codex/config.toml` using an **add-only** strategy — it never removes or modifies your existing servers. Run with `--dry-run` to preview changes, or `--update-mcp` to force-refresh ecc servers to the latest recommended config.
+The sync script safely merges EOC MCP servers into your existing `~/.codex/config.toml` using an **add-only** strategy — it never removes or modifies your existing servers. Run with `--dry-run` to preview changes, or `--update-mcp` to force-refresh EOC servers to the latest recommended config.
 
-For Context7, ecc uses the canonical Codex section name `[mcp_servers.context7]` while still launching the `@upstash/context7-mcp` package. If you already have a legacy `[mcp_servers.context7-mcp]` entry, `--update-mcp` migrates it to the canonical section name.
+For Context7, EOC uses the canonical Codex section name `[mcp_servers.context7]` while still launching the `@upstash/context7-mcp` package. If you already have a legacy `[mcp_servers.context7-mcp]` entry, `--update-mcp` migrates it to the canonical section name.
 
 Codex install profiles:
 - **Safe default plugin** — `.codex-plugin/plugin.json` keeps `mcpServers` empty so plugin install does not auto-load broad external tools or create overlong provider tool names. Use this for public/plugin-directory installs.
@@ -1313,7 +1313,7 @@ Canonical OpenAI skills such as `codex-api`, `frontend-design`, and `skill-creat
 
 ### Key Limitation
 
-Codex does **not yet provide Codex-style hook execution parity**. ecc enforcement there is instruction-based via `AGENTS.md`, optional `model_instructions_file` overrides, and sandbox/approval settings.
+Codex does **not yet provide Codex-style hook execution parity**. EOC enforcement there is instruction-based via `AGENTS.md`, optional `model_instructions_file` overrides, and sandbox/approval settings.
 
 ### Multi-Agent Support
 
@@ -1324,7 +1324,7 @@ Current Codex builds support stable multi-agent workflows.
 - Point each role at a file under `.codex/agents/`
 - Use `/agent` in the CLI to inspect or steer child agents
 
-ecc ships three sample role configs:
+EOC ships three sample role configs:
 
 | Role | Purpose |
 |------|---------|
@@ -1344,7 +1344,7 @@ ecc ships three sample role configs:
 .\install.ps1 --profile minimal --target zed
 ```
 
-The adapter writes ecc-managed files under `.zed/` and keeps BYOK/OpenRouter credentials out of the repo. Configure Zed account or API keys through Zed's own settings UI or your local user settings.
+The adapter writes EOC-managed files under `.zed/` and keeps BYOK/OpenRouter credentials out of the repo. Configure Zed account or API keys through Zed's own settings UI or your local user settings.
 
 ---
 
@@ -1449,10 +1449,10 @@ Then add to your `opencode.json`:
 }
 ```
 
-That npm plugin entry enables ecc's published OpenCode plugin module (hooks/events and plugin tools).
-It does **not** automatically add ecc's full command/agent/instruction catalog to your project config.
+That npm plugin entry enables EOC's published OpenCode plugin module (hooks/events and plugin tools).
+It does **not** automatically add EOC's full command/agent/instruction catalog to your project config.
 
-For the full ecc OpenCode setup, either:
+For the full EOC OpenCode setup, either:
 - run OpenCode inside this repository, or
 - copy the bundled `.opencode/` config assets into your project and wire the `instructions`, `agent`, and `command` entries in `opencode.json`
 
@@ -1494,14 +1494,14 @@ To use the workflow prompts in Copilot Chat:
 
 GitHub Copilot in VS Code reads two types of files automatically:
 
-- **`.github/copilot-instructions.md`** — repository-level instructions, always injected into every Copilot Chat request. Contains ecc's core coding standards, security checklist, testing requirements, and git workflow.
-- **`.github/prompts/*.prompt.md`** — reusable prompt files users invoke on demand. Each prompt walks Copilot through a specific ecc workflow (plan → TDD → review → ship).
+- **`.github/copilot-instructions.md`** — repository-level instructions, always injected into every Copilot Chat request. Contains EOC's core coding standards, security checklist, testing requirements, and git workflow.
+- **`.github/prompts/*.prompt.md`** — reusable prompt files users invoke on demand. Each prompt walks Copilot through a specific EOC workflow (plan → TDD → review → ship).
 
 The **`.vscode/settings.json`** adds per-task instruction overlays so Copilot receives the right context depending on whether you are generating code, writing tests, reviewing a selection, or drafting a commit message.
 
 ### Feature Coverage
 
-| ecc Feature | Copilot equivalent |
+| EOC Feature | Copilot equivalent |
 |-------------|-------------------|
 | Coding standards | Always-on via `copilot-instructions.md` |
 | Security checklist | Always-on + `security-review` prompt |
@@ -1516,13 +1516,13 @@ The **`.vscode/settings.json`** adds per-task instruction overlays so Copilot re
 
 ### Limitations
 
-GitHub Copilot does not have a hook system or a subagent API, so ecc's hook automations (auto-format, TypeScript check, session persistence, dev-server guard) and agent delegation are unavailable. The instruction and prompt layer still brings the full ecc coding philosophy — standards, security, TDD, and workflow — into every Copilot Chat session.
+GitHub Copilot does not have a hook system or a subagent API, so EOC's hook automations (auto-format, TypeScript check, session persistence, dev-server guard) and agent delegation are unavailable. The instruction and prompt layer still brings the full EOC coding philosophy — standards, security, TDD, and workflow — into every Copilot Chat session.
 
 ---
 
 ## Cross-Tool Feature Parity
 
-ecc is the **first plugin to maximize every major AI coding tool**. Here's how each harness compares:
+EOC is the **first plugin to maximize every major AI coding tool**. Here's how each harness compares:
 
 | Feature | OpenAI Codex | Cursor IDE | Codex CLI | OpenCode | GitHub Copilot |
 |---------|------------|------------|-----------|----------|----------------|
@@ -1550,7 +1550,7 @@ ecc is the **first plugin to maximize every major AI coding tool**. Here's how e
 
 ## Background
 
-ecc is based on daily OpenAI Codex use and turns repeated production workflows into reusable skills, hooks, rules, and install profiles.
+EOC is based on daily OpenAI Codex use and turns repeated production workflows into reusable skills, hooks, rules, and install profiles.
 
 These configs are battle-tested across multiple production applications.
 
@@ -1624,7 +1624,7 @@ The `strategic-compact` skill (included in this plugin) suggests `/compact` at l
 - Keep under 10 MCPs enabled per project
 - Keep under 80 tools active
 - Use `/mcp` to disable unused OpenAI Codex MCP servers; those runtime choices persist in `~/.codex.json`
-- Use `ecc_DISABLED_MCPS` only to filter ecc-generated MCP configs during install/sync flows
+- Use `ecc_DISABLED_MCPS` only to filter EOC-generated MCP configs during install/sync flows
 
 ### Agent Teams Cost Warning
 
@@ -1673,7 +1673,7 @@ Projects built on or inspired by Everything OpenAI Codex:
 | [EVC](https://github.com/SaigonXIII/evc) | Marketing agent workspace — 42 commands for content operators, brand governance, and multi-channel publishing. [Visual overview](https://saigonxiii.github.io/evc). |
 | [trading-skills](https://github.com/VictorVVedtion/trading-skills) | 68 trading-themed OpenAI Codex skills with pre-trade review prompts and risk gates inspired by market operators. |
 
-Built something with ecc? Open a PR to add it here.
+Built something with EOC? Open a PR to add it here.
 
 ---
 

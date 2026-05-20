@@ -20,8 +20,8 @@ product proof, not outrun it.
 | Status | Area | Improvement | Success signal | Evidence command |
 |---|---|---|---|---|
 | Open | Activation | Add a first-ten-minutes path that starts from plugin install, source dry-run, catalog browse, and doctor output | A new evaluator can complete the path without reading the full README | `node scripts/install-apply.js --profile minimal --target codex --dry-run` |
-| Shipped | Install health | Make `ecc doctor` print the recommended repair command beside each issue | Doctor output moves from diagnosis to guided recovery | `node scripts/ecc.js doctor --target codex` |
-| Shipped | Catalog discovery | Add keyword search to `ecc catalog` for skills, agents, rules, profiles, and install modules | Users can find "review", "security", "frontend", or "memory" without browsing directories | `node scripts/ecc.js catalog search security` |
+| Shipped | Install health | Make `eoc doctor` print the recommended repair command beside each issue | Doctor output moves from diagnosis to guided recovery | `node scripts/eoc.js doctor --target codex` |
+| Shipped | Catalog discovery | Add keyword search to `eoc catalog` for skills, agents, rules, profiles, and install modules | Users can find "review", "security", "frontend", or "memory" without browsing directories | `node scripts/eoc.js catalog search security` |
 | Shipped | Demo proof | Add a single local smoke command that verifies source dry-run, catalog, doctor, and status basics | Maintainers can refresh demo confidence before posting or submitting | `npm run demo:smoke` |
 | Open | README routing | Keep README short-path navigation pointed at product proof, review guide, release notes, and go-to-market | Visitors know where to evaluate, where to trust, and where to contribute | `node tests/docs/public-positioning.test.js` |
 
@@ -31,7 +31,7 @@ product proof, not outrun it.
 |---|---|---|---|
 | Dashboard | Surface install health, catalog search, copyable commands, and readiness status in the dashboard | The dashboard becomes an evaluator surface, not only an operator surface | `npm run dashboard` |
 | Screenshots | Refresh the four public screenshots after the first-ten-minutes path is stable | Screenshots match the current plugin-first story | Manual screenshot review against `assets/screenshots/` |
-| Package channels | Reconcile plugin marketplace naming, source install, and scoped npm package expectations | No visitor sees conflicting `eoc`, `ecc`, or package-channel language | `node tests/docs/install-identifiers.test.js` |
+| Package channels | Reconcile plugin marketplace naming, source install, legacy `ecc` compatibility, and scoped npm package expectations | No visitor sees conflicting public package-channel language | `node tests/docs/install-identifiers.test.js` |
 | Contribution path | Add issue templates for install failure, catalog request, skill contribution, and docs correction | Incoming feedback lands as actionable work instead of vague issues | `gh issue list --repo mturac/everything-openai-codex` |
 | Release gate | Add clean-checkout smoke guidance for maintainers before broad launch | Public pushes use the same repeatable checklist | `npm pack --dry-run` |
 

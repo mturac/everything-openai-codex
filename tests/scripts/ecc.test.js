@@ -9,6 +9,7 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 
 const SCRIPT = path.join(__dirname, '..', '..', 'scripts', 'ecc.js');
+const EOC_SCRIPT = path.join(__dirname, '..', '..', 'scripts', 'eoc.js');
 
 function runCli(args, options = {}) {
   const envOverrides = {
@@ -30,6 +31,18 @@ function runCli(args, options = {}) {
     env: {
       ...process.env,
       ...envOverrides,
+    },
+  });
+}
+
+function runEocCli(args, options = {}) {
+  return spawnSync('node', [EOC_SCRIPT, ...args], {
+    encoding: 'utf8',
+    cwd: options.cwd || process.cwd(),
+    maxBuffer: 10 * 1024 * 1024,
+    env: {
+      ...process.env,
+      ...(options.env || {}),
     },
   });
 }
@@ -64,7 +77,7 @@ function main() {
     ['shows top-level help', () => {
       const result = runCli(['--help']);
       assert.strictEqual(result.status, 0);
-      assert.match(result.stdout, /ecc selective-install CLI/);
+      assert.match(result.stdout, /EOC selective-install CLI/);
       assert.match(result.stdout, /catalog/);
       assert.match(result.stdout, /list-installed/);
       assert.match(result.stdout, /doctor/);
@@ -74,6 +87,13 @@ function main() {
       assert.match(result.stdout, /work-items/);
       assert.match(result.stdout, /platform-audit/);
       assert.match(result.stdout, /security-ioc-scan/);
+      assert.match(result.stdout, /Legacy alias retained/);
+    }],
+    ['supports canonical eoc wrapper', () => {
+      const result = runEocCli(['catalog', 'show', 'framework:nextjs', '--json']);
+      assert.strictEqual(result.status, 0, result.stderr);
+      const payload = parseJson(result.stdout);
+      assert.strictEqual(payload.id, 'framework:nextjs');
     }],
     ['delegates explicit install command', () => {
       const result = runCli(['install', '--dry-run', '--json', 'typescript']);
