@@ -19,6 +19,9 @@ const EXCLUDED_GENERATED_SOURCE_SUFFIXES = [
   '/ecc-install-state.json',
   '/ecc/install-state.json',
 ];
+const EXCLUDED_GENERATED_SOURCE_PREFIXES = [
+  '.codex/os/',
+];
 
 function getSourceRoot() {
   return path.join(__dirname, '../..');
@@ -119,7 +122,10 @@ function listFilesRecursive(dirPath) {
 
 function isGeneratedRuntimeSourcePath(sourceRelativePath) {
   const normalizedPath = String(sourceRelativePath || '').replace(/\\/g, '/');
-  return EXCLUDED_GENERATED_SOURCE_SUFFIXES.some(suffix => normalizedPath.endsWith(suffix));
+  return (
+    EXCLUDED_GENERATED_SOURCE_SUFFIXES.some(suffix => normalizedPath.endsWith(suffix))
+    || EXCLUDED_GENERATED_SOURCE_PREFIXES.some(prefix => normalizedPath.startsWith(prefix))
+  );
 }
 
 function createStatePreview(options) {

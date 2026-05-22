@@ -114,10 +114,10 @@ function runTests() {
     }
   })) passed++; else failed++;
 
-  if (test('finds current plugin install at ~/.codex/plugins/ecc', () => {
+  if (test('finds current plugin install at ~/.codex/plugins/eoc', () => {
     const homeDir = createTempDir();
     try {
-      const expected = setupLegacyPluginInstall(homeDir, ['ecc']);
+      const expected = setupLegacyPluginInstall(homeDir, ['eoc']);
       const result = resolveEccRoot({ envRoot: '', homeDir });
       assert.strictEqual(result, expected);
     } finally {
@@ -125,10 +125,10 @@ function runTests() {
     }
   })) passed++; else failed++;
 
-  if (test('finds current plugin install at ~/.codex/plugins/ecc@ecc', () => {
+  if (test('finds current plugin install at ~/.codex/plugins/eoc@eoc', () => {
     const homeDir = createTempDir();
     try {
-      const expected = setupLegacyPluginInstall(homeDir, ['ecc@ecc']);
+      const expected = setupLegacyPluginInstall(homeDir, ['eoc@eoc']);
       const result = resolveEccRoot({ envRoot: '', homeDir });
       assert.strictEqual(result, expected);
     } finally {
@@ -158,10 +158,10 @@ function runTests() {
     }
   })) passed++; else failed++;
 
-  if (test('finds marketplace current plugin install at ~/.codex/plugins/marketplaces/ecc', () => {
+  if (test('finds marketplace current plugin install at ~/.codex/plugins/marketplaces/eoc', () => {
     const homeDir = createTempDir();
     try {
-      const expected = setupLegacyPluginInstall(homeDir, ['marketplaces', 'ecc']);
+      const expected = setupLegacyPluginInstall(homeDir, ['marketplaces', 'eoc']);
       const result = resolveEccRoot({ envRoot: '', homeDir });
       assert.strictEqual(result, expected);
     } finally {
@@ -180,11 +180,22 @@ function runTests() {
     }
   })) passed++; else failed++;
 
-  if (test('prefers exact legacy plugin install over plugin cache', () => {
+  if (test('preserves previous ecc plugin install compatibility', () => {
     const homeDir = createTempDir();
     try {
       const expected = setupLegacyPluginInstall(homeDir, ['marketplaces', 'ecc']);
-      setupPluginCache(homeDir, 'ecc', 'mehmet-turac', CURRENT_PACKAGE_VERSION);
+      const result = resolveEccRoot({ envRoot: '', homeDir });
+      assert.strictEqual(result, expected);
+    } finally {
+      fs.rmSync(homeDir, { recursive: true, force: true });
+    }
+  })) passed++; else failed++;
+
+  if (test('prefers exact current plugin install over plugin cache', () => {
+    const homeDir = createTempDir();
+    try {
+      const expected = setupLegacyPluginInstall(homeDir, ['marketplaces', 'eoc']);
+      setupPluginCache(homeDir, 'eoc', 'mehmet-turac', CURRENT_PACKAGE_VERSION);
       const result = resolveEccRoot({ envRoot: '', homeDir });
       assert.strictEqual(result, expected);
     } finally {
@@ -196,7 +207,7 @@ function runTests() {
   if (test('discovers plugin root from cache directory', () => {
     const homeDir = createTempDir();
     try {
-      const expected = setupPluginCache(homeDir, 'ecc', 'mehmet-turac', CURRENT_PACKAGE_VERSION);
+      const expected = setupPluginCache(homeDir, 'eoc', 'mehmet-turac', CURRENT_PACKAGE_VERSION);
       const result = resolveEccRoot({ envRoot: '', homeDir });
       assert.strictEqual(result, expected);
     } finally {
@@ -208,7 +219,7 @@ function runTests() {
     const homeDir = createTempDir();
     try {
       const codexDir = setupStandardInstall(homeDir);
-      setupPluginCache(homeDir, 'ecc', 'mehmet-turac', CURRENT_PACKAGE_VERSION);
+      setupPluginCache(homeDir, 'eoc', 'mehmet-turac', CURRENT_PACKAGE_VERSION);
       const result = resolveEccRoot({ envRoot: '', homeDir });
       assert.strictEqual(result, codexDir,
         'Standard install should take precedence over plugin cache');
@@ -221,7 +232,7 @@ function runTests() {
     const homeDir = createTempDir();
     try {
       setupPluginCache(homeDir, 'everything-openai-codex', 'legacy-org', '1.7.0');
-      const expected = setupPluginCache(homeDir, 'ecc', 'mehmet-turac', CURRENT_PACKAGE_VERSION);
+      const expected = setupPluginCache(homeDir, 'eoc', 'mehmet-turac', CURRENT_PACKAGE_VERSION);
       const result = resolveEccRoot({ envRoot: '', homeDir });
       // Should find one of them (either is valid)
       assert.ok(
@@ -295,10 +306,10 @@ function runTests() {
     assert.strictEqual(result, '/inline/test/root');
   })) passed++; else failed++;
 
-  if (test('INLINE_RESOLVE discovers exact legacy plugin root when env var is unset', () => {
+  if (test('INLINE_RESOLVE discovers exact current plugin root when env var is unset', () => {
     const homeDir = createTempDir();
     try {
-      const expected = setupLegacyPluginInstall(homeDir, ['marketplaces', 'ecc']);
+      const expected = setupLegacyPluginInstall(homeDir, ['marketplaces', 'eoc']);
       const { execFileSync } = require('child_process');
       const result = execFileSync('node', [
         '-e', `console.log(${INLINE_RESOLVE})`,
@@ -314,7 +325,7 @@ function runTests() {
   if (test('INLINE_RESOLVE discovers plugin cache when env var is unset', () => {
     const homeDir = createTempDir();
     try {
-      const expected = setupPluginCache(homeDir, 'ecc', 'mehmet-turac', CURRENT_PACKAGE_VERSION);
+      const expected = setupPluginCache(homeDir, 'eoc', 'mehmet-turac', CURRENT_PACKAGE_VERSION);
       const { execFileSync } = require('child_process');
       const result = execFileSync('node', [
         '-e', `console.log(${INLINE_RESOLVE})`,

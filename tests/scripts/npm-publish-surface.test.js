@@ -80,6 +80,7 @@ function buildExpectedPublishPaths(repoRoot) {
     "VERSION",
   ]
   const exclusionPaths = [
+    "!.codex/os/**",
     "!**/__pycache__/**",
     "!**/*.pyc",
     "!**/*.pyo",
@@ -156,6 +157,7 @@ function main() {
         "plugins/README.md",
         "scripts/ci/catalog.js",
         "skills/skill-comply/SKILL.md",
+        ".codex/os/cache/local-cache",
       ]) {
         assert.ok(
           !packagedPaths.has(excludedPath),
@@ -164,6 +166,10 @@ function main() {
       }
 
       for (const packagedPath of packagedPaths) {
+        assert.ok(
+          !packagedPath.startsWith(".codex/os/"),
+          `npm pack should not include local Codex runtime cache path ${packagedPath}`
+        )
         assert.ok(
           !packagedPath.includes("__pycache__/"),
           `npm pack should not include Python bytecode cache path ${packagedPath}`

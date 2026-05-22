@@ -33,7 +33,7 @@ ensure_manifest_entry() {
     local manifest="$1"
     local entry="$2"
 
-    touch "$manifest"
+    [ -f "$manifest" ] || : > "$manifest"
     if ! grep -Fqx "$entry" "$manifest"; then
         echo "$entry" >> "$manifest"
     fi
@@ -43,7 +43,7 @@ append_manifest_entry() {
     local manifest="$1"
     local entry="$2"
 
-    touch "$manifest"
+    [ -f "$manifest" ] || : > "$manifest"
     echo "$entry" >> "$manifest"
 }
 
@@ -65,7 +65,11 @@ copy_managed_file() {
         return 1
     fi
 
-    cp "$source_path" "$target_path"
+    # Copy file contents instead of using cp. On macOS, cp can spend a long
+    # time copying extended attributes from this repo's downloaded skill files,
+    # which made the Trae smoke test flaky under the full suite. Trae only needs
+    # the payload bytes here; executable bits are applied explicitly below.
+    cat "$source_path" > "$target_path"
     if [ "$make_executable" -eq 1 ]; then
         chmod +x "$target_path"
     fi
@@ -114,7 +118,7 @@ do_install() {
 
     # Manifest file to track installed files
     MANIFEST="$trae_full_path/.ecc-manifest"
-    touch "$MANIFEST"
+    : > "$MANIFEST"
 
     # Counters for summary
     commands=0

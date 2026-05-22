@@ -93,6 +93,7 @@ function writeManifestSourceFixture(root) {
           'missing.txt',
           'skills/demo',
           path.join('runtime', 'ecc', 'install-state.json'),
+          '.codex',
           '.codex-plugin',
         ],
         targets: ['codex'],
@@ -117,6 +118,8 @@ function writeManifestSourceFixture(root) {
   writeFile(root, path.join('src', 'node_modules', 'ignored.js'), 'console.log("ignored");\n');
   writeFile(root, path.join('src', '.git', 'ignored.js'), 'console.log("ignored");\n');
   writeFile(root, path.join('src', 'nested', 'ecc-install-state.json'), '{}\n');
+  writeFile(root, path.join('.codex', 'config.toml'), '[features]\n');
+  writeFile(root, path.join('.codex', 'os', 'cache', 'local-cache'), 'generated\n');
   writeFile(root, path.join('rules', 'common', 'coding-style.md'), '# Common\n');
   writeFile(root, path.join('skills', 'demo', 'SKILL.md'), '# Demo\n');
   writeFile(root, 'standalone.txt', 'standalone\n');
@@ -353,10 +356,12 @@ function runTests() {
       assert.ok(normalizedSources.includes('rules/common/coding-style.md'));
       assert.ok(normalizedSources.includes('skills/demo/SKILL.md'));
       assert.ok(normalizedSources.includes('standalone.txt'));
+      assert.ok(normalizedSources.includes('.codex/config.toml'));
       assert.ok(normalizedSources.includes('.codex-plugin/plugin.json'));
       assert.ok(!normalizedSources.includes('missing.txt'));
       assert.ok(!normalizedSources.includes('runtime/ecc/install-state.json'));
       assert.ok(!normalizedSources.includes('src/nested/ecc-install-state.json'));
+      assert.ok(!normalizedSources.includes('.codex/os/cache/local-cache'));
       assert.ok(!normalizedSources.some(source => source.includes('node_modules')));
       assert.ok(!normalizedSources.some(source => source.includes('.git')));
       assert.ok(plan.operations.some(operation => (

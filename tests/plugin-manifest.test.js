@@ -195,6 +195,8 @@ test('codex plugin.json exists', () => {
 });
 
 const codexPlugin = loadJsonObject(codexPluginPath, '.codex-plugin/plugin.json');
+const legacyCodexMarketplacePath = path.join(repoRoot, '.codex-plugin', 'marketplace.json');
+const legacyCodexMarketplace = loadJsonObject(legacyCodexMarketplacePath, '.codex-plugin/marketplace.json');
 
 test('codex plugin.json has version field', () => {
   assert.ok(codexPlugin.version, 'Expected version field');
@@ -247,6 +249,13 @@ test('codex plugin.json does NOT have explicit hooks declaration', () => {
     !('hooks' in codexPlugin),
     'hooks field must NOT be declared — OpenAI Codex v2.1+ auto-loads hooks/hooks.json by convention',
   );
+});
+
+test('.codex-plugin/marketplace.json mirrors the canonical short plugin slug', () => {
+  assert.strictEqual(legacyCodexMarketplace.name, 'eoc');
+  assert.ok(Array.isArray(legacyCodexMarketplace.plugins) && legacyCodexMarketplace.plugins.length > 0);
+  assert.strictEqual(legacyCodexMarketplace.plugins[0].name, 'eoc');
+  assert.strictEqual(legacyCodexMarketplace.plugins[0].version, expectedVersion);
 });
 
 console.log('\n=== .agents/plugins/marketplace.json ===\n');

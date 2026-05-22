@@ -158,8 +158,8 @@ as coming soon:
 | Surface | Evidence |
 | --- | --- |
 | CLI shape | `codex plugin marketplace add --help` supports GitHub shorthand, Git URLs, SSH URLs, local marketplace roots, `--ref`, and Git-only `--sparse` |
-| Repo marketplace | `.agents/plugins/marketplace.json` exposes `ecc@2.0.0-rc.1` with `source.path: "./"` from the marketplace root |
-| Local add smoke | `HOME="$(mktemp -d)" codex plugin marketplace add <local-checkout>` added marketplace `ecc` and recorded the installed marketplace root as `<local-checkout>` without touching the real Codex config |
+| Repo marketplace | `.agents/plugins/marketplace.json` exposes `eoc@2.0.0-rc.1` with `source.path: "./"` from the marketplace root |
+| Local add smoke | `HOME="$(mktemp -d)" codex plugin marketplace add <local-checkout>` added marketplace `eoc` and recorded the installed marketplace root as `<local-checkout>` without touching the real Codex config |
 | README alignment | `.codex-plugin/README.md` now uses `codex plugin marketplace add`, not the stale `codex plugin install` command |
 | Public-directory status | The supported Codex distribution path for rc.1 is repo-marketplace/manual install; official Plugin Directory submission remains blocked on OpenAI self-serve publishing availability |
 

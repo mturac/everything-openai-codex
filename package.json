@@ -1,7 +1,7 @@
 {
   "name": "@mturac/eoc",
   "version": "2.0.0-rc.1",
-  "description": "Complete collection of battle-tested OpenAI Codex configs — agents, skills, hooks, rules, and legacy command shims evolved over 10+ months of intensive daily use by an OpenAI hackathon participant",
+  "description": "Open-source operating system for OpenAI Codex workflows with agents, skills, hooks, rules, memory patterns, validation checks, install profiles, and cross-harness adapters.",
   "publishConfig": {
     "access": "public"
   },
@@ -42,6 +42,7 @@
     ".agents/",
     ".codex-plugin/",
     ".codex/",
+    "!.codex/os/**",
     ".cursor/",
     ".gemini/",
     ".opencode/",

@@ -93,6 +93,17 @@ function runTests() {
     );
   })) passed++; else failed++;
 
+  if (test('release script updates the canonical eoc marketplace entry', () => {
+    assert.ok(
+      source.includes('entry.name === "eoc"'),
+      'release.sh should update the eoc marketplace entry, not the retired ecc slug'
+    );
+    assert.ok(
+      !source.includes('could not find ecc plugin entry'),
+      'release.sh should not look for the retired ecc marketplace slug'
+    );
+  })) passed++; else failed++;
+
   if (test('release workflows mark prerelease tags as GitHub prereleases', () => {
     assert.ok(
       releaseWorkflowSource.includes('prerelease: ${{ contains(github.ref_name, \'-\') }}'),

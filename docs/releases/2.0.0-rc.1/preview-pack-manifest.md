@@ -28,7 +28,7 @@ surfaces, or posting announcements.
 | `docs/releases/2.0.0-rc.1/operator-readiness-dashboard-2026-05-17.md` | Previous prompt-to-artifact operator dashboard | Superseded by the May 18 generated dashboard |
 | `docs/releases/2.0.0-rc.1/operator-readiness-dashboard-2026-05-18.md` | Current prompt-to-artifact operator dashboard | Shows PR/issue/discussion/platform/supply-chain gates current and publication, plugin, billing, AgentShield, ecc Tools, legacy, and Linear productization gaps still open |
 | `docs/releases/2.0.0-rc.1/release-url-ledger-2026-05-18.md` | Live URL and approval-gated URL ledger for release copy | Must be regenerated from the final release commit before public announcements |
-| `docs/releases/2.0.0-rc.1/naming-and-publication-matrix.md` | Naming, slug, and publication-path decision record | Keeps `Everything OpenAI Codex / ecc`, npm `@mturac/eoc`, and plugin slug `ecc` for rc.1 |
+| `docs/releases/2.0.0-rc.1/naming-and-publication-matrix.md` | Naming, slug, and publication-path decision record | Keeps `Everything OpenAI Codex / EOC`, npm `@mturac/eoc`, and plugin slug `eoc` for rc.1 |
 | `docs/releases/2.0.0-rc.1/x-thread.md` | X launch draft | Must replace placeholders with live URLs after release/package/plugin publication |
 | `docs/releases/2.0.0-rc.1/linkedin-post.md` | LinkedIn launch draft | Must replace placeholders with live URLs after release/package/plugin publication |
 | `docs/releases/2.0.0-rc.1/article-outline.md` | Longform launch outline | Must stay release-candidate framed until GA evidence exists |
@@ -93,7 +93,7 @@ surfaces exist and are recorded in a final evidence file:
 - final release URL ledger regenerated from the intended release commit;
 - GitHub prerelease `v2.0.0-rc.1`;
 - npm `@mturac/eoc@2.0.0-rc.1` on the `next` dist-tag;
-- Codex plugin tag / marketplace propagation for `ecc@ecc`;
+- Codex plugin tag / marketplace propagation for `eoc@eoc`;
 - Codex repo-marketplace distribution evidence plus official Plugin Directory
   availability status;
 - final announcement URLs in X, LinkedIn, GitHub release, and longform copy;

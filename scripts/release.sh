@@ -230,9 +230,9 @@ update_codex_marketplace_version() {
       console.error(`Error: ${file} does not contain a marketplace plugins array`);
       process.exit(1);
     }
-    const plugin = marketplace.plugins.find(entry => entry && entry.name === "ecc");
+    const plugin = marketplace.plugins.find(entry => entry && entry.name === "eoc");
     if (!plugin || typeof plugin !== "object") {
-      console.error(`Error: could not find ecc plugin entry in ${file}`);
+      console.error(`Error: could not find eoc plugin entry in ${file}`);
       process.exit(1);
     }
     plugin.version = version;

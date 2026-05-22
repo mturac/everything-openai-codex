@@ -188,19 +188,22 @@ function detectTargetMode(rootDir) {
 }
 
 const ecc_PLUGIN_KEY_PATTERNS = [
+  /^eoc@/i,
   /^ecc@/i,
   /^everything-openai-codex@/i,
 ];
 
 const ecc_LEGACY_PLUGIN_DIRS = [
+  'eoc',
+  'eoc@eoc',
   'ecc',
   'ecc@ecc',
   'everything-openai-codex',
   'everything-openai-codex@everything-openai-codex',
 ];
 
-const ecc_CACHE_MARKETPLACES = ['everything-openai-codex', 'ecc'];
-const ecc_CACHE_PLUGIN_NAMES = ['ecc', 'everything-openai-codex'];
+const ecc_CACHE_MARKETPLACES = ['eoc', 'everything-openai-codex', 'ecc'];
+const ecc_CACHE_PLUGIN_NAMES = ['eoc', 'ecc', 'everything-openai-codex'];
 
 function uniquePaths(paths) {
   return [...new Set(paths.filter(Boolean))];

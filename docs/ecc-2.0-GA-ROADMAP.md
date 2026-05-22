@@ -346,7 +346,7 @@ As of 2026-05-18:
 - A detached clean worktree at
   `bfacf37715b39655cbc2c48f12f2a35c67cb0253` verified Codex plugin tag
   dry-run without `--force`, local marketplace discovery, temp-home local
-  install, enabled plugin listing, and clean uninstall for `ecc@ecc`
+  install, enabled plugin listing, and clean uninstall for `eoc@eoc`
   `2.0.0-rc.1`.
 - `docs/architecture/evaluator-rag-prototype.md` and
   `examples/evaluator-rag-prototype/` define the first read-only
