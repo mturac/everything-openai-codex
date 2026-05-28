@@ -1160,6 +1160,12 @@ These are not bundled with EOC and are not audited by this repo, but they are wo
 - [codex-ads](https://github.com/AgriciDaniel/codex-ads) — Ad-audit and paid-growth workflow collection
 - [codex-cybersecurity](https://github.com/AgriciDaniel/codex-cybersecurity) — Security-oriented skill and agent collection
 
+### Hermes SuperCode Skills
+
+**13 production-grade skill modules for Codex** — db-whisperer, auth-architect, obs-guardian, deploy-ninja, quantum-debugger, security-sentinel, infra-automation, api-sculptor, pipeline-architect, ghost-scraper, mcp-conductor, prediction-alpha, prompt-forge.
+- Repo: https://github.com/mturac/hermes-supercode-skills-codex
+- Drop `AGENTS.md` in your project root to activate all 13 skills
+
 ---
 
 ## Cursor IDE Support
