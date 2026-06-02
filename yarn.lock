@@ -156,19 +156,19 @@
   resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-win32-x64/-/msgpackr-extract-win32-x64-3.0.4.tgz#a1c79dcc9ae5f8c02aea8c2f144e5af6a822e5e8"
   integrity sha512-CmCXPQrkbwExx3j946/PtHWHbYJiCRBRDl4BlkRQcJB/YOwQxJRTpoo7aTsortjgoJ1x7opzTSxn7C+ASSLVjQ==
 
-"@opencode-ai/plugin@^1.15.10":
-  version "1.15.10"
-  resolved "https://registry.yarnpkg.com/@opencode-ai/plugin/-/plugin-1.15.10.tgz#7e0ebbbd849103b88c6db91cf2d6c489daa872af"
-  integrity sha512-V2p7CvpBtKWB+FID7Dl1y0Ci02zUT40A9b2RD9R9BOiuD8ZcKhHWov+irN0xVJA0Eg6OhEBfA0lPKRn1FNKPlw==
+"@opencode-ai/plugin@^1.15.13":
+  version "1.15.13"
+  resolved "https://registry.yarnpkg.com/@opencode-ai/plugin/-/plugin-1.15.13.tgz#9b2e4d384004b21d7324470eba1e4b71af752f31"
+  integrity sha512-NFwZGhmxIPijtfz9swPJXDmhOpq4UWP8WjEE7GEMr7FwtJrK/hv6v36nFimed5+OKk+pQCrTJn/vhRW7Io72IA==
   dependencies:
-    "@opencode-ai/sdk" "1.15.10"
+    "@opencode-ai/sdk" "1.15.13"
     effect "4.0.0-beta.66"
     zod "4.1.8"
 
-"@opencode-ai/sdk@1.15.10":
-  version "1.15.10"
-  resolved "https://registry.yarnpkg.com/@opencode-ai/sdk/-/sdk-1.15.10.tgz#dcdc02a068d4823cb01b4b6b1fcfc97c88fe89fd"
-  integrity sha512-CUhpmMGGOqzvPnNNjjWmEIodAfP6Qnuki2ChIUKWYF7UImZ4zUcMZnzO5BtUxu/Ni1P8qzWxDioXs+7aIZQEhA==
+"@opencode-ai/sdk@1.15.13":
+  version "1.15.13"
+  resolved "https://registry.yarnpkg.com/@opencode-ai/sdk/-/sdk-1.15.13.tgz#6237f7af40aaf4a87e82ade7452b36e75d11692d"
+  integrity sha512-4TwojIoQ8EG6/mVBuUVYZXiFcwNmiiytEnjnvyuvSJjGwFIlw2YIBFxtSVC3FbwwbwHT63teh1RHiQUUC4U5xw==
   dependencies:
     cross-spawn "7.0.6"
 
