@@ -1,7 +1,7 @@
 interface:
   display_name: "X API"
-  short_description: "X API posting, timelines, and analytics"
+  short_description: "X API posting, timelines, analytics, and optional Xquik REST/MCP"
   brand_color: "#000000"
-  default_prompt: "Use $x-api to build X API posting, timeline, or analytics workflows."
+  default_prompt: "Use $x-api to build X API posting, timeline, analytics, or optional Xquik REST/MCP workflows."
 policy:
   allow_implicit_invocation: true

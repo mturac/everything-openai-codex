@@ -1,6 +1,6 @@
 ---
 name: x-api
-description: X/Twitter API integration for posting tweets, threads, reading timelines, search, and analytics. Covers OAuth auth patterns, rate limits, and platform-native content posting. Use when the user wants to interact with X programmatically.
+description: X/Twitter API integration for posting tweets, threads, reading timelines, search, analytics, and optional Xquik REST or MCP flows. Covers OAuth auth patterns, rate limits, and platform-native content posting. Use when the user wants to interact with X programmatically.
 ---
 
 # X API
@@ -48,7 +48,7 @@ tweets = resp.json()
 Required for: posting tweets, managing account, DMs, and any write flow.
 
 ```bash
-# Environment setup — source before use
+# Environment setup - source before use
 export X_CONSUMER_KEY="your-consumer-key"
 export X_CONSUMER_SECRET="your-consumer-secret"
 export X_ACCESS_TOKEN="your-access-token"
@@ -151,6 +151,43 @@ resp = requests.get(
 )
 ```
 
+## Optional Xquik REST and Remote MCP
+
+Use Xquik when the user already has Xquik access or asks for the Xquik REST API, OpenAPI SDKs, remote MCP server, webhooks, or X data workflows beyond a direct OAuth client.
+
+Keep the direct X API examples above as the default unless the user names Xquik or supplies `XQUIK_API_KEY`.
+
+```bash
+export XQUIK_API_KEY="your-xquik-api-key"
+```
+
+```python
+import os
+import requests
+
+base_url = "https://xquik.com"
+headers = {"x-api-key": os.environ["XQUIK_API_KEY"]}
+
+resp = requests.get(
+    f"{base_url}/api/v1/x/tweets/search",
+    headers=headers,
+    params={"q": "openai codex", "limit": 10},
+)
+resp.raise_for_status()
+tweets = resp.json()
+```
+
+For user timelines, call `GET /api/v1/x/users/{id}/tweets`. For posting through a connected account, call `POST /api/v1/x/tweets` with an `account` and text or media. Check `https://docs.xquik.com/api-reference/overview` or `https://xquik.com/openapi.json` before adding endpoint-specific fields.
+
+For agent workflows, the remote MCP endpoint is `https://xquik.com/mcp`. Use it only with the user's Xquik auth. The public server card is `https://xquik.com/.well-known/mcp/server-card.json`.
+
+Boundaries:
+
+- Treat Xquik as opt-in, not a replacement for direct X API examples.
+- Use only public X content or accounts the user controls.
+- Do not hardcode or log `XQUIK_API_KEY`.
+- Do not claim endpoint coverage, limits, or billing behavior without checking current docs.
+
 ### Upload Media and Post
 
 ```python
@@ -208,7 +245,7 @@ else:
 - **Never commit `.env` files.** Add to `.gitignore`.
 - **Rotate tokens** if exposed. Regenerate at developer.x.com.
 - **Use read-only tokens** when write access is not needed.
-- **Store OAuth secrets securely** — not in source code or logs.
+- **Store OAuth secrets securely** - not in source code or logs.
 
 ## Integration with Content Engine
 
@@ -223,7 +260,7 @@ Use `brand-voice` plus `content-engine` to generate platform-native content, the
 
 ## Related Skills
 
-- `brand-voice` — Build a reusable voice profile from real X and site/source material
-- `content-engine` — Generate platform-native content for X
-- `crosspost` — Distribute content across X, LinkedIn, and other platforms
-- `connections-optimizer` — Reorganize the X graph before drafting network-driven outreach
+- `brand-voice` - Build a reusable voice profile from real X and site/source material
+- `content-engine` - Generate platform-native content for X
+- `crosspost` - Distribute content across X, LinkedIn, and other platforms
+- `connections-optimizer` - Reorganize the X graph before drafting network-driven outreach
